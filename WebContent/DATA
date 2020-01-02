@@ -1,0 +1,14 @@
+
+//매장 (회원 기본 정보)
+insert into SL_member (mb_uid, mb_id, mb_pw, mb_name, mb_address, mb_cell, mb_email, mb_type)
+values
+(101, 'gangnam123', '1234', '강남이', '서울특별시 강남구', 01044445555, 'gangnam123@gmail.com', 2),
+(102, 'gangbuk123', '1234', '강북이', '서울특별시 강북구', 01055556666, 'gangbuk123@gmail.com', 2),
+(103, 'gangseo123', '1234', '강서이', '서울특별시 강서구', 01066667777, 'gangseo123@gmail.com', 2);
+
+//매장 (매장 정보)
+insert into SL_offstore (st_uid, mb_uid, st_name, st_address, st_contact, st_hours, st_rating, st_valid_key, st_valid_img, st_latitude, st_longitude)
+VALUES
+(1101, 101, '강남슬라임', '서울특별시 강남구 역삼동', 01055554444, '8:00 ~ 21:30', 3, 123456789, 123456789, '37.5172N', '127.0473E'),
+(1102, 102, '강북슬라임', '서울특별시 강북구 미아동', 01066665555, '9:00 ~ 22:00', 4, 223456789, 223456789, '37.6396N', '127.0257E'),
+(1103, 103, '강서슬라입', '서울특별시 강서구 가양동', 01077776666, '8:30 ~ 22:30', 5, 323456789, 323456789, '37.5648N', '126.8342E'); 
