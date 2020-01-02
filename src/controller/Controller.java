@@ -40,6 +40,32 @@ public class Controller extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		switch(com) {
+		//매장 관리페이지
+		case "/managerPage.slime":
+			//TODO
+			viewPage = "managerPage.jsp";
+			break;
+		//매장 정보 변경
+		case "/storeSetting.slime":
+			//TODO
+			System.out.println("abc");
+			viewPage = "storeSetting.jsp";
+			break;
+		//제품 관리
+		case "/productList.slime":
+			//TODO
+			viewPage = "productList.jsp";
+			break;
+		//제품 등록
+		case "/addProduct.slime":
+			//TODO
+			viewPage = "addProduct.jsp";
+			break;
+		//제품 정보 수정
+		case "/productSetting.slime":
+			//TODO
+			viewPage = "productSetting.jsp";
+			break;
 			//TODO
 		}
 		
