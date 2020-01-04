@@ -7,4 +7,5 @@ public interface D {
 	public static final String USERPW = "1234";
 	
 	// 아래는 sql query 상수 작성
+	public static final String SQL_SELECT_ALL_STORES = "SELECT * FROM sl_store";
 }
