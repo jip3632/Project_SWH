@@ -11,4 +11,9 @@ public interface D {
 	
 		//매장 관리 페이지에서 보여줄 매장 정보
 	public static final String SQL_SELECT_STORE_BY_ID = "SELECT * FROM sl_offstore WHERE mb_uid = ?";
+	
+		//매장 정보 UPDATE
+	public static final String SQL_UPDATE_STORE_BY_ID = "UPDATE sl_offstore"
+			+ " SET st_address = ?, st_contact = ?, st_hours = ?, st_description = ?, st_img = ?"
+			+ " WHERE mb_uid = ?";
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
+import command.StoreSettingOkCommand;
 import command.managerPageCommand;
 
 
@@ -48,9 +49,13 @@ public class Controller extends HttpServlet {
 			break;
 		//매장 정보 변경
 		case "/storeSetting.slime":
-			//TODO
-			System.out.println("abc");
+			new managerPageCommand().execute(request, response); //매장관리페이지와 동일한 데이터를 가져오기때문에 Command재사용
 			viewPage = "storeSetting.jsp";
+			break;
+		//매자 정보 변경 확인
+		case "/storeSettingOk.slime":
+			new StoreSettingOkCommand().execute(request, response);
+			viewPage = "storeSettingOk.jsp";
 			break;
 		//제품 관리
 		case "/productList.slime":
