@@ -51,7 +51,7 @@ public class SearchDAO {
 	public StoreDTO[] selectStore(int mb_uid) throws SQLException{
 		StoreDTO[] arr = null;
 		try {
-			pstmt = conn.prepareStatement(D.SQL_SELECT_STORE_INFO_BY_ID);
+			pstmt = conn.prepareStatement(D.SQL_SELECT_STORE_BY_ID);
 			pstmt.setInt(1, mb_uid);
 			rs = pstmt.executeQuery();
 			arr = createArray(rs);

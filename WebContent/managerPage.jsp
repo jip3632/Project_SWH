@@ -28,7 +28,7 @@
 	st_img, st_name, st_address, st_contact, st_email, st_hours 
 	가져오기 --%>
 	<div>
-		매장사진 <%= arr[0].getSt_img() %>
+		매장사진 <%= arr[0].getSt_img()%>
 		<br>
 		매장명: <%= arr[0].getSt_name()%>
 		<br>
