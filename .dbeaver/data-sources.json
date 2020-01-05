@@ -1,0 +1,30 @@
+{
+	"folders": {},
+	"connections": {
+		"mariaDB-16f7498dd47-22a37d945d572631": {
+			"provider": "mysql",
+			"driver": "mariaDB",
+			"name": "MariaDB - swhdb",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "swhdb",
+				"url": "jdbc:mysql://localhost:3306/swhdb",
+				"type": "dev",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false
+		}
+	}
+}
