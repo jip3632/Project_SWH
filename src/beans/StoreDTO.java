@@ -2,25 +2,26 @@ package beans;
 
 public class StoreDTO {
 	// fields
-	private int st_uid;
-	private int mb_uid;
-	private String st_name;
-	private String st_address;
-	private String st_contact;
-	private String st_description;
-	private String st_rating;
-	private String st_img;
-	private int st_valid_key;
-	private String st_valid_img;
-	private String st_latitude;
-	private String st_longitude;
-	private double st_dist = 0;
+	private int st_uid;                     //매장 고유 번호
+	private int mb_uid;                     //회원 고유 번호
+	private String st_name;                 //매장 명
+	private String st_address;              //매장 주소
+	private String st_contact;              //매장 연락처
+	private String st_description;          //매장 설명
+	private String st_rating;               //매장 평점
+	private String st_img;                  //매장 사진
+	private int st_valid_key;               //매장 사업자 등록 번호
+	private String st_valid_img;            //매장 사업자 등록 증
+	private String st_latitude;             //매장 위도
+	private String st_longitude;            //매장 경도
+	private double st_dist = 0;             //매장과 회원간 거리
+	private String st_hours;
 	
 	// constructor
 	public StoreDTO() {}
 	public StoreDTO(int st_uid, int mb_uid, String st_name, String st_address, String st_contact, String st_description,
 			String st_rating, String st_img, int st_valid_key, String st_valid_img, String st_latitude,
-			String st_longitude) {
+			String st_longitude, String st_hours) {
 		super();
 		this.st_uid = st_uid;
 		this.mb_uid = mb_uid;
@@ -34,6 +35,7 @@ public class StoreDTO {
 		this.st_valid_img = st_valid_img;
 		this.st_latitude = st_latitude;
 		this.st_longitude = st_longitude;
+		this.st_hours = st_hours;
 	}
 	
 	// getter, setter
@@ -62,6 +64,8 @@ public class StoreDTO {
 	public String getSt_longitude() {return st_longitude;}
 	public void setSt_longitude(String st_longitude) {this.st_longitude = st_longitude;}
 	public double getSt_dist() {return st_dist;}
-	public void setSt_dist(double st_dist) {this.st_dist = st_dist;};
+	public void setSt_dist(double st_dist) {this.st_dist = st_dist;}
+	public String getSt_hours() {return st_hours;}
+	public void setSt_hours(String st_hours) {this.st_hours = st_hours;};
 	
 }

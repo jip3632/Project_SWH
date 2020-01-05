@@ -42,6 +42,24 @@ public class SearchDAO {
 		}
 		return arr;
 	}
+	
+	/**
+	 * select logged-in store from DB
+	 * @return StoreDTO[] (typically returns an array with length == 1)
+	 * @throws SQLException
+	*/
+	public StoreDTO[] selectStore(int mb_uid) throws SQLException{
+		StoreDTO[] arr = null;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELECT_STORE_INFO_BY_ID);
+			pstmt.setInt(1, mb_uid);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		return arr;
+	}
 	/**
 	 * make ResultSet to StoreDTO array;
 	 * @param ResultSet rs
@@ -62,8 +80,8 @@ public class SearchDAO {
 			String st_valid_img = rs.getString("st_valid_img");
 			String st_latitude = rs.getString("st_latitude");
 			String st_longitude = rs.getString("st_longitude");
-			
-			StoreDTO dto = new StoreDTO(st_uid, mb_uid, st_name, st_address, st_contact, st_description, st_rating, st_img, st_valid_key, st_valid_img, st_latitude, st_longitude);
+			String st_hours = rs.getString("st_hours");
+			StoreDTO dto = new StoreDTO(st_uid, mb_uid, st_name, st_address, st_contact, st_description, st_rating, st_img, st_valid_key, st_valid_img, st_latitude, st_longitude, st_hours);
 			list.add(dto);
 		}
 		StoreDTO[] arr = new StoreDTO[list.size()];

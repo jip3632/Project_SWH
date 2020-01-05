@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import commad.Command;
+import command.Command;
+import command.managerPageCommand;
 
 
 @WebServlet("*.slime")
@@ -42,7 +43,7 @@ public class Controller extends HttpServlet {
 		switch(com) {
 		//매장 관리페이지
 		case "/managerPage.slime":
-			//TODO
+			new managerPageCommand().execute(request, response);
 			viewPage = "managerPage.jsp";
 			break;
 		//매장 정보 변경
