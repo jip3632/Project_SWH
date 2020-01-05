@@ -9,11 +9,18 @@ public interface D {
 	// 아래는 sql query 상수 작성
 	public static final String SQL_SELECT_ALL_STORES = "SELECT * FROM sl_offstore";
 	
-		//매장 관리 페이지에서 보여줄 매장 정보
+	//매장 관리 페이지에서 보여줄 매장 정보
 	public static final String SQL_SELECT_STORE_BY_ID = "SELECT * FROM sl_offstore WHERE mb_uid = ?";
 	
-		//매장 정보 UPDATE
+	//매장 정보 UPDATE
 	public static final String SQL_UPDATE_STORE_BY_ID = "UPDATE sl_offstore"
 			+ " SET st_address = ?, st_contact = ?, st_hours = ?, st_description = ?, st_img = ?"
 			+ " WHERE mb_uid = ?";
+	
+	//제품 이름 검색
+	public static final String SQL_SELECT_PRODUCT_BY_NAME = "SELECT * FROM sl_product"
+			+ " WHERE CONTAINS(pd_name,'?')";
+	
+	//제품 보유 매장들 정보
+	public static final String SQL_SELECT_STORE_BY_PRODUCT = "TODO";
 }
