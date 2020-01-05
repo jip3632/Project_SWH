@@ -47,6 +47,14 @@ public class Controller extends HttpServlet {
 			new managerPageCommand().execute(request, response);
 			viewPage = "managerPage.jsp";
 			break;
+		//메인 제품 검색
+		case "/mainProduct.slime":
+			viewPage = "mainProduct.jsp";
+			break;
+		//제품 선택 결과
+		case "/productView.slime":
+			viewPage = "productView.jsp";
+			break;		
 		//매장 정보 변경
 		case "/storeSetting.slime":
 			new managerPageCommand().execute(request, response); //매장관리페이지와 동일한 데이터를 가져오기때문에 Command재사용

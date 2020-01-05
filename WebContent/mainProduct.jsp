@@ -4,9 +4,33 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Product Page</title>
 </head>
 <body>
+<div id="container">
+	<nav>
+		<div>네비게이션 바</div>
+	</nav>
+	
+	<header></header>
+	
+	<div>
+		<div id="search_type">
+			<button onclick="location.href='mainStore.slime'">Store</button>
+			<button onclick="location.href='mainProduct.slime'">Product</button>
+		</div>
+		<form action="">
+			<input type="search"><input type="submit">
+		</form>
 
+	</div>
+	<ul id="sotre-list">
+		
+	</ul>
+	
+	<footer>
+	
+	</footer>
+</div>
 </body>
 </html>
