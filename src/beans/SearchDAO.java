@@ -114,6 +114,49 @@ public class SearchDAO {
 		return arr;
 	}
 
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	//Searching using ProductDTO
+	
+	public ProductDTO[] createArrayProduct(ResultSet rs) throws SQLException {
+		ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
+		while(rs.next()) {
+			int pd_uid = rs.getInt("pd_uid");
+			String pd_name = rs.getString("pd_name");
+			String pd_description = rs.getString("pd_description");
+			if(pd_description == null) pd_description = "";
+			String pd_img = rs.getString("pd_img");
+			if(pd_img == null) pd_img = "";
+			int mk_uid = rs.getInt("mk_uid");
+			ProductDTO dto = new ProductDTO(pd_uid, pd_name, pd_description, pd_img, mk_uid);		
+			list.add(dto);
+		}
+		ProductDTO[] arr = new ProductDTO[list.size()];
+		list.toArray(arr);
+		return arr;
+	}
+	
+	
+	/**
+	 * select all products by name using search form
+	 * @return ProductDTO[]
+	 * @throws SQLException
+	 */
+	public ProductDTO[] selectProductsByName() throws SQLException {
+		ProductDTO[] arr = null;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELECT_PRODUCT_BY_NAME); // query
+			rs = pstmt.executeQuery();
+			arr = createArrayProduct(rs);
+		} finally {
+			close();
+		}
+		return arr;
+		
+	}
+	
+	
+	
+	
 	/**
 	 * close all system resource
 	 * @throws SQLException

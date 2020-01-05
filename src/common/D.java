@@ -19,7 +19,7 @@ public interface D {
 	
 	//제품 이름 검색
 	public static final String SQL_SELECT_PRODUCT_BY_NAME = "SELECT * FROM sl_product"
-			+ " WHERE CONTAINS(pd_name,'?')";
+			+ "WHERE pd_name LIKE '%?%'";
 	
 	//제품 보유 매장들 정보
 	public static final String SQL_SELECT_STORE_BY_PRODUCT = "TODO";
