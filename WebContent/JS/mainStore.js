@@ -6,7 +6,6 @@ $(function() {
 		navigator.geolocation.getCurrentPosition(function(pos){
 			lati = pos.coords.latitude;
 			longi = pos.coords.longitude;
-			alert(lati + " " + longi)
 		});
 	} else {
 		alert('현재 브라우저/기기는 GPS를 지원하지 않습니다')

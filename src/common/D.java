@@ -7,10 +7,25 @@ public interface D {
 	public static final String USERPW = "1234";
 	
 	// 아래는 sql query 상수 작성
+	// 모든 매장
 	public static final String SQL_SELECT_ALL_STORES = "SELECT * FROM sl_offstore";
+	
+	// 특정 매장에서 판매하는 제품 정보 가져오기
+	public static final String SQL_SELELCT_PRODUCTS_BY_ST_UID = 
+			"SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, i.inv_volume, "
+			+ "p.pd_uid, p.pd_description, p.pd_img, p.pd_name, "
+			+ "m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name "
+			+ "FROM sl_inventory i "
+			+ "JOIN sl_product p ON i.pd_uid = p.pd_uid "
+			+ "JOIN sl_market m ON p.mk_uid = m.mk_uid "
+			+ "WHERE i.st_uid = ? "
+			+ "ORDER BY m.mk_uid";
 	
 	//매장 관리 페이지에서 보여줄 매장 정보
 	public static final String SQL_SELECT_STORE_BY_ID = "SELECT * FROM sl_offstore WHERE mb_uid = ?";
+	
+	// 매장 uid 로 매장정보 가져오기
+	public static final String SQL_SELECT_STORE_BY_ST_UID = "SELECT * FROM sl_offstore WHERE st_uid = ?";
 	
 	//매장 정보 UPDATE
 	public static final String SQL_UPDATE_STORE_BY_ID = "UPDATE sl_offstore"

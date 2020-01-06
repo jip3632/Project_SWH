@@ -44,6 +44,71 @@ public class SearchDAO {
 	}
 	
 	/**
+	 * select sl_inventory join sl_product join sl_market by st_uid
+	 * @param st_uid
+	 * @return ProductInStoreDTO[]
+	 * @throws SQLException
+	 */
+	public ProductInStoreDTO[] selectProductsByStore(int st_uid) throws SQLException {
+		ProductInStoreDTO[] arr = null;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELELCT_PRODUCTS_BY_ST_UID);
+			pstmt.setInt(1, st_uid);
+			rs = pstmt.executeQuery();
+			arr = createProductsInStoreArray(rs);
+		} finally {
+			close();
+		}
+		
+		return arr;
+	}
+	private ProductInStoreDTO[] createProductsInStoreArray(ResultSet rs) throws SQLException {
+		ArrayList<ProductInStoreDTO> list = new ArrayList<ProductInStoreDTO>();
+		while(rs.next()) {
+			int st_uid = rs.getInt("st_uid");
+			
+			int inv_uid = rs.getInt("inv_uid");
+			int inv_quantity = rs.getInt("inv_quantity");
+			int inv_price = rs.getInt("inv_price");
+			int inv_volume = rs.getInt("inv_volume");
+			
+			int pd_uid = rs.getInt("pd_uid");
+			String pd_name = rs.getString("pd_name");
+			String pd_description = rs.getString("pd_description");
+			String pd_img = rs.getString("pd_img");
+			
+			int mk_uid = rs.getInt("mk_uid");
+			String mk_name = rs.getString("mk_name");
+			String mk_insta = rs.getString("mk_insta");
+			String mk_logo = rs.getString("mk_logo");
+			
+			ProductInStoreDTO dto = new ProductInStoreDTO(st_uid, inv_uid, inv_quantity, inv_price, inv_volume, pd_uid, pd_name, pd_description, pd_img, mk_uid, mk_name, mk_insta, mk_logo);
+			list.add(dto);
+		}
+		ProductInStoreDTO[] arr = new ProductInStoreDTO[list.size()];
+		list.toArray(arr);
+		return arr;
+	}
+	/**
+	 * select store by st_uid
+	 * @param mb_uid
+	 * @return
+	 * @throws SQLException
+	 */
+	public StoreDTO[] selectStoreByStUid(int st_uid) throws SQLException{
+		StoreDTO[] arr = null;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELECT_STORE_BY_ST_UID);
+			pstmt.setInt(1, st_uid);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		return arr;
+	}
+	
+	/**
 	 * select logged-in store from DB
 	 * @return StoreDTO[] (typically returns an array with length == 1)
 	 * @throws SQLException
