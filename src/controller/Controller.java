@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import command.Command;
-import command.StoreSettingOkCommand;
-import command.managerPageCommand;
+import command.*;
 
 
 @WebServlet("*.slime")
@@ -85,6 +83,20 @@ public class Controller extends HttpServlet {
 			viewPage = "productSetting.jsp";
 			break;
 			//TODO
+		//이벤트 목록
+		case "/eventList.slime":
+			new EventListCommand().execute(request, response);
+			viewPage = "eventList.jsp";
+			break;
+		//이벤트 작성
+		case "/eventWrite.slime":
+			viewPage = "eventWrite.jsp";
+			break;
+		//이벤트 작성 확인
+		case "/eventWriteOk.slime":
+			new EventWriteCommand().execute(request, response);
+			viewPage = "eventWriteOk.jsp";
+			break;
 		}
 		
 		if (viewPage != null) {
