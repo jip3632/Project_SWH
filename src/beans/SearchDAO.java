@@ -97,7 +97,7 @@ public class SearchDAO {
 			String st_contact = rs.getString("st_contact");
 			String st_description = rs.getString("st_description");
 			if(st_description == null) st_description = "";
-			String st_rating = rs.getString("st_rating");
+			double st_rating = rs.getDouble("st_rating");
 			String st_img = rs.getString("st_img");
 			if(st_img == null) st_img = "";
 			int st_valid_key = rs.getInt("st_valid_key");

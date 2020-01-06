@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.AjaxStoreCommand;
+import command.StoreListCommand;
+
 @WebServlet("*.ajax")
 public class AjaxController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,10 +32,11 @@ public class AjaxController extends HttpServlet {
 		String uri = request.getRequestURI();
 		String conPath = request.getContextPath();
 		String com = uri.substring(conPath.length());
-		
+		System.out.println(com);
 		switch(com) {
 		case "/store.ajax":
-			//TODO
+			new StoreListCommand().execute(request, response);
+			new AjaxStoreCommand().execute(request, response);
 			break;
 		}
 	}

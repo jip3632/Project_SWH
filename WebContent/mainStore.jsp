@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Slime Where?House</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
-
+<script src="JS/mainStore.js"></script>
 <body>
 <div id="container">
 	<nav>
@@ -15,26 +17,26 @@
 	</nav>
 	
 	<header></header>
-	
-	<div>
-		<div id="search_type">
+
+	<article>
+		<div id="searchType">
 			<button onclick="location.href='mainStore.slime'">Store</button>
 			<button onclick="location.href='mainProduct.slime'">Product</button>
 		</div>
-		<ul id="button_list">
-			<li><button>지역</button></li>
-			<li><button>서울</button></li>
-			<li><button>경기도</button></li>
-			<li><button>강원도</button></li>
-			<li><button>충청도</button></li>
-			<li><button>경상도</button></li>
-			<li><button>전라도</button></li>
+		<ul id="buttonList">
+			<li><button id = "selectRegion">지역</button></li>
+			<li><button class="region" onclick="ajax(1)">서울</button></li>
+			<li><button class="region" onclick="ajax(2)">대전</button></li>
+			<li><button class="region" onclick="ajax(3)">부산</button></li>
+			<li><button class="region">충청도</button></li>
+			<li><button class="region">경상도</button></li>
+			<li><button class="region">전라도</button></li>
 		</ul>
-	</div>
-	<ul id="sotre-list">
-		
-	</ul>
 	
+		<ul id="storeList">
+			
+		</ul>
+	</article>
 	<footer>
 	
 	</footer>

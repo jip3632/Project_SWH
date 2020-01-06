@@ -47,6 +47,10 @@ public class Controller extends HttpServlet {
 			new managerPageCommand().execute(request, response);
 			viewPage = "managerPage.jsp";
 			break;
+		//메인 상점 검색
+		case "/mainStore.slime":
+			viewPage = "mainStore.jsp";
+			break;
 		//메인 제품 검색
 		case "/mainProduct.slime":
 			viewPage = "mainProduct.jsp";

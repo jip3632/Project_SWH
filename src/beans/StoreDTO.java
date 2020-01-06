@@ -8,7 +8,7 @@ public class StoreDTO {
 	private String st_address;              //매장 주소
 	private String st_contact;              //매장 연락처
 	private String st_description;          //매장 설명
-	private String st_rating;               //매장 평점
+	private double st_rating;               //매장 평점
 	private String st_img;                  //매장 사진
 	private int st_valid_key;               //매장 사업자 등록 번호
 	private String st_valid_img;            //매장 사업자 등록 증
@@ -20,7 +20,7 @@ public class StoreDTO {
 	// constructor
 	public StoreDTO() {}
 	public StoreDTO(int st_uid, int mb_uid, String st_name, String st_address, String st_contact, String st_description,
-			String st_rating, String st_img, int st_valid_key, String st_valid_img, String st_latitude,
+			double st_rating, String st_img, int st_valid_key, String st_valid_img, String st_latitude,
 			String st_longitude, String st_hours) {
 		super();
 		this.st_uid = st_uid;
@@ -51,8 +51,8 @@ public class StoreDTO {
 	public void setSt_contact(String st_contact) {this.st_contact = st_contact;}
 	public String getSt_description() {return st_description;}
 	public void setSt_description(String st_description) {this.st_description = st_description;}
-	public String getSt_rating() {return st_rating;}
-	public void setSt_rating(String st_rating) {this.st_rating = st_rating;}
+	public double getSt_rating() {return st_rating;}
+	public void setSt_rating(double st_rating) {this.st_rating = st_rating;}
 	public String getSt_img() {return st_img;}
 	public void setSt_img(String st_img) {this.st_img = st_img;}
 	public int getSt_valid_key() {return st_valid_key;}
