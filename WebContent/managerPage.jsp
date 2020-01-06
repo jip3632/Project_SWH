@@ -47,7 +47,7 @@
 		<%-- 제품관리 버튼 --%>
 		<button onclick="location.href = 'productList.slime'">제품 관리</button>
 		<%-- 이벤트 관리 버튼--%>
-		<button onclick="location.href = 'eventList.slime'">이벤트 관리</button>
+		<button onclick="location.href = 'eventList.slime?st_uid=<%= arr[0].getSt_uid()%>'">이벤트 관리</button>
 		<%-- 후기 관리 버튼--%>
 		<button onclick="location.href = 'reviewList.slime'">후기 관리</button>
 	</div>

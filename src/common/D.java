@@ -23,4 +23,31 @@ public interface D {
 	
 	//제품 보유 매장들 정보
 	public static final String SQL_SELECT_STORE_BY_PRODUCT = "TODO";
+	
+	// 이벤트 글 등록
+	public static final String SQL_EVENT_WRITE_INSERT = 
+			"INSERT INTO SL_event"
+			+ "(ev_subject, ev_content, ev_end_date, st_uid) "
+			+ "VALUES"
+			+ "(?, ?, ?, ?)";
+	
+	// 이벤트 글 불러오기 (해당하는 1개의 글)
+	public static final String SQL_EVENT_WRITE_SELECT_BY_UID = 
+			"SELECT * FROM SL_event WHERE ev_uid=?";
+	
+	// 이벤트 글 불러오기 (매장별)
+	public static final String SQL_EVENT_WRITE_SELECT_BY_ST_UID = 
+				"SELECT * FROM SL_event WHERE st_uid=? ORDER BY ev_end_date DESC";
+	
+	// 이벤트 글 삭제하기
+	public static final String SQL_EVENT_WRITE_DELETE_BY_UID = 
+			"DELETE FROM SL_event WHERE ev_uid = ?";
+
+	// 이벤트 글 수정하기
+	public static final String SQL_EVENT_WRITE_UPDATE =
+			"UPDATE SL_event SET ev_subject = ?, ev_content = ?, ev_end_date = ? WHERE ev_uid = ?";
+
+	// 해당하는 사람 불러오기
+	public static final String SQL_MEMBER_SELECT_BY_UID = 
+			"SELECT * FROM SL_member WHERE mb_uid=?";
 }
