@@ -225,16 +225,17 @@ public class SearchDAO {
 	
 	
 	/**
-	 * select all products by name using search form
+	 * select all products by name with market using search form
 	 * @return ProductDTO[]
 	 * @throws SQLException
 	 */
-	public ProductDTO[] selectProductsByName() throws SQLException {
-		ProductDTO[] arr = null;
+	public ProductMarketDTO[] selectProductsByName(String word) throws SQLException {
+		ProductMarketDTO[] arr = null;
 		try {
 			pstmt = conn.prepareStatement(D.SQL_SELECT_PRODUCT_BY_NAME_WITH_MARKET); // query
+			pstmt.setString(1,word);
 			rs = pstmt.executeQuery();
-			arr = createArrayProduct(rs);
+			arr = createArrayProductMarket(rs);
 		} finally {
 			close();
 		}
