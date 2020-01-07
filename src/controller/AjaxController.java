@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.AjaxProductCommand;
 import command.AjaxStoreCommand;
+import command.ProductListCommand;
 import command.StoreListCommand;
 
 @WebServlet("*.ajax")
@@ -37,6 +39,10 @@ public class AjaxController extends HttpServlet {
 		case "/store.ajax":
 			new StoreListCommand().execute(request, response);
 			new AjaxStoreCommand().execute(request, response);
+			break;
+		case "/mainProduct.ajax":
+			new ProductListCommand().execute(request, response);
+			new AjaxProductCommand().execute(request, response);
 			break;
 		}
 	}

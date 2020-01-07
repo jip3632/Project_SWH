@@ -233,6 +233,7 @@ public class SearchDAO {
 		ProductMarketDTO[] arr = null;
 		try {
 			pstmt = conn.prepareStatement(D.SQL_SELECT_PRODUCT_BY_NAME_WITH_MARKET); // query
+			System.out.println(word);
 			pstmt.setString(1,word);
 			rs = pstmt.executeQuery();
 			arr = createArrayProductMarket(rs);

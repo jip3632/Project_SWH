@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Product Page</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="JS/mainProduct.js"></script>
+
 </head>
 <body>
 <div id="container">
@@ -21,12 +24,12 @@
 			<button onclick="location.href='mainStore.slime'">Store</button>
 			<button onclick="location.href='mainProduct.slime'">Product</button>
 		</div>
-		<form action="">
-			<input type="search"><input type="submit">
+		<form>
+			<input type="text" name="word" id="wordSearch"><button onclick="ajax();">검색</button>
 		</form>
 
 	</div>
-	<ul id="sotre-list">
+	<ul id="product_list">
 		
 	</ul>
 	
