@@ -103,6 +103,15 @@ public class Controller extends HttpServlet {
 			new EventWriteCommand().execute(request, response);
 			viewPage = "eventWriteOk.jsp";
 			break;
+		//로그인 페이지
+		case "/login.slime":
+			viewPage = "login.jsp";
+			break;
+		// 로그인 OK
+		case "/loginOk.slime":
+			new LoginOkCommand().execute(request, response);
+			viewPage = "loginOk.jsp";
+			break;
 		}
 		
 		if (viewPage != null) {

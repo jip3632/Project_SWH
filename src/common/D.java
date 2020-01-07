@@ -65,4 +65,9 @@ public interface D {
 	// 해당하는 사람 불러오기
 	public static final String SQL_MEMBER_SELECT_BY_UID = 
 			"SELECT * FROM SL_member WHERE mb_uid=?";
+	
+	// 로그인 관련 쿼리
+	// user id에 따른 유저 정보 가져오기
+	public static final String SQL_SELECT_MEMBER_BY_MB_ID = 
+			"SELECT * FROM sl_member WHERE mb_id = ?";
 }
