@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="beans.StoreDTO"%>
+<%@ page import="beans.*" %>  
 <%
-	int st_uid = Integer.parseInt(request.getParameter("st_uid"));
+	EventDTO [] arr = (EventDTO[]) request.getAttribute("update");
+%>
+<%
+	int uid = arr[0].getEv_uid();
+	String subject = arr[0].getEv_subject();
+	String content = arr[0].getEv_content();
+	String enddate = arr[0].getEv_end_date();
+	int st_uid = arr[0].getSt_uid();
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -11,7 +18,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<title>이벤트 글 작성 페이지</title>
+<title>수정 <%= subject %></title>
 </head>
 <script>
 // form 검증
@@ -53,8 +60,9 @@ function chkSubmit(){
 </script>
 
 <body>
-<h2>이벤트 글 작성</h2>
-<form name="frm" action="eventWriteOk.slime" method="post" onsubmit="return chkSubmit()">
+<h2>수정</h2>
+<form name="frm" action="eventUpdateOk.slime" method="post" onsubmit="return chkSubmit()">
+<input type="hidden" name="uid" value='<%= uid %>'/>
 <input type="hidden" name="st_uid" value='<%= st_uid %>'/>
 <input type="hidden" name="enddate"/>
 제목:
@@ -94,9 +102,11 @@ function chkSubmit(){
   <option value="23:00">23:00</option>
 </select>
 <br>
-<input type="submit" value="등록"/>
+<input type="submit" value="수정"/>
 </form>
 <br>
-<button type="button" onclick="location.href='eventList.slime?st_uid=<%= st_uid %>&page=1'">목록으로</button>
+<button onclick="history.back()">이전으로</button>
+<button onclick="location.href = 'eventList.slime?st_uid=<%= st_uid%>&page=1'">목록보기</button>
+
 </body>
 </html>

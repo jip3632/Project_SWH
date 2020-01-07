@@ -103,6 +103,32 @@ public class Controller extends HttpServlet {
 			new EventWriteCommand().execute(request, response);
 			viewPage = "eventWriteOk.jsp";
 			break;
+		//이벤트 글 보기
+		case "/eventView.slime":
+			new EventViewCommand().execute(request, response);
+			viewPage = "eventView.jsp";
+			break;
+		//이벤트 글 업데이트
+		case "/eventUpdate.slime":
+			new EventUpdateCommand().execute(request, response);
+			viewPage = "eventUpdate.jsp";
+			break;
+		//이벤트 글 업데이트 확인
+		case "/eventUpdateOk.slime":
+			new EventUpdateOkCommand().execute(request, response);
+			viewPage = "eventUpdateOk.jsp";
+			break;
+		//이벤트 글 삭제
+		case "/eventDeleteOk.slime":
+			command = new EventDeleteCommand();
+			command.execute(request, response);
+			viewPage = "eventDeleteOk.jsp";
+			break;
+		//이벤트 목록
+		case "/reviewListM.slime":
+			new ReviewListCommand().execute(request, response);
+			viewPage = "reviewList_manager.jsp";
+			break;
 		}
 		
 		if (viewPage != null) {
