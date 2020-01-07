@@ -182,6 +182,7 @@ public class SearchDAO {
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//Searching using ProductDTO
 	
+	//array with only product info
 	public ProductDTO[] createArrayProduct(ResultSet rs) throws SQLException {
 		ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
 		while(rs.next()) {
@@ -200,6 +201,28 @@ public class SearchDAO {
 		return arr;
 	}
 	
+	//array using product and market join table
+	public ProductMarketDTO[] createArrayProductMarket(ResultSet rs) throws SQLException {
+		ArrayList<ProductMarketDTO> list = new ArrayList<ProductMarketDTO>();
+		while(rs.next()) {
+			int pd_uid = rs.getInt("pd_uid");
+			String pd_name = rs.getString("pd_name");
+			String pd_description = rs.getString("pd_description");
+			if(pd_description == null) pd_description = "";
+			String pd_img = rs.getString("pd_img");
+			if(pd_img == null) pd_img = "";
+			int mk_uid = rs.getInt("mk_uid");
+			String mk_name = rs.getString("mk_name");
+			String mk_insta = rs.getString("mk_insta");
+			String mk_logo = rs.getString("mk_logo");
+			ProductMarketDTO dto = new ProductMarketDTO(pd_uid, pd_name, pd_description, pd_img, mk_uid, mk_name, mk_insta, mk_logo);		
+			list.add(dto);
+		}
+		ProductMarketDTO[] arr = new ProductMarketDTO[list.size()];
+		list.toArray(arr);
+		return arr;
+	}
+	
 	
 	/**
 	 * select all products by name using search form
@@ -209,7 +232,7 @@ public class SearchDAO {
 	public ProductDTO[] selectProductsByName() throws SQLException {
 		ProductDTO[] arr = null;
 		try {
-			pstmt = conn.prepareStatement(D.SQL_SELECT_PRODUCT_BY_NAME); // query
+			pstmt = conn.prepareStatement(D.SQL_SELECT_PRODUCT_BY_NAME_WITH_MARKET); // query
 			rs = pstmt.executeQuery();
 			arr = createArrayProduct(rs);
 		} finally {

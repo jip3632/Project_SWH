@@ -7,7 +7,7 @@ public class MarketDTO {
 	private String mk_logo;
 	
 	//Constructor
-	MarketDTO(){}
+	public MarketDTO(){}
 
 	public MarketDTO(int mk_uid, String mk_name, String mk_insta, String mk_logo) {
 		super();
