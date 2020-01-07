@@ -84,6 +84,21 @@ public class MemberDAO {
 		return arr;
 	}
 	
+	// 특정 id 의 사람 가져오기
+	public MemberDTO[] selectByMbId(String id) throws SQLException {
+		MemberDTO[] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELECT_MEMBER_BY_MB_ID);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		
+		return arr;
+	}
 	
 	
 	

@@ -75,7 +75,7 @@ public class Controller extends HttpServlet {
 			break;
 		//제품 관리
 		case "/productList.slime":
-			//TODO
+			new StoreViewCommand().execute(request, response);
 			viewPage = "productList.jsp";
 			break;
 		//제품 등록
@@ -85,10 +85,13 @@ public class Controller extends HttpServlet {
 			break;
 		//제품 정보 수정
 		case "/productSetting.slime":
-			//TODO
+			new ProductSettingCommand().execute(request, response);
 			viewPage = "productSetting.jsp";
 			break;
-			//TODO
+		case "/productSettingOk.slime":
+			new ProductSettingOkCommand().execute(request, response);
+			viewPage = "productSettingOk.jsp";
+			break;
 		//이벤트 목록
 		case "/eventList.slime":
 			new EventListCommand().execute(request, response);
@@ -124,10 +127,18 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "eventDeleteOk.jsp";
 			break;
-		//이벤트 목록
+		//리뷰 목록
 		case "/reviewListM.slime":
 			new ReviewListCommand().execute(request, response);
 			viewPage = "reviewList_manager.jsp";
+		//로그인 페이지
+		case "/login.slime":
+			viewPage = "login.jsp";
+			break;
+		// 로그인 OK
+		case "/loginOk.slime":
+			new LoginOkCommand().execute(request, response);
+			viewPage = "loginOk.jsp";
 			break;
 		}
 		
