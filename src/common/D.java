@@ -19,7 +19,7 @@ public interface D {
 			+ "JOIN sl_product p ON i.pd_uid = p.pd_uid "
 			+ "JOIN sl_market m ON p.mk_uid = m.mk_uid "
 			+ "WHERE i.st_uid = ? "
-			+ "ORDER BY m.mk_uid";
+			+ "ORDER BY m.mk_name ASC, p.pd_name ASC";
 	
 	//매장 관리 페이지에서 보여줄 매장 정보
 	public static final String SQL_SELECT_STORE_BY_ID = "SELECT * FROM sl_offstore WHERE mb_uid = ?";

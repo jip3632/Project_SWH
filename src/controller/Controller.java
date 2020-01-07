@@ -75,7 +75,7 @@ public class Controller extends HttpServlet {
 			break;
 		//제품 관리
 		case "/productList.slime":
-			//TODO
+			new StoreViewCommand().execute(request, response);
 			viewPage = "productList.jsp";
 			break;
 		//제품 등록
