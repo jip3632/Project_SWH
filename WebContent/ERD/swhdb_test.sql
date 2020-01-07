@@ -265,3 +265,12 @@ select * from sl_offstore where mb_uid = 101;
 select * from sl_market;
 select * from sl_product;
 select * from sl_inventory;
+
+SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, i.inv_volume, 
+p.pd_uid, p.pd_description, p.pd_img, p.pd_name, 
+m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name 
+FROM sl_inventory i 
+JOIN sl_product p ON i.pd_uid = p.pd_uid 
+JOIN sl_market m ON p.mk_uid = m.mk_uid 
+WHERE i.st_uid = 1101 
+ORDER BY m.mk_name ASC, p.pd_name asc;

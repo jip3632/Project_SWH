@@ -43,7 +43,6 @@
 			}
 		}
 	}
-	///실험
 	
  --%>
 <!DOCTYPE html>
@@ -52,14 +51,60 @@
 <meta charset="UTF-8">
 <title>제품관리</title>
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <body>
 
 <article>
 	<h3>제품 관리</h3>
 	<button onclick="">제품등록</button>
-	<%-- 마켓마다 div로 묶음 --%>
-	<%-- 각 마켓마다 제품 div로 묶음 --%>
-	<%-- 각 제품안에 제품정보(제품 사진, 제품명, 용량, 가격, 재고) + 제품정보수정 버튼 + 제품 삭제 버튼 --%>
+	<div id="markets">
+		<%--
+		<div>
+			<h3>mk_name</h3>
+			<ul>
+				<li>
+					<img alt="이미지" src="">
+					<h4>pd_name</h4>
+					<div>용량</div>
+					<div>가격</div>
+					<div>재고</div>
+					
+					<a href="productSetting.slime?inv_uid=<%=inv_uid%>">설정</a>
+					<a href="productDelete.slime?inv_uid=<%=inv_uid%>">삭제</a>
+				</li>
+			</ul>
+		</div>
+		 --%>
+			<%
+			int index = 0;
+				for(int i = 0; i < arr.length; i = index){
+					int mk_uid = arr[i].getMk_uid(); //마켓 고유번호
+					out.println("<div>");
+					out.println("<h3>" + arr[i].getMk_name() + "</h3>");
+					out.println("<ul>");
+					
+					for(int j = index; j < arr.length; j++){
+						if(mk_uid != arr[j].getMk_uid()){
+							index = j;
+							break;
+						} else{
+							out.println("<li>");
+							out.println("<img alt='이미지' src=''>");
+							out.println("<h4>" + arr[j].getPd_name() + "</h4>");
+							out.println("<div>용량:" + arr[j].getInv_volume() + "ml</div>");
+							out.println("<div>가격:" + arr[j].getInv_price() + "원</div>");
+							out.println("<div>재고:" + arr[j].getInv_quantity() + "개</div>");
+							out.println("<a href='productSetting.slime?inv_uid=" + arr[j].getInv_uid() + "'>설정" + "</a>");
+							out.println("<a href='productDelete.slime?inv_uid=" + arr[j].getInv_uid() + "'>삭제" + "</a>");
+							out.println("</li>");
+							if(j == arr.length - 1) index = arr.length;
+						}
+					}
+					out.println("</ul>");
+					out.println("</div>");
+				}
+			%>
+	</div>
 	
 </article>
 </body>
