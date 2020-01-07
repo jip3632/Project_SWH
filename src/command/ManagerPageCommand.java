@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import beans.SearchDAO;
 import beans.StoreDTO;
 
-public class managerPageCommand implements Command {
+public class ManagerPageCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

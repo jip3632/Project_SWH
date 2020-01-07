@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.*;
 
-public class userPageCommand implements Command {
+public class UserPageCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

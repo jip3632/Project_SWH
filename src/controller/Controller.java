@@ -42,7 +42,7 @@ public class Controller extends HttpServlet {
 		switch(com) {
 		//매장 관리페이지
 		case "/managerPage.slime":
-			new managerPageCommand().execute(request, response);
+			new ManagerPageCommand().execute(request, response);
 			viewPage = "managerPage.jsp";
 			break;
 		//메인 상점 검색
@@ -65,7 +65,7 @@ public class Controller extends HttpServlet {
 			break;		
 		//매장 정보 변경
 		case "/storeSetting.slime":
-			new managerPageCommand().execute(request, response); //매장관리페이지와 동일한 데이터를 가져오기때문에 Command재사용
+			new ManagerPageCommand().execute(request, response); //매장관리페이지와 동일한 데이터를 가져오기때문에 Command재사용
 			viewPage = "storeSetting.jsp";
 			break;
 		//매자 정보 변경 확인
