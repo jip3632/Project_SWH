@@ -94,7 +94,7 @@
 							out.println("<div>용량:" + arr[j].getInv_volume() + "ml</div>");
 							out.println("<div>가격:" + arr[j].getInv_price() + "원</div>");
 							out.println("<div>재고:" + arr[j].getInv_quantity() + "개</div>");
-							out.println("<a href='productSetting.slime?inv_uid=" + arr[j].getInv_uid() + "'>설정" + "</a>");
+							out.println("<a href='productSetting.slime?inv_uid=" + arr[j].getInv_uid() + "&st_uid=" + request.getParameter("st_uid") + "'>설정" + "</a>");
 							out.println("<a href='productDelete.slime?inv_uid=" + arr[j].getInv_uid() + "'>삭제" + "</a>");
 							out.println("</li>");
 							if(j == arr.length - 1) index = arr.length;

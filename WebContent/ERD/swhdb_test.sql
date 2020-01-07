@@ -272,5 +272,5 @@ m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name
 FROM sl_inventory i 
 JOIN sl_product p ON i.pd_uid = p.pd_uid 
 JOIN sl_market m ON p.mk_uid = m.mk_uid 
-WHERE i.st_uid = 1101 
+WHERE i.st_uid = 1101 and i.inv_uid = 26
 ORDER BY m.mk_name ASC, p.pd_name asc;

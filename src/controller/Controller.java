@@ -85,10 +85,13 @@ public class Controller extends HttpServlet {
 			break;
 		//제품 정보 수정
 		case "/productSetting.slime":
-			//TODO
+			new ProductSettingCommand().execute(request, response);
 			viewPage = "productSetting.jsp";
 			break;
-			//TODO
+		case "/productSettingOk.slime":
+			new ProductSettingOkCommand().execute(request, response);
+			viewPage = "productSettingOk.jsp";
+			break;
 		//이벤트 목록
 		case "/eventList.slime":
 			new EventListCommand().execute(request, response);

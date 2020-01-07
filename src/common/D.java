@@ -11,7 +11,7 @@ public interface D {
 	public static final String SQL_SELECT_ALL_STORES = "SELECT * FROM sl_offstore";
 	
 	// 특정 매장에서 판매하는 제품 정보 가져오기
-	public static final String SQL_SELELCT_PRODUCTS_BY_ST_UID = 
+	public static final String SQL_SELECT_PRODUCTS_BY_ST_UID = 
 			"SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, i.inv_volume, "
 			+ "p.pd_uid, p.pd_description, p.pd_img, p.pd_name, "
 			+ "m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name "
@@ -20,6 +20,21 @@ public interface D {
 			+ "JOIN sl_market m ON p.mk_uid = m.mk_uid "
 			+ "WHERE i.st_uid = ? "
 			+ "ORDER BY m.mk_name ASC, p.pd_name ASC";
+	
+	// 특정 매장의 특정 제품의 정보 가져오기
+	public static final String SQL_SELECT_PRODUCT_BY_INV_UID = 
+			"SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, i.inv_volume, "
+			+ "p.pd_uid, p.pd_description, p.pd_img, p.pd_name, "
+			+ "m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name "
+			+ "FROM sl_inventory i "
+			+ "JOIN sl_product p ON i.pd_uid = p.pd_uid "
+			+ "JOIN sl_market m ON p.mk_uid = m.mk_uid "
+			+ "WHERE i.inv_uid = ? "
+			+ "ORDER BY m.mk_name ASC, p.pd_name ASC";
+	
+	// 특정 매장의 특정 제품의 정보 수정하기
+	public static final String SQL_UPDATE_INVENTORY_BY_INV_UID = 
+			"UPDATE sl_inventory SET inv_volume = ?, inv_price = ?, inv_quantity = ? WHERE inv_uid = ?";
 	
 	//매장 관리 페이지에서 보여줄 매장 정보
 	public static final String SQL_SELECT_STORE_BY_ID = "SELECT * FROM sl_offstore WHERE mb_uid = ?";
