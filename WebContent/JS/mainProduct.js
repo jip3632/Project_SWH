@@ -2,9 +2,11 @@
  * 
  */
 
+
 function ajax() {
-	var word = document.getElementById("wordSearch");
-	var url = "http://localhost:8085/Project_SWH/mainProduct.ajax?word="+ word ;
+	word = document.getElementById("wordSearch");
+	console.log(word);
+	var url = "http://localhost:8085/Project_SWH/mainProduct.ajax?word=" + word;
 	$.ajax({
 		url : url,
 		type : "GET",

@@ -15,6 +15,8 @@ public class ProductListCommand implements Command {
 		SearchDAO dao = new SearchDAO();
 		ProductMarketDTO [] arr = null;
 		String word = request.getParameter("word");
+		System.out.println(word);
+		System.out.println("hellow");
 		try {
 			arr = dao.selectProductsByName(word);
 			request.setAttribute("product_list", arr);
