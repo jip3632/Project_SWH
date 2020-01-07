@@ -41,15 +41,15 @@
 	</div>
 	<div>
 		<%-- 매장정보 변경 버튼 --%>
-		<button onclick="location.href = ''">회원 정보 변경</button>
+		<button type="button" onclick="location.href = ''">회원 정보 변경</button>
 		<%-- 매장정보 변경 버튼 --%>
-		<button onclick="location.href = 'storeSetting.slime?mb_uid=<%= arr[0].getMb_uid()%>'">매장 정보 변경</button>
+		<button type="button" onclick="location.href = 'storeSetting.slime?mb_uid=<%= arr[0].getMb_uid()%>'">매장 정보 변경</button>
 		<%-- 제품관리 버튼 --%>
-		<button onclick="location.href = 'productList.slime?st_uid=<%= arr[0].getSt_uid()%>'">제품 관리</button>
+		<button type="button" onclick="location.href = 'productList.slime?st_uid=<%= arr[0].getSt_uid()%>'">제품 관리</button>
 		<%-- 이벤트 관리 버튼--%>
-		<button onclick="location.href = 'eventList.slime?st_uid=<%= arr[0].getSt_uid()%>'">이벤트 관리</button>
+		<button type="button" onclick="location.href = 'eventList.slime?st_uid=<%= arr[0].getSt_uid()%>'">이벤트 관리</button>
 		<%-- 후기 관리 버튼--%>
-		<button onclick="location.href = 'reviewList.slime'">후기 관리</button>
+		<button type="button" onclick="location.href = 'reviewList.slime'">후기 관리</button>
 	</div>
 </article>
 </body>
