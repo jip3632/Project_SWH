@@ -24,6 +24,14 @@
 			<form name="frm" action="loginOk.slime" method="post">
 				<div>ID: <input type="text" name="id"></div>
 				<div>PASSWORD: <input type="password" name="pw"></div>
+				<c:choose>
+					<c:when test="${existId == 0 }">
+						<div>아이디가 존재하지 않습니다.</div>
+					</c:when>
+					<c:when test="${existId == 1 }">
+						<div>비밀번호가 옳지 않습니다.</div>
+					</c:when>
+				</c:choose>
 				<input type="submit" value="로그인">
 			</form>
 		</div>
@@ -34,14 +42,10 @@
 		</c:when>
 		<c:otherwise>
 		<div>
-			<div>로그인 완료</div>
-			<!-- 회원 타입에따라 아래 버튼 변경 -->
-			<button>마이페이지</button>
-			<button>로그아웃</button>
+
 		</div>
 		</c:otherwise>
 	</c:choose>
-	
 	<footer>
 	
 	</footer>
@@ -49,3 +53,18 @@
 </div>
 </body>
 </html>
+
+
+<!--
+<c:choose>
+	<c:when test="${session.login == null }">
+		<script>
+			location.href = 'login.slime';
+		</script>
+	</c:when>
+	<c:otherwise>
+		
+		
+	</c:otherwise>
+</c:choose>
+-->
