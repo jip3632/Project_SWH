@@ -320,6 +320,7 @@ public class SearchDAO {
 			pstmt.setString(1,word);
 			rs = pstmt.executeQuery();
 			arr = createArrayProductMarket(rs);
+			//System.out.println();
 		} finally {
 			close();
 		}

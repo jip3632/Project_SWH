@@ -25,24 +25,23 @@ public class LoginOkCommand implements Command {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		HttpSession session = request.getSession(true); // 세션가져오기 없으면 생성
 		
 		if (arr.length == 0) {
 			// 아이디가 없음
-			request.setAttribute("result", "아이디가 존재 하지 않습니다.");
-			request.setAttribute("existId", false);
+			session.setAttribute("existId", 0);
 		} else {
 			// 아이디가 존재
-			request.setAttribute("existId", true);
+			session.setAttribute("existId", 1);
 			MemberDTO dto = arr[0];
 			
 			if (pw.equals(dto.getMb_pw())) {
-				HttpSession session = request.getSession(true); // 세션가져오기 없으면 생성
+				
 				session.setAttribute("login", 1);
 				session.setAttribute("mb_uid", dto.getMb_uid());
 				session.setAttribute("mb_type", dto.getMb_type());
 				session.setAttribute("mb", dto);
 			} else {
-				request.setAttribute("result", "비밀번호가 옳지 않습니다.");
 			}
 		}
 	}

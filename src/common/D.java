@@ -49,7 +49,7 @@ public interface D {
 	
 	//제품 이름 검색
 	public static final String SQL_SELECT_PRODUCT_BY_NAME_WITH_MARKET = "SELECT * FROM sl_product"
-			+ "as p join sl_market as m on p.mk_uid = m.mk_uid WHERE pd_name LIKE '%?%'";
+			+ " as p join sl_market as m on p.mk_uid = m.mk_uid WHERE pd_name LIKE ?";
 	
 	//제품 보유 매장들 정보
 	public static final String SQL_SELECT_STORE_BY_PRODUCT = "SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, " +
