@@ -5,6 +5,7 @@
 <% 
 	ProductInStoreDTO[] arr = (ProductInStoreDTO[]) request.getAttribute("productList"); 
 	FileDTO[] farr = (FileDTO[]) request.getAttribute("image");
+	int st_uid = Integer.parseInt(request.getParameter("st_uid"));
 %>
 <%--
 	for문 각 마켓
@@ -60,7 +61,7 @@
 
 <article>
 	<h3>제품 관리</h3>
-	<button type="button" onclick="location.href = 'addProduct.slime'">제품등록</button>
+	<button type="button" onclick="location.href = 'addProduct.slime?st_uid=<%=st_uid%>'">제품등록</button>
 	<div id="markets">
 		<%--
 		<div>
