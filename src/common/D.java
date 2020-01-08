@@ -59,14 +59,14 @@ public interface D {
 	
 	//제품 보유 매장들 정보
 	public static final String SQL_SELECT_STORE_BY_PRODUCT = "SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, " +
-			"i.inv_volume, o.st_name, o.st_img, " + 
+			"i.inv_volume, o.st_name, o.mb_uid, o.st_address, o.st_contact, o.st_description, o.st_rating, o.st_img, o.st_valid_key, o.st_valid_img, o.st_latitude, o.st_longitude, o.st_hours, " + 
 			"p.pd_uid, p.pd_description, p.pd_img, p.pd_name, "+
-			"m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name" +
+			"m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name " +
 			"FROM sl_inventory i " + 
-			"JOIN sl_offstore o on i.st_uid = o.st_uid" + 
-			"JOIN sl_product p ON i.pd_uid = p.pd_uid" + 
-			"JOIN sl_market m ON p.mk_uid = m.mk_uid" + 
-			"WHERE p.pd_uid = ?" + 
+			"JOIN sl_offstore o on i.st_uid = o.st_uid " + 
+			"JOIN sl_product p ON i.pd_uid = p.pd_uid " + 
+			"JOIN sl_market m ON p.mk_uid = m.mk_uid " + 
+			"WHERE p.pd_uid = ? " + 
 			"ORDER BY i.inv_quantity desc;";
 	
 	// 이벤트 글 등록
