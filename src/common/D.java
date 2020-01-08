@@ -52,7 +52,16 @@ public interface D {
 			+ "as p join sl_market as m on p.mk_uid = m.mk_uid WHERE pd_name LIKE '%?%'";
 	
 	//제품 보유 매장들 정보
-	public static final String SQL_SELECT_STORE_BY_PRODUCT = "TODO";
+	public static final String SQL_SELECT_STORE_BY_PRODUCT = "SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, " +
+			"i.inv_volume, o.st_name, o.st_img, " + 
+			"p.pd_uid, p.pd_description, p.pd_img, p.pd_name, "+
+			"m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name" +
+			"FROM sl_inventory i " + 
+			"JOIN sl_offstore o on i.st_uid = o.st_uid" + 
+			"JOIN sl_product p ON i.pd_uid = p.pd_uid" + 
+			"JOIN sl_market m ON p.mk_uid = m.mk_uid" + 
+			"WHERE p.pd_uid = ?" + 
+			"ORDER BY i.inv_quantity desc;";
 	
 	// 이벤트 글 등록
 	public static final String SQL_EVENT_INSERT = 

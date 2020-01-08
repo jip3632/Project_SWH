@@ -60,7 +60,7 @@ public class Controller extends HttpServlet {
 			break;
 		//제품 선택 결과
 		case "/productView.slime":
-			new StoreViewCommand().execute(request, response);
+			new ProductViewCommand().execute(request, response);
 			viewPage = "productView.jsp";
 			break;		
 		//매장 정보 변경
