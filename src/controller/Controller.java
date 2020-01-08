@@ -60,7 +60,7 @@ public class Controller extends HttpServlet {
 			break;
 		//제품 선택 결과
 		case "/productView.slime":
-			new StoreViewCommand().execute(request, response);
+			new ProductViewCommand().execute(request, response);
 			viewPage = "productView.jsp";
 			break;		
 		//매장 정보 변경
@@ -85,10 +85,13 @@ public class Controller extends HttpServlet {
 			break;
 		//제품 정보 수정
 		case "/productSetting.slime":
-			//TODO
+			new ProductSettingCommand().execute(request, response);
 			viewPage = "productSetting.jsp";
 			break;
-			//TODO
+		case "/productSettingOk.slime":
+			new ProductSettingOkCommand().execute(request, response);
+			viewPage = "productSettingOk.jsp";
+			break;
 		//이벤트 목록
 		case "/eventList.slime":
 			new EventListCommand().execute(request, response);
@@ -102,6 +105,54 @@ public class Controller extends HttpServlet {
 		case "/eventWriteOk.slime":
 			new EventWriteCommand().execute(request, response);
 			viewPage = "eventWriteOk.jsp";
+			break;
+		//이벤트 글 보기
+		case "/eventView.slime":
+			new EventViewCommand().execute(request, response);
+			viewPage = "eventView.jsp";
+			break;
+		//이벤트 글 업데이트
+		case "/eventUpdate.slime":
+			new EventUpdateCommand().execute(request, response);
+			viewPage = "eventUpdate.jsp";
+			break;
+		//이벤트 글 업데이트 확인
+		case "/eventUpdateOk.slime":
+			new EventUpdateOkCommand().execute(request, response);
+			viewPage = "eventUpdateOk.jsp";
+			break;
+		//이벤트 글 삭제
+		case "/eventDeleteOk.slime":
+			command = new EventDeleteCommand();
+			command.execute(request, response);
+			viewPage = "eventDeleteOk.jsp";
+			break;
+		//리뷰 목록(매장)
+		case "/reviewListM.slime":
+			new ReviewListManagerCommand().execute(request, response);
+			viewPage = "reviewList_manager.jsp";
+		//리뷰 목록(회원)
+		case "/reviewListU.slime":
+			new ReviewListUserCommand().execute(request, response);
+			viewPage = "reviewList_user.jsp";
+		//로그인 페이지
+		case "/login.slime":
+			viewPage = "login.jsp";
+			break;
+		// 로그인 OK
+		case "/loginOk.slime":
+			new LoginOkCommand().execute(request, response);
+			viewPage = "loginOk.jsp";
+			break;
+		//회원 정보 변경
+		case "/memberSetting.slime":
+			new UserPageCommand().execute(request, response); //매장관리페이지와 동일한 데이터를 가져오기때문에 Command재사용
+			viewPage = "memberSetting.jsp";
+			break;
+		//매자 정보 변경 확인
+		case "/memberSettingOk.slime":
+			new MemberSettingOkCommand().execute(request, response);
+			viewPage = "memberSettingOk.jsp";
 			break;
 		}
 		

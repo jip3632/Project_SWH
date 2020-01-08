@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.*;
 
-public class EventListCommand implements Command {
+public class ReviewListManagerCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		EventDAO dao = new EventDAO();
-		EventDTO [] arr = null;
+		ReviewDAO dao = new ReviewDAO();
+		ReviewDTO [] arr = null;
 		
 		int st_uid = Integer.parseInt(request.getParameter("st_uid"));
 		
@@ -44,7 +44,7 @@ public class EventListCommand implements Command {
 			// 몇번재 row 부터?
 			int fromRow = (page - 1) * pageRows;  // MySQL 은 0 부터 시작 !
 			
-			dao = new EventDAO();
+			dao = new ReviewDAO();
 			
 			arr = dao.selectFromRow(st_uid, fromRow, pageRows);
 			

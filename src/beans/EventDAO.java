@@ -55,7 +55,7 @@ public class EventDAO {
 		int cnt = 0;
 		
 		try {
-			pstmt = conn.prepareStatement(D.SQL_EVENT_WRITE_INSERT);
+			pstmt = conn.prepareStatement(D.SQL_EVENT_INSERT);
 			pstmt.setString(1, subject);
 			pstmt.setString(2, content);
 			pstmt.setString(3, end_date);
@@ -80,11 +80,11 @@ public class EventDAO {
 			Date d1 = rs.getDate("ev_start_date");
 			Time t1 = rs.getTime("ev_start_date");
 			String start_date = new SimpleDateFormat("yyyy-MM-dd").format(d1) + " " 
-							+ new SimpleDateFormat("hh:mm:ss").format(t1);
+							+ new SimpleDateFormat("HH:mm").format(t1);
 			Date d2 = rs.getDate("ev_end_date");
 			Time t2 = rs.getTime("ev_end_date");
 			String end_date = new SimpleDateFormat("yyyy-MM-dd").format(d2) + " " 
-							+ new SimpleDateFormat("hh:mm:ss").format(t2);
+							+ new SimpleDateFormat("HH:mm").format(t2);
 			int st_uid = rs.getInt("st_uid");
 			
 			
@@ -103,7 +103,7 @@ public class EventDAO {
 	public EventDTO [] select(int uid) throws SQLException {
 		EventDTO [] arr = null;
 		try {			
-			pstmt = conn.prepareStatement(D.SQL_EVENT_WRITE_SELECT_BY_ST_UID);
+			pstmt = conn.prepareStatement(D.SQL_EVENT_SELECT_BY_ST_UID);
 			pstmt.setInt(1, uid);
 			rs = pstmt.executeQuery();
 			arr = createArray(rs);
@@ -118,7 +118,7 @@ public class EventDAO {
 		EventDTO [] arr = null;
 		
 		try {
-			pstmt = conn.prepareStatement(D.SQL_EVENT_WRITE_SELECT_BY_UID);
+			pstmt = conn.prepareStatement(D.SQL_EVENT_SELECT_BY_UID);
 			pstmt.setInt(1, uid);
 			rs = pstmt.executeQuery();
 			arr = createArray(rs);
@@ -134,7 +134,7 @@ public class EventDAO {
 	public int deleteByUid(int uid) throws SQLException{
 		int cnt = 0;
 		try {
-			pstmt = conn.prepareStatement(D.SQL_EVENT_WRITE_DELETE_BY_UID);
+			pstmt = conn.prepareStatement(D.SQL_EVENT_DELETE_BY_UID);
 			pstmt.setInt(1, uid);
 			cnt = pstmt.executeUpdate();
 		} finally {
@@ -148,7 +148,7 @@ public class EventDAO {
 	public int update(int uid, String subject, String content, String end_date) throws SQLException{
 		int cnt = 0;
 		try {
-			pstmt = conn.prepareStatement(D.SQL_EVENT_WRITE_UPDATE);
+			pstmt = conn.prepareStatement(D.SQL_EVENT_UPDATE);
 			pstmt.setString(1, subject);
 			pstmt.setString(2, content);
 			pstmt.setString(3, end_date);
@@ -160,6 +160,41 @@ public class EventDAO {
 		return cnt;
 	}
 	
+	// 페이징 
+	
+	// 몇번째 from  부터 몇개 rows 를 SELECT
+	public EventDTO [] selectFromRow(int st_uid, int from, int rows) throws SQLException {
+		EventDTO [] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_EVENT_SELECT_FROM_ROW);
+			pstmt.setInt(1, st_uid);
+			pstmt.setInt(2, from);
+			pstmt.setInt(3, rows);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+			
+		} finally {
+			close();
+		}
+		return arr;
+	}
+	
+	// 총 몇개의 글이 있는지 계산
+	public int countAll() throws SQLException {
+		int cnt = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_EVENT_COUNT_ALL);
+			rs = pstmt.executeQuery();
+			rs.next();  // 첫번째 행의
+			cnt = rs.getInt(1);// 첫번째 컬럼	
+		} finally {
+			close();
+		}
+		
+		return cnt;
+	}
 	
 	
 } // end class

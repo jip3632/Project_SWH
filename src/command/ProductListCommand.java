@@ -5,25 +5,24 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.ProductInStoreDTO;
+import beans.ProductMarketDTO;
 import beans.SearchDAO;
 
-public class ProductViewCommand implements Command {
+public class ProductListCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		SearchDAO dao = new SearchDAO();
-		ProductInStoreDTO [] arr = null;
-		
-		int pd_uid = Integer.parseInt(request.getParameter("pd_uid"));
-
+		ProductMarketDTO [] arr = null;
+		String word = request.getParameter("word");
+		System.out.println(word);
+		System.out.println("hellow");
 		try {
-			arr = dao.showProductsByStore(pd_uid);
-			request.setAttribute("product_list_by_store", arr);
+			arr = dao.selectProductsByName(word);
+			request.setAttribute("product_list", arr);
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }
