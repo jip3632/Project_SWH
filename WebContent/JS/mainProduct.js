@@ -17,7 +17,7 @@ function ajax() {
 			if (status == "success") parseJSON(data);
 		}
 	});
-};
+}
 
 function parseJSON(data) {
 	$("#product_list").html("");
@@ -35,8 +35,17 @@ function parseJSON(data) {
 		htmlTxt += "</li>";
 	}
 	$("#product_list").html(htmlTxt);
-};
+}
 
 function move(pd_uid) {
 	location.href='productView.slime?pd_uid=' + pd_uid;
 }
+
+
+
+
+
+
+
+
+
