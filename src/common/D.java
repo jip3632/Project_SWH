@@ -21,6 +21,15 @@ public interface D {
 			+ "WHERE i.st_uid = ? "
 			+ "ORDER BY m.mk_name ASC, p.pd_name ASC";
 	
+	// 모든 마켓의 제품 정보 가져오기
+	public static final String SQL_SELECT_ALL_PRODUCTS_MARKETS = 
+			"SELECT "
+			+ "p.pd_uid, p.pd_description, p.pd_img, p.pd_file, p.pd_name, "
+			+ "m.mk_uid, m.mk_logo, m.mk_file, m.mk_insta, m.mk_name "
+			+ "FROM sl_product p "
+			+ "JOIN sl_market m ON p.mk_uid = m.mk_uid "
+			+ "ORDER BY m.mk_name ASC, p.pd_name ASC";
+	
 	// 특정 매장의 특정 제품의 정보 가져오기
 	public static final String SQL_SELECT_PRODUCT_BY_INV_UID = 
 			"SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, i.inv_volume, "

@@ -15,15 +15,15 @@
 	<%-- INSERT INTO sl_inventory (st_uid, pd_uid, inv_volume, inv_price, inv_quantity) VALUES (?, ?, ?); --%>
 	<%-- MODAL에서 정보 받아올때 --%>
 	<%-- javascript로 구현 --%>
-	<form name="frm" method="post" action="" onsubmit="">
+	<form name="frm" method="post" action="" onsubmit="market">
 		<div>
-			<img alt="mk_img" src="">
+			<img alt="mk_img" src="upload/market/file_name">
 			<div>mk_name</div>
 			<div>mk_insta</div>
 		</div>
 		
 		<div>
-			<img alt="pd_img" src="">
+			<img alt="pd_img" src="upload/product/file_name">
 			<div>pd_name</div>
 			<div>용량 <input type="text" name="inv_volume" value="inv_volume">ml</div>
 			<div>가격 <input type="text" name="inv_price" value="inv_price">원</div>
