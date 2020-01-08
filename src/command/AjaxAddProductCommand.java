@@ -56,7 +56,6 @@ public class AjaxAddProductCommand implements Command {
 					product.put("pd_file", pmarr[j].getPd_file());
 					product.put("pd_description", pmarr[j].getPd_description());
 					products.put(product);
-					System.out.println(j);
 					if(j == count - 1) index = count;
 				}
 			}
