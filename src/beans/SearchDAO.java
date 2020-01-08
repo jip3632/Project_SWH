@@ -173,7 +173,25 @@ public class SearchDAO {
 	 * @return cnt (if cnt == 1, update success. if cnt == 0, update denied)
 	 * @throws SQLException
 	 */
-	public int updateStore(String st_address, String st_contact, String st_hours, String st_description, String st_img, int mb_uid) throws SQLException {
+	public int updateStoreIncludeImage(String st_address, String st_contact, String st_hours, String st_description, int mb_uid, String originalFileName, String  fileSystemName) throws SQLException {
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_UPDATE_STORE_INCLUDE_IMAGE_BY_ID);
+			pstmt.setString(1, st_address);
+			pstmt.setString(2, st_contact);
+			pstmt.setString(3, st_hours);
+			pstmt.setString(4, st_description);
+			pstmt.setString(5, originalFileName);
+			pstmt.setString(6, fileSystemName);
+			pstmt.setInt(7, mb_uid);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	public int updateStore(String st_address, String st_contact, String st_hours, String st_description, int mb_uid) throws SQLException {
 		int cnt = 0;
 		try {
 			pstmt = conn.prepareStatement(D.SQL_UPDATE_STORE_BY_ID);
@@ -181,8 +199,7 @@ public class SearchDAO {
 			pstmt.setString(2, st_contact);
 			pstmt.setString(3, st_hours);
 			pstmt.setString(4, st_description);
-			pstmt.setString(5, st_img);
-			pstmt.setInt(6, mb_uid);
+			pstmt.setInt(5, mb_uid);
 			cnt = pstmt.executeUpdate();
 		} finally {
 			close();

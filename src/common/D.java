@@ -39,12 +39,18 @@ public interface D {
 	//매장 관리 페이지에서 보여줄 매장 정보
 	public static final String SQL_SELECT_STORE_BY_ID = "SELECT * FROM sl_offstore WHERE mb_uid = ?";
 	
+
 	// 매장 uid 로 매장정보 가져오기
 	public static final String SQL_SELECT_STORE_BY_ST_UID = "SELECT * FROM sl_offstore WHERE st_uid = ?";
 	
 	//매장 정보 UPDATE
 	public static final String SQL_UPDATE_STORE_BY_ID = "UPDATE sl_offstore"
-			+ " SET st_address = ?, st_contact = ?, st_hours = ?, st_description = ?, st_img = ?"
+			+ " SET st_address = ?, st_contact = ?, st_hours = ?, st_description = ?"
+			+ " WHERE mb_uid = ?";
+	
+	//매장 정보 UPDATE 사진 포함
+	public static final String SQL_UPDATE_STORE_INCLUDE_IMAGE_BY_ID = "UPDATE sl_offstore"
+			+ " SET st_address = ?, st_contact = ?, st_hours = ?, st_description = ?, st_img = ?, st_file = ?"
 			+ " WHERE mb_uid = ?";
 	
 	//제품 이름 검색

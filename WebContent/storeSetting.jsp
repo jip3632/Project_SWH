@@ -1,3 +1,4 @@
+<%@page import="beans.FileDTO"%>
 <%@page import="beans.StoreDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -15,6 +16,8 @@
 	String st_end = st_hour[1];
 	String st_description = arr[0].getSt_description();
 	String st_img = arr[0].getSt_img();
+	
+	FileDTO[] farr = (FileDTO[]) request.getAttribute("image");
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -28,30 +31,42 @@
 <h3>매장 정보 변경</h3>
 <%-- 매장 이름 표시 --%>
 <h4><%=st_name %></h4>
-<form name="frm" action="storeSettingOk.slime" method="post" onsubmit="return chkUpdate()">
+<form name="frm" action="storeSettingOk.slime" method="post" onsubmit="return chkUpdate()" enctype="Multipart/form-data">
 	<%-- hidden mb_uid --%>
 	<input type="hidden" name="mb_uid" value="<%= mb_uid%>">
 	
 	<%-- 매장 주소 표시/변경--%>
+	<div>
 	매장주소<br>
 	<input type="text" name="st_address" value="<%= st_address%>"><br>
+	</div>
 	
 	<%-- 매장 연락처 표시/변경--%>
+	<div>
 	매장 연락처<br>
 	<input type="text" name="st_contact" value="<%=st_contact %>"><br>
+	</div>
 	
 	<%-- 매장 영업시간 표시/변경 (input 2개 start 과 end)--%>
+	<div>
 	매장 영업시간<br>
 	<input type="text" name="st_start" value="<%=st_start %>"> - 
 	<input type="text" name="st_end" value="<%=st_end %>"><br>
+	</div>
 	
 	<%-- 매장 설명 표시/변경--%>
+	<div>
 	매장 설명<br>
 	<textarea rows="10" cols="20" name="st_description"><%=st_description %></textarea><br>
+	</div>
 	
 	<%-- 매장 사진 변경 --%>
+	<div>
 	매장 사진<br>
-	<input type="image" name="st_img" value="<%=st_img%>"><br>
+	<img alt="<%=farr[0].getFile()%>" src="upload/offstore/<%=farr[0].getFile()%>">
+	<br>
+	<input type="file" name="upload"><br>
+	</div>
 	
 	<%-- 제출 Submit --%>
 	<input type="submit" value="수정">

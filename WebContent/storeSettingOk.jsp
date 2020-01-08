@@ -16,5 +16,5 @@
 	}
 %>
 	<script>
-	location.href = "managerPage.slime?mb_uid=<%=request.getParameter("mb_uid")%>";
+	location.href = "managerPage.slime?mb_uid=<%=request.getAttribute("mb_uid")%>";
 	</script>
