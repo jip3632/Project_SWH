@@ -32,9 +32,10 @@ CREATE TABLE SL_offstore
     `st_hours`        TEXT           NOT NULL    COMMENT '매장 영업시간', 
     `st_description`  TEXT           NULL        COMMENT '매장 설명', 
     `st_rating`       DOUBLE            NOT NULL    DEFAULT 0 COMMENT '매장 평점', 
-    `st_img`          VARCHAR(45)    NULL        COMMENT '매장 사진', 
+    `st_img`       VARCHAR(200)    NULL        COMMENT '매장 사진(원본파일명)', 
+    `st_file`		  VARCHAR(200)   null		COMMENT '저장파일명',
     `st_valid_key`    INT            NOT NULL    COMMENT '매장 사업자등록번호 번호', 
-    `st_valid_img`    VARCHAR(45)    NOT NULL    COMMENT '매장 사업자등록증', 
+    `st_valid_source`    VARCHAR(45)    NOT NULL    COMMENT '매장 사업자등록증', 
     `st_latitude`     VARCHAR(20)    NOT NULL    COMMENT '매장 위도', 
     `st_longitude`    VARCHAR(20)    NOT NULL    COMMENT '매장 경도', 
     PRIMARY KEY (st_uid)
@@ -56,7 +57,8 @@ CREATE TABLE SL_market
     `mk_uid`    INT            NOT NULL    AUTO_INCREMENT COMMENT '마켓 고유 아이디', 
     `mk_name`   VARCHAR(45)    NOT NULL    COMMENT '마켓 이름', 
     `mk_insta`  VARCHAR(45)    NULL        COMMENT '마켓 인스타', 
-    `mk_logo`   VARCHAR(45)    NULL        COMMENT '마켓 로고', 
+    `mk_logo` VARCHAR(200)    NULL        COMMENT '마켓 로고(원본파일명)', 
+    `mk_file`	VARCHAR(200)   null			COMMENT '저장파일명',
     PRIMARY KEY (mk_uid)
 );
 
@@ -75,7 +77,8 @@ CREATE TABLE SL_product
     `pd_uid`          INT            NOT NULL    AUTO_INCREMENT COMMENT '제품 고유 번호', 
     `pd_name`         VARCHAR(45)    NOT NULL    COMMENT '제품 명', 
     `pd_description`  text           NULL        COMMENT '제품 설명', 
-    `pd_img`          VARCHAR(45)    NULL        COMMENT '제품 사진', 
+    `pd_img`       VARCHAR(200)    NULL        COMMENT '제품 사진(원본파일명)', 
+    `pd_file`		  VARCHAR(200)   null		COMMENT '저장파일명',
     `mk_uid`          INT            NOT NULL    COMMENT '제작자', 
     PRIMARY KEY (pd_uid)
 );
@@ -185,7 +188,7 @@ values
 (105, 'slimeStore', '1234', '슬라임가게', '대전광역시 중구', '01088889999', 'slimeStore@gmail.com', 2);
 
 -- SL_offstore 매장 테이블 (Foreign Key: 연동시킬 SL_member의 mb_uid 입력하세요)
-insert into SL_offstore (st_uid, mb_uid, st_name, st_address, st_contact, st_hours, st_rating, st_valid_key, st_valid_img, st_latitude, st_longitude)
+insert into SL_offstore (st_uid, mb_uid, st_name, st_address, st_contact, st_hours, st_rating, st_valid_key, st_valid_source, st_latitude, st_longitude)
 VALUES
 (1101, 101, '미미즈그로브', '서울시 성동구 행당로11길 5-2 1층', '0507-1331-8029', '12:00-20:00', 3, 123456789, '123456789', '37.558603', '127.030525'),
 (1102, 102, '슬라임쿡', '서울시 마포구 와우산로29바길 11-3 1층', '0507-1328-5992', '13:00-21:00', 4, 223456789, '223456789', '37.555993', '126.926290'),
