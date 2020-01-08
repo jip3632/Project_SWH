@@ -34,3 +34,7 @@ function parseJSON(data) {
 	}
 	$("#productList").html(htmlTxt);
 };
+
+function move(pd_uid) {
+	location.href='productView.slime?pd_uid=' + pd_uid;
+}
