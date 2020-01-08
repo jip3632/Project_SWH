@@ -36,7 +36,7 @@ table, th, td {
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
-				<th>매장</th>
+				<th>작성자</th>
 				<th>등록일</th>
 			</tr>		
 <%
@@ -47,7 +47,7 @@ table, th, td {
 				out.println("<tr>");
 				out.println("<td>" + arr[i].getRe_uid() + "</td>");
 				out.println("<td><a href='reviewView.slime?uid=" + arr[i].getRe_uid() + "'>" + arr[i].getRe_subject() + "</a></td>");
-				out.println("<td>" + arr[i].getSt_uid() + "</td>");
+				out.println("<td>" + arr[i].getWr_uid() + "</td>");
 				out.println("<td>" + arr[i].getRe_regdate() + "</td>");
 				out.println("</tr>");
 			}

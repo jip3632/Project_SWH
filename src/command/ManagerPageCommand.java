@@ -15,11 +15,7 @@ public class ManagerPageCommand implements Command {
 		SearchDAO sdao = new SearchDAO();
 		StoreDTO[] arr = null;
 		try {
-			
-			//arr = sdao.selectStore(Integer.parseInt(request.getParameter("mb_uid")));
-			
-			//실험용 세팅 (이후 윗줄로 변경해서 mb_uid값 받아와서 실행)
-			arr = sdao.selectStore(101);
+			arr = sdao.selectStore(Integer.parseInt(request.getParameter("mb_uid")));
 			
 			request.setAttribute("result", arr);
 		} catch (SQLException e) {
