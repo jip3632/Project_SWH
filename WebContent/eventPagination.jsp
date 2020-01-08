@@ -15,7 +15,7 @@
 	if(add == null){ add = ""; }
 	
 	// 페이징 버튼 링크 url 주소에 넣을 문자열 준비
-	String url = "EventList.slime?st_uid=" + st_uid + "&page=";
+	String url = "eventList.slime?st_uid=" + st_uid + "&page=";
 	
 	String str = "";   // 최종적으로 페이징에 나타날 HTML 문자열 <li> 태그로 구성
 

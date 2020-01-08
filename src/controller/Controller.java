@@ -131,10 +131,17 @@ public class Controller extends HttpServlet {
 		case "/reviewListM.slime":
 			new ReviewListManagerCommand().execute(request, response);
 			viewPage = "reviewList_manager.jsp";
+			break;
 		//리뷰 목록(회원)
 		case "/reviewListU.slime":
 			new ReviewListUserCommand().execute(request, response);
 			viewPage = "reviewList_user.jsp";
+			break;
+		//리뷰 목록(전체)
+		case "/reviewListE.slime":
+			new ReviewListEveryCommand().execute(request, response);
+			viewPage = "reviewList_everyone.jsp";
+			break;
 		//로그인 페이지
 		case "/login.slime":
 			viewPage = "login.jsp";
@@ -149,7 +156,7 @@ public class Controller extends HttpServlet {
 			new UserPageCommand().execute(request, response); //매장관리페이지와 동일한 데이터를 가져오기때문에 Command재사용
 			viewPage = "memberSetting.jsp";
 			break;
-		//매자 정보 변경 확인
+		//회원 정보 변경 확인
 		case "/memberSettingOk.slime":
 			new MemberSettingOkCommand().execute(request, response);
 			viewPage = "memberSettingOk.jsp";

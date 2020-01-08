@@ -7,7 +7,7 @@
 	int writePages = Integer.parseInt(request.getParameter("writePages"));
 	int totalPage = Integer.parseInt(request.getParameter("totalPage"));
 	int curPage = Integer.parseInt(request.getParameter("curPage"));
-	int st_uid = Integer.parseInt(request.getParameter("st_uid"));
+	int mb_uid = Integer.parseInt(request.getParameter("mb_uid"));
 	// ※ 사실 위 단계에서도 파라미터 검증 필요하다
 	
 	// 위 url에 추가로 붙어야 할 것들.  (옵션)
@@ -15,7 +15,7 @@
 	if(add == null){ add = ""; }
 	
 	// 페이징 버튼 링크 url 주소에 넣을 문자열 준비
-	String url = "ReviewList.slime?st_uid=" + st_uid + "&page=";
+	String url = "reviewListU.slime?mb_uid=" + mb_uid + "&page=";
 	
 	String str = "";   // 최종적으로 페이징에 나타날 HTML 문자열 <li> 태그로 구성
 

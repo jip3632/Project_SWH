@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="beans.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%  
 	ReviewDTO [] arr = (ReviewDTO [])request.getAttribute("list");
 	int st_uid = Integer.parseInt(request.getParameter("st_uid"));
-
+	int curPage = Integer.parseInt(request.getParameter("page"));
+	int totalPage = (Integer)request.getAttribute("totalPage");
+	int writePages = (Integer)request.getAttribute("writePages");
 %>
 
 <!DOCTYPE html>
@@ -56,6 +56,13 @@ table, th, td {
 		</table>
 		<br>
 		<button onclick="location.href='reviewWrite.slime?st_uid=<%= st_uid %>'">신규등록</button>
+
+<%-- 페이징 --%>
+<jsp:include page="paginationU.jsp">
+	<jsp:param value="<%= writePages %>" name="writePages"/>
+	<jsp:param value="<%= totalPage %>" name="totalPage"/>
+	<jsp:param value="<%= curPage %>" name="curPage"/>
+</jsp:include>
 
 </body>
 </html>

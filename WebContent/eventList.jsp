@@ -5,9 +5,9 @@
 <%  
 	EventDTO [] arr = (EventDTO [])request.getAttribute("list");
 	int st_uid = Integer.parseInt(request.getParameter("st_uid"));
-	int page = Integer.parseInt(request.getParameter("page"));
-	int totalPage = Integer.parseInt(request.getParameter("totalPage"));
-	int writePages = Integer.parseInt(request.getParameter("writePages"));
+	int curPage = Integer.parseInt(request.getParameter("page"));
+	int totalPage = (Integer)request.getAttribute("totalPage");
+	int writePages = (Integer)request.getAttribute("writePages");
 %>
 
 <!DOCTYPE html>
@@ -56,10 +56,10 @@ table, th, td {
 		<button onclick="location.href='eventWrite.slime?st_uid=<%= st_uid %>'">신규등록</button>
 
 <%-- 페이징 --%>
-<jsp:include page="pagination.jsp">
-	<jsp:param value="${writePages }" name="writePages"/>
-	<jsp:param value="${totalPage }" name="totalPage"/>
-	<jsp:param value="${page }" name="curPage"/>
+<jsp:include page="eventPagination.jsp">
+	<jsp:param value="<%= writePages %>" name="writePages"/>
+	<jsp:param value="<%= totalPage %>" name="totalPage"/>
+	<jsp:param value="<%= curPage %>" name="curPage"/>
 </jsp:include>
 
 </body>

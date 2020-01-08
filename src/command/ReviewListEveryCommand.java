@@ -7,15 +7,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.*;
 
-public class ReviewListUserCommand implements Command {
+public class ReviewListEveryCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		ReviewDAO dao = new ReviewDAO();
 		ReviewDTO [] arr = null;
-		
-		int mb_uid = Integer.parseInt(request.getParameter("mb_uid"));
 		
 		// 페이징 관련 세팅 값들
 		int page = 1; // 현재 페이지 (디폴트 1 page)
@@ -46,14 +44,13 @@ public class ReviewListUserCommand implements Command {
 			
 			dao = new ReviewDAO();
 			
-			arr = dao.selectFromRow2(mb_uid, fromRow, pageRows);
+			arr = dao.selectFromRow(fromRow, pageRows);
 			
 			request.setAttribute("list", arr);
 			request.setAttribute("page", page);
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("writePages", writePages);
 			request.setAttribute("pageRows", pageRows);
-			request.setAttribute("mb_uid", mb_uid);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
