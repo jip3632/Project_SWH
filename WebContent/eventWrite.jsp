@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="beans.StoreDTO"%>
 <%
 	int st_uid = Integer.parseInt(request.getParameter("st_uid"));
 %>
@@ -53,6 +52,10 @@ function chkSubmit(){
 </script>
 
 <body>
+<div id="container">
+   <nav>
+      <div>네비게이션 바</div>
+   </nav>
 <h2>이벤트 글 작성</h2>
 <form name="frm" action="eventWriteOk.slime" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="st_uid" value='<%= st_uid %>'/>
@@ -98,5 +101,9 @@ function chkSubmit(){
 </form>
 <br>
 <button type="button" onclick="location.href='eventList.slime?st_uid=<%= st_uid %>&page=1'">목록으로</button>
+   <footer>
+   
+   </footer>
+</div>
 </body>
 </html>

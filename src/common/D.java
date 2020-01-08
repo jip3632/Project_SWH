@@ -151,4 +151,8 @@ public interface D {
 		public static final String SQL_MEMBER_UPDATE =
 				"UPDATE SL_member SET mb_pw = ?, mb_cell = ?, mb_address = ?, mb_email = ? WHERE mb_uid = ?";
 
+	// 회원 목록 모두 불러오기
+	public static final String SQL_MEMBER_SELECT_ALL = 
+			"SELECT * FROM SL_member";
+	
 }

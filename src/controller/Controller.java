@@ -142,6 +142,16 @@ public class Controller extends HttpServlet {
 			new ReviewListEveryCommand().execute(request, response);
 			viewPage = "reviewList_everyone.jsp";
 			break;
+		//리뷰 작성하기
+		case "/reviewWrite.slime":
+			new ReviewWriteCommand().execute(request, response);
+			viewPage = "reviewWrite.jsp";
+			break;
+		//리뷰 작성하기
+		case "/reviewWriteOk.slime":
+			new ReviewWriteOkCommand().execute(request, response);
+			viewPage = "reviewWriteOk.jsp";
+			break;
 		//로그인 페이지
 		case "/login.slime":
 			viewPage = "login.jsp";

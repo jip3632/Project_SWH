@@ -12,8 +12,12 @@ public class ReviewListEveryCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		ReviewDAO dao = new ReviewDAO();
-		ReviewDTO [] arr = null;
+		ReviewDAO rdao = new ReviewDAO();
+		ReviewDTO [] rarr = null;
+		MemberDAO mdao = new MemberDAO();
+		MemberDTO [] marr = null;
+		SearchDAO sdao = new SearchDAO();
+		StoreDTO [] sarr = null;
 		
 		// 페이징 관련 세팅 값들
 		int page = 1; // 현재 페이지 (디폴트 1 page)
@@ -34,7 +38,7 @@ public class ReviewListEveryCommand implements Command {
 		
 		try {
 			// 글 전체 개수 구하기
-			cnt = dao.countAll();
+			cnt = rdao.countAll();
 			
 			// 총 몇페이지 분량인가?
 			totalPage = (int)Math.ceil(cnt / (double)pageRows);
@@ -42,11 +46,15 @@ public class ReviewListEveryCommand implements Command {
 			// 몇번재 row 부터?
 			int fromRow = (page - 1) * pageRows;  // MySQL 은 0 부터 시작 !
 			
-			dao = new ReviewDAO();
+			rdao = new ReviewDAO();
 			
-			arr = dao.selectFromRow(fromRow, pageRows);
+			rarr = rdao.selectFromRow(fromRow, pageRows);
+			marr = mdao.selectAllMembers();
+			sarr = sdao.selectAllStores();
 			
-			request.setAttribute("list", arr);
+			request.setAttribute("rlist", rarr);
+			request.setAttribute("mlist", marr);
+			request.setAttribute("slist", sarr);
 			request.setAttribute("page", page);
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("writePages", writePages);

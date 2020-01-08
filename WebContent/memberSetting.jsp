@@ -21,7 +21,11 @@
 <title>회원정보변경</title>
 </head>
 <body>
-<article>
+<div id="container">
+   <nav>
+      <div>네비게이션 바</div>
+   </nav>
+
 <h3>회원 정보 변경</h3>
 <form name="frm" action="memberSettingOk.slime" method="post" onsubmit="return chkUpdate()">
 	<input type="hidden" name="mb_uid" value="<%= mb_uid%>">
@@ -35,9 +39,11 @@
 	가입날짜 : <%= mb_regdate %>"><br>
 
 	<input type="submit" value="수정">
-</form>
-</article>	
-
+</form>	
+   <footer>
+   
+   </footer>
+</div>
 </body>
 <script>
 	function chkUpdate(){

@@ -30,6 +30,10 @@ table, th, td {
 </style>
 </head>
 <body>
+<div id="container">
+	<nav>
+		<div>네비게이션 바</div>
+	</nav>
 		<hr>
 		<h2>이벤트 목록</h2>
 		<table>
@@ -62,5 +66,9 @@ table, th, td {
 	<jsp:param value="<%= curPage %>" name="curPage"/>
 </jsp:include>
 
+   <footer>
+   
+   </footer>
+</div>
 </body>
 </html>

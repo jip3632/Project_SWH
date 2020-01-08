@@ -60,6 +60,10 @@ function chkSubmit(){
 </script>
 
 <body>
+<div id="container">
+   <nav>
+      <div>네비게이션 바</div>
+   </nav>
 <h2>수정</h2>
 <form name="frm" action="eventUpdateOk.slime" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="uid" value='<%= uid %>'/>
@@ -107,6 +111,9 @@ function chkSubmit(){
 <br>
 <button onclick="history.back()">이전으로</button>
 <button onclick="location.href = 'eventList.slime?st_uid=<%= st_uid%>&page=1'">목록보기</button>
-
+   <footer>
+   
+   </footer>
+</div>
 </body>
 </html>
