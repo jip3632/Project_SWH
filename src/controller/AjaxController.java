@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.AddProductCommand;
+import command.AjaxAddProductCommand;
 import command.AjaxProductCommand;
 import command.AjaxStoreCommand;
 import command.ProductListCommand;
@@ -43,6 +45,13 @@ public class AjaxController extends HttpServlet {
 		case "/mainProduct.ajax":
 			new ProductListCommand().execute(request, response);
 			new AjaxProductCommand().execute(request, response);
+			break;
+		case "/addProduct.ajax":
+			//TODO
+			// sl_market과 sl_product조인한 객체  SELECT ALL
+			// sl_inventory, sl_market, sl_product 조인한 객체 SELECT WHERE st_uid = ?
+			new AddProductCommand().execute(request, response);
+			new AjaxAddProductCommand().execute(request, response);
 			break;
 		}
 	}

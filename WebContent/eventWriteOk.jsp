@@ -13,6 +13,6 @@
 <% } else { %>
 	<script>
 		alert("등록성공!");
-		location.href = "eventList.slime?st_uid=<%= st_uid %>";
+		location.href = "eventList.slime?st_uid=<%= st_uid %>&page=1";
 	</script>
 <% } %>

@@ -1,8 +1,12 @@
+<%@page import="beans.FileDTO"%>
 <%@page import="beans.StoreDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	StoreDTO[] arr = (StoreDTO[])request.getAttribute("result");
+	FileDTO[] farr = null;
+	farr = (FileDTO[]) request.getAttribute("image");
+
 %>
 <%
 	if(arr == null || arr.length == 0){
@@ -28,7 +32,7 @@
 	st_img, st_name, st_address, st_contact, st_email, st_hours 
 	가져오기 --%>
 	<div>
-		매장사진 <%= arr[0].getSt_img()%>
+		매장사진 <img src="upload/offstore/<%=farr[0].getFile()%>" alt="<%=farr[0].getFile()%>"/>
 		<br>
 		매장명: <%= arr[0].getSt_name()%>
 		<br>
@@ -50,6 +54,8 @@
 		<button type="button" onclick="location.href = 'eventList.slime?st_uid=<%= arr[0].getSt_uid()%>&page=1'">이벤트 관리</button>
 		<%-- 후기 관리 버튼--%>
 		<button type="button" onclick="location.href = 'reviewListM.slime?st_uid=<%= arr[0].getSt_uid()%>&page=1'">후기 관리</button>
+		<%-- 로그아웃 버튼 --%>
+		<button type="button" onclick="location.href = 'logout.slime'">로그아웃</button>
 	</div>
 </article>
 </body>

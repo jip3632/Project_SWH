@@ -70,9 +70,9 @@ function chkSubmit(){
 <input type="hidden" name="st_uid" value='<%= st_uid %>'/>
 <input type="hidden" name="enddate"/>
 제목:
-<input type="text" name="subject"/><br>
+<input type="text" name="subject" value='<%= subject %>'/><br>
 내용:<br>
-<textarea name="content"></textarea>
+<textarea name="content"><%= content %></textarea>
 <br>
 <br>
 이벤트 종료 날짜 : 

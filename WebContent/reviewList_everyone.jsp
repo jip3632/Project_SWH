@@ -55,7 +55,7 @@ table, th, td {
 			for(int i = 0; i < rarr.length; i++){
 				out.println("<tr>");
 				out.println("<td>" + rarr[i].getRe_uid() + "</td>");
-				out.println("<td><a href='reviewView.slime?uid=" + rarr[i].getRe_uid() + "'>" + rarr[i].getRe_subject() + "</a></td>");
+				out.println("<td><a href='reviewView.slime?re_uid=" + rarr[i].getRe_uid() + "'>" + rarr[i].getRe_subject() + "</a></td>");
 				
 				for(int j = 0; j < marr.length; j++){
 					if(marr[j].getMb_uid() == rarr[i].getWr_uid()){
@@ -70,7 +70,7 @@ table, th, td {
 					}
 				}
 				out.println("<td>" + storeName + "</td>");
-				out.println("<td>" + rarr[i].getRe_view() + "</td>");
+				out.println("<td>" + rarr[i].getRe_views() + "</td>");
 				out.println("<td>" + rarr[i].getRe_regdate() + "</td>");
 				out.println("</tr>");
 			}

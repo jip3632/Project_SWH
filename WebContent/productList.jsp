@@ -1,7 +1,11 @@
+<%@page import="beans.FileDTO"%>
 <%@page import="beans.ProductInStoreDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% ProductInStoreDTO[] arr = (ProductInStoreDTO[]) request.getAttribute("productList"); %>
+<% 
+	ProductInStoreDTO[] arr = (ProductInStoreDTO[]) request.getAttribute("productList"); 
+	FileDTO[] farr = (FileDTO[]) request.getAttribute("image");
+%>
 <%--
 	for문 각 마켓
 	<ul>
@@ -56,7 +60,7 @@
 
 <article>
 	<h3>제품 관리</h3>
-	<button onclick="">제품등록</button>
+	<button type="button" onclick="location.href = 'addProduct.slime'">제품등록</button>
 	<div id="markets">
 		<%--
 		<div>
@@ -89,7 +93,7 @@
 							break;
 						} else{
 							out.println("<li>");
-							out.println("<img alt='이미지' src=''>");
+							out.println("<img alt='이미지' src='upload/product/"+ farr[j].getFile() +"'>");
 							out.println("<h4>" + arr[j].getPd_name() + "</h4>");
 							out.println("<div>용량:" + arr[j].getInv_volume() + "ml</div>");
 							out.println("<div>가격:" + arr[j].getInv_price() + "원</div>");

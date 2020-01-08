@@ -57,7 +57,6 @@ public class ReviewListUserCommand implements Command {
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("writePages", writePages);
 			request.setAttribute("pageRows", pageRows);
-			request.setAttribute("mb_uid", mb_uid);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

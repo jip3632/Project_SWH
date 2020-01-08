@@ -84,6 +84,24 @@ public class SearchDAO {
 	}
 	
 	/**
+	 * select all products joined with market
+	 * @return ProductMarketDTO[]
+	 * @throws SQLException
+	 */
+	public ProductMarketDTO[] selectAllProductsInMarkets() throws SQLException{
+		ProductMarketDTO[] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELECT_ALL_PRODUCTS_MARKETS);
+			rs = pstmt.executeQuery();
+			arr = createArrayProductMarket(rs);
+		} finally {
+			close();
+		}
+		return arr;
+	}
+	
+	/**
 	 * 
 	 * @param inv_uid
 	 * @return cnt (where cnt == 1 if update succeeds, otherwise 0)
@@ -173,7 +191,25 @@ public class SearchDAO {
 	 * @return cnt (if cnt == 1, update success. if cnt == 0, update denied)
 	 * @throws SQLException
 	 */
-	public int updateStore(String st_address, String st_contact, String st_hours, String st_description, String st_img, int mb_uid) throws SQLException {
+	public int updateStoreIncludeImage(String st_address, String st_contact, String st_hours, String st_description, int mb_uid, String originalFileName, String  fileSystemName) throws SQLException {
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_UPDATE_STORE_INCLUDE_IMAGE_BY_ID);
+			pstmt.setString(1, st_address);
+			pstmt.setString(2, st_contact);
+			pstmt.setString(3, st_hours);
+			pstmt.setString(4, st_description);
+			pstmt.setString(5, originalFileName);
+			pstmt.setString(6, fileSystemName);
+			pstmt.setInt(7, mb_uid);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	public int updateStore(String st_address, String st_contact, String st_hours, String st_description, int mb_uid) throws SQLException {
 		int cnt = 0;
 		try {
 			pstmt = conn.prepareStatement(D.SQL_UPDATE_STORE_BY_ID);
@@ -181,8 +217,7 @@ public class SearchDAO {
 			pstmt.setString(2, st_contact);
 			pstmt.setString(3, st_hours);
 			pstmt.setString(4, st_description);
-			pstmt.setString(5, st_img);
-			pstmt.setInt(6, mb_uid);
+			pstmt.setInt(5, mb_uid);
 			cnt = pstmt.executeUpdate();
 		} finally {
 			close();
@@ -253,11 +288,16 @@ public class SearchDAO {
 			if(pd_description == null) pd_description = "";
 			String pd_img = rs.getString("pd_img");
 			if(pd_img == null) pd_img = "";
+			String pd_file = rs.getString("pd_file");
+			if(pd_file == null) pd_file = "";
 			int mk_uid = rs.getInt("mk_uid");
 			String mk_name = rs.getString("mk_name");
 			String mk_insta = rs.getString("mk_insta");
 			String mk_logo = rs.getString("mk_logo");
-			ProductMarketDTO dto = new ProductMarketDTO(pd_uid, pd_name, pd_description, pd_img, mk_uid, mk_name, mk_insta, mk_logo);		
+			if(mk_logo == null) mk_logo = "";
+			String mk_file = rs.getString("mk_file");
+			if(mk_file == null) mk_file = "";
+			ProductMarketDTO dto = new ProductMarketDTO(pd_uid, pd_name, pd_description, pd_img, pd_file, mk_uid, mk_name, mk_insta, mk_logo, mk_file);		
 			list.add(dto);
 		}
 		ProductMarketDTO[] arr = new ProductMarketDTO[list.size()];
@@ -266,7 +306,7 @@ public class SearchDAO {
 	}
 	
 
-	public ProductInStoreDTO[] createArrayProductEveryStore(ResultSet rs) throws SQLException {
+	public ProductEveryStoreDTO[] createArrayProductEveryStore(ResultSet rs) throws SQLException {
 		ArrayList<ProductEveryStoreDTO> list = new ArrayList<ProductEveryStoreDTO>();
 		while(rs.next()) {
 			int st_uid = rs.getInt("st_uid");
@@ -302,7 +342,7 @@ public class SearchDAO {
 			ProductEveryStoreDTO dto = new ProductEveryStoreDTO(st_uid, mb_uid, st_name, st_address, st_contact, st_description, st_rating, st_img, st_valid_key, st_valid_img, st_latitude, st_longitude, st_dist, st_hours, inv_uid ,inv_quantity, inv_price, inv_volume, pd_uid, pd_name, pd_description, pd_img, mk_uid, mk_name, mk_insta, mk_logo);		
 			list.add(dto);
 		}
-		ProductInStoreDTO[] arr = new ProductInStoreDTO[list.size()];
+		ProductEveryStoreDTO[] arr = new ProductEveryStoreDTO[list.size()];
 		list.toArray(arr);
 		return arr;
 	}
@@ -328,8 +368,8 @@ public class SearchDAO {
 		
 	}
 	
-	public ProductInStoreDTO[] showProductsByStore(int pd_uid) throws SQLException {
-		ProductInStoreDTO[] arr = null;
+	public ProductEveryStoreDTO[] showProductsByStore(int pd_uid) throws SQLException {
+		ProductEveryStoreDTO[] arr = null;
 		try {
 			pstmt = conn.prepareStatement(D.SQL_SELECT_STORE_BY_PRODUCT); // query
 			pstmt.setInt(1, pd_uid);

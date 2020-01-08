@@ -13,12 +13,21 @@ public interface D {
 	// 특정 매장에서 판매하는 제품 정보 가져오기
 	public static final String SQL_SELECT_PRODUCTS_BY_ST_UID = 
 			"SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, i.inv_volume, "
-			+ "p.pd_uid, p.pd_description, p.pd_img, p.pd_name, "
+			+ "p.pd_uid, p.pd_description, p.pd_img, p.pd_file, p.pd_name, "
 			+ "m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name "
 			+ "FROM sl_inventory i "
 			+ "JOIN sl_product p ON i.pd_uid = p.pd_uid "
 			+ "JOIN sl_market m ON p.mk_uid = m.mk_uid "
 			+ "WHERE i.st_uid = ? "
+			+ "ORDER BY m.mk_name ASC, p.pd_name ASC";
+	
+	// 모든 마켓의 제품 정보 가져오기
+	public static final String SQL_SELECT_ALL_PRODUCTS_MARKETS = 
+			"SELECT "
+			+ "p.pd_uid, p.pd_description, p.pd_img, p.pd_file, p.pd_name, "
+			+ "m.mk_uid, m.mk_logo, m.mk_file, m.mk_insta, m.mk_name "
+			+ "FROM sl_product p "
+			+ "JOIN sl_market m ON p.mk_uid = m.mk_uid "
 			+ "ORDER BY m.mk_name ASC, p.pd_name ASC";
 	
 	// 특정 매장의 특정 제품의 정보 가져오기
@@ -39,12 +48,18 @@ public interface D {
 	//매장 관리 페이지에서 보여줄 매장 정보
 	public static final String SQL_SELECT_STORE_BY_ID = "SELECT * FROM sl_offstore WHERE mb_uid = ?";
 	
+
 	// 매장 uid 로 매장정보 가져오기
 	public static final String SQL_SELECT_STORE_BY_ST_UID = "SELECT * FROM sl_offstore WHERE st_uid = ?";
 	
 	//매장 정보 UPDATE
 	public static final String SQL_UPDATE_STORE_BY_ID = "UPDATE sl_offstore"
-			+ " SET st_address = ?, st_contact = ?, st_hours = ?, st_description = ?, st_img = ?"
+			+ " SET st_address = ?, st_contact = ?, st_hours = ?, st_description = ?"
+			+ " WHERE mb_uid = ?";
+	
+	//매장 정보 UPDATE 사진 포함
+	public static final String SQL_UPDATE_STORE_INCLUDE_IMAGE_BY_ID = "UPDATE sl_offstore"
+			+ " SET st_address = ?, st_contact = ?, st_hours = ?, st_description = ?, st_img = ?, st_file = ?"
 			+ " WHERE mb_uid = ?";
 	
 	//제품 이름 검색
@@ -53,14 +68,14 @@ public interface D {
 	
 	//제품 보유 매장들 정보
 	public static final String SQL_SELECT_STORE_BY_PRODUCT = "SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, " +
-			"i.inv_volume, o.st_name, o.st_img, " + 
+			"i.inv_volume, o.st_name, o.mb_uid, o.st_address, o.st_contact, o.st_description, o.st_rating, o.st_img, o.st_valid_key, o.st_valid_img, o.st_latitude, o.st_longitude, o.st_hours, " + 
 			"p.pd_uid, p.pd_description, p.pd_img, p.pd_name, "+
-			"m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name" +
+			"m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name " +
 			"FROM sl_inventory i " + 
-			"JOIN sl_offstore o on i.st_uid = o.st_uid" + 
-			"JOIN sl_product p ON i.pd_uid = p.pd_uid" + 
-			"JOIN sl_market m ON p.mk_uid = m.mk_uid" + 
-			"WHERE p.pd_uid = ?" + 
+			"JOIN sl_offstore o on i.st_uid = o.st_uid " + 
+			"JOIN sl_product p ON i.pd_uid = p.pd_uid " + 
+			"JOIN sl_market m ON p.mk_uid = m.mk_uid " + 
+			"WHERE p.pd_uid = ? " + 
 			"ORDER BY i.inv_quantity desc;";
 	
 	// 이벤트 글 등록
@@ -118,7 +133,7 @@ public interface D {
 	
 	// 후기 글 불러오기 + 조회수 증가
 	public static final String SQL_REVIEW_INC_VIEWCNT = 
-			"UPDATE SL_review SET re_view = re_view + 1 WHERE re_uid = ?";
+			"UPDATE SL_review SET re_views = re_views + 1 WHERE re_uid = ?";
 	
 	// 후기 글 삭제하기
 	public static final String SQL_REVIEW_DELETE_BY_UID = 
@@ -140,7 +155,7 @@ public interface D {
 
 	// 후기 글 목록(회원)
 	public static final  String SQL_REVIEW_SELECT_FROM_ROW3 = 
-			"SELECT * FROM SL_review WHERE mb_uid=? ORDER BY re_uid DESC LIMIT ?, ?";
+			"SELECT * FROM SL_review WHERE wr_uid=? ORDER BY re_uid DESC LIMIT ?, ?";
 		
 	// 로그인 관련 쿼리
 	// user id에 따른 유저 정보 가져오기
@@ -148,8 +163,8 @@ public interface D {
 			"SELECT * FROM sl_member WHERE mb_id = ?";
 	
 	// 회원 수정하기
-		public static final String SQL_MEMBER_UPDATE =
-				"UPDATE SL_member SET mb_pw = ?, mb_cell = ?, mb_address = ?, mb_email = ? WHERE mb_uid = ?";
+	public static final String SQL_MEMBER_UPDATE =
+			"UPDATE SL_member SET mb_pw = ?, mb_cell = ?, mb_address = ?, mb_email = ? WHERE mb_uid = ?";
 
 	// 회원 목록 모두 불러오기
 	public static final String SQL_MEMBER_SELECT_ALL = 

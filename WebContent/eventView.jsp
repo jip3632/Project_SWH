@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="beans.*" %>
 <%
-	EventDTO [] arr = (EventDTO[]) request.getAttribute("view");
+	EventDTO [] arr = (EventDTO[]) request.getAttribute("list");
 %>
 
 <% if(arr == null || arr.length == 0){ %>

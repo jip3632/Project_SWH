@@ -32,9 +32,11 @@ CREATE TABLE SL_offstore
     `st_hours`        TEXT           NOT NULL    COMMENT '매장 영업시간', 
     `st_description`  TEXT           NULL        COMMENT '매장 설명', 
     `st_rating`       DOUBLE            NOT NULL    DEFAULT 0 COMMENT '매장 평점', 
-    `st_img`          VARCHAR(45)    NULL        COMMENT '매장 사진', 
+    `st_img`       VARCHAR(200)    NULL        COMMENT '매장 사진(원본파일명)', 
+    `st_file`		  VARCHAR(200)   null		COMMENT '저장파일명',
     `st_valid_key`    INT            NOT NULL    COMMENT '매장 사업자등록번호 번호', 
-    `st_valid_img`    VARCHAR(45)    NOT NULL    COMMENT '매장 사업자등록증', 
+    `st_valid_img`    VARCHAR(200)    NOT NULL    COMMENT '매장 사업자등록증', 
+    `st_valid_file`   VARCHAR(200)	not null  	COMMENT '매장 사업자 등록증 (원본파일)',
     `st_latitude`     VARCHAR(20)    NOT NULL    COMMENT '매장 위도', 
     `st_longitude`    VARCHAR(20)    NOT NULL    COMMENT '매장 경도', 
     PRIMARY KEY (st_uid)
@@ -56,7 +58,8 @@ CREATE TABLE SL_market
     `mk_uid`    INT            NOT NULL    AUTO_INCREMENT COMMENT '마켓 고유 아이디', 
     `mk_name`   VARCHAR(45)    NOT NULL    COMMENT '마켓 이름', 
     `mk_insta`  VARCHAR(45)    NULL        COMMENT '마켓 인스타', 
-    `mk_logo`   VARCHAR(45)    NULL        COMMENT '마켓 로고', 
+    `mk_logo` VARCHAR(200)    NULL        COMMENT '마켓 로고(원본파일명)', 
+    `mk_file`	VARCHAR(200)   null			COMMENT '저장파일명',
     PRIMARY KEY (mk_uid)
 );
 
@@ -75,7 +78,8 @@ CREATE TABLE SL_product
     `pd_uid`          INT            NOT NULL    AUTO_INCREMENT COMMENT '제품 고유 번호', 
     `pd_name`         VARCHAR(45)    NOT NULL    COMMENT '제품 명', 
     `pd_description`  text           NULL        COMMENT '제품 설명', 
-    `pd_img`          VARCHAR(45)    NULL        COMMENT '제품 사진', 
+    `pd_img`       VARCHAR(200)    NULL        COMMENT '제품 사진(원본파일명)', 
+    `pd_file`		  VARCHAR(200)   null		COMMENT '저장파일명',
     `mk_uid`          INT            NOT NULL    COMMENT '제작자', 
     PRIMARY KEY (pd_uid)
 );
@@ -185,14 +189,15 @@ values
 (105, 'slimeStore', '1234', '슬라임가게', '대전광역시 중구', '01088889999', 'slimeStore@gmail.com', 2);
 
 -- SL_offstore 매장 테이블 (Foreign Key: 연동시킬 SL_member의 mb_uid 입력하세요)
-insert into SL_offstore (st_uid, mb_uid, st_name, st_address, st_contact, st_hours, st_rating, st_valid_key, st_valid_img, st_latitude, st_longitude)
+insert into SL_offstore (st_uid, mb_uid, st_name, st_address, st_contact, st_hours, st_rating, st_valid_key, st_valid_img, st_valid_file, st_latitude, st_longitude, st_file)
 VALUES
-(1101, 101, '미미즈그로브', '서울시 성동구 행당로11길 5-2 1층', '0507-1331-8029', '12:00-20:00', 3, 123456789, '123456789', '37.558603', '127.030525'),
-(1102, 102, '슬라임쿡', '서울시 마포구 와우산로29바길 11-3 1층', '0507-1328-5992', '13:00-21:00', 4, 223456789, '223456789', '37.555993', '126.926290'),
-(1103, 103, '젤시스쇼룸', '서울 강남구 강남대로94길 27 101호', '02-552-1917', '11:00-21:00', 5, 323456789, '323456789', '37.500046', '127.029555'), 
-(1104, 104, '전포동제과점', '부산광역시 부산진구 전포대로232, 2층', '카카오플러스 친구 전포동제과점', '화~목 14:00-20:00, 금~일 11:00-21:00', 4, 423456789, '423456789', '35.157565', '129.065718'),
-(1105, 105, '슬라임가게', '대전광역시 중구 은행동 169-9번지', '070-4466-9790', '13:00-20:00', 5, 523456789, '523456789', '36.327665', '127.427989'); 
+(1101, 101, '미미즈그로브', '서울시 성동구 행당로11길 5-2 1층', '0507-1331-8029', '12:00-20:00', 3, 123456789, '123456789', '123456789', '37.558603', '127.030525', 'asdf'),
+(1102, 102, '슬라임쿡', '서울시 마포구 와우산로29바길 11-3 1층', '0507-1328-5992', '13:00-21:00', 4, 223456789, '223456789', '223456789', '37.555993', '126.926290', '123asdf124'),
+(1103, 103, '젤시스쇼룸', '서울 강남구 강남대로94길 27 101호', '02-552-1917', '11:00-21:00', 5, 323456789, '323456789', '323456789', '37.500046', '127.029555', '12asdfff34'), 
+(1104, 104, '전포동제과점', '부산광역시 부산진구 전포대로232, 2층', '카카오플러스 친구 전포동제과점', '화~목 14:00-20:00, 금~일 11:00-21:00', 4, 423456789, '423456789', '423456789', '35.157565', '129.065718', '123asdf4'),
+(1105, 105, '슬라임가게', '대전광역시 중구 은행동 169-9번지', '070-4466-9790', '13:00-20:00', 5, 523456789, '523456789', '523456789', '36.327665', '127.427989', '12aaaa34'); 
 
+select * from sl_offstore so;
 -- SL_market 입점마켓
 insert into SL_market (mk_uid, mk_name, mk_insta)
 values
@@ -261,7 +266,7 @@ values
 (1105, 8, 5, 33333, 150);
 
 select * from sl_member;
-select * from sl_offstore where mb_uid = 101;
+select * from sl_offstore;
 select * from sl_market;
 select * from sl_product;
 select * from sl_inventory;
@@ -272,5 +277,11 @@ m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name
 FROM sl_inventory i 
 JOIN sl_product p ON i.pd_uid = p.pd_uid 
 JOIN sl_market m ON p.mk_uid = m.mk_uid 
-WHERE i.st_uid = 1101 and i.inv_uid = 26
+ORDER BY m.mk_name ASC, p.pd_name asc;
+
+SELECT
+p.pd_uid, p.pd_description, p.pd_img, p.pd_file, p.pd_name, 
+m.mk_uid, m.mk_logo, m.mk_file, m.mk_insta, m.mk_name 
+FROM sl_product p 
+JOIN sl_market m ON p.mk_uid = m.mk_uid 
 ORDER BY m.mk_name ASC, p.pd_name asc;

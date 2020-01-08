@@ -25,7 +25,7 @@
 			<button onclick="location.href='mainProduct.slime'">Product</button>
 		</div>
 		<form method="GET">
-			<input type="text" name="word" id="wordSearch"><button onclick="ajax();">검색</button>
+			<input type="text" name="word" id="wordSearch"><button type="button" onclick="ajax();">검색</button>
 		</form>
 
 	</div>

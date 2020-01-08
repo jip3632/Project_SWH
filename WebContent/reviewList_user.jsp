@@ -5,7 +5,7 @@
 <%  
 	ReviewDTO [] rarr = (ReviewDTO [])request.getAttribute("rlist");
 	StoreDTO [] sarr = (StoreDTO [])request.getAttribute("slist");
-	int st_uid = Integer.parseInt(request.getParameter("st_uid"));
+	int mb_uid = Integer.parseInt(request.getParameter("mb_uid"));
 	int curPage = Integer.parseInt(request.getParameter("page"));
 	int totalPage = (Integer)request.getAttribute("totalPage");
 	int writePages = (Integer)request.getAttribute("writePages");
@@ -53,7 +53,7 @@ table, th, td {
 			for(int i = 0; i < rarr.length; i++){
 				out.println("<tr>");
 				out.println("<td>" + rarr[i].getRe_uid() + "</td>");
-				out.println("<td><a href='reviewView.slime?uid=" + rarr[i].getRe_uid() + "'>" + rarr[i].getRe_subject() + "</a></td>");
+				out.println("<td><a href='reviewView3.slime?re_uid=" + rarr[i].getRe_uid() + "'>" + rarr[i].getRe_subject() + "</a></td>");
 				
 				for(int k = 0; k < sarr.length; k++){
 					if(sarr[k].getSt_uid() == rarr[i].getSt_uid()){
@@ -61,7 +61,7 @@ table, th, td {
 					}
 				}
 				out.println("<td>" + storeName + "</td>");
-				out.println("<td>" + rarr[i].getRe_view() + "</td>");
+				out.println("<td>" + rarr[i].getRe_views() + "</td>");
 				out.println("<td>" + rarr[i].getRe_regdate() + "</td>");
 				out.println("</tr>");
 			}
@@ -69,7 +69,6 @@ table, th, td {
 %>		
 		</table>
 		<br>
-		<button onclick="location.href='reviewWrite.slime?st_uid=<%= st_uid %>'">신규등록</button>
 
 <%-- 페이징 --%>
 <jsp:include page="paginationU.jsp">

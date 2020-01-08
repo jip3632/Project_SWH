@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.ProductEveryStoreDTO;
 import beans.ProductInStoreDTO;
 import beans.SearchDAO;
 
@@ -13,7 +14,7 @@ public class ProductViewCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		SearchDAO dao = new SearchDAO();
-		ProductInStoreDTO [] arr = null;
+		ProductEveryStoreDTO [] arr = null;
 		
 		int pd_uid = Integer.parseInt(request.getParameter("pd_uid"));
 
