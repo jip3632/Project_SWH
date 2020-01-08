@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="beans.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%  
 	EventDTO [] arr = (EventDTO [])request.getAttribute("list");
 	int st_uid = Integer.parseInt(request.getParameter("st_uid"));
+	int page = Integer.parseInt(request.getParameter("page"));
+	int totalPage = Integer.parseInt(request.getParameter("totalPage"));
+	int writePages = Integer.parseInt(request.getParameter("writePages"));
 %>
 
 <!DOCTYPE html>
