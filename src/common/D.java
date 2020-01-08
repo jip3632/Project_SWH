@@ -13,7 +13,7 @@ public interface D {
 	// 특정 매장에서 판매하는 제품 정보 가져오기
 	public static final String SQL_SELECT_PRODUCTS_BY_ST_UID = 
 			"SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, i.inv_volume, "
-			+ "p.pd_uid, p.pd_description, p.pd_img, p.pd_name, "
+			+ "p.pd_uid, p.pd_description, p.pd_img, p.pd_file, p.pd_name, "
 			+ "m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name "
 			+ "FROM sl_inventory i "
 			+ "JOIN sl_product p ON i.pd_uid = p.pd_uid "
