@@ -306,7 +306,7 @@ public class SearchDAO {
 	}
 	
 
-	public ProductInStoreDTO[] createArrayProductEveryStore(ResultSet rs) throws SQLException {
+	public ProductEveryStoreDTO[] createArrayProductEveryStore(ResultSet rs) throws SQLException {
 		ArrayList<ProductEveryStoreDTO> list = new ArrayList<ProductEveryStoreDTO>();
 		while(rs.next()) {
 			int st_uid = rs.getInt("st_uid");
@@ -342,7 +342,7 @@ public class SearchDAO {
 			ProductEveryStoreDTO dto = new ProductEveryStoreDTO(st_uid, mb_uid, st_name, st_address, st_contact, st_description, st_rating, st_img, st_valid_key, st_valid_img, st_latitude, st_longitude, st_dist, st_hours, inv_uid ,inv_quantity, inv_price, inv_volume, pd_uid, pd_name, pd_description, pd_img, mk_uid, mk_name, mk_insta, mk_logo);		
 			list.add(dto);
 		}
-		ProductInStoreDTO[] arr = new ProductInStoreDTO[list.size()];
+		ProductEveryStoreDTO[] arr = new ProductEveryStoreDTO[list.size()];
 		list.toArray(arr);
 		return arr;
 	}
@@ -368,8 +368,8 @@ public class SearchDAO {
 		
 	}
 	
-	public ProductInStoreDTO[] showProductsByStore(int pd_uid) throws SQLException {
-		ProductInStoreDTO[] arr = null;
+	public ProductEveryStoreDTO[] showProductsByStore(int pd_uid) throws SQLException {
+		ProductEveryStoreDTO[] arr = null;
 		try {
 			pstmt = conn.prepareStatement(D.SQL_SELECT_STORE_BY_PRODUCT); // query
 			pstmt.setInt(1, pd_uid);
