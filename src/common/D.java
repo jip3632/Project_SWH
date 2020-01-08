@@ -122,16 +122,24 @@ public interface D {
 	// 후기 글 목록 전체 개수 가져오기
 	public static final String SQL_REVIEW_COUNT_ALL = 
 			"SELECT COUNT(*) FROM SL_review";
-	// 후기 글 from 부터 row 만큼 SELECT : LIMIT 은 0 부터 시작 주의!
+	// 후기 글 목록(전체)
 	public static final  String SQL_REVIEW_SELECT_FROM_ROW = 
 			"SELECT * FROM SL_review ORDER BY re_uid DESC LIMIT ?, ?";
-	// 후기 글 from 부터 row 만큼 SELECT : LIMIT 은 0 부터 시작 주의!
+	// 후기 글 목록(매장)
 	public static final  String SQL_REVIEW_SELECT_FROM_ROW2 = 
-			"SELECT * FROM SL_review WHERE st_uid=? ORDER BY ev_end_date DESC LIMIT ?, ?";
+			"SELECT * FROM SL_review WHERE st_uid=? ORDER BY re_uid DESC LIMIT ?, ?";
 
+	// 후기 글 목록(회원)
+	public static final  String SQL_REVIEW_SELECT_FROM_ROW3 = 
+			"SELECT * FROM SL_review WHERE mb_uid=? ORDER BY re_uid DESC LIMIT ?, ?";
+		
 	// 로그인 관련 쿼리
 	// user id에 따른 유저 정보 가져오기
 	public static final String SQL_SELECT_MEMBER_BY_MB_ID = 
 			"SELECT * FROM sl_member WHERE mb_id = ?";
+	
+	// 회원 수정하기
+		public static final String SQL_MEMBER_UPDATE =
+				"UPDATE SL_member SET mb_pw = ?, mb_cell = ?, mb_address = ?, mb_email = ? WHERE mb_uid = ?";
 
 }

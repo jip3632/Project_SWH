@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.*;
 
-public class ReviewListCommand implements Command {
+public class ReviewListManagerCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

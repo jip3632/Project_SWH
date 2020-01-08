@@ -38,9 +38,9 @@
 		<br>
 	</div>
 	<div>
-		<button onclick="location.href = #">회원 정보 변경</button>
+		<button onclick="location.href = memberSetting.slime?mb_uid=<%= arr[0].getMb_uid() %>">회원 정보 변경</button>
 		<button onclick="location.href = #">찜 정보 확인</button>
-		<button onclick="location.href = #">내 리뷰 관리</button>
+		<button onclick="location.href = reviewListU.slime?mb_uid=<%= arr[0].getMb_uid() %>">내 리뷰 관리</button>
 	</div>
 </article>
 </body>

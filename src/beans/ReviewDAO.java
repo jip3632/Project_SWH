@@ -25,7 +25,6 @@ public class ReviewDAO {
 		try {
 			Class.forName(D.DRIVER);
 			conn = DriverManager.getConnection(D.URL, D.USERID, D.USERPW);
-			System.out.println("WriteDAO 객체 생성, 데이터베이스 연결");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -212,13 +211,30 @@ public class ReviewDAO {
 	
 	// 페이징 
 	
-	// 몇번째 from  부터 몇개 rows 를 SELECT (마켓)
+	// 몇번째 from  부터 몇개 rows 를 SELECT (매장)
 	public ReviewDTO [] selectFromRow(int st_uid, int from, int rows) throws SQLException {
 		ReviewDTO [] arr = null;
 		
 		try {
 			pstmt = conn.prepareStatement(D.SQL_REVIEW_SELECT_FROM_ROW2);
 			pstmt.setInt(1, st_uid);
+			pstmt.setInt(2, from);
+			pstmt.setInt(3, rows);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+			
+		} finally {
+			close();
+		}
+		return arr;
+	}
+	// 몇번째 from  부터 몇개 rows 를 SELECT (회원)
+	public ReviewDTO [] selectFromRow2(int mb_uid, int from, int rows) throws SQLException {
+		ReviewDTO [] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_REVIEW_SELECT_FROM_ROW3);
+			pstmt.setInt(1, mb_uid);
 			pstmt.setInt(2, from);
 			pstmt.setInt(3, rows);
 			rs = pstmt.executeQuery();
