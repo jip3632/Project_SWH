@@ -8,63 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>제품 등록</title>
-<style>
-.modal-content-market{
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
 
-.modal-content-market .content{
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-.close{
-  color: black;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.close:hover, .close:focus{
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.market:hover, .market:focus{
-  background-color: light-grey;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
@@ -77,19 +21,11 @@
 	<%-- MODAL에서 정보 받아올때 --%>
 	<%-- javascript로 구현 --%>
 	<button id="find_market" type="button" onclick="showMarkets(<%=st_uid%>)">마켓 찾기</button>
-	<form name="frm" method="post" action="" onsubmit="market">
-		<div>
-			<img alt="mk_img" src="upload/market/file_name">
-			<div>mk_name</div>
-			<div>mk_insta</div>
+	<form action="addProductOk.slime" name="frm" method="post" onsubmit="return chkInventory()">
+		<div id="market_detail">
 		</div>
 		
-		<div>
-			<img alt="pd_img" src="upload/product/file_name">
-			<div>pd_name</div>
-			<div>용량 <input type="text" name="inv_volume" value="inv_volume">ml</div>
-			<div>가격 <input type="text" name="inv_price" value="inv_price">원</div>
-			<div>재고 <input type="text" name="inv_quantity" value="inv_quantity">개</div>
+		<div id="product_detail">
 		</div>
 		<input type="submit" value="완료">
 	</form>	

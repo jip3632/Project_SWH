@@ -18,6 +18,7 @@ public class ManagerPageCommand implements Command {
 		StoreDTO[] sarr = null;
 		FileDAO fdao = new FileDAO();
 		FileDTO[] farr = null;
+		System.out.println("abc");
 		int mb_uid = Integer.parseInt(request.getParameter("mb_uid"));
 		try {
 			sarr = sdao.selectStore(mb_uid);
