@@ -15,17 +15,12 @@
 	
 	<header></header>
 	<h2>일반 회원 가입</h2>
-	<form>
+	<form action="signUpUserOk.slime">
 		이름: <input type="text" name="user_name" required><br>
 		휴대폰번호: <input type="tel" name="phone_number" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required><br>
-		
+		<input type="hidden" id="confmKey" name="confmKey" value=""  >
 		<button type="button" onclick="goPopup();">주소찾기</button>
-		도로명주소 전체(포맷)<input type= "text"  id= "roadFullAddr"  name= "roadFullAddr" /><br> 
-		도로명주소 <input type= "text" id= "roadAddrPart1"  name= "roadAddrPart1" /><br> 
-		고객입력 상세주소<input type= "text"  id= "addrDetail"  name= "addrDetail" /><br> 
-		참고주소<input type= "text"  id= "roadAddrPart2"   name= "roadAddrPart2" /><br> 
-		우편번호<input type= "text"  id= "zipNo"  name= "zipNo" /><br>
-		
+		도로명주소<input type="text"  id="roadFullAddr"  name="roadFullAddr" /><br> 
 		아이디: <input type="text" name="user_id" required><button type="button" onclick="">아이디 중복 확인</button><br>
 		비밀번호: <input type="password" name="user_pw" required><br>
 		비밀번호확인: <input type="password" name="user_pw_confirm" required><br>
