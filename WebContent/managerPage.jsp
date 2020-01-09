@@ -51,9 +51,9 @@
 		<%-- 제품관리 버튼 --%>
 		<button type="button" onclick="location.href = 'productList.slime?st_uid=<%= arr[0].getSt_uid()%>'">제품 관리</button>
 		<%-- 이벤트 관리 버튼--%>
-		<button type="button" onclick="location.href = 'eventList.slime?st_uid=<%= arr[0].getSt_uid()%>'">이벤트 관리</button>
+		<button type="button" onclick="location.href = 'eventList.slime?st_uid=<%= arr[0].getSt_uid()%>&page=1'">이벤트 관리</button>
 		<%-- 후기 관리 버튼--%>
-		<button type="button" onclick="location.href = 'reviewListM.slime?st_uid=<%= arr[0].getSt_uid()%>'">후기 관리</button>
+		<button type="button" onclick="location.href = 'reviewListM.slime?st_uid=<%= arr[0].getSt_uid()%>&page=1'">후기 관리</button>
 		<%-- 로그아웃 버튼 --%>
 		<button type="button" onclick="location.href = 'logout.slime'">로그아웃</button>
 	</div>

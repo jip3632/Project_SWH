@@ -118,6 +118,19 @@ public class MemberDAO {
 		return cnt;
 	}
 	
+	// 모든 회원 불러오기
+	public MemberDTO[] selectAllMembers() throws SQLException {
+		MemberDTO[] arr = null;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_MEMBER_SELECT_ALL); // query
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		return arr;
+	}
+	
 	
 	
 } // end class

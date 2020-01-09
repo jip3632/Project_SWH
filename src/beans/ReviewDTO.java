@@ -7,7 +7,7 @@ public class ReviewDTO {
 	private String re_subject;              //후기 제목
 	private String re_content;              //후기 내용
 	private String re_regdate;              //후기 작성일
-	private int re_view;                    //후기 조회수
+	private int re_views;                   //후기 조회수
 	private int st_uid;                     //매장 고유 번호
 	
 	// constructor
@@ -15,7 +15,7 @@ public class ReviewDTO {
 		super();
 	}
 	
-	public ReviewDTO(int re_uid, int wr_uid, String re_subject, String re_content, String re_regdate, int re_view,
+	public ReviewDTO(int re_uid, int wr_uid, String re_subject, String re_content, String re_regdate, int re_views,
 			int st_uid) {
 		super();
 		this.re_uid = re_uid;
@@ -23,7 +23,7 @@ public class ReviewDTO {
 		this.re_subject = re_subject;
 		this.re_content = re_content;
 		this.re_regdate = re_regdate;
-		this.re_view = re_view;
+		this.re_views = re_views;
 		this.st_uid = st_uid;
 	}
 
@@ -68,12 +68,12 @@ public class ReviewDTO {
 		this.re_regdate = re_regdate;
 	}
 
-	public int getRe_view() {
-		return re_view;
+	public int getRe_views() {
+		return re_views;
 	}
 
-	public void setRe_view(int re_view) {
-		this.re_view = re_view;
+	public void setRe_views(int re_views) {
+		this.re_views = re_views;
 	}
 
 	public int getSt_uid() {

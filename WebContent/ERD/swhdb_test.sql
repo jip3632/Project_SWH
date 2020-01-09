@@ -282,5 +282,11 @@ m.mk_uid, m.mk_logo, m.mk_insta, m.mk_name
 FROM sl_inventory i 
 JOIN sl_product p ON i.pd_uid = p.pd_uid 
 JOIN sl_market m ON p.mk_uid = m.mk_uid 
-WHERE i.st_uid = 1101 and i.inv_uid = 26
+ORDER BY m.mk_name ASC, p.pd_name asc;
+
+SELECT
+p.pd_uid, p.pd_description, p.pd_img, p.pd_file, p.pd_name, 
+m.mk_uid, m.mk_logo, m.mk_file, m.mk_insta, m.mk_name 
+FROM sl_product p 
+JOIN sl_market m ON p.mk_uid = m.mk_uid 
 ORDER BY m.mk_name ASC, p.pd_name asc;

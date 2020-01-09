@@ -79,7 +79,7 @@ public class ReviewDAO {
 			String subject = rs.getString("re_subject");
 			String content = rs.getString("re_content");
 			if(content == null) content = "";
-			int view = rs.getInt("re_view");
+			int view = rs.getInt("re_views");
 			Date d = rs.getDate("re_regdate");
 			Time t = rs.getTime("re_regdate");
 			String regdate = new SimpleDateFormat("yyyy-MM-dd").format(d) + " " 

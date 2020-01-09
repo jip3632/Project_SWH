@@ -21,23 +21,31 @@
 <title>회원정보변경</title>
 </head>
 <body>
-<article>
+<div id="container">
+   <nav>
+      <div>네비게이션 바</div>
+   </nav>
+
 <h3>회원 정보 변경</h3>
 <form name="frm" action="memberSettingOk.slime" method="post" onsubmit="return chkUpdate()">
 	<input type="hidden" name="mb_uid" value="<%= mb_uid%>">
 	
 	이름 : <%= mb_name %> <br>
 	아이디 : <%= mb_id %> <br>
-	비밀번호 : <input type="password" name="mb_password" value="<%= mb_pw %>"><br>
+	비밀번호 : <input type="password" name="mb_pw" value="<%= mb_pw %>"><br>
+	비밀번호 확인 : <input type="password" name="mb_pw2"><br>
 	연락처 : <input type="text" name="mb_cell" value="<%= mb_cell %>"><br>
 	주소 : <input type="text" name="mb_address" value="<%= mb_address %>"><br>
-	이메일 : <input type="text" name="st_start" value="<%= mb_email %>"><br>
-	가입날짜 : <%= mb_regdate %>"><br>
+	이메일 : <input type="text" name="mb_email" value="<%= mb_email %>"><br>
+	가입날짜 : <%= mb_regdate %><br>
+	<br>
 
 	<input type="submit" value="수정">
-</form>
-</article>	
-
+</form>	
+   <footer>
+   
+   </footer>
+</div>
 </body>
 <script>
 	function chkUpdate(){
@@ -45,9 +53,14 @@
 		if(r){ //수정 여부 확인
 			var frm = document.forms["frm"];
 			var pw = frm.mb_pw.value.trim();
+			var pw2 = frm.mb_pw2.value.trim();
+			if(pw != pw2){
+				alert("비밀번호가 일치하지 않습니다.");
+			}
 			var cell = frm.mb_cell.value.trim();
 			var address = frm.mb_address.value.trim();
 			var email = frm.mb_email.value.trim();
+			
 			if(pw == "" || cell == ""|| address == ""|| email == ""){
 				alert("모든 정보는 필수 입력란입니다.");
 				return false;

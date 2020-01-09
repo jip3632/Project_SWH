@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.*;
 
-public class ReviewListManagerCommand implements Command {
+public class ReviewListEveryCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -16,8 +16,8 @@ public class ReviewListManagerCommand implements Command {
 		ReviewDTO [] rarr = null;
 		MemberDAO mdao = new MemberDAO();
 		MemberDTO [] marr = null;
-		
-		int st_uid = Integer.parseInt(request.getParameter("st_uid"));
+		SearchDAO sdao = new SearchDAO();
+		StoreDTO [] sarr = null;
 		
 		// 페이징 관련 세팅 값들
 		int page = 1; // 현재 페이지 (디폴트 1 page)
@@ -48,16 +48,17 @@ public class ReviewListManagerCommand implements Command {
 			
 			rdao = new ReviewDAO();
 			
-			rarr = rdao.selectFromRow(st_uid, fromRow, pageRows);
+			rarr = rdao.selectFromRow(fromRow, pageRows);
 			marr = mdao.selectAllMembers();
+			sarr = sdao.selectAllStores();
 			
 			request.setAttribute("rlist", rarr);
 			request.setAttribute("mlist", marr);
+			request.setAttribute("slist", sarr);
 			request.setAttribute("page", page);
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("writePages", writePages);
 			request.setAttribute("pageRows", pageRows);
-			request.setAttribute("st_uid", st_uid);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

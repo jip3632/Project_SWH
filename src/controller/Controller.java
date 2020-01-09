@@ -112,30 +112,76 @@ public class Controller extends HttpServlet {
 			new EventViewCommand().execute(request, response);
 			viewPage = "eventView.jsp";
 			break;
-		//이벤트 글 업데이트
+		//이벤트 글 수정
 		case "/eventUpdate.slime":
 			new EventUpdateCommand().execute(request, response);
 			viewPage = "eventUpdate.jsp";
 			break;
-		//이벤트 글 업데이트 확인
+		//이벤트 글 수정 확인
 		case "/eventUpdateOk.slime":
 			new EventUpdateOkCommand().execute(request, response);
 			viewPage = "eventUpdateOk.jsp";
 			break;
 		//이벤트 글 삭제
 		case "/eventDeleteOk.slime":
-			command = new EventDeleteCommand();
-			command.execute(request, response);
+			new EventDeleteCommand().execute(request, response);
 			viewPage = "eventDeleteOk.jsp";
 			break;
-		//리뷰 목록(매장)
+		//후기 목록(매장)
 		case "/reviewListM.slime":
 			new ReviewListManagerCommand().execute(request, response);
 			viewPage = "reviewList_manager.jsp";
-		//리뷰 목록(회원)
+			break;
+		//후기 목록(회원)
 		case "/reviewListU.slime":
 			new ReviewListUserCommand().execute(request, response);
 			viewPage = "reviewList_user.jsp";
+			break;
+		//후기 목록(전체)
+		case "/reviewListE.slime":
+			new ReviewListEveryCommand().execute(request, response);
+			viewPage = "reviewList_everyone.jsp";
+			break;
+		//후기 작성하기
+		case "/reviewWrite.slime":
+			new ReviewWriteCommand().execute(request, response);
+			viewPage = "reviewWrite.jsp";
+			break;
+		//후기 작성하기 확인
+		case "/reviewWriteOk.slime":
+			new ReviewWriteOkCommand().execute(request, response);
+			viewPage = "reviewWriteOk.jsp";
+			break;
+		//후기 글 보기
+		case "/reviewView.slime":
+			new ReviewViewCommand().execute(request, response);
+			viewPage = "reviewView.jsp";
+			break;
+		//후기 글 보기(회원)
+		case "/reviewView2.slime":
+			new ReviewViewCommand().execute(request, response);
+			viewPage = "reviewView2.jsp";
+			break;
+		//후기 글 보기(회원)
+		case "/reviewView3.slime":
+			new ReviewViewCommand().execute(request, response);
+			viewPage = "reviewView3.jsp";
+			break;
+		//후기 글 수정
+		case "/reviewUpdate.slime":
+			new ReviewUpdateCommand().execute(request, response);
+			viewPage = "reviewUpdate.jsp";
+			break;
+		//후기 글 수정 확인
+		case "/reviewUpdateOk.slime":
+			new ReviewUpdateOkCommand().execute(request, response);
+			viewPage = "reviewUpdateOk.jsp";
+			break;
+		//후기 글 삭제
+		case "/reviewDeleteOk.slime":
+			new ReviewDeleteCommand().execute(request, response);
+			viewPage = "reviewDeleteOk.jsp";
+			break;
 		//로그인 페이지
 		case "/login.slime":
 			viewPage = "login.jsp";
@@ -145,15 +191,24 @@ public class Controller extends HttpServlet {
 			new LoginOkCommand().execute(request, response);
 			viewPage = "loginOk.jsp";
 			break;
+		//회원 마이페이지
+		case "/userPage.slime":
+			new UserPageCommand().execute(request, response);
+			viewPage = "userPage.jsp";
+			break;
 		//회원 정보 변경
 		case "/memberSetting.slime":
-			new UserPageCommand().execute(request, response); //매장관리페이지와 동일한 데이터를 가져오기때문에 Command재사용
+			new MemberSettingCommand().execute(request, response);
 			viewPage = "memberSetting.jsp";
 			break;
-		//매자 정보 변경 확인
+		//회원 정보 변경 확인
 		case "/memberSettingOk.slime":
 			new MemberSettingOkCommand().execute(request, response);
 			viewPage = "memberSettingOk.jsp";
+			break;
+		//회원 정보 변경 확인
+		case "/help.slime":
+			viewPage = "help.jsp";
 			break;
 		}
 		

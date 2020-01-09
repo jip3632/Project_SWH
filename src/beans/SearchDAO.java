@@ -84,6 +84,24 @@ public class SearchDAO {
 	}
 	
 	/**
+	 * select all products joined with market
+	 * @return ProductMarketDTO[]
+	 * @throws SQLException
+	 */
+	public ProductMarketDTO[] selectAllProductsInMarkets() throws SQLException{
+		ProductMarketDTO[] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELECT_ALL_PRODUCTS_MARKETS);
+			rs = pstmt.executeQuery();
+			arr = createArrayProductMarket(rs);
+		} finally {
+			close();
+		}
+		return arr;
+	}
+	
+	/**
 	 * 
 	 * @param inv_uid
 	 * @return cnt (where cnt == 1 if update succeeds, otherwise 0)
@@ -270,11 +288,16 @@ public class SearchDAO {
 			if(pd_description == null) pd_description = "";
 			String pd_img = rs.getString("pd_img");
 			if(pd_img == null) pd_img = "";
+			String pd_file = rs.getString("pd_file");
+			if(pd_file == null) pd_file = "";
 			int mk_uid = rs.getInt("mk_uid");
 			String mk_name = rs.getString("mk_name");
 			String mk_insta = rs.getString("mk_insta");
 			String mk_logo = rs.getString("mk_logo");
-			ProductMarketDTO dto = new ProductMarketDTO(pd_uid, pd_name, pd_description, pd_img, mk_uid, mk_name, mk_insta, mk_logo);		
+			if(mk_logo == null) mk_logo = "";
+			String mk_file = rs.getString("mk_file");
+			if(mk_file == null) mk_file = "";
+			ProductMarketDTO dto = new ProductMarketDTO(pd_uid, pd_name, pd_description, pd_img, pd_file, mk_uid, mk_name, mk_insta, mk_logo, mk_file);		
 			list.add(dto);
 		}
 		ProductMarketDTO[] arr = new ProductMarketDTO[list.size()];
