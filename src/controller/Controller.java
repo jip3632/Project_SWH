@@ -206,6 +206,10 @@ public class Controller extends HttpServlet {
 			new MemberSettingOkCommand().execute(request, response);
 			viewPage = "memberSettingOk.jsp";
 			break;
+		//회원 정보 변경 확인
+		case "/help.slime":
+			viewPage = "help.jsp";
+			break;
 		}
 		
 		if (viewPage != null) {
