@@ -187,6 +187,11 @@ values
 (103, 'gelsshowroom', '1234', '젤시스쇼룸', '서울특별시 강남구', '01066667777', 'gelsshowroom@gmail.com', 2),
 (104, 'jeonpo', '1234', '전포동제과점', '부산광역시 부산진구', '01077778888', 'jeonpo@gmail.com', 2),
 (105, 'slimeStore', '1234', '슬라임가게', '대전광역시 중구', '01088889999', 'slimeStore@gmail.com', 2);
+insert into SL_member (mb_uid, mb_id, mb_pw, mb_name, mb_address, mb_cell, mb_email, mb_type)
+values
+(106, 'bluegenius12', '1234', '김진석', '경기도 고양시 일산동구 강촌로12번길', '01034564378', 'bluegenius12@gmail.com', 1),
+(107, 'slim01', '4567', '이준일', '경기도 광주시 경안로25번길', '01068431098', 'slime01@gmail.com', 1),
+(108, 'cantona10', 'qwer123', '한도경', '경기도 성남시 분당구 구미로174번길', '010-5674-7234', 'cantona10@gmail.com', 1);
 
 -- SL_offstore 매장 테이블 (Foreign Key: 연동시킬 SL_member의 mb_uid 입력하세요)
 insert into SL_offstore (st_uid, mb_uid, st_name, st_address, st_contact, st_hours, st_rating, st_valid_key, st_valid_img, st_valid_file, st_latitude, st_longitude, st_file)

@@ -26,18 +26,20 @@ public class LoginOkCommand implements Command {
 			e.printStackTrace();
 		}
 		HttpSession session = request.getSession(true); // 세션가져오기 없으면 생성
+		session.setAttribute("login", null);
 		
 		if (arr.length == 0) {
 			// 아이디가 없음
-			session.setAttribute("existId", 0);
+			request.setAttribute("existId", 0);	
 		} else {
 			// 아이디가 존재
-			session.setAttribute("existId", 1);
+			request.setAttribute("existId", 1);
 			MemberDTO dto = arr[0];
 			
 			if (pw.equals(dto.getMb_pw())) {
 				
 				session.setAttribute("login", 1);
+				request.setAttribute("existId", 2);
 				session.setAttribute("mb_uid", dto.getMb_uid());
 				session.setAttribute("mb_type", dto.getMb_type());
 				session.setAttribute("mb", dto);

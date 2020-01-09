@@ -37,13 +37,15 @@
 		if ((Integer)session.getAttribute("mb_type") == 1) {
 		%>
 		<script>
-			location.href='userPage.slime?mb_uid=${mb_uid }'
+			location.href='userPage.slime?mb_uid=${mb_uid }';
+			//location.href='mainStore.slime';
 		</script>
 		<%
 		} else if ((Integer)session.getAttribute("mb_type") == 2) {
 		%>
 		<script>
-			location.href='managerPage.slime?mb_uid=${mb_uid }'
+			location.href='managerPage.slime?mb_uid=${mb_uid }';
+			//location.href='mainStore.slime';
 		</script>
 		<%
 		}
@@ -51,7 +53,7 @@
 		// 로그인 실패
 %>
 	<script>
-		location.href='login.slime'
+		location.href='login.slime?existId=${existId }';
 	</script>
 <%	
 	}
