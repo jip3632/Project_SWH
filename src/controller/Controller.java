@@ -210,8 +210,17 @@ public class Controller extends HttpServlet {
 		case "/help.slime":
 			viewPage = "help.jsp";
 			break;
+		//ID/PW찾기
+		case "/findAccount.slime":
+			viewPage = "findAccount.jsp";
+			break;
+		//ID/PW결과
+		case "/findAccountResult.slime":
+			new FindAccountCommand().execute(request, response);
+			viewPage = "findAccountResult.jsp";
+			break;
 		}
-		
+
 		if (viewPage != null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 			dispatcher.forward(request, response);

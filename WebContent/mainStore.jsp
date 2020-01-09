@@ -20,7 +20,7 @@
 
 	<nav>
 		<button onclick="location.href='mainStore.slime'">홈버튼</button>
-		<c:choose><!-- 로그인여부와 맴버 타입에 따른 버튼 종류 변경 -->
+		<c:choose>
 			<c:when test="${login == null }">
 				<button onclick="location.href='login.slime'">로그인 버튼</button>
 			</c:when>
@@ -34,7 +34,7 @@
 					</c:when>
 				</c:choose>
 			</c:otherwise>
-		</c:choose><!-- end choose -->
+		</c:choose>
 		<button onclick="location.href='reviewList_everyone.slime'">리뷰</button>
 		<button onclick=''>고객센터</button>
 	</nav>

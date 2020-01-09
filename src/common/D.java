@@ -161,6 +161,16 @@ public interface D {
 	// user id에 따른 유저 정보 가져오기
 	public static final String SQL_SELECT_MEMBER_BY_MB_ID = 
 			"SELECT * FROM sl_member WHERE mb_id = ?";
+	// ID/PW 찾기
+	// uesr email에 따른 정보 가져오기
+	public static final String SQL_SELECT_MEMBER_BY_EMAIL =
+			"SELECT * FROM sl_member WHERE mb_email = ?";
+	// user email id 에 따른 정보가져오기
+	public static final String SQL_SELECT_MEMBER_BY_EMAIL_AND_ID =
+			"SELECT * FROM sl_member WHERE mb_email = ? AND mb_id = ?";
+	// user id에 따른 mb_pw 변경 (임시 비밀번호 발급)
+	public static final String SQL_UPDATE_TEMP_PW_BY_EMAIL_AND_ID =
+			"UPDATE sl_member SET mb_pw = ? WHERE mb_email = ? AND mb_id = ?";
 	
 	// 회원 수정하기
 	public static final String SQL_MEMBER_UPDATE =

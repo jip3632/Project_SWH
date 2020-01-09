@@ -36,7 +36,7 @@
 			</form>
 		</div>
 		<div>
-			<button>ID/PW 찾기</button>
+			<button onclick="location.href='findAccount.slime'">ID/PW 찾기</button>
 			<button>회원가입</button>
 		</div>
 		</c:when>
