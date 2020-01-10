@@ -59,8 +59,6 @@
 }
 
 .market:hover, .market:focus{
-  background-color: light-grey;
-  text-decoration: none;
   cursor: pointer;
 }
 
