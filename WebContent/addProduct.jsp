@@ -22,9 +22,9 @@
 	<%-- javascript로 구현 --%>
 	<button id="find_market" type="button" onclick="showMarkets(<%=st_uid%>)">마켓 찾기</button>
 	<form action="addProductOk.slime" name="frm" method="post" onsubmit="return chkInventory()">
+		<input type="hidden" name="st_uid" value="<%= st_uid%>">
 		<div id="market_detail">
 		</div>
-		
 		<div id="product_detail">
 		</div>
 		<input type="submit" value="완료">
@@ -101,5 +101,5 @@
   </div>
   
 </body>
-<script src="JS/addProduct.js"></script>
+<script type="text/javascript" src="JS/addProduct.js"></script>
 </html>

@@ -180,4 +180,12 @@ public interface D {
 	public static final String SQL_MEMBER_SELECT_ALL = 
 			"SELECT * FROM SL_member";
 	
+	// 재고 추가
+	public static final String SQL_INSERT_INVENTORY =
+			"INSERT INTO sl_inventory (st_uid, pd_uid, inv_volume, inv_price, inv_quantity) "
+			+ "VALUES (?, ?, ?, ?, ?)";
+	
+	// 재고 추가시 이미 등록된 재고인 경우
+	public static final String SQL_UPDATE_INVENTORY_WHEN_EXIST = 
+			"UPDATE sl_inventory SET inv_volume = ?, inv_price = ?, inv_quantity = ? WHERE st_uid = ? and pd_uid = ?";
 }

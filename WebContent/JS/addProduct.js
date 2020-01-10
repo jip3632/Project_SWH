@@ -2,7 +2,6 @@
 
  * 
  */
-
 var modal = $(".modal-content-market");
 var object = "";
 /////////////////////////////마켓 찾기 클릭했을때
@@ -45,8 +44,7 @@ function parseJSON(jsonObj, st_uid){
 function showProducts(mk_uid, mk_file, mk_name, mk_insta, st_uid){
 	var table = "<img alt='" + mk_file + "' src='upload/market/" + mk_file +"'>"
 			+ "<div>" + mk_name + "</div>"
-			+ "<div>" + mk_insta + "</div>"
-			+ "<input type='hidden' name='st_uid' value='" + st_uid + "'";
+			+ "<div>" + mk_insta + "</div>";
 	$("#market_detail").html(table);
 	productList(object, mk_uid);
 }
@@ -89,13 +87,27 @@ function chkInventory(){
 	var frm = document.forms.frm;
 	var st_uid = frm.st_uid.value.trim();
 	var pd_uid = frm.pd_uid.value.trim();
+	var inv_volume = frm.inv_volume.value.trim();
+	var inv_price = frm.inv_price.value.trim();
+	var inv_quantity = frm.inv_price.value.trim();
+	if(inv_volume == "" || inv_price =="" || inv_quantity == ""){
+		alert("재고의 상세정보(용량, 가격, 재고)를 입력해주세요");
+		return false;
+	}
 	var inventory = object.inventory;
 	var count = object.inventory_count;
 	for(i = 0; i < count; i++){
+		//제품이 매장에 이미 등록된 경우
 		if(inventory[i].pd_uid == pd_uid){
-			confirm("이미 등록된 제품입니다. 현재 입력한 값으로 적용하시겠습니까?");
+			var r = confirm("이미 등록된 제품입니다. 현재 입력한 값으로 적용하시겠습니까?");
+			if(!r){
+				return false;
+			}else{
+				return true;
+			}
 		}
 	}
+	return true;
 }
 /////////////////////////////////////////////////////////////////
 

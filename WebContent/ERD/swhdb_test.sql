@@ -277,6 +277,7 @@ select * from sl_offstore;
 select * from sl_market;
 select * from sl_product;
 select * from sl_inventory;
+-- REPLACE INTO sl_inventory (inv_quantity, inv_price, inv_volume) VALUES (1, 2, 3) WHERE st_uid = 1101, pd_uid = 1;
 
 SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, i.inv_volume, 
 p.pd_uid, p.pd_description, p.pd_img, p.pd_name, 
