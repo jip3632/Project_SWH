@@ -133,7 +133,7 @@ public interface D {
 	
 	// 후기 글 불러오기 + 조회수 증가
 	public static final String SQL_REVIEW_INC_VIEWCNT = 
-			"UPDATE SL_review SET re_view = re_view + 1 WHERE re_uid = ?";
+			"UPDATE SL_review SET re_views = re_views + 1 WHERE re_uid = ?";
 	
 	// 후기 글 삭제하기
 	public static final String SQL_REVIEW_DELETE_BY_UID = 
@@ -155,15 +155,37 @@ public interface D {
 
 	// 후기 글 목록(회원)
 	public static final  String SQL_REVIEW_SELECT_FROM_ROW3 = 
-			"SELECT * FROM SL_review WHERE mb_uid=? ORDER BY re_uid DESC LIMIT ?, ?";
+			"SELECT * FROM SL_review WHERE wr_uid=? ORDER BY re_uid DESC LIMIT ?, ?";
 		
 	// 로그인 관련 쿼리
 	// user id에 따른 유저 정보 가져오기
 	public static final String SQL_SELECT_MEMBER_BY_MB_ID = 
 			"SELECT * FROM sl_member WHERE mb_id = ?";
+	// ID/PW 찾기
+	// uesr email에 따른 정보 가져오기
+	public static final String SQL_SELECT_MEMBER_BY_EMAIL =
+			"SELECT * FROM sl_member WHERE mb_email = ?";
+	// user email id 에 따른 정보가져오기
+	public static final String SQL_SELECT_MEMBER_BY_EMAIL_AND_ID =
+			"SELECT * FROM sl_member WHERE mb_email = ? AND mb_id = ?";
+	// user id에 따른 mb_pw 변경 (임시 비밀번호 발급)
+	public static final String SQL_UPDATE_TEMP_PW_BY_EMAIL_AND_ID =
+			"UPDATE sl_member SET mb_pw = ? WHERE mb_email = ? AND mb_id = ?";
 	
 	// 회원 수정하기
-		public static final String SQL_MEMBER_UPDATE =
-				"UPDATE SL_member SET mb_pw = ?, mb_cell = ?, mb_address = ?, mb_email = ? WHERE mb_uid = ?";
+	public static final String SQL_MEMBER_UPDATE =
+			"UPDATE SL_member SET mb_pw = ?, mb_cell = ?, mb_address = ?, mb_email = ? WHERE mb_uid = ?";
 
+	// 회원 목록 모두 불러오기
+	public static final String SQL_MEMBER_SELECT_ALL = 
+			"SELECT * FROM SL_member";
+	
+	// 재고 추가
+	public static final String SQL_INSERT_INVENTORY =
+			"INSERT INTO sl_inventory (st_uid, pd_uid, inv_volume, inv_price, inv_quantity) "
+			+ "VALUES (?, ?, ?, ?, ?)";
+	
+	// 재고 추가시 이미 등록된 재고인 경우
+	public static final String SQL_UPDATE_INVENTORY_WHEN_EXIST = 
+			"UPDATE sl_inventory SET inv_volume = ?, inv_price = ?, inv_quantity = ? WHERE st_uid = ? and pd_uid = ?";
 }

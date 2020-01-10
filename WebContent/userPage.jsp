@@ -28,8 +28,6 @@
 		<br>
 		아이디: <%= arr[0].getMb_id()%>
 		<br>
-		비밀번호: <%= arr[0].getMb_pw()%>
-		<br>
 		주소: <%= arr[0].getMb_address()%>
 		<br>
 		전화번호: <%= arr[0].getMb_cell()%>
@@ -38,9 +36,9 @@
 		<br>
 	</div>
 	<div>
-		<button onclick="location.href = memberSetting.slime?mb_uid=<%= arr[0].getMb_uid() %>">회원 정보 변경</button>
+		<button onclick="location.href = 'memberSetting.slime?mb_uid=<%= arr[0].getMb_uid() %>'">회원 정보 변경</button>
 		<button onclick="location.href = #">찜 정보 확인</button>
-		<button onclick="location.href = reviewListU.slime?mb_uid=<%= arr[0].getMb_uid() %>">내 리뷰 관리</button>
+		<button onclick="location.href = 'reviewListU.slime?mb_uid=<%= arr[0].getMb_uid() %>&page=1'">내 리뷰 관리</button>
 	</div>
 </article>
 </body>

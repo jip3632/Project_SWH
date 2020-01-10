@@ -25,10 +25,10 @@
 				<div>ID: <input type="text" name="id"></div>
 				<div>PASSWORD: <input type="password" name="pw"></div>
 				<c:choose>
-					<c:when test="${existId == 0 }">
+					<c:when test="${param.existId == 0 }">
 						<div>아이디가 존재하지 않습니다.</div>
 					</c:when>
-					<c:when test="${existId == 1 }">
+					<c:when test="${param.existId == 1 }">
 						<div>비밀번호가 옳지 않습니다.</div>
 					</c:when>
 				</c:choose>
@@ -36,7 +36,7 @@
 			</form>
 		</div>
 		<div>
-			<button>ID/PW 찾기</button>
+			<button onclick="location.href='findAccount.slime'">ID/PW 찾기</button>
 			<button>회원가입</button>
 		</div>
 		</c:when>

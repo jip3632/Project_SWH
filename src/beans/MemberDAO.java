@@ -100,6 +100,54 @@ public class MemberDAO {
 		return arr;
 	}
 	
+	// pji.. 특정 email의 사람 가져오기
+	public MemberDTO[] findMember(String email) throws SQLException {
+		MemberDTO[] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELECT_MEMBER_BY_EMAIL);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+			if (arr.length != 0) {
+				arr[0].setMb_pw(""); // pw정보 보내지 않음
+			}
+		} finally {
+			close();
+		}
+		
+		return arr;
+	}
+	public MemberDTO[] findMember(String email, String id) throws SQLException {
+		MemberDTO[] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELECT_MEMBER_BY_EMAIL_AND_ID);
+			pstmt.setString(1, email);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		
+		return arr;
+	}
+	// 임시 비밀번호 발급
+	public int giveTempPassword(String tempPw, String email, String id) throws SQLException{
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_UPDATE_TEMP_PW_BY_EMAIL_AND_ID);
+			pstmt.setString(1, tempPw);
+			pstmt.setString(2, email);
+			pstmt.setString(3, id);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
 	// 특정 회원 정보 수정하기
 	// UPDATE
 	public int update(int uid, String pw, String cell, String address, String email) throws SQLException{
@@ -116,6 +164,19 @@ public class MemberDAO {
 			close();
 		}
 		return cnt;
+	}
+	
+	// 모든 회원 불러오기
+	public MemberDTO[] selectAllMembers() throws SQLException {
+		MemberDTO[] arr = null;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_MEMBER_SELECT_ALL); // query
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		return arr;
 	}
 	
 	

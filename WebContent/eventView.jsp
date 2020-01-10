@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="beans.*" %>
 <%
-	EventDTO [] arr = (EventDTO[]) request.getAttribute("view");
+	EventDTO [] arr = (EventDTO[]) request.getAttribute("list");
 %>
 
 <% if(arr == null || arr.length == 0){ %>
@@ -40,6 +40,10 @@ function chkDelete(uid, st_uid){
 }
 </script>
 <body>
+<div id="container">
+   <nav>
+      <div>네비게이션 바</div>
+   </nav>
 <h2>읽기 <%= subject %></h2>
 <br>
 제목 : <%= subject %><br>
@@ -57,5 +61,9 @@ function chkDelete(uid, st_uid){
 <button onclick="location.href = 'eventWrite.slime?st_uid=<%= st_uid%>'">신규등록</button>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <footer>
+   
+   </footer>
+</div>
 </body>
 </html>

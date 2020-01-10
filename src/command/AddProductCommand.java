@@ -27,6 +27,8 @@ public class AddProductCommand implements Command {
 			sdao = new SearchDAO();
 			pmarr = sdao.selectAllProductsInMarkets();
 			request.setAttribute("products", pmarr);
+			
+			request.setAttribute("st_uid", st_uid);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

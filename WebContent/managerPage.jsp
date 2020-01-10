@@ -25,7 +25,7 @@
 <title>매장 관리</title>
 </head>
 <body>
-
+	
 <article>
 	<%-- TODO 매장사진, 매장명, 주소, 연락처, 이메일(표시x 이유:매장이아닌 회원정보mb_email에 담겨있음), 영업시간 표시 
 	SL_offstore 테이블에서 
@@ -51,9 +51,9 @@
 		<%-- 제품관리 버튼 --%>
 		<button type="button" onclick="location.href = 'productList.slime?st_uid=<%= arr[0].getSt_uid()%>'">제품 관리</button>
 		<%-- 이벤트 관리 버튼--%>
-		<button type="button" onclick="location.href = 'eventList.slime?st_uid=<%= arr[0].getSt_uid()%>'">이벤트 관리</button>
+		<button type="button" onclick="location.href = 'eventList.slime?st_uid=<%= arr[0].getSt_uid()%>&page=1'">이벤트 관리</button>
 		<%-- 후기 관리 버튼--%>
-		<button type="button" onclick="location.href = 'reviewListM.slime?st_uid=<%= arr[0].getSt_uid()%>'">후기 관리</button>
+		<button type="button" onclick="location.href = 'reviewListM.slime?st_uid=<%= arr[0].getSt_uid()%>&page=1'">후기 관리</button>
 		<%-- 로그아웃 버튼 --%>
 		<button type="button" onclick="location.href = 'logout.slime'">로그아웃</button>
 	</div>
