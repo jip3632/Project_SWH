@@ -10,6 +10,12 @@ public interface D {
 	// 모든 매장
 	public static final String SQL_SELECT_ALL_STORES = "SELECT * FROM sl_offstore";
 	
+	// 모든 마켓
+	public static final String SQL_SELECT_ALL_MARKETS = "SELECT * FROM sl_market ORDER BY mk_name ASC";
+	
+	// 모든 제품
+	public static final String SQL_SELECT_ALL_PRODUCTS = "SELECT * FROM sl_product ORDER BY mk_uid ASC, pd_name ASC";
+	
 	// 특정 매장에서 판매하는 제품 정보 가져오기
 	public static final String SQL_SELECT_PRODUCTS_BY_ST_UID = 
 			"SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, i.inv_volume, "

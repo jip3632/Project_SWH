@@ -126,7 +126,6 @@ function chkMarket(){
 			return false;
 		}
 	}
-	alert("abc");
 	return true;
 }
 

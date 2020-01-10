@@ -276,8 +276,8 @@ values
 
 select * from sl_member;
 select * from sl_offstore;
-select * from sl_market;
-select * from sl_product;
+select * from sl_market order by mk_uid;
+select * from sl_product order by mk_uid;
 select * from sl_inventory;
 
 insert into sl_inventory (st_uid, pd_uid, inv_quantity, inv_price, inv_volume)

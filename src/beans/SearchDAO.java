@@ -101,6 +101,30 @@ public class SearchDAO {
 		return arr;
 	}
 	
+	
+	public ProductDTO[] selectAllProducts() throws SQLException{
+		ProductDTO[] arr = null;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELECT_ALL_PRODUCTS);
+			rs = pstmt.executeQuery();
+			arr = createArrayProduct(rs);
+		} finally {
+			close();
+		}
+		return arr;
+	}
+
+	public MarketDTO[] selectAllMarkets() throws SQLException{
+		MarketDTO[] arr = null;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_SELECT_ALL_MARKETS);
+			rs = pstmt.executeQuery();
+			arr = createArrayMarkets(rs);
+		} finally {
+			close();
+		}
+		return arr;
+	}
 	/**
 	 * 
 	 * @param inv_uid
@@ -334,8 +358,10 @@ public class SearchDAO {
 			if(pd_description == null) pd_description = "";
 			String pd_img = rs.getString("pd_img");
 			if(pd_img == null) pd_img = "";
+			String pd_file = rs.getString("pd_file");
+			if(pd_file == null) pd_file = "";
 			int mk_uid = rs.getInt("mk_uid");
-			ProductDTO dto = new ProductDTO(pd_uid, pd_name, pd_description, pd_img, mk_uid);		
+			ProductDTO dto = new ProductDTO(pd_uid, pd_name, pd_description, pd_img, pd_file, mk_uid);		
 			list.add(dto);
 		}
 		ProductDTO[] arr = new ProductDTO[list.size()];
@@ -370,6 +396,24 @@ public class SearchDAO {
 		return arr;
 	}
 	
+	public MarketDTO[] createArrayMarkets(ResultSet rs) throws SQLException{
+		ArrayList<MarketDTO> list = new ArrayList<MarketDTO>();
+		while(rs.next()) {
+			int mk_uid = rs.getInt("mk_uid");
+			String mk_name = rs.getString("mk_name");
+			String mk_insta = rs.getString("mk_insta");
+			if(mk_insta == null) mk_insta = "";
+			String mk_logo = rs.getString("mk_logo");
+			if(mk_logo == null) mk_logo = "";
+			String mk_file = rs.getString("mk_file");
+			if(mk_file == null) mk_file = "";
+			MarketDTO dto = new MarketDTO(mk_uid, mk_name, mk_insta, mk_logo, mk_file);
+			list.add(dto);
+		}
+		MarketDTO[] arr = new MarketDTO[list.size()];
+		list.toArray(arr);
+		return arr;
+	}
 
 	public ProductEveryStoreDTO[] createArrayProductEveryStore(ResultSet rs) throws SQLException {
 		ArrayList<ProductEveryStoreDTO> list = new ArrayList<ProductEveryStoreDTO>();
@@ -445,7 +489,6 @@ public class SearchDAO {
 		}
 		return arr;
 	}
-	
 	
 	/**
 	 * close all system resource
