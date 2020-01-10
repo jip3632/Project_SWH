@@ -38,16 +38,12 @@
   	<div class="content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <form action="">
-      <div><input type="text" name="mk_name" value="마켓 검색"></div>
-      <input type="submit" value="검색">
-      </form>
     </div>
     <div class="modal-body">
 
     </div>
     <div class="modal-footer">
-      <div onclick="">새마켓 추가</div>
+      <button type="button" onclick="">새마켓 추가</button>
     </div>
     </div>
   </div>
@@ -60,7 +56,7 @@
     <div class="modal-body">
     </div>
     <div class="modal-footer">
-      <div onclick="">새제품 추가</div>
+      <button type="button" onclick="">새제품 추가</button>
     </div>
   </div>
   
