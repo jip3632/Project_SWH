@@ -115,6 +115,8 @@ ALTER TABLE SL_inventory
 ALTER TABLE SL_inventory
     ADD CONSTRAINT FK_SL_inventory_pd_uid_SL_product_pd_uid FOREIGN KEY (pd_uid)
         REFERENCES SL_product (pd_uid) ON DELETE RESTRICT ON UPDATE RESTRICT;
+alter table sl_inventory
+add unique key `unique_set` (`st_uid`, `pd_uid`);
 
 
 -- SL_member Table Create SQL
@@ -277,7 +279,13 @@ select * from sl_offstore;
 select * from sl_market;
 select * from sl_product;
 select * from sl_inventory;
--- REPLACE INTO sl_inventory (inv_quantity, inv_price, inv_volume) VALUES (1, 2, 3) WHERE st_uid = 1101, pd_uid = 1;
+
+insert into sl_inventory (st_uid, pd_uid, inv_quantity, inv_price, inv_volume)
+values (1101, 1, 333, 333, 333)
+on duplicate key
+update inv_quantity = 333,
+	inv_price = 333,
+	inv_volume = 333;
 
 SELECT i.st_uid, i.inv_uid, i.inv_price, i.inv_quantity, i.inv_volume, 
 p.pd_uid, p.pd_description, p.pd_img, p.pd_name, 

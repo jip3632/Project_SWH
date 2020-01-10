@@ -73,26 +73,43 @@ public class Controller extends HttpServlet {
 			new StoreSettingOkCommand().execute(request, response);
 			viewPage = "storeSettingOk.jsp";
 			break;
-		//제품 관리
+		//재고 관리
 		case "/productList.slime":
 			new StoreViewCommand().execute(request, response);
 			new ProductImageCommand().execute(request, response);
 			viewPage = "productList.jsp";
+			break;
+		//재고 삭제
+		case "/productDelete.slime":
+			new ProductDeleteCommand().execute(request, response);
+			viewPage = "productDelete.jsp";
 			break;
 		//제품 등록
 		case "/addProduct.slime":
 			new AddProductCommand().execute(request, response);
 			viewPage = "addProduct.jsp";
 			break;
-		//제품 정보 수정
+		//재고 추가
 		case "/addProductOk.slime":
-			//TODO
+			new AddProductOkCommand().execute(request, response);
 			viewPage = "addProductOk.jsp";
 			break;
+		//제품 추가
+		case "/newProductOk.slime":
+			new NewProductOkCommand().execute(request, response);
+			viewPage = "newProductOk.jsp";
+			break;
+		//마켓 추가
+		case "/newMarketOk.slime":
+			new NewMarketOkCommand().execute(request, response);
+			viewPage = "newMarketOk.jsp";
+			break;
+		//재고 정보 수정
 		case "/productSetting.slime":
 			new ProductSettingCommand().execute(request, response);
 			viewPage = "productSetting.jsp";
 			break;
+		//재고 정보 수정 확인
 		case "/productSettingOk.slime":
 			new ProductSettingOkCommand().execute(request, response);
 			viewPage = "productSettingOk.jsp";

@@ -180,12 +180,26 @@ public interface D {
 	public static final String SQL_MEMBER_SELECT_ALL = 
 			"SELECT * FROM SL_member";
 	
-	// 재고 추가
-	public static final String SQL_INSERT_INVENTORY =
+	// 재고 추가할때 이미 등록된 재고가 있는 경우  update, 없으면 추가
+	public static final String SQL_INSERT_INVENTORY_IF_EXIST_UPDATE =
 			"INSERT INTO sl_inventory (st_uid, pd_uid, inv_volume, inv_price, inv_quantity) "
+			+ "VALUES (?, ?, ?, ?, ?) "
+			+ "ON DUPLICATE KEY "
+			+ "UPDATE inv_volume = ?, "
+			+ "inv_price = ?, "
+			+ "inv_quantity = ?";
+	
+	// 마켓 생성
+	public static final String SQL_INSERT_MARKET =
+			"INSERT INTO sl_market (mk_name, mk_insta, mk_logo, mk_file) "
+			+ "VALUES (?, ?, ?, ?)";
+	
+	//제품 생성
+	public static final String SQL_INSERT_PRODUCT =
+			"INSERT INTO sl_product (pd_name, pd_description, pd_img, pd_file, mk_uid) "
 			+ "VALUES (?, ?, ?, ?, ?)";
 	
-	// 재고 추가시 이미 등록된 재고인 경우
-	public static final String SQL_UPDATE_INVENTORY_WHEN_EXIST = 
-			"UPDATE sl_inventory SET inv_volume = ?, inv_price = ?, inv_quantity = ? WHERE st_uid = ? and pd_uid = ?";
+	//재고 삭제
+	public static final String SQL_DELETE_INVENTORY = 
+			"DELETE FROM sl_inventory WHERE inv_uid = ?";
 }

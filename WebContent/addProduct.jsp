@@ -71,14 +71,16 @@
       <span class="close">&times;</span>
     </div>
     <div class="modal-body">
-    	<form>
+    	<form action="newMarketOk.slime?st_uid=<%=st_uid %>" name="newMarket" method="post" enctype="Multipart/form-data" onsubmit="return chkMarket()">
     		<div><input type="file" name="mk_img" value=""></div>
-    		<div>마켓명 <input type="text" name="mk_name" value="mk_name"></div>
-    		<div>instagram <input type="text" name="mk_insta" value="mk_insta"></div>
+    		<div>마켓명 <input type="text" name="mk_name" placeholder="마켓 이름"></div>
+    		<div>instagram <input type="text" name="mk_insta" placeholder="마켓 인스타 ID"></div>
+    		<div><input type="submit" value="마켓 추가"></div>
+    		
     	</form>
     </div>
     <div class="modal-footer">
-      <div onclick="">추가</div>
+     
     </div>
   </div>
   
@@ -89,14 +91,15 @@
       <span class="close">&times;</span>
     </div>
     <div class="modal-body">
-    	<form>
+    	<form action="newProductOk.slime?st_uid=<%=st_uid %>" name="newProduct" method="post" enctype="Multipart/form-data" onsubmit="return chkProduct()">
+    		<input id="mk_uid" type="hidden" name="mk_uid" value="">
     		<div><input type="file" name="pd_img" value="pd_img"></div>
-    		<div>제품명 <input type="text" name="pd_name" value="pd_name"></div>
-    		<div>제품 설명 <input type="text" name="pd_description" value="pd_description"></div>
+    		<div>제품명 <input type="text" name="pd_name" placeholder="제품 이름"></div>
+    		<div>제품 설명 <input type="text" name="pd_description" placeholder="제품 설명"></div>
+    		<div><input type="submit" value="제품 추가"></div>
     	</form>
     </div>
     <div class="modal-footer">
-      <div onclick="">추가</div>
     </div>
   </div>
   

@@ -122,6 +122,26 @@ public class SearchDAO {
 		return cnt;
 	}
 	
+	public int insertIfNotExistUpdateIfExist(int st_uid, int pd_uid, int inv_volume, int inv_price, int inv_quantity) throws SQLException{
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_INSERT_INVENTORY_IF_EXIST_UPDATE);
+			pstmt.setInt(1, st_uid);
+			pstmt.setInt(2, pd_uid);
+			pstmt.setInt(3, inv_volume);
+			pstmt.setInt(4, inv_price);
+			pstmt.setInt(5, inv_quantity);
+			pstmt.setInt(6, inv_volume);
+			pstmt.setInt(7, inv_price);
+			pstmt.setInt(8, inv_quantity);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		
+		return cnt;
+	}
+	
 	private ProductInStoreDTO[] createProductsInStoreArray(ResultSet rs) throws SQLException {
 		ArrayList<ProductInStoreDTO> list = new ArrayList<ProductInStoreDTO>();
 		while(rs.next()) {
@@ -254,6 +274,51 @@ public class SearchDAO {
 		StoreDTO[] arr = new StoreDTO[list.size()];
 		list.toArray(arr);
 		return arr;
+	}
+	
+	public int insertMarket(String mk_name, String mk_insta, String mk_logo, String mk_file) throws SQLException {
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_INSERT_MARKET);
+			pstmt.setString(1, mk_name);
+			pstmt.setString(2, mk_insta);
+			pstmt.setString(3, mk_logo);
+			pstmt.setString(4, mk_file);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	public int insertProduct(String pd_name, String pd_description, String pd_img, String pd_file, int mk_uid) throws SQLException{
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_INSERT_PRODUCT);
+			pstmt.setString(1, pd_name);
+			pstmt.setString(2, pd_description);
+			pstmt.setString(3, pd_img);
+			pstmt.setString(4, pd_file);
+			pstmt.setInt(5, mk_uid);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	public int deleteInventoryByInvUid(int inv_uid) throws SQLException {
+		int cnt = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_DELETE_INVENTORY);
+			pstmt.setInt(1, inv_uid);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		
+		return cnt;
 	}
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

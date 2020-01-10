@@ -46,6 +46,7 @@ function showProducts(mk_uid, mk_file, mk_name, mk_insta, st_uid){
 			+ "<div>" + mk_name + "</div>"
 			+ "<div>" + mk_insta + "</div>";
 	$("#market_detail").html(table);
+	$(".modal-content-product-new #mk_uid").val(mk_uid);
 	productList(object, mk_uid);
 }
 
@@ -109,6 +110,49 @@ function chkInventory(){
 	}
 	return true;
 }
-/////////////////////////////////////////////////////////////////
+//////////////////////////마켓 이미 존재 여부
+function chkMarket(){
+	var frm = document.forms.newMarket;
+	var market = frm.mk_name.value.trim();
+	if(market == ""){
+		alert("마켓 명 입력 필수");
+		return false;
+	}
+	var markets = object.markets;
+	var count = markets.length;
+	for(i = 0; i < count; i++){
+		if(markets[i].mk_name == market){
+			alert("마켓 존재, 마켓명 변경해주세요");
+			return false;
+		}
+	}
+	alert("abc");
+	return true;
+}
 
+//////////////////////////마켓의 제품 이미 존재 여부
+function chkProduct(){
+	var frm = document.forms.newProduct;
+	var product = frm.pd_name.value.trim();
+	if(product == ""){
+		alert("제품 명  입력 필수");
+		return false;
+	}
+	var mk_uid = frm.mk_uid.value.trim();
+	var markets = object.markets;
+	var count = markets.length;
+	for(i = 0; i < count; i++){
+		if(markets[i].mk_uid == mk_uid){
+			var length = markets[i].products.length;
+			for(j = 0; j < length; j++){
+				if(markets[i].products[j].pd_name == product){
+					alert("현재 마켓에 입력한 이름으로 된 제품 존재");
+					return false;
+				} 
+			}
+		}
+	}
+	
+	return true;
+}
 

@@ -9,11 +9,11 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>제품 정보 수정</title>
+<title>재고 정보 수정</title>
 </head>
 <body>
 	<article>
-	<h3>제품 정보 수정</h3>
+	<h3>재고 정보 수정</h3>
 	
 	<%--  --%>
 	<form name="frm" action="productSettingOk.slime" method="post" onsubmit="return chkUpdate()">

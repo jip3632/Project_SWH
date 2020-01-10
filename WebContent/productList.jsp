@@ -54,14 +54,14 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>제품관리</title>
+<title>재고관리</title>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <body>
 
 <article>
-	<h3>제품 관리</h3>
-	<button type="button" onclick="location.href = 'addProduct.slime?st_uid=<%=st_uid%>'">제품등록</button>
+	<h3>재고 관리</h3>
+	<button type="button" onclick="location.href = 'addProduct.slime?st_uid=<%=st_uid%>'">재고등록</button>
 	<div id="markets">
 		<%--
 		<div>
@@ -100,7 +100,7 @@
 							out.println("<div>가격:" + arr[j].getInv_price() + "원</div>");
 							out.println("<div>재고:" + arr[j].getInv_quantity() + "개</div>");
 							out.println("<a href='productSetting.slime?inv_uid=" + arr[j].getInv_uid() + "&st_uid=" + request.getParameter("st_uid") + "'>설정" + "</a>");
-							out.println("<a href='productDelete.slime?inv_uid=" + arr[j].getInv_uid() + "'>삭제" + "</a>");
+							out.println("<a href='productDelete.slime?inv_uid=" + arr[j].getInv_uid() + "&st_uid=" + request.getParameter("st_uid") + "'>삭제" + "</a>");
 							out.println("</li>");
 							if(j == arr.length - 1) index = arr.length;
 						}
