@@ -179,6 +179,37 @@ public class MemberDAO {
 		return arr;
 	}
 	
+	//회원 아이디 검색
+	public MemberDTO[] searchById(String id) throws SQLException{
+		MemberDTO[] arr = null;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_MEMEBER_SEARCH_BY_ID);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		}finally {
+			close();
+		}
+		return arr;
+	}
+	
+	//일반회원 생성
+	public int insertNewUser(String mb_id, String mb_pw, String mb_name, String mb_address, String mb_cell,String mb_email) throws SQLException{
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_INSERT_USER);
+			pstmt.setString(1, mb_id);
+			pstmt.setString(2, mb_pw);
+			pstmt.setString(3, mb_name);
+			pstmt.setString(4, mb_address);
+			pstmt.setString(5, mb_cell);
+			pstmt.setString(6, mb_email);
+			cnt = pstmt.executeUpdate();
+		}finally {
+			close();
+		}
+		return cnt;
+	}
 	
 	
 } // end class

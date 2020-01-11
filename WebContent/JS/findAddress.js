@@ -35,7 +35,7 @@ function parseJSON(data) {
 	
 	var i;
 	var count = data.count;
-	var list = data.productList;
+	var list = data.list;
 	console.log("json 생성중");
 	var htmlTxt = "";
 	if(count==0){
