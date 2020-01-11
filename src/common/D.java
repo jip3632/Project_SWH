@@ -208,4 +208,24 @@ public interface D {
 	//재고 삭제
 	public static final String SQL_DELETE_INVENTORY = 
 			"DELETE FROM sl_inventory WHERE inv_uid = ?";
+	
+	//회원 아이디 검색
+	public static final String SQL_MEMEBER_SEARCH_BY_ID =
+			"SELECT * FROM sl_member where mb_id = ?";
+	
+	//회원 아이디 생성
+	public static final String SQL_INSERT_USER =
+			"INSERT INTO sl_member (mb_id, mb_pw, mb_name, mb_address, mb_cell, mb_email,mb_regdate, mb_type) "
+			+ "VALUES (?, ?, ?, ?, ?, ?, now(), 1)";
+	
+	//매니저 아이디 생성
+	public static final String SQL_INSERT_MANAGER =
+			"INSERT INTO sl_member (mb_id, mb_pw, mb_name, mb_address, mb_cell, mb_email,mb_regdate, mb_type) "
+			+ "VALUES (?, ?, ?, ?, ?, ?, now(), 0)";
+	
+	//매장 생성
+	public static final String SQL_INSERT_OFFSTORE =
+			"INSERT INTO sl_offstore (mb_id, st_name, st_address, st_contact, st_hours ,st_description, st_rating, st_img, st_valid_key, st_valid_img, st_latitude, st_longitude) "
+			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	
 }

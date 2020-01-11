@@ -14,3 +14,34 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 	document.getElementById("addrDetail").value = addrDetail;
 	document.getElementById("zipNo").value = zipNo;
 }
+
+function ajax() {
+	userId = document.getElementById("user_id").value;
+	console.log("ajax 실행전");
+	var url = "http://localhost:8085/Project_SWH/signUpUser.ajax?mb_uid=" + encodeURI(word);
+	//document.write(url);
+	$.ajax({
+		url : url,
+		type : "GET",
+		cache : false,
+		success : function(data, status){
+			if (status == "success") parseJSON(data);
+		}
+	});
+}
+
+function parseJSON(data) {
+	$("#id_check").html("");
+	
+	var i;
+	var count = data.count;
+	var list = data.productList;
+	console.log("json 생성중");
+	var htmlTxt = "";
+	if(count==0){
+		htmlTxt="아이디 사용 가능합니다";
+	}else{
+		htmlTxt="중복 아이디가 존재합니다";
+	}
+	$("id_check").html(htmlTxt);
+}
