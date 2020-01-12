@@ -212,6 +212,10 @@ public class Controller extends HttpServlet {
 			new LoginOkCommand().execute(request, response);
 			viewPage = "loginOk.jsp";
 			break;
+		case "/logout.slime":
+			new LogoutCommand().execute(request, response);
+			viewPage = "logout.jsp";
+			break;
 		//회원 마이페이지
 		case "/userPage.slime":
 			new UserPageCommand().execute(request, response);
