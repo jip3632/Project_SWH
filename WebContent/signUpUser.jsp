@@ -21,7 +21,7 @@
 		<input type="hidden" id="confmKey" name="confmKey" value=""  >
 		<button type="button" onclick="goPopup();">주소찾기</button>
 		도로명주소<input type="text"  id="roadFullAddr"  name="roadFullAddr" /><br> 
-		아이디: <input type="text" name="user_id" required><button type="button" onclick="">아이디 중복 확인</button><br>
+		아이디: <input type="text" name="user_id" id="user_id" required><button type="button" onclick="ajax();">아이디 중복 확인</button><div id="id_check"></div><br>
 		비밀번호: <input type="password" name="user_pw" required><br>
 		비밀번호확인: <input type="password" name="user_pw_confirm" required><br>
 		이메일: <input type="email" name="user_email" required><br>

@@ -240,6 +240,22 @@ public class Controller extends HttpServlet {
 			new FindAccountCommand().execute(request, response);
 			viewPage = "findAccountResult.jsp";
 			break;
+		//회원가입 선택
+		case "/signUpSelect.slime":
+			viewPage ="signUpSelect.jsp";
+			break;
+		case "/signUpUser.slime":
+			viewPage = "signUpUser.jsp";
+			break; 
+		case "/signUpUserOk.slime":
+			viewPage = "SignUpUserOk.jsp";
+			break;
+		case "/signUpManager.slime":
+			viewPage = "SignUpManager.jsp";
+			break;
+		case "/signUpManagerOk.slime":
+			viewPage = "SignUpManagerOk.jsp";
+			break;
 		}
 
 		if (viewPage != null) {

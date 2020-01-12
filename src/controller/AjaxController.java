@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.AddProductCommand;
 import command.AjaxAddProductCommand;
+import command.AjaxIdCheckCommand;
 import command.AjaxProductCommand;
 import command.AjaxStoreCommand;
 import command.ProductListCommand;
+import command.SignUpListCommand;
 import command.StoreListCommand;
 
 @WebServlet("*.ajax")
@@ -52,6 +54,10 @@ public class AjaxController extends HttpServlet {
 			// sl_inventory, sl_market, sl_product 조인한 객체 SELECT WHERE st_uid = ?
 			new AddProductCommand().execute(request, response);
 			new AjaxAddProductCommand().execute(request, response);
+			break;
+		case "/signUpUser.ajax":
+			new SignUpListCommand().execute(request, response);
+			new AjaxIdCheckCommand().execute(request, response);
 			break;
 		}
 	}
