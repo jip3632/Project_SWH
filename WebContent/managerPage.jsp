@@ -45,7 +45,7 @@
 	</div>
 	<div>
 		<%-- 매장정보 변경 버튼 --%>
-		<button type="button" onclick="location.href = ''">회원 정보 변경</button>
+		<button type="button" onclick="location.href = 'userPage.slime?mb_uid=<%= arr[0].getMb_uid()%>'">회원 정보 변경</button>
 		<%-- 매장정보 변경 버튼 --%>
 		<button type="button" onclick="location.href = 'storeSetting.slime?mb_uid=<%= arr[0].getMb_uid()%>'">매장 정보 변경</button>
 		<%-- 제품관리 버튼 --%>
