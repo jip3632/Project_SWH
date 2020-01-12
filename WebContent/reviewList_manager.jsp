@@ -20,24 +20,20 @@
 <!-- 페이징 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="CSS/common.css"/>
+<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 
-<title>후기 목록</title>
-<style>
-table {width: 100%;}
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-</style>
+<title>내 매장 후기 목록</title>
+
 </head>
-<body>
-<div id="container">
-   <nav>
-      <div>네비게이션 바</div>
-   </nav>
-		<hr>
-		<h2>후기 목록</h2>
+<body class="is-preload">
+<div id="wrapper">
+	<nav id="nav" class="alt">
+		<div>네비게이션 바</div>
+	</nav>
+	<div id="main">
+	<section id="content" class="main">
+		<h2>내 매장 후기 목록</h2>
 		<table>
 			<tr>
 				<th>번호</th>
@@ -75,9 +71,19 @@ table, th, td {
 	<jsp:param value="<%= totalPage %>" name="totalPage"/>
 	<jsp:param value="<%= curPage %>" name="curPage"/>
 </jsp:include>
-   <footer>
-   
-   </footer>
+
+	</section>
+   	</div>
+   <jsp:include page="/footer.jsp"></jsp:include>
 </div>
+
+<!-- Scripts -->
+			<script src="JS/jquery.min.js"></script>
+			<script src="JS/jquery.scrollex.min.js"></script>
+			<script src="JS/jquery.scrolly.min.js"></script>
+			<script src="JS/browser.min.js"></script>
+			<script src="JS/breakpoints.min.js"></script>
+			<script src="JS/util.js"></script>
+			<script src="JS/main.js"></script>
 </body>
 </html>

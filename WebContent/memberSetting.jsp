@@ -18,35 +18,9 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title>회원정보변경</title>
 </head>
-<body>
-<div id="container">
-   <nav>
-      <div>네비게이션 바</div>
-   </nav>
-
-<h3>회원 정보 변경</h3>
-<form name="frm" action="memberSettingOk.slime" method="post" onsubmit="return chkUpdate()">
-	<input type="hidden" name="mb_uid" value="<%= mb_uid%>">
-	
-	이름 : <%= mb_name %> <br>
-	아이디 : <%= mb_id %> <br>
-	비밀번호 : <input type="password" name="mb_pw" value="<%= mb_pw %>"><br>
-	비밀번호 확인 : <input type="password" name="mb_pw2"><br>
-	연락처 : <input type="text" name="mb_cell" value="<%= mb_cell %>"><br>
-	주소 : <input type="text" name="mb_address" value="<%= mb_address %>"><br>
-	이메일 : <input type="text" name="mb_email" value="<%= mb_email %>"><br>
-	가입날짜 : <%= mb_regdate %><br>
-	<br>
-
-	<input type="submit" value="수정">
-</form>	
-   <footer>
-   
-   </footer>
-</div>
-</body>
 <script>
 	function chkUpdate(){
 		var r = confirm("수정하시겠습니까?");
@@ -56,6 +30,7 @@
 			var pw2 = frm.mb_pw2.value.trim();
 			if(pw != pw2){
 				alert("비밀번호가 일치하지 않습니다.");
+				return false;
 			}
 			var cell = frm.mb_cell.value.trim();
 			var address = frm.mb_address.value.trim();
@@ -72,4 +47,41 @@
 		}
 	};
 </script>
+<body class="is-preload">
+<div id="wrapper">
+	<nav id="nav" class="alt">
+   	</nav>
+	<div id="main">
+	<section id="content" class="main">
+<h3>회원 정보 변경</h3>
+<form name="frm" action="memberSettingOk.slime" method="post" onsubmit="return chkUpdate()">
+	<input type="hidden" name="mb_uid" value="<%= mb_uid%>">
+	
+	이름 : <%= mb_name %> <br>
+	아이디 : <%= mb_id %> <br>
+	비밀번호 : <input type="password" name="mb_pw" value="<%= mb_pw %>"><br>
+	비밀번호 확인 : <input type="password" name="mb_pw2"><br>
+	연락처 : <input type="text" name="mb_cell" value="<%= mb_cell %>"><br>
+	주소 : <input type="text" name="mb_address" value="<%= mb_address %>"><br>
+	이메일 : <input type="text" name="mb_email" value="<%= mb_email %>"><br>
+	가입날짜 : <%= mb_regdate %><br>
+	<br>
+
+	<input type="submit" value="수정">
+</form>	
+</section>
+   	</div>
+   <jsp:include page="/footer.jsp"></jsp:include>
+</div>
+
+<!-- Scripts -->
+			<script src="JS/jquery.min.js"></script>
+			<script src="JS/jquery.scrollex.min.js"></script>
+			<script src="JS/jquery.scrolly.min.js"></script>
+			<script src="JS/browser.min.js"></script>
+			<script src="JS/breakpoints.min.js"></script>
+			<script src="JS/util.js"></script>
+			<script src="JS/main.js"></script>
+
+</body>
 </html>

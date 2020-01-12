@@ -42,7 +42,7 @@ function chkDelete(uid, st_uid){
 </script>
 <body class="is-preload">
 <div id="wrapper">
-   <nav>
+   <nav id="nav" class="alt">
       <div>네비게이션 바</div>
    </nav>
 <div id="main">
@@ -56,16 +56,14 @@ function chkDelete(uid, st_uid){
 <hr>
 <br>
 <button onclick="location.href = 'eventUpdate.slime?uid=<%= uid%>'">수정하기</button>
-<button onclick="location.href = 'eventList.slime?st_uid=<%= st_uid%>&page=1'">목록보기</button>
 <button onclick="chkDelete(<%= uid%>, <%= st_uid%>)">삭제하기</button>
-<button onclick="location.href = 'eventWrite.slime?st_uid=<%= st_uid%>'">신규등록</button>
+<button onclick="location.href = 'eventWrite.slime?st_uid=<%= st_uid%>'">새글작성</button>
+<button onclick="location.href = 'eventList.slime?st_uid=<%= st_uid%>&page=1'">목록보기</button>
 
 <br><br>
 </section>
 </div>
-   <footer>
-   
-   </footer>
+   <jsp:include page="/footer.jsp"></jsp:include>
 </div>
 
 <!-- Scripts -->

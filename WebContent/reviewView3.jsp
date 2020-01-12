@@ -43,16 +43,17 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title><%= subject %></title>
 </head>
-<body>
-<div id="container">
-   <nav>
-      <div>네비게이션 바</div>
-   </nav>
-<h2>읽기 <%= subject %></h2>
-<br>
-제목 : <%= subject %><br>
+<body class="is-preload">
+<div id="wrapper">
+	<nav id="nav" class="alt">
+		<div>네비게이션 바</div>
+	</nav>
+	<div id="main">
+	<section id="content" class="main">
+<h2>제목 : <%= subject %><br></h2>
 작성자 : <%= writerName %><br>
 작성일 : <%= regdate %><br>
 매장명 : <%= storeName %><br>
@@ -64,12 +65,24 @@
 </div>
 <hr>
 <br>
+<button onclick="location.href = 'reviewUpdate.slime?re_uid=<%= re_uid %>'">수정하기</button>
+<button onclick="chkDelete(<%= re_uid%>)">삭제하기</button>
+<button onclick="location.href = 'reviewWrite.slime?mb_uid=<%= wr_uid %>'">신규등록</button>
 <button onclick="location.href = 'reviewListU.slime?mb_uid=<%= wr_uid %>&page=1'">목록보기</button>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-   <footer>
-   
-   </footer>
+<br><br>
+</section>
+   	</div>
+   <jsp:include page="/footer.jsp"></jsp:include>
 </div>
+
+<!-- Scripts -->
+			<script src="JS/jquery.min.js"></script>
+			<script src="JS/jquery.scrollex.min.js"></script>
+			<script src="JS/jquery.scrolly.min.js"></script>
+			<script src="JS/browser.min.js"></script>
+			<script src="JS/breakpoints.min.js"></script>
+			<script src="JS/util.js"></script>
+			<script src="JS/main.js"></script>
 </body>
 </html>

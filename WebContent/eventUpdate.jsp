@@ -62,7 +62,7 @@ function chkSubmit(){
 
 <body class="is-preload">
 <div id="wrapper">
-   <nav>
+   <nav id="nav" class="alt">
       <div>네비게이션 바</div>
    </nav>
    	<div id="main">
@@ -116,9 +116,7 @@ function chkSubmit(){
 <button onclick="location.href = 'eventList.slime?st_uid=<%= st_uid%>&page=1'">목록보기</button>
    </section>
    </div>
-   <footer>
-   
-   </footer>
+   <jsp:include page="/footer.jsp"></jsp:include>
 </div>
 
 

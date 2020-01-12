@@ -26,7 +26,7 @@
 </head>
 <body class="is-preload">
 <div id="wrapper">
-	<nav>
+	<nav id="nav" class="alt">
 		<div>네비게이션 바</div>
 	</nav>
 	<div id="main">
@@ -53,7 +53,7 @@
 %>		
 		</table>
 		<br>
-		<button onclick="location.href='eventWrite.slime?st_uid=<%= st_uid %>'">신규등록</button>
+		<button onclick="location.href='eventWrite.slime?st_uid=<%= st_uid %>'">새글작성</button>
 
 <%-- 페이징 --%>
 <jsp:include page="eventPagination.jsp">
@@ -64,9 +64,7 @@
 
 	</section>
    	</div>
-   <footer>
-   
-   </footer>
+   <jsp:include page="/footer.jsp"></jsp:include>
 </div>
 
 <!-- Scripts -->

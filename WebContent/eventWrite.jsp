@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<title>작성하기</title>
+<title>이벤트 글 작성하기</title>
 </head>
 <script>
 // form 검증
@@ -54,7 +54,7 @@ function chkSubmit(){
 
 <body class="is-preload">
 <div id="wrapper">
-   <nav>
+   <nav id="nav" class="alt">
       <div>네비게이션 바</div>
    </nav>
    	<div id="main">
@@ -106,9 +106,7 @@ function chkSubmit(){
 <button type="button" onclick="location.href='eventList.slime?st_uid=<%= st_uid %>&page=1'">목록으로</button>
 	</section>
    	</div>
-   <footer>
-   
-   </footer>
+   <jsp:include page="/footer.jsp"></jsp:include>
 </div>
 </body>
 </html>

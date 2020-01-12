@@ -23,7 +23,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>수정 <%= subject %></title>
+<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
+<title>수정하기</title>
 </head>
 <script>
 // form 검증
@@ -41,12 +42,14 @@ function chkSubmit(){
 }
 </script>
 
-<body>
-<div id="container">
-   <nav>
-      <div>네비게이션 바</div>
-   </nav>
-<h2>수정</h2>
+<body class="is-preload">
+<div id="wrapper">
+	<nav id="nav" class="alt">
+		<div>네비게이션 바</div>
+	</nav>
+	<div id="main">
+	<section id="content" class="main">
+<h2>수정하기</h2>
 <form name="frm" action="reviewUpdateOk.slime" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="re_uid" value="<%= re_uid %>"/>
 작성자 : <%= marr[0].getMb_id() %> <br>
@@ -66,10 +69,19 @@ function chkSubmit(){
 </form>
 <br>
 <button onclick="history.back()">이전으로</button>
-<button onclick="location.href = 'eventList.slime?st_uid=<%= st_uid%>&page=1'">목록보기</button>
-   <footer>
-   
-   </footer>
+</section>
+   	</div>
+   <jsp:include page="/footer.jsp"></jsp:include>
 </div>
+
+<!-- Scripts -->
+			<script src="JS/jquery.min.js"></script>
+			<script src="JS/jquery.scrollex.min.js"></script>
+			<script src="JS/jquery.scrolly.min.js"></script>
+			<script src="JS/browser.min.js"></script>
+			<script src="JS/breakpoints.min.js"></script>
+			<script src="JS/util.js"></script>
+			<script src="JS/main.js"></script>
+
 </body>
 </html>

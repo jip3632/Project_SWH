@@ -173,12 +173,12 @@ public class Controller extends HttpServlet {
 			new ReviewWriteOkCommand().execute(request, response);
 			viewPage = "reviewWriteOk.jsp";
 			break;
-		//후기 글 보기
+		//후기 글 보기(전체)
 		case "/reviewView.slime":
 			new ReviewViewCommand().execute(request, response);
 			viewPage = "reviewView.jsp";
 			break;
-		//후기 글 보기(회원)
+		//후기 글 보기(매장)
 		case "/reviewView2.slime":
 			new ReviewViewCommand().execute(request, response);
 			viewPage = "reviewView2.jsp";
