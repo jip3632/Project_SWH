@@ -26,6 +26,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title><%= subject %></title>
 </head>
 <script>
@@ -39,17 +40,16 @@ function chkDelete(uid, st_uid){
 	
 }
 </script>
-<body>
-<div id="container">
+<body class="is-preload">
+<div id="wrapper">
    <nav>
       <div>네비게이션 바</div>
    </nav>
-<h2>읽기 <%= subject %></h2>
-<br>
-제목 : <%= subject %><br>
-이벤트 종료 : <%= enddate %><br>
+<div id="main">
+<section id="content" class="main">
+<h2>제목 : <%= subject %></h2>
+이벤트 종료 시각 : <%= enddate %><br>
 내용: <br>
-<hr>
 <div>
 <%= content %>
 </div>
@@ -60,10 +60,22 @@ function chkDelete(uid, st_uid){
 <button onclick="chkDelete(<%= uid%>, <%= st_uid%>)">삭제하기</button>
 <button onclick="location.href = 'eventWrite.slime?st_uid=<%= st_uid%>'">신규등록</button>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br>
+</section>
+</div>
    <footer>
    
    </footer>
 </div>
+
+<!-- Scripts -->
+			<script src="JS/jquery.min.js"></script>
+			<script src="JS/jquery.scrollex.min.js"></script>
+			<script src="JS/jquery.scrolly.min.js"></script>
+			<script src="JS/browser.min.js"></script>
+			<script src="JS/breakpoints.min.js"></script>
+			<script src="JS/util.js"></script>
+			<script src="JS/main.js"></script>
+			
 </body>
 </html>

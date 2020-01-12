@@ -9,8 +9,9 @@
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<title>이벤트 글 작성 페이지</title>
+<title>작성하기</title>
 </head>
 <script>
 // form 검증
@@ -51,12 +52,14 @@ function chkSubmit(){
     });
 </script>
 
-<body>
-<div id="container">
+<body class="is-preload">
+<div id="wrapper">
    <nav>
       <div>네비게이션 바</div>
    </nav>
-<h2>이벤트 글 작성</h2>
+   	<div id="main">
+	<section id="content" class="main">
+<h2>이벤트 글 작성하기</h2>
 <form name="frm" action="eventWriteOk.slime" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="st_uid" value='<%= st_uid %>'/>
 <input type="hidden" name="enddate"/>
@@ -101,6 +104,8 @@ function chkSubmit(){
 </form>
 <br>
 <button type="button" onclick="location.href='eventList.slime?st_uid=<%= st_uid %>&page=1'">목록으로</button>
+	</section>
+   	</div>
    <footer>
    
    </footer>

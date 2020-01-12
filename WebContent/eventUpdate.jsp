@@ -17,8 +17,9 @@
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<title>수정 <%= subject %></title>
+<title>수정하기</title>
 </head>
 <script>
 // form 검증
@@ -59,12 +60,14 @@ function chkSubmit(){
     });
 </script>
 
-<body>
-<div id="container">
+<body class="is-preload">
+<div id="wrapper">
    <nav>
       <div>네비게이션 바</div>
    </nav>
-<h2>수정</h2>
+   	<div id="main">
+   	<section id="content" class="main">
+<h2>수정하기</h2>
 <form name="frm" action="eventUpdateOk.slime" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="uid" value='<%= uid %>'/>
 <input type="hidden" name="st_uid" value='<%= st_uid %>'/>
@@ -111,9 +114,13 @@ function chkSubmit(){
 <br>
 <button onclick="history.back()">이전으로</button>
 <button onclick="location.href = 'eventList.slime?st_uid=<%= st_uid%>&page=1'">목록보기</button>
+   </section>
+   </div>
    <footer>
    
    </footer>
 </div>
+
+
 </body>
 </html>

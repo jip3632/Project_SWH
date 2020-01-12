@@ -18,23 +18,19 @@
 <!-- 페이징 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="CSS/common.css"/>
+<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 
 <title>이벤트 목록</title>
-<style>
-table {width: 100%;}
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-</style>
+
 </head>
-<body>
-<div id="container">
+<body class="is-preload">
+<div id="wrapper">
 	<nav>
 		<div>네비게이션 바</div>
 	</nav>
-		<hr>
+	<div id="main">
+	<section id="content" class="main">
 		<h2>이벤트 목록</h2>
 		<table>
 			<tr>
@@ -66,9 +62,21 @@ table, th, td {
 	<jsp:param value="<%= curPage %>" name="curPage"/>
 </jsp:include>
 
+	</section>
+   	</div>
    <footer>
    
    </footer>
 </div>
+
+<!-- Scripts -->
+			<script src="JS/jquery.min.js"></script>
+			<script src="JS/jquery.scrollex.min.js"></script>
+			<script src="JS/jquery.scrolly.min.js"></script>
+			<script src="JS/browser.min.js"></script>
+			<script src="JS/breakpoints.min.js"></script>
+			<script src="JS/util.js"></script>
+			<script src="JS/main.js"></script>
+
 </body>
 </html>

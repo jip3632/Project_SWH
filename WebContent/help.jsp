@@ -4,13 +4,16 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title>슬라임 가이드 및 웹사이트 소개</title>
 </head>
-<body>
-<div id="container">
+<body class="is-preload">
+<div id="wrapper">
    <nav>
       <div>네비게이션 바</div>
    </nav>
+   	<div id="main">
+	<section id="content" class="main">
    <h3>슬라임 가이드</h3>
    <div id = "guide">
    	<ul>
@@ -41,26 +44,36 @@
   	warehouse는 창고라는 뜻입니다. 저희 웹사이트에서는 전국의 모든 오프라인 매장의 슬라임 재고를 보여줌으로써 슬라임 창고의 역할을 하고 있다는 의미입니다.<br>
    	또한 where은 어디 즉, 장소를 의미하는데 구매하실 슬라임이 있는 오프라인 매장을 찾으실 수 있다는 의미입니다.<br>
    	ware과 where의 발음이 비슷하여 이를 합치어 저희 웹사이트의 이름이 탄생하게 되었습니다.<br>
-   	앞으로도 slime Where?house를 애용해주세요:)<br>
+   	앞으로도 slime Where?house를 애용해주세요:)<br><br>
    </li>
    <li><h4>구매자 회원 분들</h4>
    	각 오프라인 매장 별 슬라임 재고를 확인하실 수 있습니다.<br>
    	오프라인 매장의 후기도 남길 수 있습니다.<br>
    	마이페이지에서 작성하신 후기 목록을 확인하실 수 있습니다.<br>
-   	슬라임 찜하기 서비스, 오프라인 매장 택배 예약 서비스도 추후 업데이트될 예정입니다.<br>
+   	슬라임 찜하기 서비스, 오프라인 매장 택배 예약 서비스도 추후 업데이트될 예정입니다.<br><br>
    </li>
    <li><h4>판매자 회원 분들</h4>
    	가입하실 때 사업자 등록증 사진을 메일로 보내주시면 가입 승인이 이루어집니다. 그 이후에 서비스를 이용하실 수 있습니다.<br>
    	자신의 매장을 쉽게 관리하실 수 있습니다. 슬라임 재고를 한눈에 확인하실 수 있고 판매하시거나 입고되면 재고를 수정해주시면 됩니다.<br>
    	자신의 매장에 남긴 후기들을 확인하실 수 있습니다. <br>
-   	택배 예약 목록 확인 서비스도 추후 업데이트될 예정입니다. <br>
+   	택배 예약 목록 확인 서비스도 추후 업데이트될 예정입니다. <br><br>
    </li>
    </ul>
    </div>
-<br><br><br><br><br><br>
+	</section>
+   	</div>
    <footer>
    </footer>
 </div>
+
+<!-- Scripts -->
+			<script src="JS/jquery.min.js"></script>
+			<script src="JS/jquery.scrollex.min.js"></script>
+			<script src="JS/jquery.scrolly.min.js"></script>
+			<script src="JS/browser.min.js"></script>
+			<script src="JS/breakpoints.min.js"></script>
+			<script src="JS/util.js"></script>
+			<script src="JS/main.js"></script>
 
 </body>
 </html>

@@ -22,10 +22,10 @@ ul.pagination a {
 }
 
 ul.pagination a.active {
-    background-color: #4CAF50;
+    background-color: #ccccff;
     color: white;
-    border: 1px solid #4CAF50;
+    border: 1px solid #ccccff;
 }
 
-ul.pagination a:hover:not(.active) {background-color: #ddd;}
+ul.pagination a:hover:not(.active) {background-color: #e8e8ff;}
 
