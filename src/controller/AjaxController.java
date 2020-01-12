@@ -59,6 +59,9 @@ public class AjaxController extends HttpServlet {
 			new SignUpListCommand().execute(request, response);
 			new AjaxIdCheckCommand().execute(request, response);
 			break;
+		case "/signUpManager.ajax":
+			new SignUpListCommand().execute(request, response);
+			new AjaxIdCheckCommand().execute(request, response);
 		}
 	}
 }

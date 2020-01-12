@@ -14,7 +14,8 @@ public class SignUpListCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		MemberDAO dao = new MemberDAO();
 		MemberDTO [] arr = null;
-		String id = request.getParameter("user_id");
+		String id = request.getParameter("mb_id");
+		System.out.println(id);
 		try {
 			arr = dao.searchById(id);
 			request.setAttribute("list", arr);
