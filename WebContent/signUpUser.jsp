@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 <title>일반 유저 회원 가입</title>
 <script src="JS/findAddress.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 <body>
 <div class="container">
@@ -15,7 +17,7 @@
 	
 	<header></header>
 	<h2>일반 회원 가입</h2>
-	<form action="signUpUserOk.slime">
+	<form action="signUpUserOk.slime" method="post" onsubmit="return chkSubmit()" name="frm">
 		이름: <input type="text" name="user_name" required><br>
 		휴대폰번호: <input type="tel" name="phone_number" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required><br>
 		<input type="hidden" id="confmKey" name="confmKey" value=""  >

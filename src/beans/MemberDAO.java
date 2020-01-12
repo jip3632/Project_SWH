@@ -210,6 +210,22 @@ public class MemberDAO {
 		}
 		return cnt;
 	}
-	
+	//매장회원 생성
+	public int insertNewManager(String mb_id, String mb_pw, String mb_name, String mb_address, String mb_cell,String mb_email) throws SQLException{
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_INSERT_MANAGER);
+			pstmt.setString(1, mb_id);
+			pstmt.setString(2, mb_pw);
+			pstmt.setString(3, mb_name);
+			pstmt.setString(4, mb_address);
+			pstmt.setString(5, mb_cell);
+			pstmt.setString(6, mb_email);
+			cnt = pstmt.executeUpdate();
+		}finally {
+			close();
+		}
+		return cnt;
+	}
 	
 } // end class

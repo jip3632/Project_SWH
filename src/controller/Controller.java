@@ -212,6 +212,10 @@ public class Controller extends HttpServlet {
 			new LoginOkCommand().execute(request, response);
 			viewPage = "loginOk.jsp";
 			break;
+		case "/logout.slime":
+			new LogoutCommand().execute(request, response);
+			viewPage = "logout.jsp";
+			break;
 		//회원 마이페이지
 		case "/userPage.slime":
 			new UserPageCommand().execute(request, response);
@@ -248,13 +252,22 @@ public class Controller extends HttpServlet {
 			viewPage = "signUpUser.jsp";
 			break; 
 		case "/signUpUserOk.slime":
+			new SignUpUserOkCommand().execute(request, response);
 			viewPage = "SignUpUserOk.jsp";
 			break;
 		case "/signUpManager.slime":
 			viewPage = "SignUpManager.jsp";
 			break;
 		case "/signUpManagerOk.slime":
+			new SignUpManagerOkCommand().execute(request, response);
 			viewPage = "SignUpManagerOk.jsp";
+			break;
+		case "/signUpStore.slime":
+			viewPage = "signUpStore.jsp";
+			break;
+		case "/signUpStoreOk.slime":
+			new SignUpStoreOkCommand().execute(request, response);
+			viewPage = "signUpStoreOk.jsp";
 			break;
 		}
 
