@@ -1,8 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<footer>
-	<div><img alt="logo" src="upload/logo/logo.png"></div>
-	<div>Slime Where?House</div>
-	<div><a href="">slimewherehouse@gmail.com</a></div>
-	<div>contact: 010-1111-1111</div>
+<footer id="footer">
+	<section>
+		<div><img class="icon brands alt" alt="logo" src="upload/logo/logo.png" width="40" height="40"></div>
+		<h3>Slime Where?House</h3>
+		<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
+	</section>
+
+	<section>
+		<h3>Contact</h3>
+		<dl class="alt">
+			<dt>Address</dt>
+			<dd>서울특별시 강남구 역삼동 역삼역 3번출구</dd>
+			<dt>Phone</dt>
+			<dd>010-1111-1111</dd>
+			<dt>Email</dt>
+			<dd><a href="#">slimewherehouse@gmail.com</a></dd>
+		</dl>
+	</section>
 </footer>
