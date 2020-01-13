@@ -32,12 +32,14 @@
 			<header class="major">
 				<h2>Search slime</h2>
 				<p>원하는 슬라임이나 매장을 빠르고 쉽게 검색하세요<br /></p>
+				<div class = "row aln-center" style="margin-bottom:10px;">
+					<div class="col-5"><a class="button primary" style="width:100%" type="button" href="mainStore.slime">매장검색</a></div>
+					<div class="col-5"><a class="button" style="width:100%" href="mainProduct.slime">슬라임검색</a></div>
+				</div>
 			</header>
+			
 			<footer class="major">
-				<ul class="actions special">
-					<li><a href="mainStore.slime" class="button primary">Store</a></li>
-					<li><a href="mainProduct.slime" class="button">Product</a></li>
-				</ul>
+
 				<button id = "selectRegion" class="button primary fit">지역선택</button>
 				<div id = "regionList" class="">
 					<button class="button fit" onclick="ajax(1)">서울</button>
