@@ -39,7 +39,7 @@
 					<li><a href="mainProduct.slime" class="button">Product</a></li>
 				</ul>
 				<button id = "selectRegion" class="button primary fit">지역선택</button>
-				<div id = "regionList">
+				<div id = "regionList" class="">
 					<button class="button fit" onclick="ajax(1)">서울</button>
 					<button class="button fit" onclick="ajax(2)">대전</button>
 					<button class="button fit" onclick="ajax(3)">부산</button>
@@ -53,7 +53,7 @@
 		</section>
 
 		<section class="main special">
-			<ul id="storeList" class="features">
+			<ul id="storeList" class="features alt">
 				<li><p>지역을 선택해 주세요</p></li>
 			</ul>
 		</section>

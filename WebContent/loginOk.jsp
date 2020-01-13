@@ -48,6 +48,13 @@
 			//location.href='mainStore.slime';
 		</script>
 		<%
+		} else if ((Integer)session.getAttribute("my_type") == 0) {
+		%>	
+		<script>
+			alert("가입 대기중입니다.");
+			location.href='mainStore.slime';
+		</script>
+		<%
 		}
 	} else {
 		// 로그인 실패
