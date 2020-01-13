@@ -8,61 +8,59 @@
 <meta charset="UTF-8">
 <title>Slime Where?House</title>
 
-<link href="CSS/default.css" rel="stylesheet" type="text/css">
+<link href="CSS/main.css" rel="stylesheet" type="text/css">
 <script src="https://kit.fontawesome.com/02846aab38.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
 </head>
 
 <script src="JS/mainStore.js"></script>
 <body>
-<div id="container">
 
-	<nav>
-		<button onclick="location.href='mainStore.slime'">홈버튼</button>
-		<c:choose>
-			<c:when test="${login == null }">
-				<button onclick="location.href='login.slime'">로그인 버튼</button>
-			</c:when>
-			<c:otherwise>
-				<c:choose>
-					<c:when test="${mb_type == 1 }">
-						<button onclick="location.href='userPage.slime?mb_uid=${mb_uid }'">마이페이지</button>
-					</c:when>
-					<c:when test="${mb_type == 2 }">
-						<button onclick="location.href='managerPage.slime?mb_uid=${mb_uid }'">매장관리</button>
-					</c:when>
-				</c:choose>
-			</c:otherwise>
-		</c:choose>
-		<button onclick="location.href='reviewList_everyone.slime'">리뷰</button>
-		<button onclick=''>고객센터</button>
-	</nav>
-	
-	<header></header>
 
-	<article>
-		<div id="searchType">
-			<button onclick="location.href='mainStore.slime'">Store</button>
-			<button onclick="location.href='mainProduct.slime'">Product</button>
-		</div>
-		<ul id="buttonList">
-			<li><button id = "selectRegion">지역</button></li>
-			<li><button class="region" onclick="ajax(1)">서울</button></li>
-			<li><button class="region" onclick="ajax(2)">대전</button></li>
-			<li><button class="region" onclick="ajax(3)">부산</button></li>
-			<li><button class="region">충청도</button></li>
-			<li><button class="region">경상도</button></li>
-			<li><button class="region">전라도</button></li>
-		</ul>
+	<jsp:include page="/nav.jsp"></jsp:include>
 	
-		<ul id="storeList">
-			
-		</ul>
-	</article>
-	<footer>
+<div id="wrapper">
 	
-	</footer>
+	<header id="header" class="alt">
+		<!--<span class="logo"><img src="upload/logo/logo.png" alt="" /></span>-->
+		<h1>Slime Where?House</h1>
+	</header>
+	
+	<div id="main">
+
+		<section id="cta" class="main special">
+			<header class="major">
+				<h2>Search slime</h2>
+				<p>원하는 슬라임이나 매장을 빠르고 쉽게 검색하세요<br /></p>
+			</header>
+			<footer class="major">
+				<ul class="actions special">
+					<li><a href="mainStore.slime" class="button primary">Store</a></li>
+					<li><a href="mainProduct.slime" class="button">Product</a></li>
+				</ul>
+				<button id = "selectRegion" class="button primary fit">지역선택</button>
+				<div id = "regionList">
+					<button class="button fit" onclick="ajax(1)">서울</button>
+					<button class="button fit" onclick="ajax(2)">대전</button>
+					<button class="button fit" onclick="ajax(3)">부산</button>
+					<button class="button fit">경기도</button>
+					<button class="button fit">충청도</button>
+					<button class="button fit">경상도</button>
+					<button class="button fit">전라도</button>
+					<button class="button fit">강원도</button>
+				</div>
+			</footer>
+		</section>
+
+		<section class="main special">
+			<ul id="storeList" class="features">
+				<li><p>지역을 선택해 주세요</p></li>
+			</ul>
+		</section>
+	</div>
+
+	<jsp:include page="/footer.jsp"></jsp:include>
 </div>
+
 </body>
 </html>

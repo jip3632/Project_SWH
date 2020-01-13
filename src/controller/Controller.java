@@ -253,16 +253,17 @@ public class Controller extends HttpServlet {
 			break; 
 		case "/signUpUserOk.slime":
 			new SignUpUserOkCommand().execute(request, response);
-			viewPage = "SignUpUserOk.jsp";
+			viewPage = "signUpUserOk.jsp";
 			break;
 		case "/signUpManager.slime":
-			viewPage = "SignUpManager.jsp";
+			viewPage = "signUpManager.jsp";
 			break;
 		case "/signUpManagerOk.slime":
 			new SignUpManagerOkCommand().execute(request, response);
-			viewPage = "SignUpManagerOk.jsp";
+			viewPage = "signUpManagerOk.jsp";
 			break;
 		case "/signUpStore.slime":
+			new SignUpListCommand().execute(request, response);
 			viewPage = "signUpStore.jsp";
 			break;
 		case "/signUpStoreOk.slime":

@@ -225,7 +225,7 @@ public interface D {
 	
 	//매장 생성
 	public static final String SQL_INSERT_OFFSTORE =
-			"INSERT INTO sl_offstore (mb_id, st_name, st_address, st_contact, st_hours ,st_description, st_rating, st_img, st_valid_key, st_valid_img, st_latitude, st_longitude) "
-			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			"INSERT INTO sl_offstore (mb_uid, st_name, st_address, st_contact, st_hours , st_valid_key, st_valid_img, st_valid_file, st_latitude, st_longitude) "
+			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 }

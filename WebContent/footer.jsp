@@ -4,7 +4,7 @@
 	<section>
 		<div><img class="icon brands alt" alt="logo" src="upload/logo/logo.png" width="40" height="40"></div>
 		<h3>Slime Where?House</h3>
-		<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
+		<p>슬라임은 만지면서 향과 촉감을 즐길 수 있는 수제 장난감입니다.</p>
 	</section>
 
 	<section>

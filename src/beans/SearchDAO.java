@@ -344,6 +344,28 @@ public class SearchDAO {
 		
 		return cnt;
 	}
+	
+	public int insertNewStore(int mb_uid, String st_name, String st_address, String st_contact, String st_hours, int st_valid_key, String st_valid_img, String st_valid_file, String st_latitude, String st_longitude) throws SQLException{
+		int cnt = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_INSERT_OFFSTORE);
+			pstmt.setInt(1, mb_uid);
+			pstmt.setString(2, st_name);
+			pstmt.setString(3, st_address);
+			pstmt.setString(4, st_contact);
+			pstmt.setString(5, st_hours);
+			pstmt.setInt(6, st_valid_key);
+			pstmt.setString(7, st_valid_img);
+			pstmt.setString(8, st_valid_file);
+			pstmt.setString(9, st_latitude);
+			pstmt.setString(10, st_longitude);
+			cnt = pstmt.executeUpdate();
+		}finally {
+			close();
+		}
+		return cnt;
+	}
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//Searching using ProductDTO

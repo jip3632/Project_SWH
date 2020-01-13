@@ -23,21 +23,6 @@
 <head>
 <meta charset="UTF-8">
 <link href="CSS/main.css" rel="stylesheet">
-<style>
-	#first .features li{
-	}
-		@media screen and (max-width: 0px) {
-
-			#nav {
-				display: none;
-			}
-
-				#nav + #main {
-					padding-top: 0;
-				}
-
-		}
-</style>
 <title>매장 관리</title>
 </head>
 <body>
@@ -54,7 +39,7 @@
 		<section id="intro" class="main">
 			<div class="spotlight">
 				<div class="content">
-					<header class="majer">
+					<header class="major">
 						<h3>매장: <%= arr[0].getSt_name()%></h3>
 					</header>
 					<div>

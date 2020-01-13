@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	int cnt = (Integer) request.getAttribute("result");
+	String id = request.getParameter("user_id");
 %>
 
 <% if(cnt == 0){ %>
@@ -12,7 +13,7 @@
 <% } else { %>
 	<script>
 		alert("등록 성공, 회원 가입을 환영합니다!");
-		location.href = "mainStore.slime";
+		location.href = "signUpStore.slime?mb_id=<%=id%>";
 	</script>
 	
 <% } %>
