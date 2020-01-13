@@ -7,7 +7,7 @@ CREATE TABLE SL_member
     `mb_id`       VARCHAR(45)    NOT NULL    COMMENT '회원 로그인 id', 
     `mb_pw`       VARCHAR(45)    NOT NULL    COMMENT '회원 비밀번호', 
     `mb_name`     VARCHAR(45)    NOT NULL    COMMENT '회원 이름', 
-    `mb_address`   VARCHAR(45)    NULL        COMMENT '회원 주소', 
+    `mb_address`  VARCHAR(45)    NULL        COMMENT '회원 주소', 
     `mb_cell`     VARCHAR(45)    NOT NULL    COMMENT '회원 전화번호', 
     `mb_email`    VARCHAR(45)    NOT NULL    COMMENT '회원 이메일', 
     `mb_regdate`  DATETIME       NOT NULL    DEFAULT now() COMMENT '회원 등록일', 
@@ -31,12 +31,12 @@ CREATE TABLE SL_offstore
     `st_contact`      VARCHAR(45)    NOT NULL    COMMENT '매장 연락처', 
     `st_hours`        TEXT           NOT NULL    COMMENT '매장 영업시간', 
     `st_description`  TEXT           NULL        COMMENT '매장 설명', 
-    `st_rating`       DOUBLE            NOT NULL    DEFAULT 0 COMMENT '매장 평점', 
-    `st_img`       VARCHAR(200)    NULL        COMMENT '매장 사진(원본파일명)', 
-    `st_file`		  VARCHAR(200)   null		COMMENT '저장파일명',
+    `st_rating`       DOUBLE         NOT NULL    DEFAULT 0 COMMENT '매장 평점', 
+    `st_img`          VARCHAR(200)   NULL        COMMENT '매장 사진(원본파일명)', 
+    `st_file`		  VARCHAR(200)   null		 COMMENT '저장파일명',
     `st_valid_key`    INT            NOT NULL    COMMENT '매장 사업자등록번호 번호', 
-    `st_valid_img`    VARCHAR(200)    NOT NULL    COMMENT '매장 사업자등록증', 
-    `st_valid_file`   VARCHAR(200)	not null  	COMMENT '매장 사업자 등록증 (원본파일)',
+    `st_valid_img`    VARCHAR(200)   NOT NULL    COMMENT '매장 사업자등록증', 
+    `st_valid_file`   VARCHAR(200)	 not null  	 COMMENT '매장 사업자 등록증 (원본파일)',
     `st_latitude`     VARCHAR(20)    NOT NULL    COMMENT '매장 위도', 
     `st_longitude`    VARCHAR(20)    NOT NULL    COMMENT '매장 경도', 
     PRIMARY KEY (st_uid)
@@ -58,8 +58,8 @@ CREATE TABLE SL_market
     `mk_uid`    INT            NOT NULL    AUTO_INCREMENT COMMENT '마켓 고유 아이디', 
     `mk_name`   VARCHAR(45)    NOT NULL    COMMENT '마켓 이름', 
     `mk_insta`  VARCHAR(45)    NULL        COMMENT '마켓 인스타', 
-    `mk_logo` VARCHAR(200)    NULL        COMMENT '마켓 로고(원본파일명)', 
-    `mk_file`	VARCHAR(200)   null			COMMENT '저장파일명',
+    `mk_logo`   VARCHAR(200)   NULL        COMMENT '마켓 로고(원본파일명)', 
+    `mk_file`	VARCHAR(200)   null		   COMMENT '저장파일명',
     PRIMARY KEY (mk_uid)
 );
 
@@ -78,8 +78,8 @@ CREATE TABLE SL_product
     `pd_uid`          INT            NOT NULL    AUTO_INCREMENT COMMENT '제품 고유 번호', 
     `pd_name`         VARCHAR(45)    NOT NULL    COMMENT '제품 명', 
     `pd_description`  text           NULL        COMMENT '제품 설명', 
-    `pd_img`       VARCHAR(200)    NULL        COMMENT '제품 사진(원본파일명)', 
-    `pd_file`		  VARCHAR(200)   null		COMMENT '저장파일명',
+    `pd_img`          VARCHAR(200)   NULL        COMMENT '제품 사진(원본파일명)', 
+    `pd_file`		  VARCHAR(200)   null		 COMMENT '저장파일명',
     `mk_uid`          INT            NOT NULL    COMMENT '제작자', 
     PRIMARY KEY (pd_uid)
 );
@@ -89,9 +89,6 @@ ALTER TABLE SL_product COMMENT '제품';
 ALTER TABLE SL_product
     ADD CONSTRAINT FK_SL_product_mk_uid_SL_market_mk_uid FOREIGN KEY (mk_uid)
         REFERENCES SL_market (mk_uid) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-ALTER TABLE SL_product
-    ADD CONSTRAINT UC_pd_name UNIQUE (pd_name);
 
 
 -- SL_member Table Create SQL
