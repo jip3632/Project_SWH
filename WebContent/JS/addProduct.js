@@ -80,6 +80,7 @@ function showDetail(pd_uid, pd_file, pd_name){
 			+ "<div>가격 <input type='text' name='inv_price' placeholder='가격입력'>원</div>"
 			+ "<div>재고<input type='text' name='inv_quantity' placeholder='개수입력'>개</div>"
 			+ "<input type='hidden' name='pd_uid' value='" + pd_uid + "'>";
+	
 	$("#product_detail").html(table);
 }
 

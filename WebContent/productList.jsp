@@ -91,10 +91,11 @@
 			</div>
 			 --%>
 				<%
+				
 				int index = 0;
 					for(int i = 0; i < arr.length; i = index){
 						int mk_uid = arr[i].getMk_uid(); //마켓 고유번호
-						out.println("<section id='cta' class='main special'>");
+						out.println("<section class='main special'>");
 						out.println("<header><h3>매장:<b>" + arr[i].getMk_name() + "</b></h3></header>");
 						out.println("<ul class='features'>");
 						

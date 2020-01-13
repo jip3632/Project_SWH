@@ -56,15 +56,13 @@ public class AjaxAddProductCommand implements Command {
 			market.put("mk_file", marketArr[i].getMk_file());
 			JSONArray products = new JSONArray();
 			for(int j = 0; j < countProduct; j++) {
-				if(mk_uid != productArr[j].getMk_uid()) {
-					break;
-				} else {
-					JSONObject product = new JSONObject();
-					product.put("pd_uid", productArr[j].getPd_uid());
-					product.put("pd_name", productArr[j].getPd_name());
-					product.put("pd_file", productArr[j].getPd_file());
-					product.put("pd_description", productArr[j].getPd_description());
-					products.put(product);
+				if(mk_uid == productArr[j].getMk_uid()) {
+				JSONObject product = new JSONObject();
+				product.put("pd_uid", productArr[j].getPd_uid());
+				product.put("pd_name", productArr[j].getPd_name());
+				product.put("pd_file", productArr[j].getPd_file());
+				product.put("pd_description", productArr[j].getPd_description());
+				products.put(product);
 				}
 			}
 			market.put("products", products);
