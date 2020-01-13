@@ -4,22 +4,38 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
 <title>회원 유형 선택</title>
+<link rel="stylesheet" href="CSS/main.css" />
+
+
 </head>
-<body>
-<div class="container">
+<body class="is-preload">
+<div id="wrapper">
 	<nav>
 		<div>네비게이션 바</div>
 	</nav>
 	
-	<header></header>
-	<div class="sign_up_user">
-		<a href="signUpUser.jsp">일반유저 가입</a>
+	<header id="header"><h2>회원가입 유형을 선택하세요</h2></header>
+	<div id="main">
+		<section id="first" class="main">
+			<ul class ="statistics">
+				<li class="style1">
+					<a href="signUpUser.slime">일반회원 가입</a>
+				</li>
+
+			</ul>
+		</section>
+		<section id="second" class="main">
+			<ul class="statistics">
+				<li class="style2">
+					<a href="signUpManager.slime">매장회원 가입</a>
+				</li>
+			</ul>
+		</section>
 	</div>
-	
-	<div class="sign_up_manager">
-		<a href="signUpManagers.jsp">매장매니저 가입</a>
-	</div>
+
 	
 	<footer>
 	
