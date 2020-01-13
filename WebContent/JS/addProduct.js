@@ -114,7 +114,7 @@ function productList(jsonObj, mk_uid){
 ///////////////////// 제품 정보보여주기
 function showDetail(pd_uid, pd_file, pd_name){
 	modalShowProduct.style.display = "none";
-	table = "<img alt='noImage' src='upload/product/" + pd_file + "'/>"
+	table = "<span class='image fit'><img alt='noImage' src='upload/product/" + pd_file + "'/></span>"
 			+ "<div>" + pd_name + "</div>"
 			+ "<div>용량 <input type='text' name='inv_volume' placeholder='용량입력'>ml</div>"
 			+ "<div>가격 <input type='text' name='inv_price' placeholder='가격입력'>원</div>"
