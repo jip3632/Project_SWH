@@ -23,56 +23,89 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<link href="CSS/main.css" rel="stylesheet">
 <title>매장정보변경</title>
 </head>
 <body>
-<article>
-<%-- "매장 정보 변경"표시 --%>
-<h3>매장 정보 변경</h3>
-<%-- 매장 이름 표시 --%>
-<h4><%=st_name %></h4>
-<form name="frm" action="storeSettingOk.slime" method="post" onsubmit="return chkUpdate()" enctype="Multipart/form-data">
-	<%-- hidden mb_uid --%>
-	<input type="hidden" name="mb_uid" value="<%= mb_uid%>">
+<div id="wrapper">
+	<nav id="nav" class="alt">
+		<div>네비게이션 바</div>
+	</nav>
 	
-	<%-- 매장 주소 표시/변경--%>
-	<div>
-	매장주소<br>
-	<input type="text" name="st_address" value="<%= st_address%>"><br>
+	<div id="main">
+		<%-- "매장 정보 변경"표시 --%>
+		<section id="intro" class="main">
+			<div class="spotlight content">
+				<h3>매장 정보 변경</h3>
+			</div>
+		</section>
+		<%-- 매장 이름 표시 --%>
+		<section id="first" class="main special">	
+			<h4>매장: <%=st_name %></h4>
+			<form name="frm" action="storeSettingOk.slime" method="post" onsubmit="return chkUpdate()" enctype="Multipart/form-data">
+				<%-- hidden mb_uid --%>
+				<input type="hidden" name="mb_uid" value="<%= mb_uid%>">
+				
+				<%-- 매장 주소 표시/변경--%>
+				<div>매장주소</div>
+				<div class="col-6 col-12-xsmall">
+					<input type="text" name="st_address" value="<%= st_address%>"><br>
+				</div>
+				<%-- 매장 연락처 표시/변경--%>
+				<div>매장 연락처</div>
+				<div class="col-6 col-12-xsmall">
+					<input type="text" name="st_contact" value="<%=st_contact %>"><br>
+				</div>
+				
+				<%-- 매장 영업시간 표시/변경 (input 2개 start 과 end)--%>
+				<div>매장 영업시간</div>
+				<div class="col-6 col-5-xsmall">
+					<select name="st_start" id="demo-category">
+						<option value="<%=st_start %>"><%=st_start %></option>
+						<option value="09:00">09:00</option>
+						<option value="09:30">09:30</option>
+						<option value="10:00">10:00</option>
+						<option value="10:30">10:30</option>
+						<option value="11:00">11:00</option>
+						<option value="11:30">11:30</option>
+					</select>
+				</div>
+				<div>-</div> 
+				<div class="col-6 col-5-xsmall"> 
+					<select name="st_end" id="demo-category">
+						<option value="<%=st_end%>"><%=st_end%></option>
+						<option value="20:00">20:00</option>
+						<option value="20:30">20:30</option>
+						<option value="21:00">21:00</option>
+						<option value="21:30">21:30</option>
+						<option value="22:00">22:00</option>
+						<option value="22:30">22:30</option>
+					</select>
+				</div>
+				
+				<%-- 매장 설명 표시/변경--%>
+				<div>매장 설명</div>
+				<div  class="col-6 col-12-xsmall">
+					<textarea rows="10" cols="20" name="st_description"><%=st_description %></textarea><br>
+				</div>
+				
+				<%-- 매장 사진 변경 --%>
+				<div>매장 사진</div>
+				<div>
+					<span class="image left">
+						<img alt="<%=farr[0].getFile()%>" src="upload/offstore/<%=farr[0].getFile()%>">
+					</span>
+				</div>
+				<div >
+					<input type="file" name="upload">
+				</div>
+				
+				<%-- 제출 Submit --%>
+				<input type="submit" value="수정">
+			</form>
+		</section>
 	</div>
-	
-	<%-- 매장 연락처 표시/변경--%>
-	<div>
-	매장 연락처<br>
-	<input type="text" name="st_contact" value="<%=st_contact %>"><br>
-	</div>
-	
-	<%-- 매장 영업시간 표시/변경 (input 2개 start 과 end)--%>
-	<div>
-	매장 영업시간<br>
-	<input type="text" name="st_start" value="<%=st_start %>"> - 
-	<input type="text" name="st_end" value="<%=st_end %>"><br>
-	</div>
-	
-	<%-- 매장 설명 표시/변경--%>
-	<div>
-	매장 설명<br>
-	<textarea rows="10" cols="20" name="st_description"><%=st_description %></textarea><br>
-	</div>
-	
-	<%-- 매장 사진 변경 --%>
-	<div>
-	매장 사진<br>
-	<img alt="<%=farr[0].getFile()%>" src="upload/offstore/<%=farr[0].getFile()%>">
-	<br>
-	<input type="file" name="upload"><br>
-	</div>
-	
-	<%-- 제출 Submit --%>
-	<input type="submit" value="수정">
-</form>
-</article>	
-
+</div>
 </body>
 <script>
 	function chkUpdate(){

@@ -9,32 +9,46 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<link href="CSS/main.css" rel="stylesheet">
+
 <title>재고 정보 수정</title>
 </head>
 <body>
-	<article>
-	<h3>재고 정보 수정</h3>
+<div id="wrapper">
+	<nav id="nav" class="alt">
+		<div>네비게이션 바</div>
+	</nav>
 	
-	<%--  --%>
-	<form name="frm" action="productSettingOk.slime" method="post" onsubmit="return chkUpdate()">
-		<div>
-			<img alt="제품 사진" src="">
-			<div><%= arr[0].getMk_name()%></div>
-			<div><%= arr[0].getPd_name()%>pd_name</div>
-			<%-- hidden 값 : st_uid, inv_uid, --%>
-			<input type="hidden" name="st_uid" value="<%= arr[0].getSt_uid()%>">		
-			<input type="hidden" name="inv_uid" value="<%= arr[0].getInv_uid()%>">		
-			
-			<div>용량 <input type="text" name="inv_volume" value="<%= arr[0].getInv_volume()%>">ml</div>
-			<div>가격 <input type="text" name="inv_price" value="<%= arr[0].getInv_price()%>">원</div>
-			<div>재고 <input type="text" name="inv_quantity" value="<%= arr[0].getInv_quantity()%>">개</div>
-		</div>
-		<input type="submit" value="완료">
-	</form>
-		<button type="button" onclick="history.back()">취소</button>
-	
-	
-	</article>
+	<div id="main">
+		<section id="intro" class="main">
+			<div class="spotlight content">
+				<h3>재고 정보 수정</h3>
+			</div>
+		</section>
+		<section id="first" class="main special">
+		<form name="frm" action="productSettingOk.slime" method="post" onsubmit="return chkUpdate()">
+			<div>
+				<div>매장: <%= arr[0].getMk_name()%></div>
+				<div>제품: <%= arr[0].getPd_name()%></div>
+				<%-- hidden 값 : st_uid, inv_uid, --%>
+				<input type="hidden" name="st_uid" value="<%= arr[0].getSt_uid()%>">		
+				<input type="hidden" name="inv_uid" value="<%= arr[0].getInv_uid()%>">		
+				
+				<div>용량(ml)</div>
+				<div class="col-6 col-12-xsmall"><input type="text" name="inv_volume" value="<%= arr[0].getInv_volume()%>"></div>
+				<div>가격(원)</div>
+				<div class="col-6 col-12-xsmall"><input type="text" name="inv_price" value="<%= arr[0].getInv_price()%>"></div>
+				<div>재고(개)</div>
+				<div class="col-6 col-12-xsmall"><input type="text" name="inv_quantity" value="<%= arr[0].getInv_quantity()%>"></div>
+			</div>
+			<input type="submit" value="완료">
+		</form>
+			<button type="button" onclick="history.back()">취소</button>
+		
+		
+		</section>
+	</div>
+</div>
 </body>
 <script>
 	function chkUpdate(){
