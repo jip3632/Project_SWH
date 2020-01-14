@@ -29,6 +29,7 @@
 <body class="is-preload">
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
+<jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
 	<section id="content" class="main">
 		<h2>내 매장 후기 목록</h2>

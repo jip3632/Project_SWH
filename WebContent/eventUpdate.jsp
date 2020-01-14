@@ -64,6 +64,7 @@ function chkSubmit(){
 <body class="is-preload">
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
+<jsp:include page="/header.jsp"></jsp:include>
    	<div id="main">
    	<section id="content" class="main">
 <h2>수정하기</h2>
