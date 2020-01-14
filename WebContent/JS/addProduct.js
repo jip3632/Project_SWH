@@ -145,7 +145,10 @@ function chkInventory(){
 	if(inv_volume == "" || inv_price =="" || inv_quantity == ""){
 		alert("재고의 상세정보(용량, 가격, 재고)를 입력해주세요");
 		return false;
-	} 
+	} else if(!regex(inv_volume) || !regex(inv_price) || !regex(inv_quantity)){
+		alert("정수를 입력하세요");
+		return false;
+	}
 	var inventory = object.inventory;
 	var count = object.inventory_count;
 	for(i = 0; i < count; i++){
@@ -155,20 +158,20 @@ function chkInventory(){
 			if(!r){
 				return false;
 			}else{
-				if(Number.isInteger(inv_volume) || Number.isInteger(inv_price) || Number.isInteger(inv_quantity)){
-					return true;
-				} else{
-					alert("정수로 입력하세요");
-					return false;
-				}
+				return true;
 			}
 		}
 	}
-	if(Number.isInteger(inv_volume) || Number.isInteger(inv_price) || Number.isInteger(inv_quantity)){
+	return true;
+}
+
+function regex(i){
+	var patt = new RegExp("(^[1-9]$|^[1-9][0-9]+$)");
+	var isInt = patt.test(i);
+	if(isInt){
 		return true;
 	} else{
-		alert("정수를 입력하세요");
-		return false;
+		return false
 	}
 }
 //////////////////////////마켓 이미 존재 여부
