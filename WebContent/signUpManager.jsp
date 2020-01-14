@@ -15,7 +15,7 @@
 	}
 </style>
 </head>
-<body>
+<body class="is-preload">
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 	<jsp:include page="/header.jsp"></jsp:include>
@@ -48,10 +48,10 @@
 			
 			아이디: 
 			<div class="row">
-				<div class="col-7">
+				<div class="col-6">
 					<input type="text" name="user_id" id="user_id" required>
 				</div>
-				<div class="col-5">
+				<div class="col-6">
 					<button class="button fit" type="button" onclick="ajax();">아이디 중복 확인</button><div id="id_check"></div>
 				</div>
 			</div>
@@ -67,11 +67,11 @@
 			<br>
 			<section class="main special">
 				<div class="row aln-center">
-					<div class="col-4">
-						<button class="button" style="width: 100%;" type="reset">초기화</button>
+					<div class="col-5">
+						<button class="button fit" style="width: 100%;" type="reset">초기화</button>
 					</div>
-					<div class="col-4">
-						<button class="button primary" style="width: 100%;" type="submit">회원 가입</button>
+					<div class="col-5">
+						<button class="button primary fit" style="width: 100%;" type="submit">회원 가입</button>
 					</div>
 				</div>
 			</section>
@@ -80,5 +80,6 @@
 	</div>
 	<jsp:include page="/footer.jsp"></jsp:include>
 </div>
+<script src="JS/main.js"></script>
 </body>
 </html>
