@@ -10,6 +10,12 @@
 <head>
 <meta charset="UTF-8">
 <title>매장 등록</title>
+<link rel="stylesheet" href="CSS/main.css" />
+<style>
+	.row button{
+		height: 3.2em;
+	}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 function goPopup(){
@@ -48,51 +54,91 @@ function parseJSON(data) {
 }
 </script>
 </head>
-<body>
-	<form name="frm" action="signUpStoreOk.slime" method="post" onsubmit="return chkUpdate()" enctype="Multipart/form-data">
+<body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
+<div id="wrapper">
+	<jsp:include page="/header.jsp"></jsp:include>
+	<div id="main">
+		<section id="intro" class="main special">
+			<header class="major">
+				<h2>매장 등록</h2>
+			</header>
+		</section>
+		<section id="section" class="main">
+			<form name="frm" action="signUpStoreOk.slime" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
 		
-		매장이름<br>
-		<input type="text" id="st_name" name="st_name">
+				매장이름<br>
+				<input type="text" id="st_name" name="st_name">
+				<br>
+				<%-- hidden mb_uid --%>
+				<input type="hidden" name="mb_uid" value="<%=uid%>">
 		
-		<%-- hidden mb_uid --%>
-		<input type="hidden" name="mb_uid" value="<%=uid%>">
+				<%-- 매장 주소 표시/변경--%>
+				도로명주소
+				<div class="row">
+					<div class="col-8">
+						<input type="text"  id="roadFullAddr"  name="roadFullAddr" readonly/>
+					</div>
+					<div class="col-4">
+						<button class="button fit" type="button" onclick="goPopup();">주소찾기</button>
+					</div>
+				</div>
+				<br>
+				<%-- 매장 연락처 표시/변경--%>
+				<div>
+				매장 연락처<br>
+				<input type="text" id="st_contact" name="st_contact" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br>
+				</div>
+				
+				<%-- 매장 영업시간 표시/변경 (input 2개 start 과 end)--%>
+				<div>
+				매장 영업시간<br>
+				<div class="row aln-center">
+					<div class="col-5 col-5-xsmall">
+						<select id="st_start" name="st_start" id="demo-category">
+							<option value="09:00">09:00</option>
+							<option value="09:30">09:30</option>
+							<option value="10:00">10:00</option>
+							<option value="10:30">10:30</option>
+							<option value="11:00">11:00</option>
+							<option value="11:30">11:30</option>
+						</select>
+					</div>
+					<div>-</div> 
+					<div class="col-5 col-5-xsmall"> 
+						<select id="st_end" name="st_end" id="demo-category">
+							<option value="20:00">20:00</option>
+							<option value="20:30">20:30</option>
+							<option value="21:00">21:00</option>
+							<option value="21:30">21:30</option>
+							<option value="22:00">22:00</option>
+							<option value="22:30">22:30</option>
+						</select>
+					</div>
+				</div>
+				</div>
+				<br>
+				<%-- 매장 사업자 등록증 번호--%>
+				사업자 등록증 번호
+				<input type="text" id="st_valid_key" name="st_valid_key"><br>
 		
-		<%-- 매장 주소 표시/변경--%>
-		<div>
-		매장주소<br>
-		<input type="text" id="roadFullAddr" name="roadFullAddr"><br>
-		<button type="button" onclick="goPopup();">주소찾기</button>
-		</div>
+				<%-- 매장 사업자 등록증 사진 --%>
+				사업자 등록증 사진
+				<input type="file" name="upload"><br><br>
 		
-		<%-- 매장 연락처 표시/변경--%>
-		<div>
-		매장 연락처<br>
-		<input type="text" id="st_contact" name="st_contact"><br>
-		</div>
-		
-		<%-- 매장 영업시간 표시/변경 (input 2개 start 과 end)--%>
-		<div>
-		매장 영업시간<br>
-		<input type="text" id="st_start" name="st_start"> - 
-		<input type="text" id="st_end" name="st_end"><br>
-		</div>
-		
-		<%-- 매장 사업자 등록증 번호--%>
-		사업자 등록증 번호
-		<input type="text" id="st_valid_key" name="st_valid_key"><br>
-		
-		<%-- 매장 사업자 등록증 사진 --%>
-		사업자 등록증 사진
-		<input type="file" name="upload"><br>
-		
-		<%-- 위도 경도 --%>
-		<input type="hidden" id="entY" name="st_latitude">
-		<input type="hidden" id="entX" name="st_longitude">
+				<%-- 위도 경도 --%>
+				<input type="hidden" id="entY" name="st_latitude">
+				<input type="hidden" id="entX" name="st_longitude">
 		
 		
-		<%-- 제출 Submit --%>
-		<input type="submit" value="수정">
-	</form>
+				<%-- 제출 Submit --%>
+				<button id="submit_button" class="button primary fit" style="width: 100%;" type="submit">등록</button>
+				</form>
+			</section>
+	</div>
+	<jsp:include page="/footer.jsp"></jsp:include>
+</div>
+<script src="JS/main.js"></script>
 </body>
 <script>
 function chkSubmit(){
@@ -139,4 +185,5 @@ function chkSubmit(){
 	
 }
 </script>
+
 </html>

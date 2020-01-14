@@ -18,12 +18,15 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 function chkSubmit(){
 	frm = document.forms["frm"];
 	
+	$("#pw_check").html("");
 	var name = frm["user_name"].value.trim();
 	var number = frm["phone_number"].value.trim();
 	var address = frm["roadFullAddr"].value.trim();
 	var id = frm["user_id"].value.trim();
 	var pw = frm["user_pw"].value.trim();
 	var email = frm["user_email"].value.trim();
+	var pw = document.getElementById("user_pw").value;
+	var pwC = document.getElementById("user_pw_confirm").value;
 	
 	if(name == ""){
 		alert("이름 란은 반드시 입력해야 합니다");
@@ -55,6 +58,11 @@ function chkSubmit(){
 		frm["user_email"].focus();
 		return false;
 	}
+	if(pw!=pwC){
+		pwTxt="비밀번호가 불일치 합니다";
+		$("#pw_check").html(pwTxt);
+		return false;
+	}
 	return true;
 	
 }
@@ -79,15 +87,28 @@ function ajax() {
 function parseJSON(data) {
 	$("#id_check").html("");
 	
+	
 	var i;
 	var count = data.count;
 	var list = data.list;
-	console.log("json 생성중");
+	console.log(document.getElementById("user_id").value);
 	var htmlTxt = "";
-	if(count==0){
-		htmlTxt="아이디 사용 가능합니다";
+	var pwTxt="";
+	if(document.getElementById("user_id").value == ""){
+		htmlTxt="아이디를 입력하세요"
+		var button = document.getElementById("submit_button");
+		button.disabled=true;
 	}else{
-		htmlTxt="중복 아이디가 존재합니다";
+		if(count==0){
+			htmlTxt="아이디 사용 가능합니다";
+			var button = document.getElementById("submit_button");
+			button.disabled = false;
+		}else{
+			htmlTxt="중복 아이디가 존재합니다";
+			var button = document.getElementById("submit_button");
+			button.disabled=true;
+		}
 	}
 	$("#id_check").html(htmlTxt);
+
 }

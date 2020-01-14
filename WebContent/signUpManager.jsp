@@ -39,7 +39,7 @@
 			도로명주소
 			<div class="row">
 				<div class="col-8">
-					<input type="text"  id="roadFullAddr"  name="roadFullAddr" />
+					<input type="text"  id="roadFullAddr"  name="roadFullAddr"  readonly/>
 				</div>
 				<div class="col-4">
 					<button class="button fit" type="button" onclick="goPopup();">주소찾기</button>
@@ -52,16 +52,23 @@
 					<input type="text" name="user_id" id="user_id" required>
 				</div>
 				<div class="col-6">
-					<button class="button fit" type="button" onclick="ajax();">아이디 중복 확인</button><div id="id_check"></div>
+					<button class="button fit" type="button" onclick="ajax();">아이디 중복 확인</button>
 				</div>
 			</div>
 			
+			<div class="row">
+				<div class="col-12" id="id_check"></div>
+			</div>
+			
 			비밀번호:
-				<input type="password" name="user_pw" required>
+				<input type="password" id="user_pw" name="user_pw" required>
 			
 			비밀번호확인: 
-				<input type="password" name="user_pw_confirm" required>
-			
+				<input type="password" id="user_pw_confirm" name="user_pw_confirm" required>
+			<div class="row">
+				<div class="col-12" id="pw_check"></div>
+			</div>
+						
 			이메일: 
 				<input type="email" name="user_email" required>
 			<br>
@@ -71,7 +78,7 @@
 						<button class="button fit" style="width: 100%;" type="reset">초기화</button>
 					</div>
 					<div class="col-5">
-						<button class="button primary fit" style="width: 100%;" type="submit">회원 가입</button>
+						<button id="submit_button" class="button primary fit" style="width: 100%;" type="submit" disabled="true">회원 가입</button>
 					</div>
 				</div>
 			</section>
