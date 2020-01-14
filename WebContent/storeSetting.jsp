@@ -26,11 +26,17 @@
 <meta charset="UTF-8">
 <link href="CSS/main.css" rel="stylesheet">
 <title>매장정보변경</title>
+<style>
+	.spotlight .image{
+		margin-left: 0;
+		margin: auto;
+	}
+</style>
 </head>
 <body>
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-
+	<jsp:include page="/header.jsp"></jsp:include>
 	
 	<div id="main">
 		<%-- "매장 정보 변경"표시 --%>
@@ -85,6 +91,7 @@
 					</div>
 				</div>
 				<%-- 매장 설명 표시/변경--%>
+				<br>
 				<div>매장 설명</div>
 				<div  class="col-6 col-12-xsmall">
 					<textarea rows="10" cols="20" name="st_description"><%=st_description %></textarea><br>
@@ -94,9 +101,11 @@
 				<div>매장 사진</div>
 				<div class="row aln-center">
 					<div class="col-10">
-						<span class="image">
-							<img alt="<%=farr[0].getFile()%>" src="upload/offstore/<%=farr[0].getFile()%>">
-						</span>
+						<div class='spotlight'>
+							<span class="image">
+								<img alt="<%=farr[0].getFile()%>" src="upload/offstore/<%=farr[0].getFile()%>">
+							</span>
+						</div>
 					</div>
 					<div class="col-10">
 						<input type="file" name="upload">

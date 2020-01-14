@@ -195,42 +195,42 @@ insert into SL_member (mb_uid, mb_id, mb_pw, mb_name, mb_address, mb_cell, mb_em
 values
 (109, 'jongil', '1234', '박종일', '서울', '01034564379', 'plm3790@naver.com', 1);
 -- SL_offstore 매장 테이블 (Foreign Key: 연동시킬 SL_member의 mb_uid 입력하세요)
-insert into SL_offstore (st_uid, mb_uid, st_name, st_address, st_contact, st_hours, st_rating, st_valid_key, st_valid_img, st_valid_file, st_latitude, st_longitude, st_file)
+insert into SL_offstore (st_uid, mb_uid, st_name, st_address, st_contact, st_hours, st_rating, st_valid_key, st_valid_img, st_valid_file, st_latitude, st_longitude, st_file, st_img)
 VALUES
-(1101, 101, '미미즈그로브', '서울시 성동구 행당로11길 5-2 1층', '0507-1331-8029', '12:00-20:00', 3, 123456789, '123456789', '123456789', '37.558603', '127.030525', 'mimisgrove.jpg'),
-(1102, 102, '슬라임쿡', '서울시 마포구 와우산로29바길 11-3 1층', '0507-1328-5992', '13:00-21:00', 4, 223456789, '223456789', '223456789', '37.555993', '126.926290', 'slimecook_offline.jpg'),
-(1103, 103, '젤시스쇼룸', '서울 강남구 강남대로94길 27 101호', '02-552-1917', '11:00-21:00', 5, 323456789, '323456789', '323456789', '37.500046', '127.029555', 'jellsis.jpg'), 
-(1104, 104, '전포동제과점', '부산광역시 부산진구 전포대로232, 2층', '카카오플러스 친구 전포동제과점', '화~목 14:00-20:00, 금~일 11:00-21:00', 4, 423456789, '423456789', '423456789', '35.157565', '129.065718', 'jeonpodong.jpg'),
-(1105, 105, '슬라임가게', '대전광역시 중구 은행동 169-9번지', '070-4466-9790', '13:00-20:00', 5, 523456789, '523456789', '523456789', '36.327665', '127.427989', 'slimegage.jpg'); 
+(1101, 101, '미미즈그로브', '서울시 성동구 행당로11길 5-2 1층', '0507-1331-8029', '12:00-20:00', 3, 123456789, '123456789', '123456789', '37.558603', '127.030525', 'mimisgrove.jpg', 'mimisgrove.jpg'),
+(1102, 102, '슬라임쿡', '서울시 마포구 와우산로29바길 11-3 1층', '0507-1328-5992', '13:00-21:00', 4, 223456789, '223456789', '223456789', '37.555993', '126.926290', 'slimecook_offline.jpg', 'slimecook_offline.jpg'),
+(1103, 103, '젤시스쇼룸', '서울 강남구 강남대로94길 27 101호', '02-552-1917', '11:00-21:00', 5, 323456789, '323456789', '323456789', '37.500046', '127.029555', 'jellsis.jpg', 'jellsis.jpg'), 
+(1104, 104, '전포동제과점', '부산광역시 부산진구 전포대로232, 2층', '카카오플러스 친구 전포동제과점', '화~목 14:00-20:00, 금~일 11:00-21:00', 4, 423456789, '423456789', '423456789', '35.157565', '129.065718', 'jeonpodong.jpg', 'jeonpodong.jpg'),
+(1105, 105, '슬라임가게', '대전광역시 중구 은행동 169-9번지', '070-4466-9790', '13:00-20:00', 5, 523456789, '523456789', '523456789', '36.327665', '127.427989', 'slimegage.jpg', 'slimegage.jpg'); 
 
 select * from sl_offstore so;
 -- SL_market 입점마켓
-insert into SL_market (mk_uid, mk_name, mk_insta, mk_file)
+insert into SL_market (mk_uid, mk_name, mk_insta, mk_file, mk_logo)
 values
-(1, '슬라임쿡', 'slime.cook__', 'slimecook_market.jpg'),
-(2, '미미네슬라임', 'mi_mi__0815', 'mimine.jpg'),
-(3, '빈짱슬라임', 'vinzzang_slime', 'vinzzang.jpg'),
-(4, '미디슬라임', 'midi_slime', 'midi.jpg'),
-(5, '다나슬라임', 'danaa_slime', 'danaa.jpg');
+(1, '슬라임쿡', 'slime.cook__', 'slimecook_market.jpg', 'slimecook_market.jpg'),
+(2, '미미네슬라임', 'mi_mi__0815', 'mimine.jpg', 'mimine.jpg'),
+(3, '빈짱슬라임', 'vinzzang_slime', 'vinzzang.jpg', 'vinzzang.jpg'),
+(4, '미디슬라임', 'midi_slime', 'midi.jpg', 'midi.jpg'),
+(5, '다나슬라임', 'danaa_slime', 'danaa.jpg', 'danaa.jpg');
 
 -- SL_product 제품 (Foreign Key: 연동시킬 SL_market의 mk_uid 입력하세요)
-insert into SL_product (pd_uid, pd_name, mk_uid, pd_file, pd_description)
+insert into SL_product (pd_uid, pd_name, mk_uid, pd_file, pd_img, pd_description)
 values
-(1, '비비디바비디부', 1, 'bibidibabidiboo.jpg', '시원한 향수향'),
-(2, '스위트콘크림', 1, 'sweetcorncream.jpg', '찰옥수수 아이스크림향'),
-(3, '올라프눈뭉치', 1, 'olaf.jpg', '쿨워터향'),
-(4, '꼬끄빙수', 2, 'ggoggubingsu.jpg', '키위 스트로베리향'),
-(5, '절규디폼', 2, 'jeolgyu.jpg', '페어 + 베리향'),
-(6, '밀빠송', 2, 'milkbbasong.jpg', '슈가쿠키 + 브라우니 + 핫 초코향'),
-(7, '바나나초코볼', 3, 'banana.jpg', '바나나 쿠키향'),
-(8, '불고기크림빠네', 3, 'bulgogi.jpg', '비스킷향'),
-(9, '생딸기라떼', 3, 'strawberrylatte.jpg', '청포도향'),
-(10, '라자냐', 4, 'lazyanya.jpg', '미디 치즈 + 콘향'),
-(11, '부드러', 4, 'boodru.jpg', '섬유 향수 향'),
-(12, '피자치즈', 4, 'pizzachees.jpg', '미디치즈향'),
-(13, '아보카동', 5, 'abocadong.jpg', '메론향'),
-(14, '팝핀깡냉이', 5, 'ppopin.jpg', '콘향'),
-(15, '크림바삭', 5, 'creambasak.jpg', '우유향');
+(1, '비비디바비디부', 1, 'bibidibabidiboo.jpg', 'bibidibabidiboo.jpg', '시원한 향수향'),
+(2, '스위트콘크림', 1, 'sweetcorncream.jpg', 'sweetcorncream.jpg', '찰옥수수 아이스크림향'),
+(3, '올라프눈뭉치', 1, 'olaf.jpg', 'olaf.jpg', '쿨워터향'),
+(4, '꼬끄빙수', 2, 'ggoggubingsu.jpg', 'ggoggubingsu.jpg', '키위 스트로베리향'),
+(5, '절규디폼', 2, 'jeolgyu.jpg', 'jeolgyu.jpg', '페어 + 베리향'),
+(6, '밀빠송', 2, 'milkbbasong.jpg', 'milkbbasong.jpg', '슈가쿠키 + 브라우니 + 핫 초코향'),
+(7, '바나나초코볼', 3, 'banana.jpg', 'banana.jpg', '바나나 쿠키향'),
+(8, '불고기크림빠네', 3, 'bulgogi.jpg', 'bulgogi.jpg', '비스킷향'),
+(9, '생딸기라떼', 3, 'strawberrylatte.jpg', 'strawberrylatte.jpg', '청포도향'),
+(10, '라자냐', 4, 'lazyanya.jpg', 'lazyanya.jpg', '미디 치즈 + 콘향'),
+(11, '부드러', 4, 'boodru.jpg', 'boodru.jpg', '섬유 향수 향'),
+(12, '피자치즈', 4, 'pizzachees.jpg', 'pizzachees.jpg', '미디치즈향'),
+(13, '아보카동', 5, 'abocadong.jpg', 'abocadong.jpg', '메론향'),
+(14, '팝핀깡냉이', 5, 'poppin.jpg', 'poppin.jpg', '콘향'),
+(15, '크림바삭', 5, 'creambasak.jpg', 'creambasak.jpg', '우유향');
 
 -- SL_inventory 재고 보유 현황 (Foreign Key: st_uid, pd_uid 입력하세요)
 insert into SL_inventory (st_uid, pd_uid, inv_quantity, inv_price, inv_volume)

@@ -66,10 +66,12 @@ function parseJSON(jsonObj, st_uid){
 	var count = data.length;
 	for(i = 0; i < count; i++){
 		if(data[i].mk_file == "") data[i].mk_file = "unknown.png";
-		table += "<section class='market' onclick='showProducts(" + data[i].mk_uid + ", \"" + data[i].mk_file + "\", \"" + data[i].mk_name + "\", \"" + data[i].mk_insta + "\", " + st_uid + ")'>";
-		table += "<span class='image'><img alt='image' src='upload/market/" + data[i].mk_file + "'></span>";
+		table += "<section class='market main special' onclick='showProducts(" + data[i].mk_uid + ", \"" + data[i].mk_file + "\", \"" + data[i].mk_name + "\", \"" + data[i].mk_insta + "\", " + st_uid + ")'>";
+		table += "<header id='header'>";
+		table += "<div class='spotlight'><span class='image'><img alt='image' src='upload/market/" + data[i].mk_file + "'></span></div>";
 		table += "<h3>" + data[i].mk_name + "</h3>";
 		table += "<h3>" + data[i].mk_insta + "</h3>";		
+		table += "</header>";
 		table += "</section><hr>";
 	}
 	$(".modal-content-market .modal-body").html(table);
@@ -80,13 +82,13 @@ function showProducts(mk_uid, mk_file, mk_name, mk_insta, st_uid){
 	modalShowMarket.style.display = "none";
 	modalShowProduct.style.display = "block";
 	
-	var table = "<section class='main special'>"
+	var table = "<br><br><section class='main special'>"
 			+ "<h2>매장</h2>"
 			+ "<div class='row aln-center'>"
 			+ "<div class='col-10 spotlight'><span class='image'><img alt='" + mk_file + "' src='upload/market/" + mk_file +"'></span></div>"
 			+ "<div class='col-10 aln-center'>" + mk_name + "</div>"
 			+ "<div class='col-10 aln-center'>" + mk_insta + "</div>"
-			+ "</div></section>";
+			+ "</div></section><hr>";
 	$("#market_detail").html(table);
 	$(".modal-content-product-new #mk_uid").val(mk_uid);
 	productList(object, mk_uid);
@@ -143,7 +145,7 @@ function chkInventory(){
 	if(inv_volume == "" || inv_price =="" || inv_quantity == ""){
 		alert("재고의 상세정보(용량, 가격, 재고)를 입력해주세요");
 		return false;
-	}
+	} 
 	var inventory = object.inventory;
 	var count = object.inventory_count;
 	for(i = 0; i < count; i++){
@@ -153,11 +155,21 @@ function chkInventory(){
 			if(!r){
 				return false;
 			}else{
-				return true;
+				if(Number.isInteger(inv_volume) || Number.isInteger(inv_price) || Number.isInteger(inv_quantity)){
+					return true;
+				} else{
+					alert("정수로 입력하세요");
+					return false;
+				}
 			}
 		}
 	}
-	return true;
+	if(Number.isInteger(inv_volume) || Number.isInteger(inv_price) || Number.isInteger(inv_quantity)){
+		return true;
+	} else{
+		alert("정수를 입력하세요");
+		return false;
+	}
 }
 //////////////////////////마켓 이미 존재 여부
 function chkMarket(){

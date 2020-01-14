@@ -70,8 +70,11 @@
 			if(inv_volume == "" || inv_price == "" || inv_quantity == ""){
 				alert("모든 입력란은 필수");
 				return false;
-			}else{
+			}else if(Number.isInteger(inv_volume) || Number.isInteger(inv_price) || Number.isInteger(inv_quantity)){
 				return true;
+			}else{
+				alert("정수를 입력하세요");
+				return false;
 			}
 		} else{
 			return false;

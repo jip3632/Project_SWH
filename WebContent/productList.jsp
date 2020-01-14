@@ -57,12 +57,21 @@
 <link href="CSS/main.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <title>재고관리</title>
+<style>
+	.spotlight .image{
+		margin-left: 0;
+		margin: auto;
+	}
+	.spotlight .image img{
+		width: 10em;
+	}
+</style>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <body>
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-
+	<jsp:include page="/header.jsp"></jsp:include>
 	
 	<div id="main">
 		<section id="intro" class="main special">
