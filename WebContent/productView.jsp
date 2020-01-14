@@ -12,6 +12,12 @@
 <link href="CSS/main.css" rel="stylesheet" type="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://kit.fontawesome.com/02846aab38.js" crossorigin="anonymous"></script>
+<style>
+	.spotlight .image{
+		margin-left:0;
+		margin:auto;
+	}
+</style>
 </head>
 <body class="is-preload">
 	<jsp:include page="/nav.jsp"></jsp:include>

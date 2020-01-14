@@ -28,10 +28,12 @@ function parseJSON(data) {
 	console.log("json 생성중");
 	var htmlTxt = "";
 	for (i = 0; i < count; i++) {
-		htmlTxt += "<li class='productInfo'>";
-		htmlTxt += "<img src='upload/product/" + list[i].pd_img + "' alt=''/>";
-		htmlTxt += "<div class='pd_name' onclick='move(" + list[i].pd_uid + ")'>" + list[i].pd_name + "</div>";
-		htmlTxt += "<div class='mk_name'>제작자: " + list[i].mk_name + "</div>";
+		htmlTxt += "<li class='productInfo' style='margin:0'>";
+		htmlTxt += "<div class='spotlight'>";
+		htmlTxt += "<span class='image'><img src='upload/product/" + list[i].pd_img + "' alt='' style='width:10em;'/></span>";
+		htmlTxt += "</div>";
+		htmlTxt += "<p onclick='move(" + list[i].pd_uid + ")'>" + list[i].pd_name + "</p>";
+		htmlTxt += "<p>제작 마켓: " + list[i].mk_name + "</p>";
 		htmlTxt += "</li>";
 	}
 	$("#product_list").html(htmlTxt);

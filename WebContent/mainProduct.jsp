@@ -12,7 +12,12 @@
 <script src="https://kit.fontawesome.com/02846aab38.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="JS/mainProduct.js"></script>
-
+<style>
+	.spotlight .image{
+		margin-left:0;
+		margin:auto;
+	}
+</style>
 </head>
 <body class="is-preload">
 	<jsp:include page="/nav.jsp"></jsp:include>
@@ -26,7 +31,7 @@
 					<p>원하는 슬라임이나 매장을 빠르고 쉽게 검색하세요<br /></p>
 				<div class = "row aln-center" style="margin-bottom:10px;">
 					<div class="col-5"><a class="button" style="width:100%" type="button" href="mainStore.slime">매장검색</a></div>
-					<div class="col-5"><a class="button primary" style="width:100%" href="mainProduct.slime">슬라임검색</a></div>
+					<div class="col-5"><a class="button primary" style="width:100%" href="mainProduct.slime">제품검색</a></div>
 				</div>
 				</header>
 				<div class ="row aln-center">
@@ -42,11 +47,11 @@
 					</div>
 				</div>
 			</section>
-			<section class="main special">
+			<section id="first" class="main special">
 				<header class="major">
 					<h2>제품 검색 결과</h2>
 				</header>
-				<ul id="product_list" class="features alt">
+				<ul id="product_list" class="features">
 					<li><p>제품 이름을 검색해주세요 </p></li>
 				</ul>
 			</section>
