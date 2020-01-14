@@ -53,21 +53,23 @@
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
-	<section id="content" class="main">
-<h3>회원 정보 변경</h3>
+	<section id="content" class="main special">
+	<header class="major">
+		<h2>회원 정보 변경</h2>
+	</header>
 <form name="frm" action="memberSettingOk.slime" method="post" onsubmit="return chkUpdate()">
 	<input type="hidden" name="mb_uid" value="<%= mb_uid%>">
-	
-	이름 : <%= mb_name %> <br>
-	아이디 : <%= mb_id %> <br>
-	비밀번호 : <input type="password" name="mb_pw" value="<%= mb_pw %>"><br>
-	비밀번호 확인 : <input type="password" name="mb_pw2"><br>
-	연락처 : <input type="text" name="mb_cell" value="<%= mb_cell %>"><br>
-	주소 : <input type="text" name="mb_address" value="<%= mb_address %>"><br>
-	이메일 : <input type="text" name="mb_email" value="<%= mb_email %>"><br>
-	가입날짜 : <%= mb_regdate %><br>
+	<div style="text-align:left;">
+	<u><strong>이름</strong></u><br> <%= mb_name %> <br><br>
+	<u><strong>아이디</strong></u><br> <%= mb_id %> <br><br>
+	<u><strong>비밀번호</strong></u><br> <input type="password" name="mb_pw" value="<%= mb_pw %>" required><br>
+	<u><strong>비밀번호 확인</strong></u><br> <input type="password" name="mb_pw2" required><br>
+	<u><strong>연락처</strong></u><br> <input type="text" name="mb_cell" value="<%= mb_cell %>"><br>
+	<u><strong>주소</strong></u><br> <input type="text" name="mb_address" value="<%= mb_address %>"><br>
+	<u><strong>이메일</strong></u><br> <input type="text" name="mb_email" value="<%= mb_email %>"><br>
+	<u><strong>가입날짜</strong></u><br> <%= mb_regdate %><br>
 	<br>
-
+	</div>
 	<input type="submit" value="수정">
 </form>	
 </section>

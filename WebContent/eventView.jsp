@@ -47,18 +47,23 @@ function chkDelete(uid, st_uid){
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
 <div id="main">
-<section id="content" class="main">
-<h2>제목 : <%= subject %></h2>
-이벤트 시작 시각 : <%= startdate %><br>
-이벤트 종료 시각 : <%= enddate %><br>
-내용: <br>
-<div>
+<section id="content" class="main special">
+	<header class="major">
+		<h2> <%= subject %></h2>
+	</header>
+<div style = "text-align:left;">
+<u><strong>이벤트 시작 시각</strong></u><br>
+<%= startdate %><br><br>
+<u><strong>이벤트 종료 시각</strong></u><br>
+<%= enddate %><br><br>
+<u><strong>내용</strong></u><br>
 <%= content %>
 </div>
 <hr>
 <br>
-<button onclick="location.href = 'eventUpdate.slime?uid=<%= uid%>'">수정하기</button>
-<button onclick="chkDelete(<%= uid%>, <%= st_uid%>)">삭제하기</button>
+<button class="button primary" onclick="location.href = 'eventUpdate.slime?uid=<%= uid%>'">수정하기</button>
+<button class="button primary" onclick="chkDelete(<%= uid%>, <%= st_uid%>)">삭제하기</button>
+<br><br>
 <button onclick="location.href = 'eventWrite.slime?st_uid=<%= st_uid%>'">새글작성</button>
 <button onclick="location.href = 'eventList.slime?st_uid=<%= st_uid%>&page=1'">목록보기</button>
 

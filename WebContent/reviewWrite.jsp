@@ -36,14 +36,17 @@ function chkSubmit(){
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
-	<section id="content" class="main">
-<h2>후기 글 작성하기</h2>
+	<section id="content" class="main special">
+	<header class="major">
+		<h2>후기 글 작성하기</h2>
+	</header>
 <form name="frm" action="reviewWriteOk.slime" method="post" onsubmit="return chkSubmit()">
-작성자 : <%= marr[0].getMb_id() %> <br>
+<div style="text-align:left;">
+<u><strong>작성자</strong></u><br> <%= marr[0].getMb_id() %> <br><br>
 <input type="hidden" name="writerName" value="<%= marr[0].getMb_uid() %>"/>
-제목 :
+<u><strong>제목</strong></u><br>
 <input type="text" name="subject"/><br>
-내용 : <br>
+<u><strong>내용</strong></u><br>
 <textarea name="content" id="editor1"></textarea>
 <script>
 	CKEDITOR.replace('editor1', {
@@ -52,14 +55,15 @@ function chkSubmit(){
 	});
 </script>
 <br>
-매장 : <br>
+<u><strong>매장</strong></u><br>
 <select name="store">
 <% for(int i = 0; i < sarr.length; i++) { %>
   <option value="<%=sarr[i].getSt_uid() %>"><%=sarr[i].getSt_name() %></option>
 <% } %>
 </select>
 <br>
-<input type="submit" value="등록"/>
+</div>
+<button type="submit" class="button primary">등록</button>
 </form>
 <br>
 <button onclick="history.back()">이전으로</button>

@@ -31,14 +31,16 @@
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
-	<section id="content" class="main">
+	   	<section id="content" class="main special">
+	<header class="major">
 		<h2>나의 후기 목록</h2>
+	</header>
 		<table>
 			<tr>
-				<th>no</th>
-				<th>제목</th>
-				<th>매장</th>
-				<th>조회수</th>
+				<th style="text-align:center;">no</th>
+				<th style="text-align:center;">제목</th>
+				<th style="text-align:center;">매장</th>
+				<th style="text-align:center;">조회수</th>
 			</tr>		
 <%
 		if(rarr == null || rarr.length == 0){
@@ -63,7 +65,7 @@
 %>		
 		</table>
 		<br>
-		<button onclick="location.href='reviewWrite.slime?mb_uid=<%=mb_uid%>'">신규등록</button>
+		<button class="button primary" onclick="location.href='reviewWrite.slime?mb_uid=<%=mb_uid%>'">신규등록</button>
 
 <%-- 페이징 --%>
 <jsp:include page="paginationU.jsp">

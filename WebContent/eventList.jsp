@@ -29,14 +29,16 @@
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
-	<section id="content" class="main">
+	<section id="content" class="main special">
+	<header class="major">
 		<h2>이벤트 목록</h2>
+	</header>
 		<table>
 			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>시작일</th>
-				<th>종료일</th>
+				<th style="text-align:center;">번호</th>
+				<th style="text-align:center;">제목</th>
+				<th style="text-align:center;">시작일</th>
+				<th style="text-align:center;">종료일</th>
 			</tr>		
 <%
 		if(arr == null || arr.length == 0){

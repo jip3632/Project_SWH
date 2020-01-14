@@ -44,19 +44,22 @@
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
-		<section id="intro" class="main">
-		이름: <%= arr[0].getMb_name()%>
-		<br>
-		아이디: <%= arr[0].getMb_id()%>
-		<br>
-		주소: <%= arr[0].getMb_address()%>
-		<br>
-		전화번호: <%= arr[0].getMb_cell()%>
-		<br>
-		이메일: <%= arr[0].getMb_email()%>
-		<br>
-		</section>
-		<section id="first" class="main special">
+	<section id="content" class="main special">
+	<header class="major">
+		<h2>마이페이지</h2>
+	</header>
+<div style="text-align:left;">
+		<u><strong>이름</strong></u><br> <%= arr[0].getMb_name()%>
+		<br><br>
+		<u><strong>아이디</strong></u><br> <%= arr[0].getMb_id()%>
+		<br><br>
+		<u><strong>주소</strong></u><br> <%= arr[0].getMb_address()%>
+		<br><br>
+		<u><strong>전화번호</strong></u><br> <%= arr[0].getMb_cell()%>
+		<br><br>
+		<u><strong>이메일</strong></u><br> <%= arr[0].getMb_email()%>
+		<br><br>
+</div>
 		<ul class="features">
 			<%-- 회원정보 변경 버튼 --%>
 			<li>

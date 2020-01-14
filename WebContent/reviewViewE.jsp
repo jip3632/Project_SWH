@@ -63,15 +63,19 @@ function chkDelete(re_uid){
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
-	<section id="content" class="main">
-<h2>제목 : <%= subject %><br></h2>
-작성자 : <%= writerName %><br>
-작성일 : <%= regdate %><br>
-매장명 : <%= storeName %><br>
-조회수 : <%= views %><br>
-내용: <br>
+	<section id="content" class="main special">
+	<header class="major">
+		<h2> <%= subject %></h2>
+	</header>
+<div style = "text-align:left;">
+<u><strong>작성자</strong></u><br> <%= writerName %><br><br>
+<u><strong>작성일</strong></u><br> <%= regdate %><br><br>
+<u><strong>매장명</strong></u><br> <%= storeName %><br><br>
+<u><strong>조회수</strong></u><br> <%= views %><br><br>
+<u><strong>내용</strong></u><br>
 <%= content %>
 <hr>
+</div>
 <br>
 <button onclick="location.href = 'reviewListE.slime?page=1'">목록보기</button>
 

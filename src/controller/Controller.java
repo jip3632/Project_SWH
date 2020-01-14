@@ -126,6 +126,7 @@ public class Controller extends HttpServlet {
 		//이벤트 작성
 		case "/eventWrite.slime":
 			viewPage = "eventWrite.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//이벤트 작성 확인
 		case "/eventWriteOk.slime":
@@ -141,6 +142,7 @@ public class Controller extends HttpServlet {
 		case "/eventUpdate.slime":
 			new EventUpdateCommand().execute(request, response);
 			viewPage = "eventUpdate.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//이벤트 글 수정 확인
 		case "/eventUpdateOk.slime":
@@ -151,6 +153,7 @@ public class Controller extends HttpServlet {
 		case "/eventDeleteOk.slime":
 			new EventDeleteCommand().execute(request, response);
 			viewPage = "eventDeleteOk.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//후기 목록(매장)
 		case "/reviewListM.slime":
@@ -161,6 +164,7 @@ public class Controller extends HttpServlet {
 		case "/reviewListU.slime":
 			new ReviewListUserCommand().execute(request, response);
 			viewPage = "reviewList_user.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//후기 목록(전체)
 		case "/reviewListE.slime":
@@ -171,6 +175,7 @@ public class Controller extends HttpServlet {
 		case "/reviewWrite.slime":
 			new ReviewWriteCommand().execute(request, response);
 			viewPage = "reviewWrite.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//후기 작성하기 확인
 		case "/reviewWriteOk.slime":
@@ -196,6 +201,7 @@ public class Controller extends HttpServlet {
 		case "/reviewUpdate.slime":
 			new ReviewUpdateCommand().execute(request, response);
 			viewPage = "reviewUpdate.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//후기 글 수정 확인
 		case "/reviewUpdateOk.slime":
@@ -206,6 +212,7 @@ public class Controller extends HttpServlet {
 		case "/reviewDeleteOk.slime":
 			new ReviewDeleteCommand().execute(request, response);
 			viewPage = "reviewDeleteOk.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//로그인 페이지
 		case "/login.slime":
@@ -224,18 +231,20 @@ public class Controller extends HttpServlet {
 		case "/userPage.slime":
 			new UserPageCommand().execute(request, response);
 			viewPage = "userPage.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//회원 정보 변경
 		case "/memberSetting.slime":
 			new MemberSettingCommand().execute(request, response);
 			viewPage = "memberSetting.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//회원 정보 변경 확인
 		case "/memberSettingOk.slime":
 			new MemberSettingOkCommand().execute(request, response);
 			viewPage = "memberSettingOk.jsp";
 			break;
-		//회원 정보 변경 확인
+		//help 페이지
 		case "/help.slime":
 			viewPage = "help.jsp";
 			break;

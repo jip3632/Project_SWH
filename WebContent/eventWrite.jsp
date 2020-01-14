@@ -64,22 +64,24 @@ $(function(){
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
    	<div id="main">
-	<section id="content" class="main">
-<h2>이벤트 글 작성하기</h2>
+	<section id="content" class="main special">
+	<header class="major">
+		<h2>이벤트 글 작성하기</h2>
+	</header>
 <form name="frm" action="eventWriteOk.slime" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="st_uid" value='<%= st_uid %>'/>
 <input type="hidden" name="enddate"/>
 <input type="hidden" name="startdate"/>
-제목:
-<input type="text" name="subject"/><br>
-내용:<br>
+<div style="text-align:left;">
+<u><strong>제목</strong></u><br>
+<input type="text" name="subject"/><br><br>
+<u><strong>내용</strong></u><br>
 <textarea name="content"></textarea>
 <br>
-<br>
-이벤트 시작 날짜 : 
+<u><strong>이벤트 시작 날짜</strong></u><br>
 <input type="text" name="startday" id="datepicker1">
 <br>
-이벤트 시작 시간 : 
+<u><strong>이벤트 시작 시간</strong></u><br>
 <select name="starttime">
   <option value="00:00" selected>00:00</option>
   <option value="01:00">01:00</option>
@@ -107,11 +109,10 @@ $(function(){
   <option value="23:00">23:00</option>
 </select>
 <br>
-<br>
-이벤트 종료 날짜 : 
+<u><strong>이벤트 종료 날짜</strong></u><br>
 <input type="text" name="endday" id="datepicker2">
 <br>
-이벤트 종료 시간 : 
+<u><strong>이벤트 종료 시간</strong></u><br>
 <select name="endtime">
   <option value="00:00" selected>00:00</option>
   <option value="01:00">01:00</option>
@@ -138,8 +139,9 @@ $(function(){
   <option value="22:00">22:00</option>
   <option value="23:00">23:00</option>
 </select>
+</div>
 <br>
-<input type="submit" value="등록"/>
+<button type="submit" class="button primary">등록</button>
 </form>
 <br>
 <button type="button" onclick="location.href='eventList.slime?st_uid=<%= st_uid %>&page=1'">목록으로</button>
