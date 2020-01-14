@@ -48,7 +48,7 @@ public class SignUpStoreOkCommand implements Command {
 		
 		int mb_uid = Integer.parseInt(multi.getParameter("mb_uid"));
 		String st_name = multi.getParameter("st_name");
-		String st_address = multi.getParameter("st_address");
+		String st_address = multi.getParameter("roadFullAddr");
 		String st_contact = multi.getParameter("st_contact");
 		String st_hours = multi.getParameter("st_start") + "-" + multi.getParameter("st_end");
 		int st_valid_key = Integer.parseInt(multi.getParameter("st_valid_key"));

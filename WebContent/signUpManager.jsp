@@ -18,7 +18,7 @@
 	<h2>매장 회원 가입</h2>
 	<form action="signUpManagerOk.slime" method="post" onsubmit="return chkSubmit()" name="frm">
 		이름: <input type="text" name="user_name" required><br>
-		휴대폰번호: <input type="tel" name="phone_number" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required><br>
+		휴대폰번호: <input type="text" name="phone_number" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required><br>
 		<input type="hidden" id="confmKey" name="confmKey" value=""  >
 		<button type="button" onclick="goPopup();">주소찾기</button>
 		도로명주소<input type="text"  id="roadFullAddr"  name="roadFullAddr" /><br> 
