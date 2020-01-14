@@ -11,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 	.row button{
-		height: 3.3em;
+		height: 3.2em;
 	}
 </style>
 </head>

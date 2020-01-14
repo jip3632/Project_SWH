@@ -10,7 +10,11 @@
 <script src="JS/findAddress.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="CSS/main.css" />
-
+<style>
+	.row button{
+		height: 3.1em;
+	}
+</style>
 </head>
 <body class="is-preload">
 <jsp:include page="/nav.jsp"></jsp:include>
