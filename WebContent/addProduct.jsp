@@ -42,7 +42,9 @@
 	.close{
 		color: #aaa;
 		float: right;
-		font-size: 28px;
+		position: relative;
+		right: 10px;
+		font-size: 35px;
 		font-weight: bold;
 	}
 	
@@ -155,15 +157,19 @@
 					<div class="modal-content-market-new">
 						<div class="modal-header">
 							<span class="close NM">&times;</span>
-							<h4><b>새 마켓 추가</b></h4>
+							<header class="major">
+							<h2><b>새 마켓 추가</b></h2>
+							</header>
 						</div>
 						<div class="modal-body">
+							<section class="main special">
 							<form action="newMarketOk.slime?st_uid=<%=st_uid %>" name="newMarket" method="post" enctype="Multipart/form-data" onsubmit="return chkMarket()">
 								<div><input type="file" name="mk_img" value=""></div>
 								<div>마켓명 <input type="text" name="mk_name" placeholder="마켓 이름"></div>
 								<div>instagram <input type="text" name="mk_insta" placeholder="마켓 인스타 ID"></div>
-								<div class="right"><input type="submit" value="마켓 추가"></div>
+								<div class="right"><button type="submit" class="button primary">마켓추가</button></div>
 							</form>
+							</section>
 						</div>
 						<div class="modal-footer">
 						</div>
@@ -178,7 +184,9 @@
 					<div class="modal-content-product-new">
 						<div class="modal-header">
 							<span class="close NP">&times;</span>
-							<h4><b>새 제품 추가</b></h4>
+							<header class="major">
+							<h2><b>새 제품 추가</b></h2>
+							</header>
 						</div>
 						<div class="modal-body">
 							<form action="newProductOk.slime?st_uid=<%=st_uid %>" name="newProduct" method="post" enctype="Multipart/form-data" onsubmit="return chkProduct()">
