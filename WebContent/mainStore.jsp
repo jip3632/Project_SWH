@@ -8,7 +8,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <title>Slime Where?House</title>
-
+<style type="text/css">
+	li.store:hover {
+		cursor:pointer;
+		border-radius:10%;
+		border:1px solid pink;
+	}
+</style>
 <link href="CSS/main.css" rel="stylesheet" type="text/css">
 <script src="https://kit.fontawesome.com/02846aab38.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -33,7 +39,7 @@
 				<p>원하는 슬라임이나 매장을 빠르고 쉽게 검색하세요<br /></p>
 				<div class = "row aln-center" style="margin-bottom:10px;">
 					<div class="col-5"><a class="button primary" style="width:100%" type="button" href="mainStore.slime">매장검색</a></div>
-					<div class="col-5"><a class="button" style="width:100%" href="mainProduct.slime">슬라임검색</a></div>
+					<div class="col-5"><a class="button" style="width:100%" href="mainProduct.slime">제품검색</a></div>
 				</div>
 			</header>
 			
@@ -46,8 +52,6 @@
 							<option value="1">서울</option>
 							<option value="2">대전</option>
 							<option value="3">부산</option>
-							<option></option>
-							<option></option>
 						</select>
 					</div>
 				</div>
@@ -55,7 +59,7 @@
 		</section>
 
 		<section class="main special">
-			<ul id="storeList" class="features alt">
+			<ul id="storeList" class="features">
 				<li>
 					<p>검색을 원하시는 지역을 선택해 주세요.<br>
 					<b>슬라임검색</b> 버튼을 누르면<br>
@@ -71,3 +75,5 @@
 	<script src="JS/main.js"></script>
 </body>
 </html>
+
+

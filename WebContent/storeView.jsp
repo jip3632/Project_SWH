@@ -10,7 +10,20 @@
 <title>SWH ${storeInfo[0].st_name }</title>
 
 <link href="CSS/main.css" rel="stylesheet" type="text/css">
-
+<style>
+	.spotlight .image{
+		margin-left: 0;
+		margin: auto;
+	}
+	.spotlight .image img{
+		width: 10em;
+	}
+	.pdInfo:hover {
+		cursor:pointer;
+		border-radius:10%;
+		border:1px solid pink;
+	}
+</style>
 </head>
 <body>
 
@@ -23,28 +36,31 @@
 	<div id="main">
 		
 		<section id="intro" class="main">
-			<div class="spotlight">
-				<div class="content">
-					<header class="majer">
-						<h3>매장: ${storeInfo[0].st_name }</h3>
-					</header>
-					<div>
-					주소: ${storeInfo[0].st_address }
+			<div class="row aln-center">
+				<div class="spotlight col-10-small col-8">
+					<div class="content">
+						<header class="majer">
+							<h3>매장: ${storeInfo[0].st_name }</h3>
+						</header>
+						<div>
+						주소: ${storeInfo[0].st_address }
+						</div>
+						<div>
+						연락처: ${storeInfo[0].st_contact }
+						</div>
+						<div>
+						영업시간: ${storeInfo[0].st_hours }
+						</div>
 					</div>
-					<div>
-					연락처: ${storeInfo[0].st_contact }
-					</div>
-					<div>
-					영업시간: ${storeInfo[0].st_hours }
-					</div>
-				</div>
-				<span class="image">
-					<img src="upload/offstore/${storeInfo[0].st_img }" alt="${storeInfo[0].st_img }"/>
-				</span>
+					<span class="image">
+						<img src="upload/offstore/${storeInfo[0].st_img }" alt="${storeInfo[0].st_img }"/>
+					</span>
+				</div>	
+				<div class="col-10-small col-5"><button class="button primary" onclick="location.href='reviewListM.slime?st_uid=${storeInfo[0].st_uid }&page=1'" style="width:100%">매장 리뷰 보기</button></div>
 			</div>
 		</section>
 		
-		<section class="main">
+		<section class="main special">
 			<header class="major"><h2>진행중인 이벤트</h2></header>
 			<div class="table-wrapper">
 				<table>
@@ -75,39 +91,30 @@
 			</div>
 		</section>
 
-		<section class="main">
-			
-			<header class="major"><h2>판매중인 슬라임</h2></header>
-			<div id="slimeList" class="features">
-			<c:set var="currentMk" value="0"/>
-			
-			<c:forEach var="mk" items="${productList }">
-				<c:if test="${mk.mk_uid != currentMk }">
-				<c:set var="currentMk" value="${mk.mk_uid }"/>
-					<div class="row mkInfo">
-						<span class="image left"><img src="upload/market/${mk.mk_logo }" alt="" /></span>					
-						<div class="mkName"><h3>${mk.mk_name }</h3></div>					
-						<div class="mkInsta">${mk.mk_insta }</div>					
-					</div>
-					<ul class="pdList features alt">
+		
+		<c:forEach var="mk" items="${productList }">
+			<c:if test="${mk.mk_uid != currentMk }">
+			<c:set var="currentMk" value="${mk.mk_uid }"/>
+			<section class='main special'>
+				<header><h3>마켓 : <b>${mk.mk_name }</b></h3></header>
+				
+				<ul class="features">
 					<c:forEach var="pd" items="${productList }">
-						<c:if test="${pd.mk_uid == currentMk }">
-						<li class="pdInfo" onclick="location.href='productView.slime?pd_uid=${pd.pd_uid }'">
-							<div class="row gtr-uniform">
-								<span class="image left"><img src="upload/product/${pd.pd_img }" alt="" /></span>
-								<div class="col-8 pdName">${pd.pd_name }</div>
-								<div class="col-8 pdQuantity">재고 : ${pd.inv_quantity }</div>
-								<div class="col-8 pdVolume">용량 : ${pd.inv_volume }</div>
-								<div class="col-8 pdPrice">가격 : ${pd.inv_price }</div>
-							</div>
-						</li>
-						</c:if>
-					</c:forEach><!-- forEach end -->
-					</ul>
-				</c:if>
-			</c:forEach><!-- forEach end -->
-			</div>
-		</section>
+					<c:if test="${pd.mk_uid == currentMk }">
+					<li class="pdInfo" onclick="location.href='productView.slime?pd_uid=${pd.pd_uid }'">
+						<div class='spotlight'><span class='image'><img src='upload/product/${pd.pd_img}'></span></div>
+						<h4><b>${pd.pd_name }</b></h4>
+						<h5>용량 : ${pd.inv_volume }ml</h5>
+						<h5>가격 : ${pd.inv_price }원</h5>
+						<h5>재고 : ${pd.inv_quantity }개</h5>
+					</li>
+					</c:if>
+				</c:forEach><!-- forEach end -->
+				</ul>
+			</section>
+			</c:if>
+		</c:forEach>
+		
 		
 	</div>
 

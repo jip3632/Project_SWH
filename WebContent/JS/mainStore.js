@@ -39,13 +39,15 @@ function parseJSON(data) {
 	
 	var htmlTxt = "";
 	for (i = 0; i < count; i++) {
-		htmlTxt += "<li class='storeInfo'>";
-		htmlTxt += "<div class='str_img'>" + "<img src='" + list[i].st_img + "'></img>" + "</div>";
-		htmlTxt += "<div class='st_name' onclick='move(" + list[i].st_uid + ")'>" + list[i].st_name + "</div>";
-		htmlTxt += "<div class='st_address'>" + list[i].st_address + "</div>";
-		htmlTxt += "<div class='st_contact'>" + list[i].st_contact + "</div>";
-		htmlTxt += "<div class='st_hours'>" + list[i].st_hours + "</div>";
-		htmlTxt += "<div class='st_dist'>" + list[i].st_dist + "km" + "</div>";
+		htmlTxt += "<li class='store' onclick='move(" + list[i].st_uid + ")'>"
+		htmlTxt += "<div class='spotlight' style='margin-bottom:0'>";
+		htmlTxt += "<span class='image'>" + "<img src='upload/offstore/" + list[i].st_img + "' style='width:7em;'/>" + "</span>";
+		htmlTxt += "</div>";
+		htmlTxt += "<h4 style='margin:0'>" + '매장명 : <b>' + list[i].st_name + "</b><h4>";
+		htmlTxt += "<p style='margin:0'>" + '주소 : ' +list[i].st_address + "</p>";
+		htmlTxt += "<p style='margin:0'>" + '연락처 : ' + list[i].st_contact + "</p>";
+		htmlTxt += "<p style='margin:0'>" + '영업시간 : ' + list[i].st_hours + "</p>";
+		htmlTxt += "<p style='margin:0'>" + '거리 : ' + list[i].st_dist + "km" + "</p>";
 		htmlTxt += "</li>";
 	}
 	$("#storeList").html(htmlTxt);
