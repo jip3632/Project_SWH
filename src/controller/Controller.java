@@ -174,19 +174,19 @@ public class Controller extends HttpServlet {
 			viewPage = "reviewWriteOk.jsp";
 			break;
 		//후기 글 보기(전체)
-		case "/reviewView.slime":
+		case "/reviewViewE.slime":
 			new ReviewViewCommand().execute(request, response);
-			viewPage = "reviewView.jsp";
+			viewPage = "reviewViewE.jsp";
 			break;
 		//후기 글 보기(매장)
-		case "/reviewView2.slime":
+		case "/reviewViewM.slime":
 			new ReviewViewCommand().execute(request, response);
-			viewPage = "reviewView2.jsp";
+			viewPage = "reviewViewM.jsp";
 			break;
 		//후기 글 보기(회원)
-		case "/reviewView3.slime":
+		case "/reviewViewU.slime":
 			new ReviewViewCommand().execute(request, response);
-			viewPage = "reviewView3.jsp";
+			viewPage = "reviewViewU.jsp";
 			break;
 		//후기 글 수정
 		case "/reviewUpdate.slime":

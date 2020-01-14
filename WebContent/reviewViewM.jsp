@@ -43,14 +43,13 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title><%= subject %></title>
 </head>
 <body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-		<div>네비게이션 바</div>
-	</nav>
 	<div id="main">
 	<section id="content" class="main">
 <h2>제목 : <%= subject %><br></h2>

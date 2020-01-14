@@ -19,7 +19,7 @@
 <meta charset="UTF-8">
 
 <!-- 페이징 -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="CSS/common.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
@@ -28,10 +28,8 @@
 
 </head>
 <body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-		<div>네비게이션 바</div>
-	</nav>
 	<div id="main">
 	<section id="content" class="main">
 		<h2>후기 목록</h2>
@@ -51,7 +49,7 @@
 			for(int i = 0; i < rarr.length; i++){
 				out.println("<tr>");
 				out.println("<td>" + rarr[i].getRe_uid() + "</td>");
-				out.println("<td><a href='reviewView.slime?re_uid=" + rarr[i].getRe_uid() + "'>" + rarr[i].getRe_subject() + "</a></td>");
+				out.println("<td><a href='reviewViewE.slime?re_uid=" + rarr[i].getRe_uid() + "'>" + rarr[i].getRe_subject() + "</a></td>");
 				
 				for(int j = 0; j < marr.length; j++){
 					if(marr[j].getMb_uid() == rarr[i].getWr_uid()){
@@ -74,9 +72,7 @@
 %>		
 		</table>
 		<br>
-<% if(marr != null || marr.length != 0){ %>
-		<button onclick="location.href='reviewWrite.slime?mb_uid=<%=marr[0].getMb_uid()%>'">신규등록</button>
-<% } %>
+
 <%-- 페이징 --%>
 <jsp:include page="paginationE.jsp">
 	<jsp:param value="<%= writePages %>" name="writePages"/>

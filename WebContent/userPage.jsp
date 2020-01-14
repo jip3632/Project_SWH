@@ -18,6 +18,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link href="CSS/main.css" rel="stylesheet">
 <style>
 	#first .features li{
@@ -36,11 +37,9 @@
 </style>
 <title>마이페이지</title>
 </head>
-<body>
+<body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-			<div>네비게이션 바</div>
-	</nav>
 
 	<div id="main">
 		<section id="intro" class="main">

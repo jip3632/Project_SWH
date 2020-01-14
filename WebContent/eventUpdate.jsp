@@ -15,6 +15,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
@@ -61,10 +62,8 @@ function chkSubmit(){
 </script>
 
 <body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-   <nav id="nav" class="alt">
-      <div>네비게이션 바</div>
-   </nav>
    	<div id="main">
    	<section id="content" class="main">
 <h2>수정하기</h2>

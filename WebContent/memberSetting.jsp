@@ -18,6 +18,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title>회원정보변경</title>
 </head>
@@ -48,9 +49,8 @@
 	};
 </script>
 <body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-   	</nav>
 	<div id="main">
 	<section id="content" class="main">
 <h3>회원 정보 변경</h3>

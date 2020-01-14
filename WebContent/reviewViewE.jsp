@@ -43,6 +43,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title><%= subject %></title>
 </head>
@@ -58,10 +59,8 @@ function chkDelete(re_uid){
 }
 </script>
 <body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-		<div>네비게이션 바</div>
-	</nav>
 	<div id="main">
 	<section id="content" class="main">
 <h2>제목 : <%= subject %><br></h2>
@@ -73,9 +72,6 @@ function chkDelete(re_uid){
 <%= content %>
 <hr>
 <br>
-<button onclick="location.href = 'reviewUpdate.slime?re_uid=<%= re_uid %>'">수정하기</button>
-<button onclick="chkDelete(<%= re_uid%>)">삭제하기</button>
-<button onclick="location.href = 'reviewWrite.slime?mb_uid=<%= wr_uid %>'">신규등록</button>
 <button onclick="location.href = 'reviewListE.slime?page=1'">목록보기</button>
 
 <br><br>

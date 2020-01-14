@@ -16,7 +16,7 @@
 <meta charset="UTF-8">
 
 <!-- 페이징 -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="CSS/common.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
@@ -25,10 +25,8 @@
 
 </head>
 <body class="is-preload">
+	<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-		<div>네비게이션 바</div>
-	</nav>
 	<div id="main">
 	<section id="content" class="main">
 		<h2>이벤트 목록</h2>

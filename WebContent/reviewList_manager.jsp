@@ -18,7 +18,7 @@
 <meta charset="UTF-8">
 
 <!-- 페이징 -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="CSS/common.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
@@ -27,10 +27,8 @@
 
 </head>
 <body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-		<div>네비게이션 바</div>
-	</nav>
 	<div id="main">
 	<section id="content" class="main">
 		<h2>내 매장 후기 목록</h2>
@@ -49,7 +47,7 @@
 			for(int i = 0; i < rarr.length; i++){
 				out.println("<tr>");
 				out.println("<td>" + rarr[i].getRe_uid() + "</td>");
-				out.println("<td><a href='reviewView2.slime?re_uid=" + rarr[i].getRe_uid() + "'>" + rarr[i].getRe_subject() + "</a></td>");
+				out.println("<td><a href='reviewViewM.slime?re_uid=" + rarr[i].getRe_uid() + "'>" + rarr[i].getRe_subject() + "</a></td>");
 				for(int j = 0; j < marr.length; j++){
 					if(marr[j].getMb_uid() == rarr[i].getWr_uid()){
 						writerName = marr[j].getMb_id();

@@ -46,7 +46,7 @@
 <!-- Menu -->
 	<nav id="menu">
 		<h2>Menu</h2>
-		<ul class="alt">
+		<ul>
 			<li><a href='mainStore.slime'>Home</a></li>
 			<c:choose>
 				<c:when test="${login == null }">

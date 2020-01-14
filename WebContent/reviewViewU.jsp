@@ -6,6 +6,7 @@
 	MemberDTO [] marr = (MemberDTO[]) request.getAttribute("mlist");
 	StoreDTO [] sarr = (StoreDTO[]) request.getAttribute("slist");
 	int re_uid = Integer.parseInt(request.getParameter("re_uid"));
+	int mb_uid = Integer.parseInt(request.getParameter("mb_uid"));
 	String subject = rarr[0].getRe_subject();
 	String content = rarr[0].getRe_content();
 	String regdate = rarr[0].getRe_regdate();
@@ -43,14 +44,13 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title><%= subject %></title>
 </head>
 <body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-		<div>네비게이션 바</div>
-	</nav>
 	<div id="main">
 	<section id="content" class="main">
 <h2>제목 : <%= subject %><br></h2>
@@ -67,8 +67,8 @@
 <br>
 <button onclick="location.href = 'reviewUpdate.slime?re_uid=<%= re_uid %>'">수정하기</button>
 <button onclick="chkDelete(<%= re_uid%>)">삭제하기</button>
-<button onclick="location.href = 'reviewWrite.slime?mb_uid=<%= wr_uid %>'">신규등록</button>
-<button onclick="location.href = 'reviewListU.slime?mb_uid=<%= wr_uid %>&page=1'">목록보기</button>
+<button onclick="location.href = 'reviewWrite.slime?mb_uid=<%= mb_uid %>'">신규등록</button>
+<button onclick="location.href = 'reviewListU.slime?mb_uid=<%= mb_uid %>&page=1'">목록보기</button>
 
 <br><br>
 </section>
