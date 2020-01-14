@@ -44,6 +44,7 @@ public class Controller extends HttpServlet {
 		case "/managerPage.slime":
 			new ManagerPageCommand().execute(request, response);
 			viewPage = "managerPage.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//메인 상점 검색
 		case "/mainStore.slime":
@@ -67,6 +68,7 @@ public class Controller extends HttpServlet {
 		case "/storeSetting.slime":
 			new ManagerPageCommand().execute(request, response); //매장관리페이지와 동일한 데이터를 가져오기때문에 Command재사용
 			viewPage = "storeSetting.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//매자 정보 변경 확인
 		case "/storeSettingOk.slime":
@@ -78,6 +80,7 @@ public class Controller extends HttpServlet {
 			new StoreViewCommand().execute(request, response);
 			new ProductImageCommand().execute(request, response);
 			viewPage = "productList.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//재고 삭제
 		case "/productDelete.slime":
@@ -88,6 +91,7 @@ public class Controller extends HttpServlet {
 		case "/addProduct.slime":
 			new AddProductCommand().execute(request, response);
 			viewPage = "addProduct.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//재고 추가
 		case "/addProductOk.slime":
