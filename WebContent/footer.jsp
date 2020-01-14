@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <footer id="footer">
 	<section>
-		<div><img class="icon brands alt" alt="logo" src="upload/logo/logo.png" width="40" height="40"></div>
+		<div><img class="icon brands alt" alt="logo" src="upload/logo/olaf.jpg" width="40" height="40"></div>
 		<h3>Slime Where?House</h3>
 		<p>슬라임은 만지면서 향과 촉감을 즐길 수 있는 수제 장난감입니다.</p>
 	</section>
