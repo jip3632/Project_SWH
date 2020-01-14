@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="beans.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
 	MemberDTO[] arr = (MemberDTO[])request.getAttribute("result");
 %>
@@ -60,11 +62,12 @@
 			<li>
 			<button class="button primary fit" type="button" onclick="location.href = 'memberSetting.slime?mb_uid=<%= arr[0].getMb_uid() %>'">회원 정보 변경</button>
 			</li>
-
-			<li>
-			<%-- 내 리뷰 관리 버튼--%>
-			<button class="button primary fit" type="button" onclick="location.href = 'reviewListU.slime?mb_uid=<%= arr[0].getMb_uid() %>&page=1'">내 리뷰 관리</button>
-			</li>
+			<c:if test="${mb_type != 2 }">
+				<li>
+				<%-- 내 리뷰 관리 버튼--%>
+				<button class="button primary fit" type="button" onclick="location.href = 'reviewListU.slime?mb_uid=<%= arr[0].getMb_uid() %>&page=1'">내 리뷰 관리</button>
+				</li>
+			</c:if>
 
 			<li>
 			<%-- 로그아웃 버튼 --%>

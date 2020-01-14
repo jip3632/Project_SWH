@@ -20,10 +20,7 @@
 <div id = 'wrapper'>
 	
 	
-	<header id="header" class="alt">
-	<!--<span class="logo"><img src="upload/logo/logo.png" alt="" /></span>-->
-	<h1>Slime Where?House</h1>
-	</header>
+	<jsp:include page="/header.jsp"></jsp:include>
 	
 	<div id="main">
 	
