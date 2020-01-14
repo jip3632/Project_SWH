@@ -271,11 +271,29 @@ values
 (1104, 7, 4, 33333, 150),
 (1105, 8, 5, 33333, 150);
 
+-- SL_event 글 목록 현황 (Foreign Key: st_uid, pd_uid 입력하세요)
+insert into SL_event (ev_uid, ev_start_date, ev_end_date, ev_subject, ev_content, st_uid)
+values
+(1, '2019-12-25 00:00', '2020-01-01 18:00', '다나슬라임 할인 이벤트', '전제품 10000원에 판매합니다', 1101),
+(2, '2020-01-10 00:00', '2020-01-31 00:00', '미디슬라임 2+1', '2개 사면 1개 더 증정해드립니다', 1101),
+(3, '2020-01-15 00:00', '2020-01-20 00:00', '빈짱슬라임 3+1', '3개 사면 1개 더 증정해드립니다', 1102);
+
+-- SL_event 글 목록 현황 (Foreign Key: st_uid, pd_uid 입력하세요)
+insert into SL_review (re_uid, wr_uid, re_subject, re_content, re_views, re_regdate, st_uid)
+values
+(1, 106, '미미즈 그로브 방문 후기', '카페 같고 아늑하니 좋았어요! 사장님도 친절하시네요', 0, '2020-01-01 15:36', 1101),
+(2, 106, '슬라임쿡 방문 후기', '다양한 슬라임이 많았어요. 매장 안에 있던 고양이도 귀여워요', 0, '2020-01-05 20:11', 1102),
+(3, 107, '미미즈 그로브 좋네요', '핫초코 맛있게 잘 먹었어요 슬라임도 다 만족ㅎㅎ 다음에 또 방문할게요~', 0, '2020-01-12 18:51', 1101),
+(4, 108, '젤시스쇼룸 넘 좋아요', '직접 만져볼 수 있는 테스터 슬라임이 있어서 좋았어요! 추천드려요', 0, '2020-01-14 11:15', 1103),
+(5, 109, '미미즈 그로브 후기', '토스트 맛있었어요 슬라임도 깔끔하게 진열되어 있어서 고르기 편했어요', 0, '2020-01-09 10:38', 1101),
+(6, 109, '젤시스쇼룸 후기', '아기자기한 것들 많아서 구경하기 좋더라구요 이벤트 하셔서 저렴하게 구매했습니다', 0, '2020-01-11 19:29', 1103);
+
 select * from sl_member;
 select * from sl_offstore;
 select * from sl_market order by mk_uid;
 select * from sl_product order by mk_uid;
 select * from sl_inventory;
+select * from sl_event;
 
 insert into sl_inventory (st_uid, pd_uid, inv_quantity, inv_price, inv_volume)
 values (1101, 1, 333, 333, 333)

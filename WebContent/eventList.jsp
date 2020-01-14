@@ -24,7 +24,7 @@
 <title>이벤트 목록</title>
 
 </head>
-<body class="is-preload">
+<body>
 	<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
@@ -35,6 +35,7 @@
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
+				<th>시작일</th>
 				<th>종료일</th>
 			</tr>		
 <%
@@ -45,6 +46,7 @@
 				out.println("<tr>");
 				out.println("<td>" + arr[i].getEv_uid() + "</td>");
 				out.println("<td><a href='eventView.slime?uid=" + arr[i].getEv_uid() + "'>" + arr[i].getEv_subject() + "</a></td>");
+				out.println("<td>" + arr[i].getEv_start_date() + "</td>");
 				out.println("<td>" + arr[i].getEv_end_date() + "</td>");
 				out.println("</tr>");
 			}

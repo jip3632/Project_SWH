@@ -40,26 +40,28 @@ public class EventDAO {
 		if(conn != null) conn.close();
 	}
 	
-	// 새 이벤트 작성 <-- 제목, 내용, 종료시간
+	// 새 이벤트 작성 <-- 제목, 내용, 시작시간, 종료시간
 	// INSERT
 	public int insert(EventDTO dto) throws SQLException {
 		String subject= dto.getEv_subject();
 		String content = dto.getEv_content();
+		String start_date = dto.getEv_start_date();
 		String end_date = dto.getEv_end_date();
 		int st_uid = dto.getSt_uid();
 		
-		return this.insert(subject, content, end_date, st_uid);
+		return this.insert(subject, content, start_date, end_date, st_uid);
 	}
 	
-	public int insert(String subject, String content, String end_date, int st_uid) throws SQLException{
+	public int insert(String subject, String content, String start_date, String end_date, int st_uid) throws SQLException{
 		int cnt = 0;
 		
 		try {
 			pstmt = conn.prepareStatement(D.SQL_EVENT_INSERT);
 			pstmt.setString(1, subject);
 			pstmt.setString(2, content);
-			pstmt.setString(3, end_date);
-			pstmt.setInt(4, st_uid);
+			pstmt.setString(3, start_date);
+			pstmt.setString(4, end_date);
+			pstmt.setInt(5, st_uid);
 			cnt = pstmt.executeUpdate();
 		} finally {
 			close();
@@ -145,14 +147,15 @@ public class EventDAO {
 	
 	// 특정 uid 의 글을 수정하기 --> 제목, 내용
 	// UPDATE
-	public int update(int uid, String subject, String content, String end_date) throws SQLException{
+	public int update(int uid, String subject, String content, String start_date, String end_date) throws SQLException{
 		int cnt = 0;
 		try {
 			pstmt = conn.prepareStatement(D.SQL_EVENT_UPDATE);
 			pstmt.setString(1, subject);
 			pstmt.setString(2, content);
-			pstmt.setString(3, end_date);
-			pstmt.setInt(4, uid);
+			pstmt.setString(3, start_date);
+			pstmt.setString(4, end_date);
+			pstmt.setInt(5, uid);
 			cnt = pstmt.executeUpdate();
 		} finally {
 			close();

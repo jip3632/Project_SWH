@@ -18,12 +18,13 @@ public class EventUpdateOkCommand implements Command {
 		int uid = Integer.parseInt(request.getParameter("uid"));
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
+		String startdate = request.getParameter("startdate");
 		String enddate = request.getParameter("enddate");
 		
 		// 유효성 체크  null 이거나, 빈문자열이면 이전화면으로 돌아가기
 		if(subject != null && subject.trim().length() > 0){			
 			try {			
-				cnt = dao.update(uid, subject, content, enddate);
+				cnt = dao.update(uid, subject, content, startdate, enddate);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

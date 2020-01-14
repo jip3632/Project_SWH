@@ -83,7 +83,7 @@ public class ReviewDAO {
 			Date d = rs.getDate("re_regdate");
 			Time t = rs.getTime("re_regdate");
 			String regdate = new SimpleDateFormat("yyyy-MM-dd").format(d) + " " 
-							+ new SimpleDateFormat("HH:mm:ss").format(t);
+							+ new SimpleDateFormat("HH:mm").format(t);
 			
 			ReviewDTO dto = new ReviewDTO(uid, wr_uid, subject, content, regdate, view,
 					st_uid);

@@ -43,7 +43,7 @@ function chkSubmit(){
 }
 </script>
 
-<body class="is-preload">
+<body>
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>

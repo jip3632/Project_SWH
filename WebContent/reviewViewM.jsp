@@ -47,7 +47,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title><%= subject %></title>
 </head>
-<body class="is-preload">
+<body>
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>

@@ -87,9 +87,9 @@ public interface D {
 	// 이벤트 글 등록
 	public static final String SQL_EVENT_INSERT = 
 			"INSERT INTO SL_event"
-			+ "(ev_subject, ev_content, ev_end_date, st_uid) "
+			+ "(ev_subject, ev_content, ev_start_date, ev_end_date, st_uid) "
 			+ "VALUES"
-			+ "(?, ?, ?, ?)";
+			+ "(?, ?, ?, ?, ?)";
 	
 	// 이벤트 글 불러오기 (해당하는 1개의 글)
 	public static final String SQL_EVENT_SELECT_BY_UID = 
@@ -105,7 +105,7 @@ public interface D {
 
 	// 이벤트 글 수정하기
 	public static final String SQL_EVENT_UPDATE =
-			"UPDATE SL_event SET ev_subject = ?, ev_content = ?, ev_end_date = ? WHERE ev_uid = ?";
+			"UPDATE SL_event SET ev_subject = ?, ev_content = ?, ev_start_date = ?, ev_end_date = ? WHERE ev_uid = ?";
 
 	// 해당하는 사람 불러오기
 	public static final String SQL_MEMBER_SELECT_BY_UID = 
