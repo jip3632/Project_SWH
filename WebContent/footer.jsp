@@ -2,12 +2,6 @@
     pageEncoding="UTF-8"%>
 <footer id="footer">
 	<section>
-		<div><img class="icon brands alt" alt="logo" src="upload/logo/olaf.jpg" width="40" height="40"></div>
-		<h3>Slime Where?House</h3>
-		<p>슬라임은 만지면서 향과 촉감을 즐길 수 있는 수제 장난감입니다.</p>
-	</section>
-
-	<section>
 		<h3>Contact</h3>
 		<dl class="alt">
 			<dt>Address</dt>
@@ -17,5 +11,13 @@
 			<dt>Email</dt>
 			<dd><a href="#">slimewherehouse@gmail.com</a></dd>
 		</dl>
+		<ul class="icons">
+			<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+			<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+			<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+			<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+			<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
+		</ul>
 	</section>
+	<p class="copyright">&copy; SlimeWhere?House. Design: <a>TeamOlaf</a>.</p>
 </footer>
