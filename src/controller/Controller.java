@@ -112,6 +112,7 @@ public class Controller extends HttpServlet {
 		case "/productSetting.slime":
 			new ProductSettingCommand().execute(request, response);
 			viewPage = "productSetting.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//재고 정보 수정 확인
 		case "/productSettingOk.slime":

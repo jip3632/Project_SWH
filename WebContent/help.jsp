@@ -119,10 +119,12 @@
 						<select name="ask_type">
 							<option value="0">사이트 이용 문의</option>
 							<option value="1">회원정보 문의</option>
-							<option value="2">매장관리 관련 문의</option>
-							<option value="3">피드백</option>
-							<option value="4">버그 제보</option>
-							<option value="5">기타 문의</option>
+							<option value="2">제품정보 문의</option>
+							<option value="3">마켓정보 문의</option>
+							<option value="4">매장관리 관련 문의</option>
+							<option value="5">피드백</option>
+							<option value="6">버그 제보</option>
+							<option value="7">기타 문의</option>
 						</select>
 						<br>
 					</div>

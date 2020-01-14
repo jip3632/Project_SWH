@@ -16,6 +16,8 @@ public class ReviewListManagerCommand implements Command {
 		ReviewDTO [] rarr = null;
 		MemberDAO mdao = new MemberDAO();
 		MemberDTO [] marr = null;
+		SearchDAO sdao = new SearchDAO();
+		StoreDTO [] sarr = null;
 		
 		int st_uid = Integer.parseInt(request.getParameter("st_uid"));
 		
@@ -50,9 +52,11 @@ public class ReviewListManagerCommand implements Command {
 			
 			rarr = rdao.selectFromRow(st_uid, fromRow, pageRows);
 			marr = mdao.selectAllMembers();
+			sarr = sdao.selectStoreByStUid(st_uid);
 			
 			request.setAttribute("rlist", rarr);
 			request.setAttribute("mlist", marr);
+			request.setAttribute("slist", sarr);
 			request.setAttribute("page", page);
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("writePages", writePages);
