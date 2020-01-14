@@ -68,7 +68,7 @@
 </style>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<body>
+<body class="is-preload">
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 	<jsp:include page="/header.jsp"></jsp:include>
@@ -131,6 +131,7 @@
 	</div>
 	<jsp:include page="/footer.jsp"></jsp:include>
 </div>
+<script src="JS/main.js"></script>
 <script>
 	function chkDelete(pd_name, inv_uid, st_uid){
 		var r = confirm("'" + pd_name + "'을 삭제하시겠습니까?");

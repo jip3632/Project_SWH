@@ -33,7 +33,7 @@
 	}
 </style>
 </head>
-<body>
+<body class="is-preload">
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 	<jsp:include page="/header.jsp"></jsp:include>
@@ -112,11 +112,14 @@
 					</div>
 				</div>
 				
+				<br>
 				<%-- 제출 Submit --%>
 				<div class="row aln-center">
 					<div class="col-5">
-						<button class="button primary" type="submit">수정</button>
-						<button class="button" type="button" onclick="history.back()">이전</button>
+						<button class="button primary fit" type="submit">수정</button>
+					</div>
+					<div class="col-5">
+						<button class="button fit" type="button" onclick="history.back()">이전</button>
 					</div>
 				</div>
 			</form>
@@ -124,6 +127,7 @@
 	</div>
 	<jsp:include page="/footer.jsp"></jsp:include>
 </div>
+<script src="JS/main.js"></script>
 </body>
 <script>
 	function chkUpdate(){

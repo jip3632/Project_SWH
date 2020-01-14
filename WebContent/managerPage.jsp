@@ -40,7 +40,7 @@
 </style>
 <title>매장 관리</title>
 </head>
-<body>
+<body class="is-preload">
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 	<jsp:include page="/header.jsp"></jsp:include>
@@ -111,5 +111,6 @@
 	<jsp:include page="/footer.jsp"></jsp:include>
 
 </div>
+<script src="JS/main.js"></script>
 </body>
 </html>

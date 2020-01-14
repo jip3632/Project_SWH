@@ -82,7 +82,7 @@
 </style>
 <title>제품 등록</title>
 </head>
-<body>
+<body class="is-preload">
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 		<jsp:include page="/header.jsp"></jsp:include>
@@ -198,6 +198,7 @@
 		</div>
 		<jsp:include page="/footer.jsp"></jsp:include>
 </div>
+<script src="JS/main.js"></script>
 </body>
 <script src="JS/addProduct.js"></script>
 </html>
