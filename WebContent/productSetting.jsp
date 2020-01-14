@@ -10,15 +10,14 @@
 <head>
 <meta charset="UTF-8">
 <link href="CSS/main.css" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>재고 정보 수정</title>
 </head>
-<body>
+<body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-		<div>네비게이션 바</div>
-	</nav>
-	
+	<jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
 		<section id="intro" class="main special">
 			<header class="major">
@@ -57,25 +56,35 @@
 		
 		</section>
 	</div>
+	<jsp:include page="/footer.jsp"></jsp:include>
 </div>
+<script src="JS/main.js"></script>
 </body>
 <script>
+	function regex(i){
+		var patt = new RegExp("(^[1-9]$|^[1-9][0-9]+$)");
+		var isInt = patt.test(i);
+		if(isInt){
+			return true;
+		} else{
+			return false
+		}
+	}
 	function chkUpdate(){
+		var frm = document.forms["frm"];
+		var inv_volume = frm.inv_volume.value.trim();
+		var inv_price = frm.inv_price.value.trim();
+		var inv_quantity = frm.inv_quantity.value.trim();
+		if(inv_volume == "" || inv_price == "" || inv_quantity == ""){
+			alert("모든 입력란은 필수");
+			return false;
+		}else if(!regex(inv_volume) || !regex(inv_price) || !regex(inv_quantity)){
+			alert("정수를 입력하세요");
+			return false;
+		}
+		
 		var r = confirm("수정하시겠습니까?");
 		if(r){ //수정 여부 확인
-			var frm = document.forms["frm"];
-			var inv_volume = frm.inv_volume.value.trim();
-			var inv_price = frm.inv_price.value.trim();
-			var inv_quantity = frm.inv_quantity.value.trim();
-			if(inv_volume == "" || inv_price == "" || inv_quantity == ""){
-				alert("모든 입력란은 필수");
-				return false;
-			}else if(Number.isInteger(inv_volume) || Number.isInteger(inv_price) || Number.isInteger(inv_quantity)){
-				return true;
-			}else{
-				alert("정수를 입력하세요");
-				return false;
-			}
 		} else{
 			return false;
 		}

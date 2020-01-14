@@ -131,22 +131,34 @@
 </body>
 <script>
 	function chkUpdate(){
+		var frm = document.forms["frm"];
+		var st_address = frm.st_address.value.trim();
+		var st_contact = frm.st_contact.value.trim();
+		var st_start = frm.st_start.value.trim();
+		var st_end = frm.st_end.value.trim();
+		if(!phoneregex(st_contact)){
+			alert("전화번호를 형식에 맞춰 입력해주세요");
+			return false;
+		} else if(st_address == "" || st_contact == "" || st_start == "" || st_end == ""){
+			alert("설명과 사진 이외의 모든 정보는 필수 입력란입니다.");
+			return false;
+		}
 		var r = confirm("수정하시겠습니까?");
 		if(r){ //수정 여부 확인
-			var frm = document.forms["frm"];
-			var st_address = frm.st_address.value.trim();
-			var st_contact = frm.st_contact.value.trim();
-			var st_start = frm.st_start.value.trim();
-			var st_end = frm.st_end.value.trim();
-			if(st_address == "" || st_contact == "" || st_start == "" || st_end == ""){
-				alert("설명과 사진 이외의 모든 정보는 필수 입력란입니다.");
-				return false;
-			}else{
-				return true;
-			}
+			return true;
 		} else{
 			return false;
 		}
 	};
+	
+	function phoneregex(i){
+		var patt = new RegExp("^[0-9]+-[0-9]{4}-[0-9]{4}$");
+		var isInt = patt.test(i);
+		if(isInt){
+			return true;
+		} else{
+			return false
+		}
+	}
 </script>
 </html>
