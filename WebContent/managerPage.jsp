@@ -23,24 +23,38 @@
 <head>
 <meta charset="UTF-8">
 <link href="CSS/main.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<style>
+	@media screen and (max-width: 736px){
+		.features li {
+			margin-top: 1em;
+		}
+		.features li:nth-child(2) {
+			margin-top: 1em;
+		}
+		.features li:nth-child(3) {
+			margin-top: 1em;
+		}
+	}
+
+</style>
 <title>매장 관리</title>
 </head>
 <body>
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-		<div>네비게이션 바</div>
-	</nav>
+
 	
 	<div id="main">
 	<%-- TODO 매장사진, 매장명, 주소, 연락처, 이메일(표시x 이유:매장이아닌 회원정보mb_email에 담겨있음), 영업시간 표시 
 	SL_offstore 테이블에서 
 	st_img, st_name, st_address, st_contact, st_email, st_hours 
 	가져오기 --%>
-		<section id="intro" class="main">
+		<section id="intro" class="main special">
 			<div class="spotlight">
 				<div class="content">
 					<header class="major">
-						<h3>매장: <%= arr[0].getSt_name()%></h3>
+						<h2><%= arr[0].getSt_name()%></h2>
 					</header>
 					<div>
 					주소: <%= arr[0].getSt_address()%>

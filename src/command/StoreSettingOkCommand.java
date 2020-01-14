@@ -59,7 +59,7 @@ public class StoreSettingOkCommand implements Command {
 			} else {
 				cnt = sdao.updateStoreIncludeImage(st_address, st_contact, st_hours, st_description, mb_uid, originalFileName, fileSystemName);
 			}
-		
+			System.out.println(cnt);
 			request.setAttribute("result", cnt);
 			request.setAttribute("mb_uid", mb_uid);
 		} catch (SQLException e) {

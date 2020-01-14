@@ -20,10 +20,10 @@
 	</nav>
 	
 	<div id="main">
-		<section id="intro" class="main">
-			<div class="spotlight content">
-				<h3>재고 정보 수정</h3>
-			</div>
+		<section id="intro" class="main special">
+			<header class="major">
+				<h2>재고 정보 수정</h2>
+			</header>
 		</section>
 		<section id="first" class="main special">
 		<form name="frm" action="productSettingOk.slime" method="post" onsubmit="return chkUpdate()">
@@ -34,16 +34,25 @@
 				<input type="hidden" name="st_uid" value="<%= arr[0].getSt_uid()%>">		
 				<input type="hidden" name="inv_uid" value="<%= arr[0].getInv_uid()%>">		
 				
-				<div>용량(ml)</div>
-				<div class="col-6 col-12-xsmall"><input type="text" name="inv_volume" value="<%= arr[0].getInv_volume()%>"></div>
-				<div>가격(원)</div>
-				<div class="col-6 col-12-xsmall"><input type="text" name="inv_price" value="<%= arr[0].getInv_price()%>"></div>
-				<div>재고(개)</div>
-				<div class="col-6 col-12-xsmall"><input type="text" name="inv_quantity" value="<%= arr[0].getInv_quantity()%>"></div>
+				<div class="row aln-center">
+					<div class="col-5">용량(ml)</div>
+					<div class="col-5"><input type="text" name="inv_volume" value="<%= arr[0].getInv_volume()%>"></div>
+				</div>
+				<div class="row aln-center">
+					<div class="col-5">가격(원)</div>
+					<div class="col-5"><input type="text" name="inv_price" value="<%= arr[0].getInv_price()%>"></div>
+				</div>
+				<div class="row aln-center">
+					<div class="col-5"><h4>재고(개)</h4></div>
+					<div class="col-5"><input type="text" name="inv_quantity" value="<%= arr[0].getInv_quantity()%>"></div>
+				</div>
 			</div>
-			<input type="submit" value="완료">
+			<br>
+			<div class="row aln-center">
+				<button class="col-4 button primary" type="submit">완료</button>
+				<button class="col-4 button" type="button" onclick="history.back()">취소</button>
+			</div>
 		</form>
-			<button type="button" onclick="history.back()">취소</button>
 		
 		
 		</section>

@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="CSS/main.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 	.modal{
@@ -71,17 +72,16 @@
 <title>제품 등록</title>
 </head>
 <body>
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-		<div>네비게이션 바</div>
-	</nav>
+
 
 		<div id="main">
 		<%-- submit했을 때 --%>
 		<%-- INSERT INTO sl_inventory (st_uid, pd_uid, inv_volume, inv_price, inv_quantity) VALUES (?, ?, ?); --%>
 		<%-- MODAL에서 정보 받아올때 --%>
 		<%-- javascript로 구현 --%>
-			<section id="intro" class="main">
+			<section id="intro" class="main special">
 				<button	class="button primary fit" type="button" onclick="showMarkets(<%=st_uid%>)">마켓 찾기</button>
 				<form action="addProductOk.slime" name="frm" method="post" onsubmit="return chkInventory()">
 					<input type="hidden" name="st_uid" value="<%= st_uid%>">
@@ -89,7 +89,6 @@
 					</div>
 					<div id="product_detail">
 					</div>
-					<input class="button fit" type="submit" value="완료">
 				</form>	
 			</section>
 		
@@ -175,11 +174,11 @@
 						<div class="modal-footer">
 						</div>
 					</div>
-				<section class="main special">
+				</section>
 			</div>
 		</div>
 		<jsp:include page="/footer.jsp"></jsp:include>
 </div>
 </body>
-<script type="text/javascript" src="JS/addProduct.js"></script>
+<script src="JS/addProduct.js"></script>
 </html>

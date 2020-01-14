@@ -55,24 +55,22 @@
 <head>
 <meta charset="UTF-8">
 <link href="CSS/main.css" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <title>재고관리</title>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <body>
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-	<nav id="nav" class="alt">
-		<div>네비게이션 바</div>
-	</nav>
+
 	
 	<div id="main">
-		<section id="intro" class="main">
-			<div class="spotlight content">
-				<h3>재고 관리</h3>
-			</div>
-			<button type="button" onclick="location.href = 'addProduct.slime?st_uid=<%=st_uid%>'">재고등록</button>
+		<section id="intro" class="main special">
+			<header class="major">
+				<h2>재고 관리</h2>
+			</header>
+			<button type="button" class="button primary fit" onclick="location.href = 'addProduct.slime?st_uid=<%=st_uid%>'">재고등록</button>
 		</section>
-		<div id="markets">
 			<%--
 			<div>
 				<h3>mk_name</h3>
@@ -105,13 +103,13 @@
 								break;
 							} else{
 								out.println("<li>");
-								out.println("<div class='col-2'><span class='image fit'><img alt='이미지' src='upload/product/"+ farr[j].getFile() +"'></span></div>");
+								out.println("<div class='spotlight'><span class='image'><img alt='이미지' src='upload/product/"+ farr[j].getFile() +"'></span></div>");
 								out.println("<h4><b>" + arr[j].getPd_name() + "</b></h4>");
 								out.println("<h5>용량:" + arr[j].getInv_volume() + "ml</h5>");
 								out.println("<h5>가격:" + arr[j].getInv_price() + "원</h5>");
 								out.println("<h5>재고:" + arr[j].getInv_quantity() + "개</h5>");
-								out.println("<a class='button' href='productSetting.slime?inv_uid=" + arr[j].getInv_uid() + "&st_uid=" + request.getParameter("st_uid") + "'>설정" + "</a>");
-								out.println("<a class='button' href='productDelete.slime?inv_uid=" + arr[j].getInv_uid() + "&st_uid=" + request.getParameter("st_uid") + "'>삭제" + "</a>");
+								out.println("<a class='button primary' href='productSetting.slime?inv_uid=" + arr[j].getInv_uid() + "&st_uid=" + request.getParameter("st_uid") + "'>설정" + "</a>");
+								out.println("<a class='button' onclick=\"chkDelete('" + arr[j].getPd_name() + "', '" + arr[j].getInv_uid() + "', '" + arr[j].getSt_uid() + "')\">삭제" + "</a>");
 								out.println("</li>");
 								if(j == arr.length - 1) index = arr.length;
 							}
@@ -120,10 +118,20 @@
 						out.println("</section>");
 					}
 				%>
-		</div>
 			
 	</div>
 	<jsp:include page="/footer.jsp"></jsp:include>
 </div>
+<script>
+	function chkDelete(pd_name, inv_uid, st_uid){
+		var r = confirm("'" + pd_name + "'을 삭제하시겠습니까?");
+		if(r){
+			location.href = "productDelete.slime?inv_uid=" + inv_uid + "&st_uid=" + st_uid;
+		} else{
+			
+		}
+	}
+
+</script>
 </body>
 </html>

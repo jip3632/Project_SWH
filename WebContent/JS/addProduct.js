@@ -67,7 +67,7 @@ function parseJSON(jsonObj, st_uid){
 	for(i = 0; i < count; i++){
 		if(data[i].mk_file == "") data[i].mk_file = "unknown.png";
 		table += "<section class='market' onclick='showProducts(" + data[i].mk_uid + ", \"" + data[i].mk_file + "\", \"" + data[i].mk_name + "\", \"" + data[i].mk_insta + "\", " + st_uid + ")'>";
-		table += "<span class='image fit'><img alt='image' src='upload/market/" + data[i].mk_file + "'></span>";
+		table += "<span class='image'><img alt='image' src='upload/market/" + data[i].mk_file + "'></span>";
 		table += "<h3>" + data[i].mk_name + "</h3>";
 		table += "<h3>" + data[i].mk_insta + "</h3>";		
 		table += "</section><hr>";
@@ -80,12 +80,15 @@ function showProducts(mk_uid, mk_file, mk_name, mk_insta, st_uid){
 	modalShowMarket.style.display = "none";
 	modalShowProduct.style.display = "block";
 	
-	var table = "<img alt='" + mk_file + "' src='upload/market/" + mk_file +"'>"
-			+ "<div>" + mk_name + "</div>"
-			+ "<div>" + mk_insta + "</div>";
+	var table = "<section class='main special'>"
+			+ "<h2>매장</h2>"
+			+ "<div class='row aln-center'>"
+			+ "<div class='col-10 spotlight'><span class='image'><img alt='" + mk_file + "' src='upload/market/" + mk_file +"'></span></div>"
+			+ "<div class='col-10 aln-center'>" + mk_name + "</div>"
+			+ "<div class='col-10 aln-center'>" + mk_insta + "</div>"
+			+ "</div></section>";
 	$("#market_detail").html(table);
 	$(".modal-content-product-new #mk_uid").val(mk_uid);
-	
 	productList(object, mk_uid);
 }
 
@@ -103,7 +106,7 @@ function productList(jsonObj, mk_uid){
 	count = products.length;
 	for(i = 0; i < count; i++){
 		table += "<section class='product' onclick='showDetail(" + products[i].pd_uid + ",\"" + products[i].pd_file + "\", \"" + products[i].pd_name + "\")'>";
-		table += "<span class='image fit'><img alt='image' src='upload/product/" + products[i].pd_file + "'></span>";
+		table += "<div class='spotlight'><span class='image'><img alt='image' src='upload/product/" + products[i].pd_file + "'></span></div>";
 		table += "<h3>" + products[i].pd_name + "</h3>";
 		table += "</section><hr>";
 	}
@@ -114,12 +117,17 @@ function productList(jsonObj, mk_uid){
 ///////////////////// 제품 정보보여주기
 function showDetail(pd_uid, pd_file, pd_name){
 	modalShowProduct.style.display = "none";
-	table = "<span class='image fit'><img alt='noImage' src='upload/product/" + pd_file + "'/></span>"
+	table = "<section class='main special'>" +
+			"<h2>제품</h2>" +
+			"<div class='spotlight'><span class='image'><img alt='noImage' src='upload/product/" + pd_file + "'/></span></div>"
 			+ "<div>" + pd_name + "</div>"
-			+ "<div>용량 <input type='text' name='inv_volume' placeholder='용량입력'>ml</div>"
-			+ "<div>가격 <input type='text' name='inv_price' placeholder='가격입력'>원</div>"
-			+ "<div>재고<input type='text' name='inv_quantity' placeholder='개수입력'>개</div>"
-			+ "<input type='hidden' name='pd_uid' value='" + pd_uid + "'>";
+			+ "<div class='row'>"
+			+ "<div class='col-5'>용량</div><div class='col-5'><input type='text' name='inv_volume' placeholder='용량입력'></div><div class='col-1'>ml</div>"
+			+ "<div class='col-5'>가격</div><div class='col-5'><input type='text' name='inv_price' placeholder='가격입력'></div><div class='col-1'>원</div>"
+			+ "<div class='col-5'>재고</div><div class='col-5'><input type='text' name='inv_quantity' placeholder='개수입력'></div><div class='col-1'>개</div>"
+			+ "<input type='hidden' name='pd_uid' value='" + pd_uid + "'>"
+			+ "</div></section>"
+			+ "<button type='submit' class='button primary'>재고 추가</button>";
 	
 	$("#product_detail").html(table);
 }
