@@ -11,19 +11,23 @@ $(function() {
 		alert('현재 브라우저/기기는 GPS를 지원하지 않습니다')
 		lati = 0;
 		longi = 0;
-	}	
+	}
+	
 });
+
 
 function ajax(regionCode) {
 	var url = "http://localhost:8085/Project_SWH/store.ajax?region=" + regionCode + "&lati=" + lati + "&longi=" + longi;
-	$.ajax({
-		url : url,
-		type : "GET",
-		cache : false,
-		success : function(data, status){
-			if (status == "success") parseJSON(data);
-		}
-	});
+	if (regionCode != 0) {
+		$.ajax({
+			url : url,
+			type : "GET",
+			cache : false,
+			success : function(data, status){
+				if (status == "success") parseJSON(data);
+			}
+		});
+	}
 };
 
 function parseJSON(data) {
