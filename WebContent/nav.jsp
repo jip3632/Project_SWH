@@ -63,7 +63,7 @@
 					</c:choose>
 				</c:otherwise>
 			</c:choose>
-			<li><a href='reviewList_everyone.slime'>Review</a></li>
+			<li><a href='reviewListE.slime?page=1'>Review</a></li>
 			<li><a href='help.slime'>Help</a></li>
 		</ul>
 	</nav>
