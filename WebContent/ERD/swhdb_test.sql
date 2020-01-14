@@ -229,7 +229,7 @@ values
 (11, '부드러', 4, 'boodru.jpg', '섬유 향수 향'),
 (12, '피자치즈', 4, 'pizzachees.jpg', '미디치즈향'),
 (13, '아보카동', 5, 'abocadong.jpg', '메론향'),
-(14, '팝핀깡냉이', 5, 'ppopin.jpg', '콘향'),
+(14, '팝핀깡냉이', 5, 'poppin.jpg', '콘향'),
 (15, '크림바삭', 5, 'creambasak.jpg', '우유향');
 
 -- SL_inventory 재고 보유 현황 (Foreign Key: st_uid, pd_uid 입력하세요)
