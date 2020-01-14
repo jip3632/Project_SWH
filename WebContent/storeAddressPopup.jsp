@@ -38,7 +38,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<script language="javascript">
+<script>
 function init(){
 	var url = location.href;
 	var confmKey = "devU01TX0FVVEgyMDIwMDExMzE1MDMxNDEwOTM4MzA=";//승인키
