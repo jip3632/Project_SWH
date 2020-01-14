@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="beans.*"%>
 
 <%  
@@ -56,8 +58,11 @@
 %>		
 		</table>
 		<br>
-		<button onclick="location.href='eventWrite.slime?st_uid=<%= st_uid %>'">새글작성</button>
-
+		<c:choose>
+		<c:when test="${mb_type == 1 }">
+		<button class="button primary" onclick="location.href='eventWrite.slime?st_uid=<%= st_uid %>'">새글작성</button>
+		</c:when>
+		</c:choose>
 <%-- 페이징 --%>
 <jsp:include page="eventPagination.jsp">
 	<jsp:param value="<%= writePages %>" name="writePages"/>

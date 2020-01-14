@@ -74,7 +74,7 @@ $(function(){
 <input type="hidden" name="startdate"/>
 <div style="text-align:left;">
 <u><strong>제목</strong></u><br>
-<input type="text" name="subject"/><br><br>
+<input type="text" name="subject"/><br>
 <u><strong>내용</strong></u><br>
 <textarea name="content"></textarea>
 <br>

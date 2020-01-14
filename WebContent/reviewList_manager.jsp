@@ -33,14 +33,16 @@
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
-	<section id="content" class="main">
+	<section id="content" class="main special">
+	<header class="major">
 		<h2>${slist[0].st_name } 후기 목록</h2>
+	</header>
 		<table>
 			<tr>
-				<th>no</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>view</th>
+				<th style="text-align:center;">no</th>
+				<th style="text-align:center;">제목</th>
+				<th style="text-align:center;">작성자</th>
+				<th style="text-align:center;">view</th>
 			</tr>		
 <%
 		if(rarr == null || rarr.length == 0){
