@@ -31,7 +31,7 @@
 		margin: auto;
 		padding: 0;
 		border: 1px solid #888;
-		width: 80%;
+		width: 66%;
 		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 		-webkit-animation-name: animatetop;
 		-webkit-animation-duration: 0.4s;
@@ -59,6 +59,17 @@
 	.market:hover, .market:focus, .product:hover, .product:focus{
 		cursor: pointer;
 	}
+	.spotlight .image{
+		margin-left: 0;
+		margin: auto;
+	}
+	.spotlight .image img{
+		width: 10em;
+	}
+	
+	#market_detail 	.spotlight .image img{
+		width: 13em;
+	}
 @-webkit-keyframes animatetop {
   from {top:-300px; opacity:0} 
   to {top:0; opacity:1}
@@ -74,7 +85,7 @@
 <body>
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-
+		<jsp:include page="/header.jsp"></jsp:include>
 		<div id="main">
 			<section id="intro" class="main special">
 				<header class="major">
@@ -102,16 +113,16 @@
 				<div class="modal-content-market">
 					<section class="main special">
 						<div class="modal-header">
-							<header>
 							<span class="close SM">&times;</span>
+							<header class="major">
 							<h2><b>마켓 찾기</b></h2>
-							<hr>
 							</header>
+							<hr>
 						</div>
 						<div class="modal-body">
 						</div>
 						<div class="modal-footer right">
-						   <button type="button" onclick="createNewMarket()">새마켓 추가</button>
+						   <button type="button" class="button primary" onclick="createNewMarket()">새마켓 추가</button>
 						</div>
 					</section>
 				</div>
@@ -123,13 +134,15 @@
 					<div class="modal-content-product">
 						<div class="modal-header">
 							<span class="close SP">&times;</span>
+							<header class="major">
 							<h2><b>제품 찾기</b></h2>
+							</header>
 							<hr>
 						</div>
 						<div class="modal-body">
 						</div>
 						<div class="modal-footer right">
-						<button type="button" onclick="createNewProduct()">새제품 추가</button>
+						<button type="button" class="button primary" onclick="createNewProduct()">새제품 추가</button>
 						</div>
 					</div>
 				</section>

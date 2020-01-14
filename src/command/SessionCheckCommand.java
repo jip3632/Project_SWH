@@ -9,7 +9,7 @@ public class SessionCheckCommand {
 	public String sessionCheck(HttpServletRequest request, HttpServletResponse response, String viewPage) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("login") == null) {
-			return "login.slime";
+			return "/login.slime";
 		} else {
 			return viewPage;
 		}
