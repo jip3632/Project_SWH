@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="beans.*"%>
 
 <%  
@@ -23,7 +25,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 
-<title>내 매장 후기 목록</title>
+<title>${slist[0].st_name } 후기 목록</title>
 
 </head>
 <body>
@@ -32,7 +34,7 @@
 <jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
 	<section id="content" class="main">
-		<h2>내 매장 후기 목록</h2>
+		<h2>${slist[0].st_name } 후기 목록</h2>
 		<table>
 			<tr>
 				<th>no</th>
@@ -69,8 +71,25 @@
 	<jsp:param value="<%= totalPage %>" name="totalPage"/>
 	<jsp:param value="<%= curPage %>" name="curPage"/>
 </jsp:include>
-
+		<div class="row">
+		<c:choose>
+			<c:when test="${mb_type == 1 }">
+				<div class="off-4-small col-4-small off-8 col-2">
+					<button class="button" style="width:100%" onclick="history.back()">이전페이지</button>	
+				</div>
+				<div class="col-4-small col-2">
+					<button class="button primary" style="width:100%" onclick="location.href='reviewWrite.slime?mb_uid=${mb_uid }'">리뷰 작성</button>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="off-8-small col-4-small off-10 col-2">
+					<button class="button" style="width:100%" onclick="history.back()">이전페이지</button>	
+				</div>
+			</c:otherwise>
+		</c:choose>
+		</div>
 	</section>
+
    	</div>
    <jsp:include page="/footer.jsp"></jsp:include>
 </div>
