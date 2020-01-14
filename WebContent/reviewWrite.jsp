@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="ckeditor/ckeditor.js"></script>
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title>후기 글 작성하기</title>
 </head>
@@ -43,7 +44,13 @@ function chkSubmit(){
 제목 :
 <input type="text" name="subject"/><br>
 내용 : <br>
-<textarea name="content"></textarea>
+<textarea name="content" id="editor1"></textarea>
+<script>
+	CKEDITOR.replace('editor1', {
+		allowedContent: true,  // HTML 태그 자동삭제 방지 설정
+		filebrowserUploadUrl: '${pageContext.request.contextPath}/fileUpload.slime'
+	});
+</script>
 <br>
 매장 : <br>
 <select name="store">

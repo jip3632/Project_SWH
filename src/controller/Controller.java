@@ -274,6 +274,10 @@ public class Controller extends HttpServlet {
 			new SignUpStoreOkCommand().execute(request, response);
 			viewPage = "signUpStoreOk.jsp";
 			break;
+		// 웹에디터용 파일 업로드 처리
+		case "/fileUpload.slime":
+			new FileUploadCommand().execute(request, response);
+			break;
 		}
 
 		if (viewPage != null) {

@@ -29,6 +29,7 @@ public class ReviewWriteOkCommand implements Command {
 			}
 		}
 		request.setAttribute("result", cnt);
+		request.setAttribute("mb_uid", wr_uid);
 	}
 
 }

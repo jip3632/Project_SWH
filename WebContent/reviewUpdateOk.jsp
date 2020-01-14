@@ -13,6 +13,6 @@
 <% } else { %>
 <script>
 	alert("수정성공");
-	location.href = "reviewView.slime?re_uid=<%=re_uid%>";
+	location.href = "reviewViewU.slime?re_uid=<%=re_uid%>";
 </script>
 <% } %>
