@@ -8,36 +8,42 @@
 <title>슬라임 가이드 및 웹사이트 소개</title>
 </head>
 <body class="is-preload">
+<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-   <nav>
-      <div>네비게이션 바</div>
-   </nav>
    	<div id="main">
-	<section id="content" class="main">
+   	<section id="intro" class="main">
+	<div class="spotlight">
+	<div class="content">
+	<header class="major">
    <h3>슬라임 가이드</h3>
-   <div id = "guide">
+   </header>
    	<ul>
    	<li><h4>슬라임에 대하여</h4>
-   	<ul>
+   	<ul class="features">
    	<li>슬라임은 만지면서 향과 촉감을 즐길 수 있는 수제 장난감입니다.<br></li>
    	<li>슬라임은 14세 미만, 피부가 예민하신 분들, 임산부, 노약자에게는 추천드리지 않습니다.<br></li>
    	<li>슬라임은 온도에 매우 민감하니 가급적 서늘한 곳에 보관하시면 좋습니다.<br></li>
    	<li>슬라임을 만지기 전 손을 깨끗이 씻고 핸드크림을 바르신 후 플레잉하시는 것을 권장드립니다.<br></li>
    	<li>슬라임의 수명은 보통 2~3주입니다. 어떻게 케어하느냐에 따라 오래 플레잉하실 수 있으니 슬라임 케어법을 꼭 숙지해주세요.<br></li>
    	</ul>
+   	</div>
+	</div>
    	</li>
    	<li><h4>슬라임 케어법</h4>
-   	<ul>
+   	<ul class="features">
    	<li>녹았을 때 : 손에 붙지 않는 농도가 될 때까지 액티베이터(Activator)를 한두방울씩 넣어주며 반죽해주세요. 손에 살짝 붙는 정도라면 핸드크림을 바르신 후 플레잉해도 무관합니다.<br></li>
    	<li>굳었을 때 : 적절한 농도가 될 때까지 글리세린을 한두방울씩 넣어가며 반죽해주세요.<br></li>
-   	<li>	액티베이터, 글리세린은 거의 모든 매장에 있습니다. 혹은 직접 약국에서 구매하셔서 만드셔도 됩니다.<br>
+   	<li>액티베이터, 글리세린은 거의 모든 매장에 있습니다. 혹은 직접 약국에서 구매하셔서 만드셔도 됩니다.<br>
    		액티베이터 제조 방법 : 약국에서 붕사를 구매하신 후 붕사가루와 물을 1:50 비율로 섞어주세요.<br>
    		글리세린 : 약국에서 구매하실 수 있습니다.<br></li>
    	</ul>
    	</li>
    	</ul>
-   </div>
+   	</section>
+   	<section id="first" class="main special">
+	<header class="major">
    <h3>웹페이지 소개</h3>
+   </header>
    <div>
    <ul>
    <li><h4>slime Where?house</h4>
@@ -62,8 +68,6 @@
    </div>
 	</section>
    	</div>
-   <footer>
-   </footer>
 </div>
 
 <!-- Scripts -->
