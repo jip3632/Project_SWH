@@ -94,9 +94,11 @@
 				<div>매장 사진</div>
 				<div class="row aln-center">
 					<div class="col-10">
-						<span class="image">
-							<img alt="<%=farr[0].getFile()%>" src="upload/offstore/<%=farr[0].getFile()%>">
-						</span>
+						<div class='spotlight'>
+							<span class="image">
+								<img alt="<%=farr[0].getFile()%>" src="upload/offstore/<%=farr[0].getFile()%>">
+							</span>
+						</div>
 					</div>
 					<div class="col-10">
 						<input type="file" name="upload">

@@ -75,8 +75,12 @@
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 
-
 		<div id="main">
+			<section id="intro" class="main special">
+				<header class="major">
+					<h2>재고/마켓/제품 추가</h2>
+				</header>
+			</section>
 		<%-- submit했을 때 --%>
 		<%-- INSERT INTO sl_inventory (st_uid, pd_uid, inv_volume, inv_price, inv_quantity) VALUES (?, ?, ?); --%>
 		<%-- MODAL에서 정보 받아올때 --%>
@@ -101,6 +105,7 @@
 							<header>
 							<span class="close SM">&times;</span>
 							<h2><b>마켓 찾기</b></h2>
+							<hr>
 							</header>
 						</div>
 						<div class="modal-body">
@@ -119,6 +124,7 @@
 						<div class="modal-header">
 							<span class="close SP">&times;</span>
 							<h2><b>제품 찾기</b></h2>
+							<hr>
 						</div>
 						<div class="modal-body">
 						</div>
