@@ -29,7 +29,7 @@ function parseJSON(data) {
 	var htmlTxt = "";
 	for (i = 0; i < count; i++) {
 		htmlTxt += "<li class='productInfo'>";
-		htmlTxt += "<div class='pd_img'>" + "<img src='" + list[i].pd_img + "'></img>" + "</div>";
+		htmlTxt += "<img src='upload/product/" + list[i].pd_img + "' alt=''/>";
 		htmlTxt += "<div class='pd_name' onclick='move(" + list[i].pd_uid + ")'>" + list[i].pd_name + "</div>";
 		htmlTxt += "<div class='mk_name'>제작자: " + list[i].mk_name + "</div>";
 		htmlTxt += "</li>";

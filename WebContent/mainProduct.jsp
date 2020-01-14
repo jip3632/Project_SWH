@@ -14,14 +14,11 @@
 <script src="JS/mainProduct.js"></script>
 
 </head>
-<body>
+<body class="is-preload">
 	<jsp:include page="/nav.jsp"></jsp:include>
 	
 	<div id="wrapper">
-		<header id="header" class="alt">
-			<!--<span class="logo"><img src="upload/logo/logo.png" alt="" /></span>-->
-			<h1>Slime Where?House</h1>
-		</header>		
+		<jsp:include page="/header.jsp"></jsp:include>		
 		<div id="main">
 			<section id="cta" class="main special">
 				<header class="major">
@@ -33,19 +30,22 @@
 				</div>
 				</header>
 				<div class ="row aln-center">
-					<div class="col-6">
+					<div class="col-10">
 						<form method="GET" style="margin:2em 0 2em 0;">
-							<input type="text" name="word" id="wordSearch">
+							<input type="text" name="word" id="wordSearch" placeholder="스위트콘크림">
 						</form>
 					</div>
 				</div>
 				<div class="row aln-center">
-					<div class="col-3">
-						<button type="button" class="button large primary" onclick="ajax();">검색</button>
+					<div class="col-10">
+						<button type="button" class="button primary" style="width:100%; height:100%" onclick="ajax();">검색</button>
 					</div>
 				</div>
 			</section>
 			<section class="main special">
+				<header class="major">
+					<h2>제품 검색 결과</h2>
+				</header>
 				<ul id="product_list" class="features alt">
 					<li><p>제품 이름을 검색해주세요 </p></li>
 				</ul>
@@ -55,5 +55,7 @@
 	<jsp:include page="/footer.jsp"></jsp:include>
 	
 </div>
+	<script src="JS/main.js"></script>
+
 </body>
 </html>
