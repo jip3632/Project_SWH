@@ -26,7 +26,7 @@
 <title>내 매장 후기 목록</title>
 
 </head>
-<body class="is-preload">
+<body>
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
@@ -35,11 +35,10 @@
 		<h2>내 매장 후기 목록</h2>
 		<table>
 			<tr>
-				<th>번호</th>
+				<th>no</th>
 				<th>제목</th>
 				<th>작성자</th>
-				<th>조회수</th>
-				<th>등록일</th>
+				<th>view</th>
 			</tr>		
 <%
 		if(rarr == null || rarr.length == 0){
@@ -56,7 +55,7 @@
 				}
 				out.println("<td>" + writerName + "</td>");
 				out.println("<td>" + rarr[i].getRe_views() + "</td>");
-				out.println("<td>" + rarr[i].getRe_regdate() + "</td>");
+/* 				out.println("<td>" + rarr[i].getRe_regdate() + "</td>"); */
 				out.println("</tr>");
 			}
  		}

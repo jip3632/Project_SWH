@@ -18,6 +18,7 @@
 	int uid = arr[0].getEv_uid();
 	String subject = arr[0].getEv_subject();
 	String content = arr[0].getEv_content();
+	String startdate = arr[0].getEv_start_date();
 	String enddate = arr[0].getEv_end_date();
 	int st_uid = arr[0].getSt_uid();
 %>
@@ -41,13 +42,14 @@ function chkDelete(uid, st_uid){
 	
 }
 </script>
-<body class="is-preload">
+<body>
 <jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
 <div id="main">
 <section id="content" class="main">
 <h2>제목 : <%= subject %></h2>
+이벤트 시작 시각 : <%= startdate %><br>
 이벤트 종료 시각 : <%= enddate %><br>
 내용: <br>
 <div>

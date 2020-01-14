@@ -17,13 +17,14 @@ public class EventWriteCommand implements Command {
 		// 입력한 값 받아오기
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
+		String startdate = request.getParameter("startdate");
 		String enddate = request.getParameter("enddate");
 		int uid = Integer.parseInt(request.getParameter("st_uid"));
 		
 		// parameter 유효성 검증
 		if(subject != null && subject.trim().length() > 0) {
 			try {
-				cnt = dao.insert(subject, content, enddate, uid);
+				cnt = dao.insert(subject, content, startdate, enddate, uid);
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
