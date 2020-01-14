@@ -55,7 +55,7 @@
 				<%-- 매장 주소 표시/변경--%>
 				<div class="left">매장주소</div>
 				<div class="col-6 col-12-xsmall">
-					<input type="text" name="st_address" value="<%= st_address%>"><br>
+					<input type="text" name="st_address" value="<%= st_address%>" readonly><br>
 				</div>
 				<%-- 매장 연락처 표시/변경--%>
 				<div>매장 연락처</div>
