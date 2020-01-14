@@ -49,7 +49,7 @@
 					
 					<div class = "row" style="margin-top:5px">
 						<div class="col-6"><button class="button fit" style="width:100%" type="button" onclick="location.href='findAccount.slime'">ID/PW 찾기</button></div>
-						<div class="col-6"><button class="button fit" style="width:100%" onclick="location.href='signUpSelect.slime'">회원가입</button></div>
+						<div class="col-6"><button class="button fit" style="width:100%" type="button" onclick="location.href='signUpSelect.slime'">회원가입</button></div>
 					</div>
 				</form>
 			</c:when>
