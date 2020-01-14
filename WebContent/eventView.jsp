@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="beans.*" %>
 <%
 	EventDTO [] arr = (EventDTO[]) request.getAttribute("list");
@@ -63,14 +61,10 @@ function chkDelete(uid, st_uid){
 </div>
 <hr>
 <br>
-<c:choose>
-<c:when test="${mb_type == 1 }">
 <button class="button primary" onclick="location.href = 'eventUpdate.slime?uid=<%= uid%>'">수정하기</button>
 <button class="button primary" onclick="chkDelete(<%= uid%>, <%= st_uid%>)">삭제하기</button>
 <br><br>
 <button onclick="location.href = 'eventWrite.slime?st_uid=<%= st_uid%>'">새글작성</button>
-</c:when>
-</c:choose>
 <button onclick="location.href = 'eventList.slime?st_uid=<%= st_uid%>&page=1'">목록보기</button>
 
 <br><br>
