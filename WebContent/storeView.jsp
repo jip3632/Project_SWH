@@ -44,7 +44,7 @@
 		</section>
 		<section id="intro" class="main">
 			<div class="row aln-center">
-				<div class="spotlight col-12-small col-10">
+				<div class="spotlight col-10-small col-8">
 					<div class="content">
 						<header class="majer">
 							<h3>매장: ${storeInfo[0].st_name }</h3>
