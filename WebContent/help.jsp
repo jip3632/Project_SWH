@@ -14,7 +14,7 @@
 </head>
 
 
-<body>
+<body class="is-preload">
 
 <script src="JS/help.js"></script>
 
@@ -171,5 +171,7 @@
    	
    	<jsp:include page="footer.jsp"></jsp:include>
 </div>
+				<script src="JS/util.js"></script>
+			<script src="JS/main.js"></script>
 </body>
 </html>
