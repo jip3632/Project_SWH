@@ -24,7 +24,7 @@
 <script src="JS/mainStore.js"></script>
 <body class="is-preload">
 	
-
+	<%-- *************모바일 내비게이션  --%>
 	<jsp:include page="/nav.jsp"></jsp:include>
 	
 <div id="wrapper">
@@ -32,6 +32,7 @@
 	<jsp:include page="/header.jsp"></jsp:include>
 
 	<div id="main">
+		<%-- *********추가할것***웹 내비게이션 --%>
 		<jsp:include page="/nav_swp.jsp"></jsp:include>
 		<section id="cta" class="main special">
 			<header class="major">
