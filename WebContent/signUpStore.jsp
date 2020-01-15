@@ -16,6 +16,8 @@
 		height: 3.2em;
 	}
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 function goPopup(){
@@ -59,12 +61,13 @@ function parseJSON(data) {
 <div id="wrapper">
 	<jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
+		<jsp:include page="/nav_swp.jsp"></jsp:include>
 		<section id="intro" class="main special">
 			<header class="major">
 				<h2>매장 등록</h2>
 			</header>
 		</section>
-		<section id="section" class="main">
+		<section id="first" class="main">
 			<form name="frm" action="signUpStoreOk.slime" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
 		
 				매장이름<br>
