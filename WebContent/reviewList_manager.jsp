@@ -28,11 +28,12 @@
 <title>${slist[0].st_name } 후기 목록</title>
 
 </head>
-<body>
-<jsp:include page="/nav.jsp"></jsp:include>
+<body class="is-preload">
+	<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-<jsp:include page="/header.jsp"></jsp:include>
+	<jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
+	<jsp:include page="/nav_swp.jsp"></jsp:include>
 	<section id="content" class="main special">
 	<header class="major">
 		<h2>${slist[0].st_name } 후기 목록</h2>
@@ -73,23 +74,26 @@
 	<jsp:param value="<%= totalPage %>" name="totalPage"/>
 	<jsp:param value="<%= curPage %>" name="curPage"/>
 </jsp:include>
-		<div class="row">
+		
 		<c:choose>
 			<c:when test="${mb_type == 1 }">
-				<div class="off-4-small col-4-small off-8 col-2">
-					<button class="button" style="width:100%" onclick="history.back()">이전페이지</button>	
-				</div>
-				<div class="col-4-small col-2">
-					<button class="button primary" style="width:100%" onclick="location.href='reviewWrite.slime?mb_uid=${mb_uid }'">리뷰 작성</button>
+				<div class="row aln-center">
+					<div class="col-4">
+						<button class="button" style="width:100%" onclick="history.back()">이전페이지</button>	
+					</div>
+					<div class="col-4">
+						<button class="button primary" style="width:100%" onclick="location.href='reviewWrite.slime?mb_uid=${mb_uid }'">리뷰 작성</button>
+					</div>
 				</div>
 			</c:when>
 			<c:otherwise>
-				<div class="off-8-small col-4-small off-10 col-2">
+				<div class="row aln-center">
+				<div class="col-4">
 					<button class="button" style="width:100%" onclick="history.back()">이전페이지</button>	
+				</div>
 				</div>
 			</c:otherwise>
 		</c:choose>
-		</div>
 	</section>
 
    	</div>

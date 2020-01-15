@@ -44,11 +44,12 @@ function chkSubmit(){
 }
 </script>
 
-<body>
-<jsp:include page="/nav.jsp"></jsp:include>
+<body class="is-preload">
+	<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-<jsp:include page="/header.jsp"></jsp:include>
+	<jsp:include page="/header.jsp"></jsp:include>
 		<div id="main">
+	<jsp:include page="/nav_swp.jsp"></jsp:include>
 	   	<section id="content" class="main special">
 	<header class="major">
 		<h2>수정하기</h2>

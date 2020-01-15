@@ -24,11 +24,12 @@
 <title>이벤트 목록</title>
 
 </head>
-<body>
+<body class="is-preload">
 	<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-<jsp:include page="/header.jsp"></jsp:include>
+	<jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
+	<jsp:include page="/nav_swp.jsp"></jsp:include>
 	<section id="content" class="main special">
 	<header class="major">
 		<h2>이벤트 목록</h2>
@@ -56,11 +57,11 @@
 %>		
 		</table>
 		<br>
-		<div class="row">
-		<div class="off-4-small col-4-small off-8 col-2">
+		<div class="row aln-center">
+		<div class="col-4">
 			<button class="button" style="width:100%" onclick="history.back()">이전페이지</button>	
 		</div>
-		<div class="col-4-small col-2">
+		<div class="col-4">
 			<button class="button primary" style="width:100%" onclick="location.href='eventWrite.slime?st_uid=<%= st_uid %>'">새글작성</button>
 		</div>
 		</div>

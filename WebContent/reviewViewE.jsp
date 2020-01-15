@@ -58,10 +58,10 @@ function chkDelete(re_uid){
 	
 }
 </script>
-<body>
-<jsp:include page="/nav.jsp"></jsp:include>
+<body class="is-preload">
+	<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-<jsp:include page="/header.jsp"></jsp:include>
+	<jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
 	<jsp:include page="/nav_swp.jsp"></jsp:include>
 	

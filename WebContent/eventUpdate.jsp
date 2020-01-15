@@ -19,8 +19,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <title>수정하기</title>
 </head>
 <script>
@@ -67,10 +67,12 @@ function chkSubmit(){
     });
 </script>
 
-<body>
+<body class="is-preload">
+	<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
-<jsp:include page="/header.jsp"></jsp:include>
-   	<div id="main">
+	<jsp:include page="/header.jsp"></jsp:include>
+<div id="main">
+	<jsp:include page="/nav_swp.jsp"></jsp:include>
    	<section id="content" class="main special">
 	<header class="major">
 		<h2>수정하기</h2>
@@ -159,7 +161,7 @@ function chkSubmit(){
    </div>
    <jsp:include page="/footer.jsp"></jsp:include>
 </div>
-
+<script src="JS/main.js"></script>
 
 </body>
 </html>

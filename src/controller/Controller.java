@@ -123,6 +123,7 @@ public class Controller extends HttpServlet {
 		case "/eventList.slime":
 			new EventListCommand().execute(request, response);
 			viewPage = "eventList.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//이벤트 작성
 		case "/eventWrite.slime":
@@ -138,6 +139,7 @@ public class Controller extends HttpServlet {
 		case "/eventView.slime":
 			new EventViewCommand().execute(request, response);
 			viewPage = "eventView.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//이벤트 글 수정
 		case "/eventUpdate.slime":
@@ -197,6 +199,7 @@ public class Controller extends HttpServlet {
 		case "/reviewViewU.slime":
 			new ReviewViewCommand().execute(request, response);
 			viewPage = "reviewViewU.jsp";
+			viewPage = new SessionCheckCommand().sessionCheck(request, response, viewPage);
 			break;
 		//후기 글 수정
 		case "/reviewUpdate.slime":
