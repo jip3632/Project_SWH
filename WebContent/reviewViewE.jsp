@@ -45,6 +45,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title><%= subject %></title>
 </head>
 <script>
@@ -88,11 +89,6 @@ function chkDelete(re_uid){
 </div>
 
 <!-- Scripts -->
-			<script src="JS/jquery.min.js"></script>
-			<script src="JS/jquery.scrollex.min.js"></script>
-			<script src="JS/jquery.scrolly.min.js"></script>
-			<script src="JS/browser.min.js"></script>
-			<script src="JS/breakpoints.min.js"></script>
 			<script src="JS/util.js"></script>
 			<script src="JS/main.js"></script>
 </body>

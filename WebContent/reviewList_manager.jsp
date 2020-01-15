@@ -24,7 +24,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/common.css"/>
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>${slist[0].st_name } 후기 목록</title>
 
 </head>
@@ -101,11 +101,6 @@
 </div>
 
 <!-- Scripts -->
-			<script src="JS/jquery.min.js"></script>
-			<script src="JS/jquery.scrollex.min.js"></script>
-			<script src="JS/jquery.scrolly.min.js"></script>
-			<script src="JS/browser.min.js"></script>
-			<script src="JS/breakpoints.min.js"></script>
 			<script src="JS/util.js"></script>
 			<script src="JS/main.js"></script>
 </body>

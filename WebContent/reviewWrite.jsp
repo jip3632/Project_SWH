@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="ckeditor/ckeditor.js"></script>
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>후기 글 작성하기</title>
 </head>
 <script>
@@ -74,11 +75,6 @@ function chkSubmit(){
 </div>
 
 <!-- Scripts -->
-			<script src="JS/jquery.min.js"></script>
-			<script src="JS/jquery.scrollex.min.js"></script>
-			<script src="JS/jquery.scrolly.min.js"></script>
-			<script src="JS/browser.min.js"></script>
-			<script src="JS/breakpoints.min.js"></script>
 			<script src="JS/util.js"></script>
 			<script src="JS/main.js"></script>
 </body>
