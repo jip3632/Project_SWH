@@ -10,6 +10,8 @@
 <title>SWH ${storeInfo[0].st_name }</title>
 
 <link href="CSS/main.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <style>
 	.spotlight .image{
 		margin-left: 0;
@@ -18,7 +20,7 @@
 	.spotlight .image img{
 		width: 10em;
 	}
-	.pdInfo:hover {
+	.clickable:hover {
 		cursor:pointer;
 		border-radius:10%;
 		border:1px solid pink;
@@ -26,6 +28,8 @@
 </style>
 </head>
 <body>
+
+<script src="JS/storeView.js"></script>
 
 <jsp:include page="nav.jsp"></jsp:include>
 
@@ -42,8 +46,9 @@
 						<header class="majer">
 							<h3>매장: ${storeInfo[0].st_name }</h3>
 						</header>
-						<div>
-						주소: ${storeInfo[0].st_address }
+						<div class="clickable" onclick="getMap('${storeInfo[0].st_address }')">
+						주소: ${storeInfo[0].st_address }<br>
+						<span class="icon">KaKaoMap<i class="fas fa-map-marked-alt"></i></span>
 						</div>
 						<div>
 						연락처: ${storeInfo[0].st_contact }
@@ -101,7 +106,7 @@
 				<ul class="features">
 					<c:forEach var="pd" items="${productList }">
 					<c:if test="${pd.mk_uid == currentMk }">
-					<li class="pdInfo" onclick="location.href='productView.slime?pd_uid=${pd.pd_uid }'">
+					<li class="clickable" onclick="location.href='productView.slime?pd_uid=${pd.pd_uid }'">
 						<div class='spotlight'><span class='image'><img src='upload/product/${pd.pd_img}'></span></div>
 						<h4><b>${pd.pd_name }</b></h4>
 						<h5>용량 : ${pd.inv_volume }ml</h5>

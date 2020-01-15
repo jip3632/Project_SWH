@@ -27,7 +27,9 @@ public class StoreListCommand implements Command {
 		
 		try {
 			arr = sdao.selectAllStores();
-			calcDistToStore(lati, longi, arr);
+			if (!(lati == 0 && longi == 0)) {
+				calcDistToStore(lati, longi, arr);
+			}
 			sortByDist(arr);
 		} catch (SQLException e) {
 			e.printStackTrace();
