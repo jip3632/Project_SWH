@@ -9,10 +9,10 @@ ul, li {
 }
 
 #menu li:hover {
-	background-color: #68b3d9;
+	background-color: #2E4A62;
 }
 #menu li:active {
-	background-color: #68b3d9;
+	background-color: #2E4A62;
 }
 
 	#header {
@@ -151,7 +151,7 @@ ul, li {
 		max-width: 80%;
 		height: 100%;
 		-webkit-overflow-scrolling: touch;
-		background-image: linear-gradient(#75c3eb, #fff);
+		background-image: linear-gradient(#485167, #E8B5CE);
 		color: #ffffff;
 		cursor: default;
 		visibility: hidden;
