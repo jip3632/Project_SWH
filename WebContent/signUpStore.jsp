@@ -71,7 +71,7 @@ function parseJSON(data) {
 			<form name="frm" action="signUpStoreOk.slime" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
 		
 				매장이름<br>
-				<input type="text" id="st_name" name="st_name">
+				<input type="text" id="st_name" name="st_name" required>
 				<br>
 				<%-- hidden mb_uid --%>
 				<input type="hidden" name="mb_uid" value="<%=uid%>">
@@ -90,7 +90,7 @@ function parseJSON(data) {
 				<%-- 매장 연락처 표시/변경--%>
 				<div>
 				매장 연락처<br>
-				<input type="text" id="st_contact" name="st_contact" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br>
+				<input type="text" id="st_contact" name="st_contact" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="예)010-XXXX-XXXX" required><br>
 				</div>
 				
 				<%-- 매장 영업시간 표시/변경 (input 2개 start 과 end)--%>
@@ -129,7 +129,7 @@ function parseJSON(data) {
 				<br>
 				<%-- 매장 사업자 등록증 번호--%>
 				사업자 등록증 번호
-				<input type="text" id="st_valid_key" name="st_valid_key"><br>
+				<input type="text" id="st_valid_key" name="st_valid_key" required><br>
 		
 				<%-- 매장 사업자 등록증 사진 --%>
 				사업자 등록증 사진

@@ -15,13 +15,14 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script> <!-- emailjs Api --> 
 
 </head>
-<body>
+<script src="JS/main.js"></script>
 <jsp:include page="nav.jsp"></jsp:include>
 <div id = 'wrapper'>
 
 	<jsp:include page="/header.jsp"></jsp:include>
 	
 	<div id="main">
+		<jsp:include page="/nav_swp.jsp"></jsp:include>
 		<section id="cta" class="main">
 		
 			<header class="major special">
@@ -76,5 +77,6 @@
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 </div>
+<script src="JS/main.js"></script>
 </body>
 </html>

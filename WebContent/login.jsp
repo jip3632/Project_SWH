@@ -14,7 +14,7 @@
 <script src="https://kit.fontawesome.com/02846aab38.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<body>
+<script src="JS/main.js"></script>
 
 <jsp:include page="nav.jsp"></jsp:include>
 <div id="wrapper">
@@ -22,7 +22,8 @@
 	<jsp:include page="/header.jsp"></jsp:include>
 	
 	<div id="main">
-	
+		<jsp:include page="/nav_swp.jsp"></jsp:include>
+
 		<section id="cta" class="main">
 			<header class="major special">
 				<h2>Login</h2>
@@ -66,6 +67,7 @@
 	<jsp:include page="footer.jsp"></jsp:include>
 
 </div>
+	<script src="JS/main.js"></script>
 </body>
 </html>
 

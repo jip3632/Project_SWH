@@ -47,26 +47,26 @@
 
 <!-- Menu -->
 	<nav id="menu">
-		<h2>Menu</h2>
+		<h2 style = "padding: 20px">Menu</h2>
 		<ul>
-			<li><a href='mainStore.slime'>Home</a></li>
+			<li style = "padding: 10px"><a href='mainStore.slime'>Home</a></li>
 			<c:choose>
 				<c:when test="${login == null }">
-					<li><a href='login.slime'>Login</a></li>
+					<li style = "padding: 10px"><a href='login.slime'>Login</a></li>
 				</c:when>
 				<c:otherwise>
 					<c:choose>
 						<c:when test="${mb_type == 1 }">
-							<li><a href='userPage.slime?mb_uid=${mb_uid }'>MyPage</a></li>
+							<li style = "padding: 10px"><a href='userPage.slime?mb_uid=${mb_uid }'>MyPage</a></li>
 						</c:when>
 						<c:when test="${mb_type == 2 }">
-							<li><a href='managerPage.slime?mb_uid=${mb_uid }'>ManagementPage</a></li>
+							<li style = "padding: 10px"><a href='managerPage.slime?mb_uid=${mb_uid }'>ManagementPage</a></li>
 						</c:when>
 					</c:choose>
 				</c:otherwise>
 			</c:choose>
-			<li><a href='reviewListE.slime?page=1'>Review</a></li>
-			<li><a href='help.slime'>Help</a></li>
+			<li style = "padding: 10px"><a href='reviewListE.slime?page=1'>Review</a></li>
+			<li style = "padding: 10px"><a href='help.slime'>Help</a></li>
 		</ul>
 	</nav>
 </div>

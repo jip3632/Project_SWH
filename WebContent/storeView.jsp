@@ -27,18 +27,21 @@
 	}
 </style>
 </head>
-<body>
+<body class="is-preload">
 
 <script src="JS/storeView.js"></script>
 
 <jsp:include page="nav.jsp"></jsp:include>
 
 <div id="wrapper">
-	
 	<jsp:include page="/header.jsp"></jsp:include>
-	
 	<div id="main">
-		
+		<jsp:include page="/nav_swp.jsp"></jsp:include>
+		<section id="cta" class="main">
+			<header class="major special">
+				<h2>매장 정보</h2>
+			</header>
+		</section>
 		<section id="intro" class="main">
 			<div class="row aln-center">
 				<div class="spotlight col-10-small col-8">
@@ -125,6 +128,6 @@
 
 	<jsp:include page="footer.jsp"></jsp:include>
 </div>
-
+	<script src="JS/main.js"></script>
 </body>
 </html>

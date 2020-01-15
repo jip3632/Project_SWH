@@ -25,6 +25,7 @@
 	<jsp:include page="/header.jsp"></jsp:include>
 	
    	<div id="main">
+		<jsp:include page="/nav_swp.jsp"></jsp:include>
 
    		<section class="main special">
 			<div class = "row aln-center" style="margin-bottom:10px;">
