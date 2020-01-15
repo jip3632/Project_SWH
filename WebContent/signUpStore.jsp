@@ -96,6 +96,8 @@ function parseJSON(data) {
 				<div class="row aln-center">
 					<div class="col-5 col-5-xsmall">
 						<select id="st_start" name="st_start" id="demo-category">
+							<option value="08:00">08:00</option>
+							<option value="08:30">08:30</option>
 							<option value="09:00">09:00</option>
 							<option value="09:30">09:30</option>
 							<option value="10:00">10:00</option>
@@ -107,6 +109,10 @@ function parseJSON(data) {
 					<div>-</div> 
 					<div class="col-5 col-5-xsmall"> 
 						<select id="st_end" name="st_end" id="demo-category">
+							<option value="18:00">18:00</option>
+							<option value="18:30">18:30</option>
+							<option value="19:00">19:00</option>
+							<option value="19:30">19:30</option>
 							<option value="20:00">20:00</option>
 							<option value="20:30">20:30</option>
 							<option value="21:00">21:00</option>
