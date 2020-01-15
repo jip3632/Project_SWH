@@ -15,7 +15,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script> <!-- emailjs Api --> 
 
 </head>
-<script src="JS/main.js"></script>
+<body class="is-preload">
 <jsp:include page="nav.jsp"></jsp:include>
 <div id = 'wrapper'>
 
