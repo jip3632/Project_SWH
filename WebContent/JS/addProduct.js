@@ -189,7 +189,7 @@ function chkMarket(){
 		if(markets[i].mk_name == market){
 			alert("마켓 존재, 마켓명 변경해주세요");
 			return false;
-		} else if(markets[i].mk_insta == mk_insta){
+		} else if(markets[i].mk_insta == insta){
 			alert("이미 등록된 인스타그램");
 			return false;
 		}
