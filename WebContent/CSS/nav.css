@@ -107,7 +107,9 @@ ol, ul {
 					#header nav ul li a[href="#menu"]:before, #header nav ul li a[href="#menu"]:after {
 						background-size: 1.5em 1.5em;
 					}
-
+			/* 박성환 추가
+			*/
+			
 		}
 		
 		/* Menu */
@@ -125,7 +127,7 @@ ol, ul {
 		-webkit-transform: translateX(22em);
 		-ms-transform: translateX(22em);
 		transform: translateX(22em);
-		-moz-transition: -moz-transform 0.45s ease, visibility 0.45s;
+		-moz-transition: -	moz-transform 0.45s ease, visibility 0.45s;
 		-webkit-transition: -webkit-transform 0.45s ease, visibility 0.45s;
 		-ms-transition: -ms-transform 0.45s ease, visibility 0.45s;
 		transition: transform 0.45s ease, visibility 0.45s;

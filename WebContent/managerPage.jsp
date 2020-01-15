@@ -41,9 +41,10 @@
 <title>매장 관리</title>
 </head>
 <body class="is-preload">
-<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 	<jsp:include page="/header.jsp"></jsp:include>
+	
+	<jsp:include page="/nav_swp.jsp"></jsp:include>
 	
 	<div id="main">
 	<%-- TODO 매장사진, 매장명, 주소, 연락처, 이메일(표시x 이유:매장이아닌 회원정보mb_email에 담겨있음), 영업시간 표시 
