@@ -48,24 +48,24 @@
 	<nav id="menu">
 		<h2 style = "padding: 20px">Menu</h2>
 		<ul>
-			<li style = "padding: 10px"><a href='mainStore.slime'>Home</a></li>
+			<li style = "padding: 10px" onclick="location.href='mainStore.slime'"><a href='#'>Home</a></li>
 			<c:choose>
 				<c:when test="${login == null }">
-					<li style = "padding: 10px"><a href='login.slime'>Login</a></li>
+					<li style = "padding: 10px" onclick="location.href='login.slime'"><a href='#'>Login</a></li>
 				</c:when>
 				<c:otherwise>
 					<c:choose>
 						<c:when test="${mb_type == 1 }">
-							<li style = "padding: 10px"><a href='userPage.slime?mb_uid=${mb_uid }'>MyPage</a></li>
+							<li style = "padding: 10px" onclick="location.href='userPage.slime?mb_uid=${mb_uid }'"><a href='#'>MyPage</a></li>
 						</c:when>
 						<c:when test="${mb_type == 2 }">
-							<li style = "padding: 10px"><a href='managerPage.slime?mb_uid=${mb_uid }'>ManagementPage</a></li>
+							<li style = "padding: 10px" onclick="location.href='managerPage.slime?mb_uid=${mb_uid }'"><a href='#'>ManagementPage</a></li>
 						</c:when>
 					</c:choose>
 				</c:otherwise>
 			</c:choose>
-			<li style = "padding: 10px"><a href='reviewListE.slime?page=1'>Review</a></li>
-			<li style = "padding: 10px"><a href='help.slime'>Help</a></li>
+			<li style = "padding: 10px" onclick="location.href='reviewListE.slime?page=1'"><a href='#'>Review</a></li>
+			<li style = "padding: 10px" onclick="location.href='help.slime'"><a href='#'>Help</a></li>
 		</ul>
 	</nav>
 </div>

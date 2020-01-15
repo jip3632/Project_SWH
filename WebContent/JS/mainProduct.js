@@ -28,11 +28,11 @@ function parseJSON(data) {
 	console.log("json 생성중");
 	var htmlTxt = "";
 	for (i = 0; i < count; i++) {
-		htmlTxt += "<li class='productInfo' style='margin:0'>";
+		htmlTxt += "<li class='productInfo' style='margin:0' onclick='move(" + list[i].pd_uid + ")'>";
 		htmlTxt += "<div class='spotlight'>";
 		htmlTxt += "<span class='image'><img src='upload/product/" + list[i].pd_img + "' alt='' style='width:10em;'/></span>";
 		htmlTxt += "</div>";
-		htmlTxt += "<p onclick='move(" + list[i].pd_uid + ")'>" + list[i].pd_name + "</p>";
+		htmlTxt += "<p>" + list[i].pd_name + "</p>";
 		htmlTxt += "<p>제작 마켓: " + list[i].mk_name + "</p>";
 		htmlTxt += "</li>";
 	}

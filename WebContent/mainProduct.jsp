@@ -17,6 +17,11 @@
 		margin-left:0;
 		margin:auto;
 	}
+	li.productInfo:hover{
+		cursor:pointer;
+		border-radius:10%;
+		border:1px solid pink;
+	}
 </style>
 </head>
 <body class="is-preload">

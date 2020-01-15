@@ -17,6 +17,11 @@
 		margin-left:0;
 		margin:auto;
 	}
+	.clickable:hover {
+		cursor:pointer;
+		border-radius:10%;
+		border:1px solid pink;
+	}
 </style>
 </head>
 <body class="is-preload">
@@ -41,7 +46,7 @@
 					<ul class="features">
 						<%
 						for(int i=0; i<arr.length; i++){
-							out.println("<li>");
+							out.println("<li class='clickable' onclick='location.href=\"storeView.slime?st_uid=" + arr[i].getSt_uid() +"\"'>");
 							out.println("<div class='spotlight'>");
 							out.println("<span class='image'><img src='upload/offstore/" + arr[i].getSt_img() + "'alt='' style='width:7em;'/></span>");
 							out.println("</div>");
