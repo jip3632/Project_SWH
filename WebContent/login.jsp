@@ -35,23 +35,25 @@
 		<c:choose>
 			<c:when test="${session.login == null }">
 				<form name="frm" action="loginOk.slime" method="post">
-				<div class="row gtr-unifom">
-					<div class="col-12 col-12-xsmall">ID: <input type="text" name="id"></div>
-					<div class="col-12 col-12-xsmall">PASSWORD: <input type="password" name="pw"></div>
+				<div class="row gtr-unifom aln-center">
+					<div class="col-7 col-11-small">ID: <input type="text" name="id"></div>
+					<div class="col-7 col-11-small">PASSWORD: <input type="password" name="pw"></div>
 					<c:choose>
 						<c:when test="${param.existId == 0 }">
-							<div class="col-12" style="color:red">아이디가 존재하지 않습니다.</div>
+							<div class="col-7 col-11-small" style="color:red">아이디가 존재하지 않습니다.</div>
 						</c:when>
 						<c:when test="${param.existId == 1 }">
-							<div class="col-12" style="color:red">비밀번호가 옳지 않습니다.</div>
+							<div class="col-7 col-11-small" style="color:red">비밀번호가 옳지 않습니다.</div>
 						</c:when>
 					</c:choose>
-					<div class="col-12"><input class="button primary" type="submit" value="로그인" style="width:100%; margin-top:5px;"></div>
+					<div class="col-7 col-11-small" style="margin-top:20px"><input class="button primary" type="submit" value="로그인" style="width:100%; margin-top:5px;"></div>
 				</div>
 					
-					<div class = "row" style="margin-top:5px">
-						<div class="col-6"><button class="button fit" style="width:100%" type="button" onclick="location.href='findAccount.slime'">ID/PW 찾기</button></div>
-						<div class="col-6"><button class="button fit" style="width:100%" type="button" onclick="location.href='signUpSelect.slime'">회원가입</button></div>
+					<div class = "row aln-center" style="margin-top:20px">
+						<div class="row col-7 col-11-small">
+							<div class="col-6"><button class="button fit" style="width:100%" type="button" onclick="location.href='findAccount.slime'">ID/PW 찾기</button></div>
+							<div class="col-6"><button class="button fit" style="width:100%" type="button" onclick="location.href='signUpSelect.slime'">회원가입</button></div>
+						</div>
 					</div>
 				</form>
 			</c:when>

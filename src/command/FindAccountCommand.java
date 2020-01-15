@@ -34,8 +34,21 @@ public class FindAccountCommand implements Command {
 			e.printStackTrace();
 		}
 		if (arr.length != 0) {
-			System.out.println(arr[0].getMb_id());
-			request.setAttribute("mb_id", arr[0].getMb_id());
+			String mb_id = arr[0].getMb_id();
+			int half = mb_id.length() / 2;
+			
+			String stars = "";
+			for (int i = 0; i < half; i++) {
+				stars += "*";
+			}
+			
+			if (mb_id.length() % 2 == 0) {
+				mb_id = mb_id.substring(0, half) + stars;
+			} else {
+				mb_id = mb_id.substring(0, half + 1) + stars;
+			}
+			
+			request.setAttribute("mb_id", mb_id);
 		} else {
 			request.setAttribute("mb_id", null);
 		}
