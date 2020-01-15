@@ -12,6 +12,7 @@
 <link href="CSS/main.css" rel="stylesheet" type="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <script src="https://kit.fontawesome.com/02846aab38.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 	.spotlight .image{
 		margin-left:0;
@@ -30,6 +31,7 @@
 	<div id="wrapper">
 		<jsp:include page="/header.jsp"></jsp:include>		
 		<div id="main">
+			<jsp:include page="/nav_swp.jsp"></jsp:include>
 				<section id="intro" class="main">
 					<div class="spotlight">
 						<div class="content">
