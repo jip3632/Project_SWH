@@ -14,6 +14,7 @@
 <script src="https://kit.fontawesome.com/02846aab38.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<body class="is-preload">
 <script src="JS/main.js"></script>
 
 <jsp:include page="nav.jsp"></jsp:include>
