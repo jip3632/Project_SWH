@@ -181,25 +181,25 @@ ALTER TABLE SL_favorite
 -- SL_member 회원 테이블
 insert into SL_member (mb_uid, mb_id, mb_pw, mb_name, mb_address, mb_cell, mb_email, mb_type)
 values
-(101, 'mimisglove', '1234', '미미즈그로브', '서울특별시 성동구', '01044445555', 'mimisglove@gmail.com', 2),
-(102, 'slimecook', '1234', '슬라임쿡', '서울특별시 마포구', '01055556666', 'slimecook@gmail.com', 2),
-(103, 'gelsshowroom', '1234', '젤시스쇼룸', '서울특별시 강남구', '01066667777', 'gelsshowroom@gmail.com', 2),
-(104, 'jeonpo', '1234', '전포동제과점', '부산광역시 부산진구', '01077778888', 'jeonpo@gmail.com', 2),
-(105, 'slimeStore', '1234', '슬라임가게', '대전광역시 중구', '01088889999', 'slimeStore@gmail.com', 2);
+(101, 'mimisglove', '1234', '미미즈그로브', '서울특별시 성동구', '010-4444-5555', 'mimisglove@gmail.com', 2),
+(102, 'slimecook', '1234', '슬라임쿡', '서울특별시 마포구', '010-5555-6666', 'slimecook@gmail.com', 2),
+(103, 'gelsshowroom', '1234', '젤시스쇼룸', '서울특별시 강남구', '010-6666-7777', 'gelsshowroom@gmail.com', 2),
+(104, 'jeonpo', '1234', '전포동제과점', '부산광역시 부산진구', '010-7777-8888', 'jeonpo@gmail.com', 2),
+(105, 'slimeStore', '1234', '슬라임가게', '대전광역시 중구', '010-8888-9999', 'slimeStore@gmail.com', 2);
 insert into SL_member (mb_uid, mb_id, mb_pw, mb_name, mb_address, mb_cell, mb_email, mb_type)
 values
-(106, 'bluegenius12', '1234', '김진석', '경기도 고양시 일산동구 강촌로12번길', '01034564378', 'bluegenius12@gmail.com', 1),
-(107, 'slim01', '4567', '이준일', '경기도 광주시 경안로25번길', '01068431098', 'slime01@gmail.com', 1),
+(106, 'bluegenius12', '1234', '김진석', '경기도 고양시 일산동구 강촌로12번길', '010-3456-4378', 'bluegenius12@gmail.com', 1),
+(107, 'slim01', '4567', '이준일', '경기도 광주시 경안로25번길', '010-6843-1098', 'slime01@gmail.com', 1),
 (108, 'cantona10', 'qwer123', '한도경', '경기도 성남시 분당구 구미로174번길', '010-5674-7234', 'cantona10@gmail.com', 1);
 insert into SL_member (mb_uid, mb_id, mb_pw, mb_name, mb_address, mb_cell, mb_email, mb_type)
 values
-(109, 'jongil', '1234', '박종일', '서울', '01034564379', 'plm3790@naver.com', 1);
+(109, 'jongil', '1234', '박종일', '서울', '010-3456-4379', 'plm3790@naver.com', 1);
 -- SL_offstore 매장 테이블 (Foreign Key: 연동시킬 SL_member의 mb_uid 입력하세요)
 insert into SL_offstore (st_uid, mb_uid, st_name, st_address, st_contact, st_hours, st_rating, st_valid_key, st_valid_img, st_valid_file, st_latitude, st_longitude, st_file, st_img)
 VALUES
-(1101, 101, '미미즈그로브', '서울시 성동구 행당로11길 5-2 1층', '0507-1331-8029', '12:00-20:00', 3, 123456789, '123456789', '123456789', '37.558603', '127.030525', 'mimisgrove.jpg', 'mimisgrove.jpg'),
-(1102, 102, '슬라임쿡', '서울시 마포구 와우산로29바길 11-3 1층', '0507-1328-5992', '13:00-21:00', 4, 223456789, '223456789', '223456789', '37.555993', '126.926290', 'slimecook_offline.jpg', 'slimecook_offline.jpg'),
-(1103, 103, '젤시스쇼룸', '서울 강남구 강남대로94길 27 101호', '02-552-1917', '11:00-21:00', 5, 323456789, '323456789', '323456789', '37.500046', '127.029555', 'jellsis.jpg', 'jellsis.jpg'), 
+(1101, 101, '미미즈그로브', '서울시 성동구 행당로11길 5-2 1층', '010-1331-8029', '12:00-20:00', 3, 123456789, '123456789', '123456789', '37.558603', '127.030525', 'mimisgrove.jpg', 'mimisgrove.jpg'),
+(1102, 102, '슬라임쿡', '서울시 마포구 와우산로29바길 11-3 1층', '010-1328-5992', '13:00-21:00', 4, 223456789, '223456789', '223456789', '37.555993', '126.926290', 'slimecook_offline.jpg', 'slimecook_offline.jpg'),
+(1103, 103, '젤시스쇼룸', '서울 강남구 강남대로94길 27 101호', '010-1552-1917', '11:00-21:00', 5, 323456789, '323456789', '323456789', '37.500046', '127.029555', 'jellsis.jpg', 'jellsis.jpg'), 
 (1104, 104, '전포동제과점', '부산광역시 부산진구 전포대로232, 2층', '카카오플러스 친구 전포동제과점', '화~목 14:00-20:00, 금~일 11:00-21:00', 4, 423456789, '423456789', '423456789', '35.157565', '129.065718', 'jeonpodong.jpg', 'jeonpodong.jpg'),
 (1105, 105, '슬라임가게', '대전광역시 중구 은행동 169-9번지', '070-4466-9790', '13:00-20:00', 5, 523456789, '523456789', '523456789', '36.327665', '127.427989', 'slimegage.jpg', 'slimegage.jpg'); 
 
