@@ -22,7 +22,8 @@
 	<jsp:include page="/header.jsp"></jsp:include>
 	
 	<div id="main">
-	
+		<jsp:include page="/nav_swp.jsp"></jsp:include>
+
 		<section id="cta" class="main">
 			<header class="major special">
 				<h2>Login</h2>

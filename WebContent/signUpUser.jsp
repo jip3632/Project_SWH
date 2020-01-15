@@ -22,6 +22,8 @@
 	<jsp:include page="/header.jsp"></jsp:include>
 	
 	<div id="main">
+		<jsp:include page="/nav_swp.jsp"></jsp:include>
+	
 		<section id="intro" class="main special">
 			<header class="major">
 				<h2>일반 회원 가입</h2>
@@ -34,10 +36,10 @@
 			이름:
 			<input type="text" name="user_name" required>
 			
-			휴대폰번호:
-			<input type="text" name="phone_number" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+			휴대폰번호: 
+			<input type="text" name="phone_number" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="예)010-XXXX-XXXX" required>
 			
-			도로명주소
+			도로명주소:
 			<div class="row">
 				<div class="col-8">
 					<input type="text"  id="roadFullAddr"  name="roadFullAddr" readonly/>
@@ -47,10 +49,10 @@
 				</div>
 			</div>
 			
-			아이디: 
+			아이디:
 			<div class="row">
 				<div class="col-6">
-					<input type="text" name="user_id" id="user_id" required>
+					<input type="text" name="user_id" id="user_id" placeholder="영문과 숫자 조합 4~12자리" required>
 				</div>
 				<div class="col-6">
 					<button class="button fit" type="button" onclick="ajax();">아이디 중복 확인</button>
@@ -62,16 +64,16 @@
 			</div>
 			
 			비밀번호:
-				<input type="password" id="user_pw" name="user_pw" required>
+				<input type="password" id="user_pw" name="user_pw" placeholder="영문과 숫자 조합 4~12자리" required>
 			
 			비밀번호확인: 
-				<input type="password" id="user_pw_confirm" name="user_pw_confirm" required>
+				<input type="password" id="user_pw_confirm" name="user_pw_confirm" placeholder="영문과 숫자 조합 4~12자리" required>
 			<div class="row">
 				<div class="col-12" id="pw_check"></div>
 			</div>
 			
 			이메일: 
-				<input type="email" name="user_email" required>
+				<input type="email" id="user_email" name="user_email" placeholder="예)slimewherehouse@gmail.com" required>
 					<br>
 			<section class="main special">
 				<div class="row aln-center">

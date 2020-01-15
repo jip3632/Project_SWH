@@ -5,10 +5,12 @@
 */
 
 $(document).ready(function(){
+	//div#main top 위치
 	var navPosition = $("div#main").offset().top;
 	$(window).on("scroll", function(){
+		//브라우저 top위치
 		var position = window.pageYOffset;
-		if(navPosition < position){
+		if(navPosition < position){ //div#main top이 브라우저 위로 올라갔을때
 			$("nav#nav").addClass("alt");
 		} else{
 			$("nav#nav").removeClass("alt");

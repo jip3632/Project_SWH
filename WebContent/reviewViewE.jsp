@@ -63,6 +63,8 @@ function chkDelete(re_uid){
 <div id="wrapper">
 <jsp:include page="/header.jsp"></jsp:include>
 	<div id="main">
+	<jsp:include page="/nav_swp.jsp"></jsp:include>
+	
 	<section id="content" class="main special">
 	<header class="major">
 		<h2> <%= subject %></h2>

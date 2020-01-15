@@ -41,6 +41,7 @@
 <title>매장 관리</title>
 </head>
 <body class="is-preload">
+	<jsp:include page="/nav.jsp"></jsp:include>
 <div id="wrapper">
 	<jsp:include page="/header.jsp"></jsp:include>
 	
