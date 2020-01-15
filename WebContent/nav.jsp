@@ -7,6 +7,7 @@
 <script src="JS/browser.min.js"></script>
 <script src="JS/breakpoints.min.js"></script>
 <script src="JS/nav.js"></script>
+
 <!--
 <nav>
 	<button onclick="location.href='mainStore.slime'">홈버튼</button>
@@ -30,6 +31,7 @@
 </nav>
 -->
 <!-- Header -->
+<div id="navsmall">
 	<div id="header">
 		<div class="inner">
 
@@ -67,3 +69,4 @@
 			<li><a href='help.slime'>Help</a></li>
 		</ul>
 	</nav>
+</div>
