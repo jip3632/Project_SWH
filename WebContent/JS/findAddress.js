@@ -27,6 +27,25 @@ function chkSubmit(){
 	var email = frm["user_email"].value.trim();
 	var pw = document.getElementById("user_pw").value;
 	var pwC = document.getElementById("user_pw_confirm").value;
+    var re = /^[a-zA-Z0-9]{4,12}$/ // 아이디와 패스워드가 적합한지 검사할 정규식
+    var re2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //이메일 정규식
+	
+    var emailField = document.getElementById("user_email");
+	var idField = document.getElementById("user_id");
+	var pwField = document.getElementById("user_pw");
+    
+	//아이디 체크
+	if(!check(re,idField, "아이디는 영문과 숫자 조합으로 4자리~12자리만 가능합니다")){
+		return false;
+	}
+	//비밀번호 체크
+	if(!check(re, pwField, "비밀번호는 영문과 숫자 조합으로 4자리~12자리만 가능합니다")){
+		return false;
+	}
+	//이메일 체크
+	if(!check(re2, emailField, "이메일 형식이 올바르지 못합니다")){
+		return false;
+	}
 	
 	if(name == ""){
 		alert("이름 란은 반드시 입력해야 합니다");
@@ -67,6 +86,14 @@ function chkSubmit(){
 	
 }
 
+function check(re, what, message) {
+    if(re.test(what.value)) {
+        return true;
+    }
+    alert(message);
+    what.focus();
+    //return false;
+}
 
 function ajax() {
 	userId = document.getElementById("user_id").value;
@@ -86,16 +113,16 @@ function ajax() {
 
 function parseJSON(data) {
 	$("#id_check").html("");
-	
-	
+    var re = /^[a-zA-Z0-9]{4,12}$/ // 아이디와 패스워드가 적합한지 검사할 정규식
+	var idField = document.getElementById("user_id");
 	var i;
 	var count = data.count;
 	var list = data.list;
 	console.log(document.getElementById("user_id").value);
 	var htmlTxt = "";
 	var pwTxt="";
-	if(document.getElementById("user_id").value == ""){
-		htmlTxt="아이디를 입력하세요"
+	if(document.getElementById("user_id").value == "" || !check(re,idField, "아이디는 영문과 숫자 조합으로 4자리~12자리만 가능합니다")){
+		htmlTxt="아이디 형식이 올바르지 않습니다"
 		var button = document.getElementById("submit_button");
 		button.disabled=true;
 	}else{

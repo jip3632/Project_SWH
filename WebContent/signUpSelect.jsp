@@ -23,6 +23,8 @@
 	<jsp:include page="/header.jsp"></jsp:include>
 	
 	<div id="main">
+		<jsp:include page="/nav_swp.jsp"></jsp:include>
+	
 		<section class="main special">
 			<header class="major">
 				<h2>회원 유형 선택</h2>
