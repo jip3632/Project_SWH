@@ -39,6 +39,7 @@ public class NewProductOkCommand implements Command {
 		
 		String originalFileName = "";
 		String fileSystemName = "";
+		String fileType = "";
 		Enumeration names = multi.getFileNames();
 		if(names.hasMoreElements()) {
 			String name = (String) names.nextElement();
@@ -50,6 +51,8 @@ public class NewProductOkCommand implements Command {
 			if(fileSystemName == null) {
 				fileSystemName = "";
 			}
+			fileType = multi.getContentType(name);
+			if(fileType == null) fileType = "";
 		}
 		
 		String pd_name = multi.getParameter("pd_name");
@@ -60,9 +63,14 @@ public class NewProductOkCommand implements Command {
 		}
 		
 		try {
+			request.setAttribute("st_uid", st_uid);
+			if(!fileType.equals("image/jpg") && !fileType.equals("image/png") && !fileType.equals("image/gif") && !fileType.contentEquals("")) {
+				sdao.close();
+				request.setAttribute("result", -1);
+				return;
+			}
 			cnt = sdao.insertProduct(pd_name, pd_description, originalFileName, fileSystemName, mk_uid);
 			request.setAttribute("result", cnt);
-			request.setAttribute("st_uid", st_uid);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

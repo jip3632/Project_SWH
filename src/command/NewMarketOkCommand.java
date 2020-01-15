@@ -38,6 +38,7 @@ public class NewMarketOkCommand implements Command {
 		}
 		String originalFileName = "";
 		String fileSystemName = "";
+		String fileType = "";
 		Enumeration names = multi.getFileNames();
 		if(names.hasMoreElements()) {
 			String name = (String) names.nextElement();
@@ -49,6 +50,8 @@ public class NewMarketOkCommand implements Command {
 			if(fileSystemName == null) {
 				fileSystemName = "";
 			}
+			fileType = multi.getContentType(name);
+			if(fileType == null) fileType = "";
 		}
 		
 		String mk_name = multi.getParameter("mk_name");
@@ -58,9 +61,14 @@ public class NewMarketOkCommand implements Command {
 		}
 		
 		try {
+			request.setAttribute("st_uid", st_uid);
+			if(!fileType.equals("image/jpg") && !fileType.equals("image/png") && !fileType.equals("image/gif") && !fileType.contentEquals("")) {
+				sdao.close();
+				request.setAttribute("result", -1);
+				return;
+			}
 			cnt = sdao.insertMarket(mk_name, mk_insta, originalFileName, fileSystemName);
 			request.setAttribute("result", cnt);
-			request.setAttribute("st_uid", st_uid);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

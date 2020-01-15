@@ -166,7 +166,7 @@
 						<div class="modal-body">
 							<section class="main special">
 							<form action="newMarketOk.slime?st_uid=<%=st_uid %>" name="newMarket" method="post" enctype="Multipart/form-data" onsubmit="return chkMarket()">
-								<div><input type="file" name="mk_img" value=""></div>
+								<div><input type="file" name="mk_img" accept="image/*" value=""></div>
 								<div>마켓명 <input type="text" name="mk_name" placeholder="마켓 이름"></div>
 								<div>instagram <input type="text" name="mk_insta" placeholder="마켓 인스타 ID"></div>
 								<div class="right"><button type="submit" class="button primary">마켓추가</button></div>
@@ -194,7 +194,7 @@
 							<form action="newProductOk.slime?st_uid=<%=st_uid %>" name="newProduct" method="post" enctype="Multipart/form-data" onsubmit="return chkProduct()">
 								<input id="st_uid" type="hidden" name="st_uid" value="<%=st_uid%>">
 								<input id="mk_uid" type="hidden" name="mk_uid" value="">
-								<div><input type="file" name="pd_img" value="pd_img"></div>
+								<div><input type="file" name="pd_img" accept="image/*" value="pd_img"></div>
 								<div>제품명 <input type="text" name="pd_name" placeholder="제품 이름"></div>
 								<div>제품 설명 <input type="text" name="pd_description" placeholder="제품 설명"></div>
 								<div class="right"><input type="submit" value="제품 추가"></div>

@@ -89,7 +89,7 @@
 
 				<li>
 				<%-- 제품관리 버튼 --%>
-				<button class="button primary fit" type="button" onclick="location.href = 'productList.slime?st_uid=<%= arr[0].getSt_uid()%>'">제품 관리</button>
+				<button class="button primary fit" type="button" onclick="location.href = 'productList.slime?st_uid=<%= arr[0].getSt_uid()%>'">제품/재고 관리</button>
 				</li>
 
 				<li>

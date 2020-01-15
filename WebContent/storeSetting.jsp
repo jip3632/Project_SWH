@@ -118,7 +118,7 @@
 						</div>
 					</div>
 					<div class="col-10">
-						<input type="file" name="upload">
+						<input type="file" name="upload" accept="image/*">
 					</div>
 				</div>
 				
@@ -146,6 +146,7 @@
 		var st_contact = frm.st_contact.value.trim();
 		var st_start = frm.st_start.value.trim();
 		var st_end = frm.st_end.value.trim();
+		var image = frm.upload.value.trim();
 		if(!phoneregex(st_contact)){
 			alert("전화번호를 형식에 맞춰 입력해주세요");
 			return false;
@@ -160,6 +161,7 @@
 			return false;
 		}
 	};
+	
 	
 	function phoneregex(i){
 		var patt = new RegExp("^0(1|7)0-[0-9]{4}-[0-9]{4}$");

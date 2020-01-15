@@ -10,6 +10,13 @@
 	location.href = "productList.slime?st_uid=<%=st_uid%>";
 </script>
 </c:when>
+<c:when test="${result == -1}">
+<script>
+	alert("등록 실패!");
+	alert("이미지 파일만 업로드 가능합니다.");
+	location.href = "productList.slime?st_uid=<%=st_uid%>";
+</script>
+</c:when>
 <c:otherwise>
 <script>
 	alert("제품 등록 성공");

@@ -39,14 +39,18 @@ public class StoreSettingOkCommand implements Command {
 		
 		String originalFileName = "";
 		String fileSystemName = "";
+		String fileType = "";
 		Enumeration names=  null;
 		names = multi.getFileNames();
 		if(names.hasMoreElements()) {
 			String name = (String) names.nextElement();
 			originalFileName = multi.getOriginalFileName(name);
 			fileSystemName = multi.getFilesystemName(name);
+			fileType = multi.getContentType(name);
+			if(fileType == null) fileType = "";
+			System.out.println("file Type:" + fileType);
 		}
-
+		System.out.println("이미지 맞음");
 		String st_address = multi.getParameter("st_address");
 		String st_contact = multi.getParameter("st_contact");
 		String st_hours = multi.getParameter("st_start") + "-" + multi.getParameter("st_end");
@@ -54,6 +58,13 @@ public class StoreSettingOkCommand implements Command {
 		int mb_uid = Integer.parseInt(multi.getParameter("mb_uid"));
 
 		try {
+			request.setAttribute("mb_uid", mb_uid);
+			if(!fileType.equals("image/jpg") && !fileType.equals("image/png") && !fileType.equals("image/gif") && !fileType.contentEquals("")) {
+				sdao.close();
+				System.out.println("이미지가 아님");
+				request.setAttribute("result", -1);
+				return;
+			}
 			if(originalFileName == null && fileSystemName == null) {
 				cnt = sdao.updateStore(st_address, st_contact, st_hours, st_description, mb_uid);
 			} else {
@@ -61,7 +72,6 @@ public class StoreSettingOkCommand implements Command {
 			}
 			System.out.println(cnt);
 			request.setAttribute("result", cnt);
-			request.setAttribute("mb_uid", mb_uid);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -108,7 +108,7 @@
 					for(int i = 0; i < arr.length; i = index){
 						int mk_uid = arr[i].getMk_uid(); //마켓 고유번호
 						out.println("<section class='main special'>");
-						out.println("<header><h3>매장:<b>" + arr[i].getMk_name() + "</b></h3></header>");
+						out.println("<header><h3>제작 마켓:<b>" + arr[i].getMk_name() + "</b></h3></header>");
 						out.println("<ul class='features'>");
 						
 						for(int j = index; j < arr.length; j++){
