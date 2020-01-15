@@ -12,9 +12,23 @@
 <!-- Menu -->
 	<nav id="nav" class="">
 		<ul>
-			<li><a href="#intro" class="active">Introduction</a></li>
-			<li><a href="#first">First Section</a></li>
-			<li><a href="#second">Second Section</a></li>
-			<li><a href="#cta">Get Started</a></li>
+			<li><a href="mainStore.slime">Home</a></li>
+			<c:choose>
+				<c:when test="${login == null }">
+					<li><a href='login.slime'>Login</a></li>
+				</c:when>
+				<c:otherwise>
+					<c:choose>
+						<c:when test="${mb_type == 1 }">
+							<li><a href='userPage.slime?mb_uid=${mb_uid }'>MyPage</a></li>
+						</c:when>
+						<c:when test="${mb_type == 2 }">
+							<li><a href='managerPage.slime?mb_uid=${mb_uid }'>ManagementPage</a></li>
+						</c:when>
+					</c:choose>
+				</c:otherwise>
+			</c:choose>
+			<li><a href="reviewListE.slime?page=1">Review</a></li>
+			<li><a href="help.slime">Help</a></li>
 		</ul>
 	</nav>

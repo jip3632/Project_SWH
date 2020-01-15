@@ -297,4 +297,13 @@ ol, ul {
 			transform: scale(1.0) rotate(0deg);
 			opacity: 1;
 		}
-		
+
+div#navsmall {
+	display:none;
+}
+
+@media screen and (max-width: 736px) {
+	div#navsmall {
+		display:block;
+	}
+}

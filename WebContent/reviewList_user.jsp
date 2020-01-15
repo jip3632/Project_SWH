@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="beans.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <% 
 	ReviewDTO [] rarr = (ReviewDTO [])request.getAttribute("rlist");
@@ -65,14 +67,29 @@
 %>		
 		</table>
 		<br>
-		<button class="button primary" onclick="location.href='reviewWrite.slime?mb_uid=<%=mb_uid%>'">신규등록</button>
-
 <%-- 페이징 --%>
 <jsp:include page="paginationU.jsp">
 	<jsp:param value="<%= writePages %>" name="writePages"/>
 	<jsp:param value="<%= totalPage %>" name="totalPage"/>
 	<jsp:param value="<%= curPage %>" name="curPage"/>
 </jsp:include>
+	<div class="row">
+	<c:choose>
+		<c:when test="${mb_type == 1 }">
+			<div class="off-4-small col-4-small off-8 col-2">
+				<button class="button" style="width:100%" onclick="history.back()">이전페이지</button>	
+			</div>
+			<div class="col-4-small col-2">
+				<button class="button primary" style="width:100%" onclick="location.href='reviewWrite.slime?mb_uid=${mb_uid }'">리뷰 작성</button>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div class="off-8-small col-4-small off-10 col-2">
+				<button class="button" style="width:100%" onclick="history.back()">이전페이지</button>	
+			</div>
+		</c:otherwise>
+	</c:choose>
+	</div>
 </section>
    	</div>
    <jsp:include page="/footer.jsp"></jsp:include>
