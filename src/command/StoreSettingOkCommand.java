@@ -59,7 +59,7 @@ public class StoreSettingOkCommand implements Command {
 
 		try {
 			request.setAttribute("mb_uid", mb_uid);
-			if(!fileType.equals("image/jpg") && !fileType.equals("image/png") && !fileType.equals("image/gif") && !fileType.contentEquals("")) {
+			if(!fileType.equals("image/jpg") && !fileType.equals("image/jpeg") && !fileType.equals("image/png") && !fileType.equals("image/gif") && !fileType.contentEquals("")) {
 				sdao.close();
 				System.out.println("이미지가 아님");
 				request.setAttribute("result", -1);

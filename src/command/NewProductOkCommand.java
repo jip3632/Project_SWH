@@ -64,7 +64,7 @@ public class NewProductOkCommand implements Command {
 		
 		try {
 			request.setAttribute("st_uid", st_uid);
-			if(!fileType.equals("image/jpg") && !fileType.equals("image/png") && !fileType.equals("image/gif") && !fileType.contentEquals("")) {
+			if(!fileType.equals("image/jpg") && !fileType.equals("image/jpeg") && !fileType.equals("image/png") && !fileType.equals("image/gif") && !fileType.contentEquals("")) {
 				sdao.close();
 				request.setAttribute("result", -1);
 				return;
