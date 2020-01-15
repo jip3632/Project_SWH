@@ -18,8 +18,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="CSS/main.css"/>
+<script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 <title>회원정보변경</title>
 </head>
 <script>
