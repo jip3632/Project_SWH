@@ -39,6 +39,8 @@
 	<jsp:include page="/header.jsp"></jsp:include>
 	
 	<div id="main">
+		<jsp:include page="/nav_swp.jsp"></jsp:include>
+	
 		<%-- "매장 정보 변경"표시 --%>
 		<section id="intro" class="main special">
 			<header class="major">

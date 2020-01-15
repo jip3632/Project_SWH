@@ -89,6 +89,8 @@
 <div id="wrapper">
 		<jsp:include page="/header.jsp"></jsp:include>
 		<div id="main">
+		<jsp:include page="/nav_swp.jsp"></jsp:include>
+		
 			<section id="intro" class="main special">
 				<header class="major">
 					<h2>재고/마켓/제품 추가</h2>
