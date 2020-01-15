@@ -56,6 +56,7 @@ function chkSubmit(){
 	</header>
 <form name="frm" action="reviewUpdateOk.slime" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="re_uid" value="<%= re_uid %>"/>
+<input type="hidden" name="mb_uid" value="<%= wr_uid %>"/>
 <div style="text-align:left;">
 <u><strong>작성자</strong></u><br> <%= marr[0].getMb_id() %> <br><br>
 <u><strong>제목</strong></u><br>

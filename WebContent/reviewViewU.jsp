@@ -40,6 +40,18 @@
 	}
 %>
 
+<script>
+function chkDelete(re_uid, mb_uid){
+	// 삭제 여부 확인
+	var r = confirm("삭제하시겠습니까?");
+	
+	if(r){
+		location.href = 'reviewDeleteOk.slime?re_uid=' + re_uid + '&mb_uid=' + mb_uid;
+	}
+	
+}
+</script>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -72,7 +84,7 @@
 <br>
 </div>
 <button class="button primary" onclick="location.href = 'reviewUpdate.slime?re_uid=<%= re_uid %>'">수정하기</button>
-<button class="button primary" onclick="chkDelete(<%= re_uid%>)">삭제하기</button>
+<button class="button primary" onclick="chkDelete(<%= re_uid%>, <%= mb_uid %>)">삭제하기</button>
 <br><br>
 <button onclick="location.href = 'reviewWrite.slime?mb_uid=<%= mb_uid %>'">신규등록</button>
 <button onclick="location.href = 'reviewListU.slime?mb_uid=<%= mb_uid %>&page=1'">목록보기</button>

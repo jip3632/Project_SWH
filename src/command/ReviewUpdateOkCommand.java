@@ -16,6 +16,7 @@ public class ReviewUpdateOkCommand implements Command {
 		
 		//입력한 값을 받아오기
 		int re_uid = Integer.parseInt(request.getParameter("re_uid"));
+		int mb_uid = Integer.parseInt(request.getParameter("mb_uid"));
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
 		int st_uid = Integer.parseInt(request.getParameter("store"));
@@ -31,5 +32,6 @@ public class ReviewUpdateOkCommand implements Command {
 		
 		request.setAttribute("result", cnt);
 		request.setAttribute("re_uid", re_uid);
+		request.setAttribute("mb_uid", mb_uid);
 	} // end execute()
 } // end Command
