@@ -25,6 +25,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <meta charset="UTF-8">
 <link href="CSS/main.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <title>매장정보변경</title>
 <style>
 	.spotlight .image{

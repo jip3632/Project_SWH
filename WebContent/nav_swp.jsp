@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<link href="CSS/main.css" rel="stylesheet" type="text/css">
 <script src="JS/browser.min.js"></script>
 <script src="JS/breakpoints.min.js"></script>
 <script src="JS/nav_swp.js"></script>
