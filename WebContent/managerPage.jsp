@@ -24,6 +24,8 @@
 <meta charset="UTF-8">
 <link href="CSS/main.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <style>
 	@media screen and (max-width: 736px){
 		.features li {
@@ -45,9 +47,9 @@
 <div id="wrapper">
 	<jsp:include page="/header.jsp"></jsp:include>
 	
-	<jsp:include page="/nav_swp.jsp"></jsp:include>
 	
 	<div id="main">
+	<jsp:include page="/nav_swp.jsp"></jsp:include>
 	<%-- TODO 매장사진, 매장명, 주소, 연락처, 이메일(표시x 이유:매장이아닌 회원정보mb_email에 담겨있음), 영업시간 표시 
 	SL_offstore 테이블에서 
 	st_img, st_name, st_address, st_contact, st_email, st_hours 
