@@ -74,8 +74,8 @@
 				<table>
 					<thead>
 						<tr>
-							<th style="width:60%; text-align:center;">이벤트 내용</th>
-							<th style="text-align:center;">이벤트 종료일</th>
+							<th style="width:60%; text-align:center;">이벤트</th>
+							<th style="text-align:center;">종료일</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -88,7 +88,7 @@
 						<c:otherwise>
 							<c:forEach var="event" items="${eventList }">
 								<tr>
-									<td style="width:60%; text-align:center;">${event.ev_content }</td>
+									<td style="width:60%; text-align:center;"><b>${event.ev_subject}</b><br>${event.ev_content }</td>
 									<td style="text-align:center;">~${event.ev_end_date }</td>
 								</tr>
 							</c:forEach>

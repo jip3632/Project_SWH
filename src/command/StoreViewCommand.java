@@ -27,7 +27,7 @@ public class StoreViewCommand implements Command {
 		try {
 			p_arr = dao1.selectProductsByStore(st_uid);
 			s_arr = dao2.selectStoreByStUid(st_uid);
-			e_arr = dao3.select(st_uid);
+			e_arr = dao3.selectInDate(st_uid);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

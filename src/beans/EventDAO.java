@@ -114,6 +114,19 @@ public class EventDAO {
 		}		
 		return arr;
 	}
+	// 진행중인 이벤트만 불러오기
+	public  EventDTO [] selectInDate(int uid) throws SQLException {
+		EventDTO [] arr = null;
+		try {			
+			pstmt = conn.prepareStatement(D.SQL_EVENT_SELECT_BY_ST_UID_IN_DATE);
+			pstmt.setInt(1, uid);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}		
+		return arr;
+	}
 	
 	// 특정 uid 의 글만 읽어오기
 	public EventDTO [] selectByUid(int uid) throws SQLException {

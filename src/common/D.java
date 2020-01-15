@@ -98,6 +98,10 @@ public interface D {
 	// 이벤트 글 불러오기 (매장별)
 	public static final String SQL_EVENT_SELECT_BY_ST_UID = 
 			"SELECT * FROM SL_event WHERE st_uid=? ORDER BY ev_end_date DESC";
+	// 진행중인 이벤트 불러오기
+	
+	public static final String SQL_EVENT_SELECT_BY_ST_UID_IN_DATE = 
+			"SELECT * FROM SL_event WHERE st_uid=? AND ev_start_date < now() AND now() < ev_end_date ORDER BY ev_end_date ASC";
 	
 	// 이벤트 글 삭제하기
 	public static final String SQL_EVENT_DELETE_BY_UID = 
