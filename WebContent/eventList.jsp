@@ -35,7 +35,7 @@
 	</header>
 		<table>
 			<tr>
-				<th style="text-align:center;">번호</th>
+				<th style="text-align:center;">no</th>
 				<th style="text-align:center;">제목</th>
 				<th style="text-align:center;">시작일</th>
 				<th style="text-align:center;">종료일</th>
@@ -56,7 +56,14 @@
 %>		
 		</table>
 		<br>
-		<button class="button primary" onclick="location.href='eventWrite.slime?st_uid=<%= st_uid %>'">새글작성</button>
+		<div class="row">
+		<div class="off-4-small col-4-small off-8 col-2">
+			<button class="button" style="width:100%" onclick="history.back()">이전페이지</button>	
+		</div>
+		<div class="col-4-small col-2">
+			<button class="button primary" style="width:100%" onclick="location.href='eventWrite.slime?st_uid=<%= st_uid %>'">새글작성</button>
+		</div>
+		</div>
 
 <%-- 페이징 --%>
 <jsp:include page="eventPagination.jsp">
